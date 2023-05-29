@@ -279,6 +279,7 @@ void FastText::printInfo(real progress, real loss, std::ostream& log_stream) {
     // outfile << "Current directory: " << cwd << std::endl;
     // log_stream << "Current directory:" << cwd;
     // output_stream << log_stream.str();
+    
     log_stream << std::fixed;
     log_stream << "Progress: ";
     log_stream << std::setprecision(1) << std::setw(5) << progress << "%";
