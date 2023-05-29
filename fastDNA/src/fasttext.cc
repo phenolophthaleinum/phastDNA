@@ -263,6 +263,7 @@ void FastText::printInfo(real progress, real loss, std::ostream& log_stream) {
   int32_t etah = eta / 3600;
   int32_t etam = (eta % 3600) / 60;
   progress = progress * 100;
+  // mm change
   // std::filesystem::path cwd = std::filesystem::current_path();
   // std::stringstream output_stream;
   if ((int)progress % 5 == 0){
@@ -279,7 +280,7 @@ void FastText::printInfo(real progress, real loss, std::ostream& log_stream) {
     // outfile << "Current directory: " << cwd << std::endl;
     // log_stream << "Current directory:" << cwd;
     // output_stream << log_stream.str();
-    
+    // log_streams are old code, prints to stdout
     log_stream << std::fixed;
     log_stream << "Progress: ";
     log_stream << std::setprecision(1) << std::setw(5) << progress << "%";
