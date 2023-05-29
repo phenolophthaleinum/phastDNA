@@ -1,0 +1,5 @@
+digraph "CFG for '_ZNSt7__cxx114stofERKNS_12basic_stringIcSt11char_traitsIcESaIcEEEPm' function" {
+	label="CFG for '_ZNSt7__cxx114stofERKNS_12basic_stringIcSt11char_traitsIcESaIcEEEPm' function";
+
+	Node0x2055000 [shape=record,label="{%2:\l  %3 = alloca %\"class.std::__cxx11::basic_string\"*, align 8\l  %4 = alloca i64*, align 8\l  store %\"class.std::__cxx11::basic_string\"* %0,\l... %\"class.std::__cxx11::basic_string\"** %3, align 8\l  store i64* %1, i64** %4, align 8\l  %5 = load %\"class.std::__cxx11::basic_string\"*,\l... %\"class.std::__cxx11::basic_string\"** %3, align 8\l  %6 = call i8*\l... @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(%\"class.std::_\l..._cxx11::basic_string\"* %5) #3\l  %7 = load i64*, i64** %4, align 8\l  %8 = call float\l... @_ZN9__gnu_cxx6__stoaIffcJEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_(float (i8*,\l... i8**)* @strtof, i8* getelementptr inbounds ([5 x i8], [5 x i8]* @.str.95, i64\l... 0, i64 0), i8* %6, i64* %7)\l  ret float %8\l}"];
+}

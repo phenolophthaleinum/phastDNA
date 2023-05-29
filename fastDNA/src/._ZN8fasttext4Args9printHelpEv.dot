@@ -1,0 +1,5 @@
+digraph "CFG for '_ZN8fasttext4Args9printHelpEv' function" {
+	label="CFG for '_ZN8fasttext4Args9printHelpEv' function";
+
+	Node0x204bfb0 [shape=record,label="{%1:\l  %2 = alloca %\"class.fasttext::Args\"*, align 8\l  store %\"class.fasttext::Args\"* %0, %\"class.fasttext::Args\"** %2, align 8\l  %3 = load %\"class.fasttext::Args\"*, %\"class.fasttext::Args\"** %2, align 8\l  call void @_ZN8fasttext4Args14printBasicHelpEv(%\"class.fasttext::Args\"* %3)\l  call void @_ZN8fasttext4Args19printDictionaryHelpEv(%\"class.fasttext::Args\"*\l... %3)\l  call void @_ZN8fasttext4Args17printTrainingHelpEv(%\"class.fasttext::Args\"*\l... %3)\l  call void\l... @_ZN8fasttext4Args21printQuantizationHelpEv(%\"class.fasttext::Args\"* %3)\l  ret void\l}"];
+}

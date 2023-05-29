@@ -1,0 +1,42 @@
+digraph "CFG for '_ZN9__gnu_cxx6__stoaIffcJEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_' function" {
+	label="CFG for '_ZN9__gnu_cxx6__stoaIffcJEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_' function";
+
+	Node0x206e9d0 [shape=record,label="{%4:\l  %5 = alloca float (i8*, i8**)*, align 8\l  %6 = alloca i8*, align 8\l  %7 = alloca i8*, align 8\l  %8 = alloca i64*, align 8\l  %9 = alloca float, align 4\l  %10 = alloca i8*, align 8\l  %11 = alloca %struct._Save_errno, align 4\l  %12 = alloca float, align 4\l  %13 = alloca i8*\l  %14 = alloca i32\l  %15 = alloca %\"struct.std::integral_constant\", align 1\l  %16 = alloca %\"struct.std::is_same\", align 1\l  store float (i8*, i8**)* %0, float (i8*, i8**)** %5, align 8\l  store i8* %1, i8** %6, align 8\l  store i8* %2, i8** %7, align 8\l  store i64* %3, i64** %8, align 8\l  call void\l... @_ZZN9__gnu_cxx6__stoaIffcJEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN11_Save_errn\l...oC2Ev(%struct._Save_errno* %11)\l  %17 = load float (i8*, i8**)*, float (i8*, i8**)** %5, align 8\l  %18 = load i8*, i8** %7, align 8\l  %19 = invoke float %17(i8* %18, i8** %10)\l          to label %20 unwind label %27\l}"];
+	Node0x206e9d0 -> Node0x206f790;
+	Node0x206e9d0 -> Node0x206f7e0;
+	Node0x206f790 [shape=record,label="{%20:\l20:                                               \l  store float %19, float* %12, align 4\l  %21 = load i8*, i8** %10, align 8\l  %22 = load i8*, i8** %7, align 8\l  %23 = icmp eq i8* %21, %22\l  br i1 %23, label %24, label %31\l|{<s0>T|<s1>F}}"];
+	Node0x206f790:s0 -> Node0x206fa90;
+	Node0x206f790:s1 -> Node0x206fae0;
+	Node0x206fa90 [shape=record,label="{%24:\l24:                                               \l  %25 = load i8*, i8** %6, align 8\l  invoke void @_ZSt24__throw_invalid_argumentPKc(i8* %25) #11\l          to label %26 unwind label %27\l}"];
+	Node0x206fa90 -> Node0x206fc60;
+	Node0x206fa90 -> Node0x206f7e0;
+	Node0x206fc60 [shape=record,label="{%26:\l26:                                               \l  unreachable\l}"];
+	Node0x206f7e0 [shape=record,label="{%27:\l27:                                               \l  %28 = landingpad \{ i8*, i32 \}\l          cleanup\l  %29 = extractvalue \{ i8*, i32 \} %28, 0\l  store i8* %29, i8** %13, align 8\l  %30 = extractvalue \{ i8*, i32 \} %28, 1\l  store i32 %30, i32* %14, align 4\l  call void\l... @_ZZN9__gnu_cxx6__stoaIffcJEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN11_Save_errn\l...oD2Ev(%struct._Save_errno* %11) #3\l  br label %60\l}"];
+	Node0x206f7e0 -> Node0x20704c0;
+	Node0x206fae0 [shape=record,label="{%31:\l31:                                               \l  %32 = call i32* @__errno_location() #7\l  %33 = load i32, i32* %32, align 4\l  %34 = icmp eq i32 %33, 34\l  br i1 %34, label %40, label %35\l|{<s0>T|<s1>F}}"];
+	Node0x206fae0:s0 -> Node0x2070860;
+	Node0x206fae0:s1 -> Node0x20708b0;
+	Node0x20708b0 [shape=record,label="{%35:\l35:                                               \l  %36 = load float, float* %12, align 4\l  %37 = bitcast %\"struct.std::is_same\"* %16 to\l... %\"struct.std::integral_constant\"*\l  %38 = invoke zeroext i1\l... @_ZZN9__gnu_cxx6__stoaIffcJEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN10_Range_chk\l...6_S_chkEfSt17integral_constantIbLb0EE(float %36)\l          to label %39 unwind label %27\l}"];
+	Node0x20708b0 -> Node0x2070b10;
+	Node0x20708b0 -> Node0x206f7e0;
+	Node0x2070b10 [shape=record,label="{%39:\l39:                                               \l  br label %40\l}"];
+	Node0x2070b10 -> Node0x2070860;
+	Node0x2070860 [shape=record,label="{%40:\l40:                                               \l  %41 = phi i1 [ true, %31 ], [ %38, %39 ]\l  br i1 %41, label %42, label %45\l|{<s0>T|<s1>F}}"];
+	Node0x2070860:s0 -> Node0x200fda0;
+	Node0x2070860:s1 -> Node0x200fdf0;
+	Node0x200fda0 [shape=record,label="{%42:\l42:                                               \l  %43 = load i8*, i8** %6, align 8\l  invoke void @_ZSt20__throw_out_of_rangePKc(i8* %43) #11\l          to label %44 unwind label %27\l}"];
+	Node0x200fda0 -> Node0x200ff60;
+	Node0x200fda0 -> Node0x206f7e0;
+	Node0x200ff60 [shape=record,label="{%44:\l44:                                               \l  unreachable\l}"];
+	Node0x200fdf0 [shape=record,label="{%45:\l45:                                               \l  %46 = load float, float* %12, align 4\l  store float %46, float* %9, align 4\l  br label %47\l}"];
+	Node0x200fdf0 -> Node0x2071b00;
+	Node0x2071b00 [shape=record,label="{%47:\l47:                                               \l  br label %48\l}"];
+	Node0x2071b00 -> Node0x2071bb0;
+	Node0x2071bb0 [shape=record,label="{%48:\l48:                                               \l  %49 = load i64*, i64** %8, align 8\l  %50 = icmp ne i64* %49, null\l  br i1 %50, label %51, label %58\l|{<s0>T|<s1>F}}"];
+	Node0x2071bb0:s0 -> Node0x2071d30;
+	Node0x2071bb0:s1 -> Node0x2071d80;
+	Node0x2071d30 [shape=record,label="{%51:\l51:                                               \l  %52 = load i8*, i8** %10, align 8\l  %53 = load i8*, i8** %7, align 8\l  %54 = ptrtoint i8* %52 to i64\l  %55 = ptrtoint i8* %53 to i64\l  %56 = sub i64 %54, %55\l  %57 = load i64*, i64** %8, align 8\l  store i64 %56, i64* %57, align 8\l  br label %58\l}"];
+	Node0x2071d30 -> Node0x2071d80;
+	Node0x2071d80 [shape=record,label="{%58:\l58:                                               \l  %59 = load float, float* %9, align 4\l  call void\l... @_ZZN9__gnu_cxx6__stoaIffcJEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN11_Save_errn\l...oD2Ev(%struct._Save_errno* %11) #3\l  ret float %59\l}"];
+	Node0x20704c0 [shape=record,label="{%60:\l60:                                               \l  %61 = load i8*, i8** %13, align 8\l  %62 = load i32, i32* %14, align 4\l  %63 = insertvalue \{ i8*, i32 \} undef, i8* %61, 0\l  %64 = insertvalue \{ i8*, i32 \} %63, i32 %62, 1\l  resume \{ i8*, i32 \} %64\l}"];
+}

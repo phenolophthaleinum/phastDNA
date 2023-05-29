@@ -1,0 +1,1199 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Graphical User Interface for phastDNA">
+    <meta name="author" content="Maciej Michalczyk">
+    <title>phastDNA</title>
+
+    <!-- <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/starter-template/"> -->
+
+
+
+
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+
+
+    <!-- Custom styles for this template -->
+    <!-- <link href="starter-template.css" rel="stylesheet"> -->
+    <link href="{{ url_for('static', filename='phastDNA_ui.css') }}" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Signika:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- main container -->
+    <div class="container-fluid contrast-bg">
+        <div class="container-xl p-4 py-md-5">
+            <!-- header menu -->
+            <header class="viewport-header d-flex align-items-center pb-3 mb-5">
+                <h1 class="me-auto display-1">phastDNA</h1>
+                <div class="p-4">
+                    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home"
+                                aria-selected="true">Home</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-predict-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-predict" type="button" role="tab" aria-controls="pills-predict"
+                                aria-selected="false">Predict</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-train-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-train" type="button" role="tab" aria-controls="pills-train"
+                                aria-selected="false">Train</button>
+                        </li>
+                        <!-- <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-task-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-task" type="button" role="tab" aria-controls="pills-task"
+                                aria-selected="false">Tasks</button>
+                        </li> -->
+                    </ul>
+                </div>
+            </header>
+            <!-- main content -->
+            <main>
+                <div class="tab-content" id="pills-tabContent">
+                    <!-- Home tab -->
+                    <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
+                        aria-labelledby="pills-home-tab" tabindex="0">This is some placeholder content the Home tab's
+                        associated content. Clicking another tab will toggle the visibility of this one for the next.
+                        The tab JavaScript swaps classes to control the content visibility and styling. You can use it
+                        with tabs, pills, and any other .nav-powered navigation.
+                        <!-- <button type="button" class="btn btn-primary" id="liveToastBtn">Show live toast</button> -->
+
+                        <!-- <div class="toast-container position-fixed bottom-0 start-0 p-3">
+                            <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                              <div class="toast-header">
+                                <img src="..." class="rounded me-2" alt="...">
+                                <strong class="me-auto">Bootstrap</strong>
+                                <small>11 mins ago</small>
+                                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                              </div>
+                              <div class="toast-body">
+                                Hello, world! This is a toast message.
+                              </div>
+                            </div>
+                          </div> -->
+                    </div>
+
+                    <!-- Predict tab -->
+                    <div class="tab-pane fade" id="pills-predict" role="tabpanel" aria-labelledby="pills-predict-tab"
+                        tabindex="0">
+                        <div class="row">
+                            <!-- <div id="predict-toasts" class="toast-container position-fixed bottom-0 start-0 p-3"></div> -->
+                            <form action="/task" method="post" class="was-validated" id="predict-form" target="_blank">
+                                <!-- <button id="post-button" type="submit" class="btn btn-primary">Post</button> -->
+                                <div class="accordion accordion-flush" id="accordionPredict">
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="predict-headingSettingsPath">
+                                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                                data-bs-target="#predict-collapseSettingsPath" aria-expanded="true"
+                                                aria-controls="predict-collapseSettingsPath">
+                                                Path settings <span class="m-2 badge rounded-pill bg-danger pill-medium"
+                                                    style="display: none;"> </span>
+                                            </button>
+                                        </h2>
+                                        <div id="predict-collapseSettingsPath" class="accordion-collapse collapse show"
+                                            aria-labelledby="predict-headingSettingsPath"
+                                            data-bs-parent="#accordionPredict">
+                                            <div class="accordion-body">
+                                                <div class="glass p-5 mb-4 rounded-3"> 
+                                                <!-- style="background-image:linear-gradient(
+                                    rgba(0, 0, 0, 0.35), 
+                                    rgba(0, 0, 0, 0.35)); 
+                                  background-position: center;
+                                  background-size: cover;" -->
+                                  
+                                                    <div class="container-fluid">
+                                                        <div class="d-flex align-content-between flex-wrap flex-column">
+                                                            <p class="flavor-7 mt-auto col-md-8 fs-6">Settings related
+                                                                to required data paths.</p>
+                                                        </div>
+                                                        <div
+                                                            class="d-flex justify-content-between flex-wrap mb-3 flex-column">
+                                                            <div class="d-flex">
+                                                                <!-- <h3 class="flavor-5">Output path</h3> -->
+                                                                <h3>
+                                                                    <label class="flavor-5"
+                                                                        for="predict-path-output">Output path</label>
+                                                                </h3>
+                                                                <button id="predict-info-output"
+                                                                    class="btn-icon keep-top" type="button"
+                                                                    data-bs-toggle="collapse"
+                                                                    data-bs-target="#predict-outputInfo"
+                                                                    aria-expanded="false"
+                                                                    aria-controls="predict-outputInfo">
+                                                                    <i class="bi bi-info-circle-fill btn btn-icon info-icon"></i>
+                                                                </button>
+                                                            </div>
+                                                            <div class="collapse mb-3 flex-grow-1"
+                                                                id="predict-outputInfo">
+                                                                <div class="glass-card flavor-visibility card card-body" id="predict-outputInfoText">
+                                                                    Path to directory with result files.
+                                                                </div>
+                                                            </div>
+                                                            <input type="text" pattern="^([A-Z]:\\)?(\.[\\/])?([\w\s.-]+[\\/])*[\w\s.-]+$" class="form-control"
+                                                                id="predict-path-output" aria-describedby="emailHelp"
+                                                                name="output_path" required>
+                                                            <div class="invalid-feedback">Please fill out this field
+                                                                with a valid path.</div>
+                                                        </div>
+                                                        <div
+                                                            class="d-flex justify-content-between flex-wrap mb-3 flex-column">
+                                                            <div class="d-flex">
+                                                                <h3>
+                                                                    <label class="flavor-5"
+                                                                        for="predict-path-classifier">Classfier
+                                                                        path</label>
+                                                                </h3>
+                                                                <button class="btn-icon" type="button"
+                                                                    data-bs-toggle="collapse"
+                                                                    data-bs-target="#predict-classifierInfo"
+                                                                    aria-expanded="false"
+                                                                    aria-controls="predict-classifierInfo">
+                                                                    <i class="bi bi-info-circle-fill btn btn-icon info-icon"></i>
+                                                                </button>
+                                                            </div>
+                                                            <div class="collapse mb-3 flex-grow-1"
+                                                                id="predict-classifierInfo">
+                                                                <div class="glass-card flavor-visibility card card-body">
+                                                                    Path to pre-trained phastDNA classifier.
+                                                                </div>
+                                                            </div>
+                                                            <input type="text" pattern="^([A-Z]:\\)?(\.[\\/])?([\w\s.-]+[\\/])*[\w\s.-]+$" class="form-control"
+                                                                id="predict-path-classifier"
+                                                                aria-describedby="emailHelp" name="classifier_path"
+                                                                required>
+                                                            <div class="invalid-feedback">Please fill out this field
+                                                                with a valid path.</div>
+                                                        </div>
+                                                        <div
+                                                            class="d-flex justify-content-between flex-wrap mb-3 flex-column">
+                                                            <div class="d-flex">
+                                                                <h3>
+                                                                    <label class="flavor-5"
+                                                                        for="predict-path-virus">Viruses path</label>
+                                                                </h3>
+                                                                <button class="btn-icon" type="button"
+                                                                    data-bs-toggle="collapse"
+                                                                    data-bs-target="#predict-virusInfo"
+                                                                    aria-expanded="false"
+                                                                    aria-controls="predict-virusInfo">
+                                                                    <i class="bi bi-info-circle-fill btn btn-icon info-icon"></i>
+                                                                </button>
+                                                            </div>
+                                                            <div class="collapse mb-3 flex-grow-1"
+                                                                id="predict-virusInfo">
+                                                                <div class="glass-card flavor-visibility card card-body">
+                                                                    Path to directory with viral genomes.
+                                                                </div>
+                                                            </div>
+                                                            <input type="text" pattern="^([A-Z]:\\)?(\.[\\/])?([\w\s.-]+[\\/])*[\w\s.-]+$" class="form-control"
+                                                                id="predict-path-virus" aria-describedby="emailHelp"
+                                                                name="virus_path" required>
+                                                            <div class="invalid-feedback">Please fill out this field
+                                                                with a valid path.</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="predict-headingSettingsFastdna">
+                                            <button class="accordion-button collapsed" type="button"
+                                                data-bs-toggle="collapse"
+                                                data-bs-target="#predict-collapseSettingsFastdna" aria-expanded="false"
+                                                aria-controls="predict-collapseSettingsFastdna">
+                                                fastDNA settings
+                                            </button>
+                                        </h2>
+                                        <div id="predict-collapseSettingsFastdna" class="accordion-collapse collapse"
+                                            aria-labelledby="predict-headingSettingsFastdna"
+                                            data-bs-parent="#accordionPredict">
+                                            <div class="accordion-body">
+                                                <div class="glass p-5 mb-4 rounded-3">
+                                                <!-- style="background-image:linear-gradient(
+                                    rgba(0, 0, 0, 0.35), 
+                                    rgba(0, 0, 0, 0.35)); 
+                                  background-position: center;
+                                  background-size: cover;"> -->
+                                                    <div class="container-fluid">
+                                                        <div class="d-flex align-content-between flex-wrap flex-column">
+                                                            <p class="flavor-7 mt-auto col-md-8 fs-6"> Settings related
+                                                                to fastDNA</p>
+                                                        </div>
+                                                        <div class="d-flex justify-content-between flex-wrap mb-3">
+                                                            <!-- setting name + info -->
+                                                            <div class="d-flex">
+                                                                <h3 class="flavor-5">fastDNA path</h3>
+                                                                <button class="btn-icon" type="button"
+                                                                    data-bs-toggle="collapse"
+                                                                    data-bs-target="#predict-fastdnaInfo"
+                                                                    aria-expanded="false"
+                                                                    aria-controls="predict-fastdnaInfo">
+                                                                    <i class="bi bi-info-circle-fill btn btn-icon info-icon"></i>
+                                                                </button>
+                                                            </div>
+                                                            <!-- info content -->
+                                                            <div class="collapse glass mb-3" id="predict-fastdnaInfo">
+                                                                <div class="glass-card flavor-visibility card card-body">
+                                                                    Path to fastDNA executables.
+                                                                    <div class="alert alert-warning d-flex align-items-center mt-3"
+                                                                        role="alert">
+                                                                        <i
+                                                                            class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2"></i>
+                                                                        <div>
+                                                                            It is not advised to change fastDNA path,
+                                                                            since the default one points into specially
+                                                                            modified version of fastDNA which is
+                                                                            required for correct phastDNA execution.
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!-- setting value -->
+                                                            <input type="text" value="./fastDNA" class="form-control"
+                                                                id="predict-fastdna-path" aria-describedby="emailHelp"
+                                                                name="fastdna_path" required>
+                                                            <div class="invalid-feedback">Please fill out this field
+                                                                with a valid path.</div>
+                                                        </div>
+                                                        <div class="d-flex">
+                                                            <h3 class="flavor-5">Threads</h3>
+                                                            <button class="btn-icon" type="button"
+                                                                data-bs-toggle="collapse"
+                                                                data-bs-target="#predict-threadsInfo"
+                                                                aria-expanded="false"
+                                                                aria-controls="predict-threadsInfo">
+                                                                <i class="bi bi-info-circle-fill btn btn-icon info-icon"></i>
+                                                            </button>
+                                                        </div>
+                                                        <div class="collapse mb-3" id="predict-threadsInfo">
+                                                            <div class="glass-card flavor-visibility card card-body">
+                                                                Number of processor threads to be used by phastDNA.
+                                                            </div>
+                                                        </div>
+                                                        <div class="row g-3">
+                                                            <div class="col-sm">
+                                                                <h4 id="predict-threads-num" class="flavor-5">4</h4>
+                                                            </div>
+                                                            <div class="col-sm-11 pt-1">
+                                                                <input type="range" class="slider" min="1" max="5"
+                                                                    step="1" id="predict-fastdna-threads"
+                                                                    name="threads">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="predict-headingSettingsPrediction">
+                                            <button class="accordion-button collapsed" type="button"
+                                                data-bs-toggle="collapse"
+                                                data-bs-target="#predict-collapseSettingsPrediction"
+                                                aria-expanded="false"
+                                                aria-controls="predict-collapseSettingsPrediction">
+                                                Prediction settings
+                                            </button>
+                                        </h2>
+                                        <div id="predict-collapseSettingsPrediction" class="accordion-collapse collapse"
+                                            aria-labelledby="predict-headingSettingsPrediction"
+                                            data-bs-parent="#accordionPredict">
+                                            <div class="accordion-body">
+                                                <div class="glass p-5 mb-4 rounded-3">
+                                                    <!-- style="background-image:linear-gradient(
+                                    rgba(0, 0, 0, 0.35), 
+                                    rgba(0, 0, 0, 0.35)); 
+                                  background-position: center;
+                                  background-size: cover;"> -->
+                                                    <!-- <form action="/" method="post" class="was-validated"> -->
+                                                    <!-- <button type="submit" class="btn btn-primary">Post</button> -->
+                                                    <div class="container-fluid">
+                                                        <div class="d-flex align-content-between flex-wrap flex-column">
+                                                            <p class="flavor-7 mt-auto col-md-8 fs-6">Settings related
+                                                                to the results of virus-host pair prediction.</p>
+                                                        </div>
+                                                        <div class="d-flex justify-content-between flex-wrap mb-3">
+                                                            <!-- <div class="d-flex mb-3"> -->
+                                                            <div class="d-flex">
+                                                                <h3 class="flavor-5">Considered hits</h3>
+                                                                <button class="btn-icon" type="button"
+                                                                    data-bs-toggle="collapse"
+                                                                    data-bs-target="#predict-hitsInfo"
+                                                                    aria-expanded="false"
+                                                                    aria-controls="predict-hitsInfo">
+                                                                    <i class="bi bi-info-circle-fill btn btn-icon info-icon"></i>
+                                                                </button>
+                                                            </div>
+                                                            <div class="collapse mb-3 flex-grow-1"
+                                                                id="predict-hitsInfo">
+                                                                <div class="glass-card flavor-visibility card card-body">
+                                                                    Maximum number of host hits to include in fastDNA
+                                                                    prediction step.
+                                                                </div>
+                                                            </div>
+                                                            <input type="number" value="50" min="1" class="form-control"
+                                                                id="predict-fastdna-hits" aria-describedby="emailHelp"
+                                                                name="hits" required>
+                                                            <div class="invalid-feedback">Please fill out this field
+                                                                with a positive value.</div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- </form> -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- Train tab -->
+                    <div class="tab-pane fade" id="pills-train" role="tabpanel" aria-labelledby="pills-train-tab"
+                        tabindex="1">
+                        <div class="row">
+                            <!-- <div  id="train-toasts" class="toast-container position-fixed bottom-0 start-0 p-3"></div> -->
+                            <form action="/task" method="post" class="was-validated" id="train-form" target="_blank">
+                                <!-- <button id="post-button" type="submit" class="btn btn-primary">Post</button> -->
+                                <div class="accordion accordion-flush" id="accordionTrain">
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="train-headingSettingsPath">
+                                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                                data-bs-target="#train-collapseSettingsPath" aria-expanded="true"
+                                                aria-controls="train-collapseSettingsPath">
+                                                Path settings <span class="m-2 badge rounded-pill bg-danger pill-medium"
+                                                    style="display: none;"> </span>
+                                            </button>
+                                        </h2>
+                                        <div id="train-collapseSettingsPath" class="accordion-collapse collapse show"
+                                            aria-labelledby="train-headingSettingsPath"
+                                            data-bs-parent="#accordionTrain">
+                                            <div class="accordion-body">
+                                                <div class="glass p-5 mb-4 rounded-3">
+                                                 <!-- style="background-image:linear-gradient(
+                                    rgba(0, 0, 0, 0.35), 
+                                    rgba(0, 0, 0, 0.35)); 
+                                  background-position: center;
+                                  background-size: cover;"> -->
+                                                    <div class="container-fluid">
+                                                        <div class="d-flex align-content-between flex-wrap flex-column">
+                                                            <p class="flavor-7 mt-auto col-md-8 fs-6">Settings related
+                                                                to required data paths.</p>
+                                                        </div>
+                                                        <div
+                                                            class="d-flex justify-content-between flex-wrap mb-3 flex-column">
+                                                            <div class="d-flex">
+                                                                <!-- <h3 class="flavor-5">Output path</h3> -->
+                                                                <h3>
+                                                                    <label class="flavor-5"
+                                                                        for="train-path-output">Output path</label>
+                                                                </h3>
+                                                                <button id="train-info-output" class="btn-icon keep-top"
+                                                                    type="button" data-bs-toggle="collapse"
+                                                                    data-bs-target="#train-outputInfo"
+                                                                    aria-expanded="false"
+                                                                    aria-controls="train-outputInfo">
+                                                                    <i class="bi bi-info-circle-fill btn btn-icon info-icon"></i>
+                                                                </button>
+                                                            </div>
+                                                            <div class="collapse mb-3 flex-grow-1"
+                                                                id="train-outputInfo">
+                                                                <div class="glass-card flavor-visibility card card-body" id="train-outputInfoText">
+                                                                    Path to directory with result files.
+                                                                </div>
+                                                            </div>
+                                                            <input type="text" pattern="^([A-Z]:\\)?(\.[\\/])?([\w\s.-]+[\\/])*[\w\s.-]+$" class="form-control"
+                                                                id="train-path-output" aria-describedby="emailHelp"
+                                                                name="output_path" required>
+                                                            <div class="invalid-feedback">Please fill out this field
+                                                                with a valid path.</div>
+                                                        </div>
+                                                        <div
+                                                            class="d-flex justify-content-between flex-wrap mb-3 flex-column">
+                                                            <div class="d-flex">
+                                                                <h3>
+                                                                    <label class="flavor-5" for="train-path-host">Hosts
+                                                                        path</label>
+                                                                </h3>
+                                                                <button class="btn-icon" type="button"
+                                                                    data-bs-toggle="collapse"
+                                                                    data-bs-target="#train-hostInfo"
+                                                                    aria-expanded="false"
+                                                                    aria-controls="train-hostInfo">
+                                                                    <i class="bi bi-info-circle-fill btn btn-icon info-icon"></i>
+                                                                </button>
+                                                            </div>
+                                                            <div class="collapse mb-3 flex-grow-1" id="train-hostInfo">
+                                                                <div class="glass-card flavor-visibility card card-body">
+                                                                    Path to directory with host genomes.
+                                                                </div>
+                                                            </div>
+                                                            <input type="text" pattern="^([A-Z]:\\)?(\.[\\/])?([\w\s.-]+[\\/])*[\w\s.-]+$" class="form-control" id="train-path-host"
+                                                                aria-describedby="emailHelp" name="host_path" required>
+                                                            <div class="invalid-feedback">Please fill out this field
+                                                                with a valid path.</div>
+                                                        </div>
+                                                        <div
+                                                            class="d-flex justify-content-between flex-wrap mb-3 flex-column">
+                                                            <div class="d-flex">
+                                                                <h3>
+                                                                    <label class="flavor-5"
+                                                                        for="train-path-virus">Viruses path</label>
+                                                                </h3>
+                                                                <button class="btn-icon" type="button"
+                                                                    data-bs-toggle="collapse"
+                                                                    data-bs-target="#train-virusInfo"
+                                                                    aria-expanded="false"
+                                                                    aria-controls="train-virusInfo">
+                                                                    <i class="bi bi-info-circle-fill btn btn-icon info-icon"></i>
+                                                                </button>
+                                                            </div>
+                                                            <div class="collapse mb-3 flex-grow-1" id="train-virusInfo">
+                                                                <div class="glass-card flavor-visibility card card-body">
+                                                                    Path to directory with viral genomes.
+                                                                </div>
+                                                            </div>
+                                                            <input type="text" pattern="^([A-Z]:\\)?(\.[\\/])?([\w\s.-]+[\\/])*[\w\s.-]+$" class="form-control" id="train-path-virus"
+                                                                aria-describedby="emailHelp" name="virus_path" required>
+                                                            <div class="invalid-feedback">Please fill out this field
+                                                                with a valid path.</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="train-headingSettingsFastdna">
+                                            <button class="accordion-button collapsed" type="button"
+                                                data-bs-toggle="collapse"
+                                                data-bs-target="#train-collapseSettingsFastdna" aria-expanded="false"
+                                                aria-controls="train-collapseSettingsFastdna">
+                                                fastDNA settings
+                                            </button>
+                                        </h2>
+                                        <div id="train-collapseSettingsFastdna" class="accordion-collapse collapse"
+                                            aria-labelledby="train-headingSettingsFastdna"
+                                            data-bs-parent="#accordionTrain">
+                                            <div class="accordion-body">
+                                                <div class="glass p-5 mb-4 rounded-3">
+                                                 <!-- style="background-image:linear-gradient(
+                                    rgba(0, 0, 0, 0.15), 
+                                    rgba(0, 0, 0, 0.15)); 
+                                  background-position: center;
+                                  background-size: cover;"> -->
+                                                    <div class="container-fluid">
+                                                        <div class="d-flex align-content-between flex-wrap flex-column">
+                                                            <p class="flavor-7 mt-auto col-md-8 fs-6"> Settings related
+                                                                to fastDNA</p>
+                                                        </div>
+                                                        <div class="d-flex justify-content-between flex-wrap mb-3">
+                                                            <!-- setting name + info -->
+                                                            <div class="d-flex">
+                                                                <h3 class="flavor-5">fastDNA path</h3>
+                                                                <button class="btn-icon" type="button"
+                                                                    data-bs-toggle="collapse"
+                                                                    data-bs-target="#train-fastdnaInfo"
+                                                                    aria-expanded="false"
+                                                                    aria-controls="train-fastdnaInfo">
+                                                                    <i class="bi bi-info-circle-fill btn btn-icon info-icon"></i>
+                                                                </button>
+                                                            </div>
+                                                            <!-- info content -->
+                                                            <div class="collapse mb-3" id="train-fastdnaInfo">
+                                                                <div class="glass-card flavor-visibility card card-body">
+                                                                    Path to fastDNA executables.
+                                                                    <div class="alert alert-warning d-flex align-items-center mt-3"
+                                                                        role="alert">
+                                                                        <i
+                                                                            class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2"></i>
+                                                                        <div>
+                                                                            It is not advised to change fastDNA path,
+                                                                            since the default one points into specially
+                                                                            modified version of fastDNA which is
+                                                                            required for correct phastDNA execution.
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!-- setting value -->
+                                                            <input type="text" value="./fastDNA" class="form-control"
+                                                                id="train-fastdna-path" aria-describedby="emailHelp"
+                                                                name="fastdna_path" required>
+                                                            <div class="invalid-feedback">Please fill out this field
+                                                                with a valid path.</div>
+                                                        </div>
+                                                        <div class="d-flex">
+                                                            <h3 class="flavor-5">Threads</h3>
+                                                            <button class="btn-icon" type="button"
+                                                                data-bs-toggle="collapse"
+                                                                data-bs-target="#train-threadsInfo"
+                                                                aria-expanded="false" aria-controls="train-threadsInfo">
+                                                                <i class="bi bi-info-circle-fill btn btn-icon info-icon"></i>
+                                                            </button>
+                                                        </div>
+                                                        <div class="collapse mb-3" id="train-threadsInfo">
+                                                            <div class="glass-card flavor-visibility card card-body">
+                                                                Number of processor threads to be used by phastDNA.
+                                                            </div>
+                                                        </div>
+                                                        <div class="row g-3">
+                                                            <div class="col-sm">
+                                                                <h4 id="train-threads-num" class="flavor-5">4</h4>
+                                                            </div>
+                                                            <div class="col-sm-11 pt-1">
+                                                                <input type="range" class="slider" min="1" max="5"
+                                                                    step="1" id="train-fastdna-threads" name="threads">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="train-headingSettingsTraining">
+                                            <button class="accordion-button collapsed" type="button"
+                                                data-bs-toggle="collapse"
+                                                data-bs-target="#train-collapseSettingsTraining" aria-expanded="false"
+                                                aria-controls="train-collapseSettingsTraining">
+                                                Training settings
+                                            </button>
+                                        </h2>
+                                        <div id="train-collapseSettingsTraining" class="accordion-collapse collapse"
+                                            aria-labelledby="train-headingSettingsTraining"
+                                            data-bs-parent="#accordionTrain">
+                                            <div class="accordion-body">
+                                                <div class="glass p-5 mb-4 rounded-3">
+                                                 <!-- style="background-image:linear-gradient(
+                                    rgba(0, 0, 0, 0.35), 
+                                    rgba(0, 0, 0, 0.35)); 
+                                  background-position: center;
+                                  background-size: cover;"> -->
+                                                    <!-- <form action="/" method="post" class="was-validated"> -->
+                                                    <!-- <button type="submit" class="btn btn-primary">Post</button> -->
+                                                    <div class="container-fluid">
+                                                        <div class="d-flex align-content-between flex-wrap flex-column">
+                                                            <p class="flavor-7 mt-auto col-md-8 fs-6">Settings related
+                                                                to the training process of the fastDNA classifier.</p>
+                                                        </div>
+                                                        <div
+                                                            class="d-flex justify-content-between flex-wrap mb-3 flex-column">
+                                                            <!-- <div class="d-flex mb-3"> -->
+                                                            <div class="d-flex">
+                                                                <h3 class="flavor-5">Word vector size</h3>
+                                                                <button class="btn-icon" type="button"
+                                                                    data-bs-toggle="collapse"
+                                                                    data-bs-target="#train-dimInfo"
+                                                                    aria-expanded="false" aria-controls="train-dimInfo">
+                                                                    <i class="bi bi-info-circle-fill btn btn-icon info-icon"></i>
+                                                                </button>
+                                                            </div>
+                                                            <div class="collapse mb-3 flex-grow-1" id="train-dimInfo">
+                                                                <div class="glass-card flavor-visibility card card-body">
+                                                                    Dimensionality (size) of k-mer embedding.
+                                                                    <div class="alert alert-warning d-flex align-items-center mt-3"
+                                                                        role="alert">
+                                                                        <i
+                                                                            class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2"></i>
+                                                                        <div>
+                                                                            The higher dimensionality, the more time the
+                                                                            embedding will take.
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <input type="number" value="100" min="1"
+                                                                class="form-control" id="train-training-dim"
+                                                                aria-describedby="emailHelp" name="dim" required>
+                                                            <div class="invalid-feedback">Please fill out this field
+                                                                with a positive value.</div>
+                                                        </div>
+                                                        <div
+                                                            class="d-flex justify-content-between flex-wrap mb-3 flex-column">
+                                                            <!-- <div class="d-flex mb-3"> -->
+                                                            <div class="d-flex">
+                                                                <h3 class="flavor-5">Minimum k-mer size</h3>
+                                                                <button class="btn-icon" type="button"
+                                                                    data-bs-toggle="collapse"
+                                                                    data-bs-target="#train-minnInfo"
+                                                                    aria-expanded="false"
+                                                                    aria-controls="train-minnInfo">
+                                                                    <i class="bi bi-info-circle-fill btn btn-icon info-icon"></i>
+                                                                </button>
+                                                            </div>
+                                                            <div class="collapse mb-3 flex-grow-1" id="train-minnInfo">
+                                                                <div class="glass-card flavor-visibility card card-body">
+                                                                    Minimum k-mer size that is used to create n-grams.
+                                                                    <div class="alert alert-warning d-flex align-items-center mt-3"
+                                                                        role="alert">
+                                                                        <i
+                                                                            class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2"></i>
+                                                                        <div>
+                                                                            The longer k-mers, the more memory will be
+                                                                            used.
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="d-flex">
+                                                                <!-- <div class="row g-3"> -->
+                                                                <div class="col-sm">
+                                                                    <h4 id="minn-num" class="flavor-5">7</h4>
+                                                                </div>
+                                                                <div class="col-sm-11 pt-1">
+                                                                    <input type="range" value="7" min="1" max="15"
+                                                                        step="1" class="slider"
+                                                                        id="train-training-minn"
+                                                                        aria-describedby="emailHelp" name="minn"
+                                                                        required>
+                                                                </div>
+                                                                <!-- </div> -->
+                                                            </div>
+                                                        </div>
+                                                        <div
+                                                            class="d-flex justify-content-between flex-wrap mb-3 flex-column">
+                                                            <!-- <div class="d-flex mb-3"> -->
+                                                            <div class="d-flex">
+                                                                <h3 class="flavor-5">Maximum k-mer size</h3>
+                                                                <button class="btn-icon" type="button"
+                                                                    data-bs-toggle="collapse"
+                                                                    data-bs-target="#train-maxnInfo"
+                                                                    aria-expanded="false"
+                                                                    aria-controls="train-maxnInfo">
+                                                                    <i class="bi bi-info-circle-fill btn btn-icon info-icon"></i>
+                                                                </button>
+                                                            </div>
+                                                            <div class="collapse mb-3 flex-grow-1" id="train-maxnInfo">
+                                                                <div class="glass-card flavor-visibility card card-body">
+                                                                    Maximum k-mer size that is used to create n-grams.
+                                                                    <div class="alert alert-warning d-flex align-items-center mt-3"
+                                                                        role="alert">
+                                                                        <i
+                                                                            class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2"></i>
+                                                                        <div>
+                                                                            The longer k-mers, the more memory will be
+                                                                            used.
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="d-flex">
+                                                                <!-- <div class="row g-3"> -->
+                                                                <div class="col-sm">
+                                                                    <h4 id="maxn-num" class="flavor-5">8</h4>
+                                                                </div>
+                                                                <div class="col-sm-11 pt-1">
+                                                                    <input type="range" value="8" min="1" max="15"
+                                                                        step="1" class="slider"
+                                                                        id="train-training-maxn"
+                                                                        aria-describedby="emailHelp" name="maxn"
+                                                                        required>
+                                                                </div>
+                                                                <!-- </div> -->
+                                                            </div>
+                                                        </div>
+                                                        <div
+                                                            class="d-flex justify-content-between flex-wrap mb-3 flex-column">
+                                                            <!-- <div class="d-flex mb-3"> -->
+                                                            <div class="d-flex">
+                                                                <h3 class="flavor-5">Read length</h3>
+                                                                <button class="btn-icon" type="button"
+                                                                    data-bs-toggle="collapse"
+                                                                    data-bs-target="#train-readlenInfo"
+                                                                    aria-expanded="false"
+                                                                    aria-controls="train-readlenInfo">
+                                                                    <i class="bi bi-info-circle-fill btn btn-icon info-icon"></i>
+                                                                </button>
+                                                            </div>
+                                                            <div class="collapse mb-3 flex-grow-1"
+                                                                id="train-readlenInfo">
+                                                                <div class="glass-card flavor-visibility card card-body">
+                                                                    Length of sampled reads from sequences.
+                                                                </div>
+                                                            </div>
+                                                            <input type="number" value="200" min="1"
+                                                                class="form-control" id="train-training-readlen"
+                                                                aria-describedby="emailHelp" name="read_len" required>
+                                                            <div class="invalid-feedback">Please fill out this field
+                                                                with a positive value.</div>
+                                                        </div>
+                                                        <div
+                                                            class="d-flex justify-content-between flex-wrap mb-3 flex-column">
+                                                            <!-- <div class="d-flex mb-3"> -->
+                                                            <div class="d-flex">
+                                                                <h3 class="flavor-5">Read samples number</h3>
+                                                                <button class="btn-icon" type="button"
+                                                                    data-bs-toggle="collapse"
+                                                                    data-bs-target="#train-readnumInfo"
+                                                                    aria-expanded="false"
+                                                                    aria-controls="train-readnumInfo">
+                                                                    <i class="bi bi-info-circle-fill btn btn-icon info-icon"></i>
+                                                                </button>
+                                                            </div>
+                                                            <div class="collapse mb-3 flex-grow-1"
+                                                                id="train-readnumInfo">
+                                                                <div class="glass-card flavor-visibility card card-body">
+                                                                    Number of sampled reads from sequences.
+                                                                    <div class="alert alert-warning d-flex align-items-center mt-3"
+                                                                        role="alert">
+                                                                        <i
+                                                                            class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2"></i>
+                                                                        <div>
+                                                                            The more samples, the more time the overall
+                                                                            training will take.
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <input type="number" value="100" min="1"
+                                                                class="form-control" id="train-training-readnum"
+                                                                aria-describedby="emailHelp" name="read_num" required>
+                                                            <div class="invalid-feedback">Please fill out this field
+                                                                with a positive value.</div>
+                                                        </div>
+                                                        <div
+                                                            class="d-flex justify-content-between flex-wrap mb-3 flex-column">
+                                                            <!-- <div class="d-flex mb-3"> -->
+                                                            <div class="d-flex">
+                                                                <h3 class="flavor-5">Learning rate</h3>
+                                                                <button class="btn-icon" type="button"
+                                                                    data-bs-toggle="collapse"
+                                                                    data-bs-target="#train-lrInfo" aria-expanded="false"
+                                                                    aria-controls="train-lrInfo">
+                                                                    <i class="bi bi-info-circle-fill btn btn-icon info-icon"></i>
+                                                                </button>
+                                                            </div>
+                                                            <div class="collapse mb-3 flex-grow-1" id="train-lrInfo">
+                                                                <div class="glass-card flavor-visibility card card-body">
+                                                                    Training learning rate.
+                                                                </div>
+                                                            </div>
+                                                            <input type="number" value="0.1" min="0" max="1"
+                                                                step="0.000001" class="form-control"
+                                                                id="train-training-lr" aria-describedby="emailHelp"
+                                                                name="lr" required>
+                                                            <div class="invalid-feedback">Please fill out this field
+                                                                with value between 0 and 1.</div>
+                                                        </div>
+                                                        <div
+                                                            class="d-flex justify-content-between flex-wrap mb-3 flex-column">
+                                                            <!-- <div class="d-flex mb-3"> -->
+                                                            <div class="d-flex">
+                                                                <h3 class="flavor-5">Learning rate update rate</h3>
+                                                                <button class="btn-icon" type="button"
+                                                                    data-bs-toggle="collapse"
+                                                                    data-bs-target="#train-ulrInfo"
+                                                                    aria-expanded="false" aria-controls="train-ulrInfo">
+                                                                    <i class="bi bi-info-circle-fill btn btn-icon info-icon"></i>
+                                                                </button>
+                                                            </div>
+                                                            <div class="collapse mb-3 flex-grow-1" id="train-ulrInfo">
+                                                                <div class="glass-card flavor-visibility card card-body">
+                                                                    Update dynamics of the the learning rate.
+                                                                </div>
+                                                            </div>
+                                                            <input type="number" value="100" min="0"
+                                                                class="form-control" id="train-training-ulr"
+                                                                aria-describedby="emailHelp" name="ulr" required>
+                                                            <div class="invalid-feedback">Please fill out this field
+                                                                with a not negative value.</div>
+                                                        </div>
+                                                        <div
+                                                            class="d-flex justify-content-between flex-wrap mb-3 flex-column">
+                                                            <!-- <div class="d-flex mb-3"> -->
+                                                            <div class="d-flex">
+                                                                <h3 class="flavor-5">Epochs number</h3>
+                                                                <button class="btn-icon" type="button"
+                                                                    data-bs-toggle="collapse"
+                                                                    data-bs-target="#train-epochInfo"
+                                                                    aria-expanded="false"
+                                                                    aria-controls="train-epochInfo">
+                                                                    <i class="bi bi-info-circle-fill btn btn-icon info-icon"></i>
+                                                                </button>
+                                                            </div>
+                                                            <div class="collapse mb-3 flex-grow-1" id="train-epochInfo">
+                                                                <div class="glass-card flavor-visibility card card-body">
+                                                                    Number of epochs - how many times the trained model
+                                                                    will be presented with each word.
+                                                                    <div class="alert alert-warning d-flex align-items-center mt-3"
+                                                                        role="alert">
+                                                                        <i
+                                                                            class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2"></i>
+                                                                        <div>
+                                                                            The more epochs, the significantly more time
+                                                                            the overall training will take.
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <input type="number" value="20" min="1" class="form-control"
+                                                                id="train-training-epoch" aria-describedby="emailHelp"
+                                                                name="epoch" required>
+                                                            <div class="invalid-feedback">Please fill out this field
+                                                                with a positive value.</div>
+                                                        </div>
+                                                        <div
+                                                            class="d-flex justify-content-between flex-wrap mb-3 flex-column">
+                                                            <!-- <div class="d-flex mb-3"> -->
+                                                            <div class="d-flex">
+                                                                <h3 class="flavor-5">Loss function</h3>
+                                                                <button class="btn-icon" type="button"
+                                                                    data-bs-toggle="collapse"
+                                                                    data-bs-target="#train-lossInfo"
+                                                                    aria-expanded="false"
+                                                                    aria-controls="train-lossInfo">
+                                                                    <i class="bi bi-info-circle-fill btn btn-icon info-icon"></i>
+                                                                </button>
+                                                            </div>
+                                                            <div class="collapse mb-3 flex-grow-1" id="train-lossInfo">
+                                                                <div class="glass-card flavor-visibility card card-body">
+                                                                    Loss function used for training.
+                                                                </div>
+                                                            </div>
+                                                            <!-- <input type="number" value="100" min="0" class="form-control"
+                                                                id="train-training-loss" aria-describedby="emailHelp"
+                                                                name="loss" required> -->
+                                                            <select name="loss" id="train-training-loss"
+                                                                class="form-select" aria-label="Default select example">
+                                                                <!-- <option selected>Open this select menu</option> -->
+                                                                <option value="softmax" selected>Softmax</option>
+                                                                <option value="ns">Negative sampling (ns)</option>
+                                                                <option value="hs">Hierarchical softmax (hs)</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <!-- </form> -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="train-headingSettingsOpt">
+                                            <button class="accordion-button collapsed" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#train-collapseSettingsOpt"
+                                                aria-expanded="false" aria-controls="train-collapseSettingsOpt">
+                                                Optimisation settings
+                                            </button>
+                                        </h2>
+                                        <div id="train-collapseSettingsOpt" class="accordion-collapse collapse"
+                                            aria-labelledby="train-headingSettingsOpt" data-bs-parent="#accordionTrain">
+                                            <div class="accordion-body">
+                                                <div class="glass p-5 mb-4 rounded-3">
+                                                <!-- style="background-image:linear-gradient(
+                                    rgba(0, 0, 0, 0.35), 
+                                    rgba(0, 0, 0, 0.35)); 
+                                  background-position: center;
+                                  background-size: cover;"> -->
+                                                    <!-- <form action="/" method="post" class="was-validated"> -->
+                                                    <!-- <button type="submit" class="btn btn-primary">Post</button> -->
+                                                    <div class="container-fluid">
+                                                        <div class="d-flex align-content-between flex-wrap flex-column">
+                                                            <p class="flavor-7 mt-auto col-md-8 fs-6">Settings related
+                                                                to the hyper-parameters optimisation.</p>
+                                                        </div>
+                                                        <div class="d-flex justify-content-between flex-wrap mb-3">
+                                                            <!-- <div class="d-flex mb-3"> -->
+                                                            <div class="d-flex">
+                                                                <h3 class="flavor-5">Pre-iterations number</h3>
+                                                                <button class="btn-icon" type="button"
+                                                                    data-bs-toggle="collapse"
+                                                                    data-bs-target="#train-preiterInfo"
+                                                                    aria-expanded="false"
+                                                                    aria-controls="train-preiterInfo">
+                                                                    <i class="bi bi-info-circle-fill btn btn-icon info-icon"></i>
+                                                                </button>
+                                                            </div>
+                                                            <div class="collapse mb-3 flex-grow-1"
+                                                                id="train-preiterInfo">
+                                                                <div class="glass-card flavor-visibility card card-body">
+                                                                    Number of pre-iterations for Bayesian optimisation
+                                                                    of hyper-parameters.
+                                                                </div>
+                                                            </div>
+                                                            <input type="number" value="20" min="0" class="form-control"
+                                                                id="train-opt-preiter" aria-describedby="emailHelp"
+                                                                name="preiter" required>
+                                                            <div class="invalid-feedback">Please fill out this field
+                                                                with a non-negative value.</div>
+                                                        </div>
+                                                        <div class="d-flex justify-content-between flex-wrap mb-3">
+                                                            <!-- <div class="d-flex mb-3"> -->
+                                                            <div class="d-flex">
+                                                                <h3 class="flavor-5">Iterations number</h3>
+                                                                <button class="btn-icon" type="button"
+                                                                    data-bs-toggle="collapse"
+                                                                    data-bs-target="#train-iterInfo"
+                                                                    aria-expanded="false"
+                                                                    aria-controls="train-iterInfo">
+                                                                    <i class="bi bi-info-circle-fill btn btn-icon info-icon"></i>
+                                                                </button>
+                                                            </div>
+                                                            <div class="collapse mb-3 flex-grow-1" id="train-iterInfo">
+                                                                <div class="glass-card flavor-visibility card card-body">
+                                                                    Number of iterations of Bayesian optimisation of
+                                                                    hyper-parameters.
+                                                                </div>
+                                                            </div>
+                                                            <input type="number" value="30" min="1" class="form-control"
+                                                                id="train-opt-iter" aria-describedby="emailHelp"
+                                                                name="iter" required>
+                                                            <div class="invalid-feedback">Please fill out this field
+                                                                with a positive value.</div>
+                                                        </div>
+                                                        <div class="d-flex justify-content-between flex-wrap mb-3">
+                                                            <!-- <div class="d-flex mb-3"> -->
+                                                            <div class="d-flex">
+                                                                <h3 class="flavor-5">Considered hits</h3>
+                                                                <button class="btn-icon" type="button"
+                                                                    data-bs-toggle="collapse"
+                                                                    data-bs-target="#train-hitsInfo"
+                                                                    aria-expanded="false"
+                                                                    aria-controls="train-hitsInfo">
+                                                                    <i class="bi bi-info-circle-fill btn btn-icon info-icon"></i>
+                                                                </button>
+                                                            </div>
+                                                            <div class="collapse mb-3 flex-grow-1" id="train-hitsInfo">
+                                                                <div class="glass-card flavor-visibility card card-body">
+                                                                    Maximum number of host hits to include in fastDNA
+                                                                    prediction step.
+                                                                </div>
+                                                            </div>
+                                                            <input type="number" value="50" min="1" class="form-control"
+                                                                id="train-opt-hits" aria-describedby="emailHelp"
+                                                                name="hits" required>
+                                                            <div class="invalid-feedback">Please fill out this field
+                                                                with a positive value.</div>
+                                                        </div>
+                                                        <div class="d-flex justify-content-between flex-wrap mb-3">
+                                                            <!-- <div class="d-flex mb-3"> -->
+                                                            <div class="d-flex">
+                                                                <h3 class="flavor-5">Data filter</h3>
+                                                                <button class="btn-icon" type="button"
+                                                                    data-bs-toggle="collapse"
+                                                                    data-bs-target="#train-filterInfo"
+                                                                    aria-expanded="false"
+                                                                    aria-controls="train-filterInfo">
+                                                                    <i class="bi bi-info-circle-fill btn btn-icon info-icon"></i>
+                                                                </button>
+                                                            </div>
+                                                            <div class="collapse mb-3 flex-grow-1"
+                                                                id="train-filterInfo">
+                                                                <div class="glass-card flavor-visibility card card-body">
+                                                                    Genomes filtering based on taxonomy level. Choosing
+                                                                    'None' implies no taxonomy filtering.
+                                                                </div>
+                                                            </div>
+                                                            <select name="filter" id="train-opt-filter"
+                                                                class="form-select" aria-label="Default select example">
+                                                                <!-- <option selected>Open this select menu</option> -->
+                                                                <option value="species" selected>Species</option>
+                                                                <option value="genus">Genus</option>
+                                                                <option value="family">Family</option>
+                                                                <option value="order">Order</option>
+                                                                <option value="class">Class</option>
+                                                                <option value="phylum">Phylum</option>
+                                                                <option value="none">None</option>
+                                                                <option value="hybrid">Hybrid</option>
+                                                                <option value="debug">Debug</option>
+                                                                <option value="general">General</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="d-flex justify-content-between flex-wrap mb-3">
+                                                            <!-- <div class="d-flex mb-3"> -->
+                                                            <div class="d-flex">
+                                                                <h3 class="flavor-5">Representatives number</h3>
+                                                                <button class="btn-icon" type="button"
+                                                                    data-bs-toggle="collapse"
+                                                                    data-bs-target="#train-repsInfo"
+                                                                    aria-expanded="false"
+                                                                    aria-controls="train-repsInfo">
+                                                                    <i class="bi bi-info-circle-fill btn btn-icon info-icon"></i>
+                                                                </button>
+                                                            </div>
+                                                            <div class="collapse mb-3 flex-grow-1" id="train-repsInfo">
+                                                                <div class="glass-card flavor-visibility card card-body">
+                                                                    Maximum number of representatives from the filtered
+                                                                    group.
+                                                                </div>
+                                                            </div>
+                                                            <input type="number" value="1" min="1" class="form-control"
+                                                                id="train-opt-reps" aria-describedby="emailHelp"
+                                                                name="reps" required>
+                                                            <div class="invalid-feedback">Please fill out this field
+                                                                with a positive value.</div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- </form> -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="tab-pane fade" id="pills-task" role="tabpanel" aria-labelledby="pills-task-tab"
+                    tabindex="0">
+                    <div class="row">
+                        <p id="ajax-test"></p>
+                    </div>
+                </div>
+        </div>
+        </main>
+        <!-- Floating footer -->
+        <footer class="fixed-bottom my-5">
+            <div class="container-xl">
+                <div class="toast-container position-fixed bottom-0 start-0 p-3"></div>
+                <!-- Floating button -->
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end px-4">
+                    <!-- <div class="d-grid d-flex justify-content-end flex-wrap px-4"> -->
+                    <!-- <div class="d-flex justify-content-evenly">
+                        <div class="col-sm"> -->
+                            <!-- block; opacity: 0; -->
+                    <button type="button" style="display: none;" id="offcanvas-params-btn"
+                        class="btn btn-primary custom-btn px-4 btn-lg" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions" >
+                        <!-- <i id="offcanvas-params-btn-icon" class="bi bi-three-dots-vertical" style="display: none;"></i> -->
+                        <!-- <div class="d-flex align-content-between" id="offcanvas-params-btn-label"> -->
+
+                        <span> Parameters preview</span>
+                        <i id="offcanvas-params-btn-icon" class="bi bi-three-dots-vertical"
+                            style="font-size: 0em;"></i>
+                        <!-- </div> -->
+                    </button>
+                    <!-- </div>
+                        <div class="col-sm-11"> -->
+                    <button id="post-predict-button" style="display: none;" type="submit"
+                        class="btn btn-primary run-btn btn-lg" form="predict-form" >
+                        <div class="d-flex justify-content-center btn-slide">
+                            <div id="predict-btn-icon" class="d-flex justify-content-center red-test flex-column">
+                                <!-- <div id="train-btn-icon" class="red-test left-column"> -->
+                                <!-- <div id="train-btn-icon" class="red-test position-absolute top-50 start-50 "> -->
+                                <i class="bi bi-play-fill"></i>
+
+                            </div>
+                            <div class="d-flex justify-content-center btn-label run-wrapper flex-column">
+                                <!-- <div class="btn-label red-test"> -->
+                                <!-- <div class="btn-label red-test position-absolute top-50 start-50"> -->
+                                <!-- <i class="bi bi-play-fill"></i> -->
+                                Run
+                            </div>
+                        </div>
+                    <!-- <div class="col-sm-11"> -->
+                    <!-- <i class="bi bi-play-fill"></i>
+                                    <p class="btn-label" id="post-train-button-label">Run</p> -->
+                    <!-- <div class="d-flex justify-content-between flex-wrap red-test-wrapper"> -->
+                    <button id="post-train-button" type="submit" style="display: none;" class="btn btn-primary run-btn btn-lg"
+                        form="train-form" >
+                        <!-- <div class="red-test"></div> -->
+                        <!-- <div class="d-flex"> -->
+
+                        <div class="d-flex justify-content-center btn-slide">
+                            <!-- <div class="container-fluid">
+                                    <div class="row"> -->
+                            <!-- <div class="position-relative"> -->
+                            <div id="train-btn-icon" class="d-flex justify-content-center red-test flex-column">
+                                <!-- <div id="train-btn-icon" class="red-test left-column"> -->
+                                <!-- <div id="train-btn-icon" class="red-test position-absolute top-50 start-50 "> -->
+                                <i class="bi bi-play-fill"></i>
+
+                            </div>
+                            <div class="d-flex justify-content-center btn-label run-wrapper flex-column">
+                                <!-- <div class="btn-label red-test"> -->
+                                <!-- <div class="btn-label red-test position-absolute top-50 start-50"> -->
+                                <!-- <i class="bi bi-play-fill"></i> -->
+                                Run
+                            </div>
+                            <!-- </div> -->
+                            <!-- </div> -->
+                        </div>
+                        <!-- <div class=" red-test right-column">
+                            Run
+                        </div> -->
+                    </button>
+                    <!-- </div> -->
+                    <!-- </div>
+                    </div> -->
+                    <!-- Offcanvas menu -->
+                    <div class="glass offcanvas offcanvas-start offcanvas-size-xl" data-bs-scroll="true" tabindex="-1"
+                        id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+                        <div class="offcanvas-header flavor-2">
+                            <h5 class="display-6 offcanvas-title" id="offcanvasWithBothOptionsLabel">Current setup
+                            </h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="offcanvas-body flavor-2">
+                            <!-- <div id="current-setup"></div> -->
+                            <div class="list-group list-group-flush" id="current-setup">
+                                <!-- <div class="list-group-item">
+                                        <h5 class="mb-1">List group item heading</h5>
+                                        <p class="mb-1">Some placeholder content in a paragraph.</p>
+                                    </div>
+                                    <div class="list-group-item">
+                                        <div class="d-flex w-100 justify-content-between">
+                                            <h5 class="mb-1">List group item heading</h5>
+                                            <small class="text-muted">3 days ago</small>
+                                        </div>
+                                        <p class="mb-1">Some placeholder content in a paragraph.</p>
+                                        <small class="text-muted">And some muted small print.</small>
+                                    </div>
+                                    <div class="list-group-item">
+                                        <div class="d-flex w-100 justify-content-between">
+                                            <h5 class="mb-1">List group item heading</h5>
+                                            <small class="text-muted">3 days ago</small>
+                                        </div>
+                                        <p class="mb-1">Some placeholder content in a paragraph.</p>
+                                        <small class="text-muted">And some muted small print.</small>
+                                    </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    </div>
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <!-- <script src="gsap.js"></script> -->
+    <script src="{{ url_for('static', filename='gsap.js') }}"></script>
+    <!-- <script src="offcanvas_data.js"></script> -->
+    <script src="{{ url_for('static', filename='ui_controller.js') }}"></script>
+</body>
+
+</html>

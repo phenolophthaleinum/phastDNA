@@ -1,0 +1,23 @@
+digraph "CFG for '_ZNK8fasttext4Args12boolToStringB5cxx11Eb' function" {
+	label="CFG for '_ZNK8fasttext4Args12boolToStringB5cxx11Eb' function";
+
+	Node0x2029ad0 [shape=record,label="{%3:\l  %4 = alloca i8*, align 8\l  %5 = alloca %\"class.fasttext::Args\"*, align 8\l  %6 = alloca i8, align 1\l  %7 = alloca %\"class.std::allocator\", align 1\l  %8 = alloca i8*\l  %9 = alloca i32\l  %10 = alloca %\"class.std::allocator\", align 1\l  %11 = bitcast %\"class.std::__cxx11::basic_string\"* %0 to i8*\l  store i8* %11, i8** %4, align 8\l  store %\"class.fasttext::Args\"* %1, %\"class.fasttext::Args\"** %5, align 8\l  %12 = zext i1 %2 to i8\l  store i8 %12, i8* %6, align 1\l  %13 = load %\"class.fasttext::Args\"*, %\"class.fasttext::Args\"** %5, align 8\l  %14 = load i8, i8* %6, align 1\l  %15 = trunc i8 %14 to i1\l  br i1 %15, label %16, label %22\l|{<s0>T|<s1>F}}"];
+	Node0x2029ad0:s0 -> Node0x2029b20;
+	Node0x2029ad0:s1 -> Node0x202a140;
+	Node0x2029b20 [shape=record,label="{%16:\l16:                                               \l  call void @_ZNSaIcEC1Ev(%\"class.std::allocator\"* %7) #3\l  invoke void\l... @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(%\"class.std:\l...:__cxx11::basic_string\"* %0, i8* getelementptr inbounds ([5 x i8], [5 x i8]*\l... @.str.6, i64 0, i64 0), %\"class.std::allocator\"* dereferenceable(1) %7)\l          to label %17 unwind label %18\l}"];
+	Node0x2029b20 -> Node0x202a3c0;
+	Node0x2029b20 -> Node0x202a410;
+	Node0x202a3c0 [shape=record,label="{%17:\l17:                                               \l  call void @_ZNSaIcED1Ev(%\"class.std::allocator\"* %7) #3\l  br label %28\l}"];
+	Node0x202a3c0 -> Node0x202a550;
+	Node0x202a410 [shape=record,label="{%18:\l18:                                               \l  %19 = landingpad \{ i8*, i32 \}\l          cleanup\l  %20 = extractvalue \{ i8*, i32 \} %19, 0\l  store i8* %20, i8** %8, align 8\l  %21 = extractvalue \{ i8*, i32 \} %19, 1\l  store i32 %21, i32* %9, align 4\l  call void @_ZNSaIcED1Ev(%\"class.std::allocator\"* %7) #3\l  br label %29\l}"];
+	Node0x202a410 -> Node0x202a960;
+	Node0x202a140 [shape=record,label="{%22:\l22:                                               \l  call void @_ZNSaIcEC1Ev(%\"class.std::allocator\"* %10) #3\l  invoke void\l... @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(%\"class.std:\l...:__cxx11::basic_string\"* %0, i8* getelementptr inbounds ([6 x i8], [6 x i8]*\l... @.str.7, i64 0, i64 0), %\"class.std::allocator\"* dereferenceable(1) %10)\l          to label %23 unwind label %24\l}"];
+	Node0x202a140 -> Node0x202abd0;
+	Node0x202a140 -> Node0x202ac20;
+	Node0x202abd0 [shape=record,label="{%23:\l23:                                               \l  call void @_ZNSaIcED1Ev(%\"class.std::allocator\"* %10) #3\l  br label %28\l}"];
+	Node0x202abd0 -> Node0x202a550;
+	Node0x202ac20 [shape=record,label="{%24:\l24:                                               \l  %25 = landingpad \{ i8*, i32 \}\l          cleanup\l  %26 = extractvalue \{ i8*, i32 \} %25, 0\l  store i8* %26, i8** %8, align 8\l  %27 = extractvalue \{ i8*, i32 \} %25, 1\l  store i32 %27, i32* %9, align 4\l  call void @_ZNSaIcED1Ev(%\"class.std::allocator\"* %10) #3\l  br label %29\l}"];
+	Node0x202ac20 -> Node0x202a960;
+	Node0x202a550 [shape=record,label="{%28:\l28:                                               \l  ret void\l}"];
+	Node0x202a960 [shape=record,label="{%29:\l29:                                               \l  %30 = load i8*, i8** %8, align 8\l  %31 = load i32, i32* %9, align 4\l  %32 = insertvalue \{ i8*, i32 \} undef, i8* %30, 0\l  %33 = insertvalue \{ i8*, i32 \} %32, i32 %31, 1\l  resume \{ i8*, i32 \} %33\l}"];
+}

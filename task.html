@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Graphical User Interface for phastDNA">
+    <meta name="author" content="Maciej Michalczyk">
+    <title>phastDNA: task in-progress</title>
+
+    <!-- <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/starter-template/"> -->
+
+
+
+
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+
+
+    <!-- Custom styles for this template -->
+    <!-- <link href="starter-template.css" rel="stylesheet"> -->
+    <link href="{{ url_for('static', filename='phastDNA_ui.css') }}" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Signika:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- main container -->
+    <div class="container-fluid contrast-bg">
+        <div class="container-xl p-4 py-md-5">
+            <!-- header menu -->
+            <header class="viewport-header d-flex align-items-center pb-3 mb-5">
+                <h1 class="me-auto display-1">phastDNA</h1>
+            </header>
+            <!-- main content -->
+            <main>
+                <div class="row">
+                    <!-- <div class="container glass p-4 mb-4 rounded-3">
+                        <h2 id="task_name"></h2>
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                          </div>
+                    </div> -->
+                    <div class="container glass p-4 mb-4 rounded-3">
+                        <div class="d-flex justify-content-between flex-wrap mb-4">
+                            <h2 id="task-name">{{task_name}}</h2>
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"
+                                viewBox="0 0 200 200" class="icon" id="spinner">
+                                <path class="icon-path" pathLength="100" stroke-dasharray="100" stroke-dashoffset="-98"
+                                    stroke-linecap="round" id="p1" d="M 100 0 C 152 1 199 44 199 100 "
+                                    stroke="#0ebeff" />
+                                <path class="icon-path" id="p2" d="M 100 199 C 152 199 199 156 199 100" pathLength="100"
+                                    stroke-dasharray="100" stroke-dashoffset="98" stroke="#ae63e4"
+                                    stroke-linecap="round" />
+                                <path class="icon-path" id="p3" d="M 0 100 C 1 152 44 199 100 199" pathLength="100"
+                                    stroke-dasharray="100" stroke-dashoffset="98" stroke="#ffdd40"
+                                    stroke-linecap="round" />
+                                <path class="icon-path" id="p4" d="M 100 0 C 44 1 1 44 0 100" pathLength="100"
+                                    stroke-dasharray="100" stroke-dashoffset="98" stroke="#47cf73"
+                                    stroke-linecap="round" />
+                            </svg>
+                        </div>
+                        <!-- <div class="spinner-border text-primary" role="status" id="spinner">
+                            <span class="visually-hidden">Loading...</span>
+                        </div> -->
+                        <div class="console-output flavor-visibility" id="ajax-test" style="max-height: 800px; overflow: auto; resize: vertical;">
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <!-- <script src="gsap.js"></script> -->
+    <script src="{{ url_for('static', filename='task.js') }}"></script>
+    <!-- <script src="offcanvas_data.js"></script> -->
+    <!-- <script src="{{ url_for('static', filename='ui_controller.js') }}"></script> -->
+</body>
+
+</html>
