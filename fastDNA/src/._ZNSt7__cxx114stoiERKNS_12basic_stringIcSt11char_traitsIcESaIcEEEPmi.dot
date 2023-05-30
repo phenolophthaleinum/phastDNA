@@ -1,5 +1,0 @@
-digraph "CFG for '_ZNSt7__cxx114stoiERKNS_12basic_stringIcSt11char_traitsIcESaIcEEEPmi' function" {
-	label="CFG for '_ZNSt7__cxx114stoiERKNS_12basic_stringIcSt11char_traitsIcESaIcEEEPmi' function";
-
-	Node0x20557d0 [shape=record,label="{%3:\l  %4 = alloca %\"class.std::__cxx11::basic_string\"*, align 8\l  %5 = alloca i64*, align 8\l  %6 = alloca i32, align 4\l  store %\"class.std::__cxx11::basic_string\"* %0,\l... %\"class.std::__cxx11::basic_string\"** %4, align 8\l  store i64* %1, i64** %5, align 8\l  store i32 %2, i32* %6, align 4\l  %7 = load %\"class.std::__cxx11::basic_string\"*,\l... %\"class.std::__cxx11::basic_string\"** %4, align 8\l  %8 = call i8*\l... @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(%\"class.std::_\l..._cxx11::basic_string\"* %7) #3\l  %9 = load i64*, i64** %5, align 8\l  %10 = load i32, i32* %6, align 4\l  %11 = call i32\l... @_ZN9__gnu_cxx6__stoaIlicJiEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_(i64 (i8*,\l... i8**, i32)* @strtol, i8* getelementptr inbounds ([5 x i8], [5 x i8]*\l... @.str.96, i64 0, i64 0), i8* %8, i64* %9, i32 %10)\l  ret i32 %11\l}"];
-}
