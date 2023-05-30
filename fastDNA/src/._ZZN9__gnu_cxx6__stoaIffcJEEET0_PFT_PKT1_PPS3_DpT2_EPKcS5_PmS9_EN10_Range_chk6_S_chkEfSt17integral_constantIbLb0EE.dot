@@ -1,5 +1,0 @@
-digraph "CFG for '_ZZN9__gnu_cxx6__stoaIffcJEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN10_Range_chk6_S_chkEfSt17integral_constantIbLb0EE' function" {
-	label="CFG for '_ZZN9__gnu_cxx6__stoaIffcJEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN10_Range_chk6_S_chkEfSt17integral_constantIbLb0EE' function";
-
-	Node0x2072e10 [shape=record,label="{%1:\l  %2 = alloca %\"struct.std::integral_constant\", align 1\l  %3 = alloca float, align 4\l  store float %0, float* %3, align 4\l  ret i1 false\l}"];
-}

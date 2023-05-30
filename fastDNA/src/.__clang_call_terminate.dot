@@ -1,5 +1,0 @@
-digraph "CFG for '__clang_call_terminate' function" {
-	label="CFG for '__clang_call_terminate' function";
-
-	Node0x2057670 [shape=record,label="{%1:\l  %2 = call i8* @__cxa_begin_catch(i8* %0) #3\l  call void @_ZSt9terminatev() #11\l  unreachable\l}"];
-}
