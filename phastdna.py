@@ -24,51 +24,54 @@ if __name__ == "__main__":
                                         'based on similarity of semantically embedded k-mer composition '
                                         'of short sequence samples simulating sequencing reads.')
     parser.add_argument("-O", "--output", required=True,
-                        help="Path to folder with result files")
+                        help="Path to folder with result files. <train> <predict>")
     parser.add_argument("-C", "--classifier", required=False,
                         help="Path to pre-trained phastdna classifier (skips training, classifies sequences in \"-H\" host folder)")
     parser.add_argument("-H", "--hosts", required=False,
-                        help="Directory with host genomes.")
+                        help="Directory with host genomes. <train>")
     parser.add_argument("-V", "--trainvir", required=False,
-                        help="Directory with training viral genomes.")
+                        help="Directory with training viral genomes. <train>")
     parser.add_argument("-v", "--viruses", required=False,
-                        help="Directory with viral genomes for prediction.")
+                        help="Directory with viral genomes for prediction. <predict>")
     parser.add_argument("-r", "--lrate", required=False, nargs='+', default=-1,
-                        help="EXPONENT for the Learning rate (default [-1] = 1e-1 = 0.1)")
+                        help="EXPONENT for the Learning rate (default [-1] = 1e-1 = 0.1). <train>")
     parser.add_argument("-u", "--ulr", required=False, nargs='+', default=2,
-                        help="EXPONENT for update dynamics of the the learning rate (default [2] = 1e2 = 100)")
+                        help="EXPONENT for update dynamics of the the learning rate (default [2] = 1e2 = 100). <train>")
     parser.add_argument("-d", "--dim", required=False, nargs='+', default=100, type=int,
-                        help="Dimensionality of k-mer embedding (default [100])")
+                        help="Dimensionality of k-mer embedding (default [100]). <train>")
     parser.add_argument("-n", "--noise", required=False, nargs='+', default=0,
-                        help="Mutation rate (divergence) between phage and host sequences (/100,000, default [0])")
+                        help="Mutation rate (divergence) between phage and host sequences (/100,000, default [0]). <train>")
     parser.add_argument("-f", "--fraglen", required=False, nargs='+', default=200, type=int,
-                        help="Length of simulated read sequences (default [200])")
+                        help="Length of simulated read sequences (default [200]). <train>")
     parser.add_argument("-s", "--samples", required=False, nargs='+', default=100, type=int,
-                        help="Number simulated read sequences (default [100])")
+                        help="Number simulated read sequences (default [100]). <train>")
     parser.add_argument("--minn", required=False, nargs='+', default=7, type=int,
-                        help="Minimum k-mer size (default [7], no more than 15!)")
+                        help="Minimum k-mer size (default [7], no more than 15!). <train>")
     parser.add_argument("--maxn", required=False, nargs='+', default=8, type=int,
-                        help="Maximum k-mer size (default [8], no more than 15!)")
+                        help="Maximum k-mer size (default [8], no more than 15!). <train>")
     parser.add_argument("-e", "--epochs", required=False, nargs='+', default=20, type=int,
-                        help="Number of epochs (each added epoch increases runtime significantly)")
+                        help="Number of epochs (each added epoch increases runtime significantly, default [20]). <train>")
     parser.add_argument("-l", "--loss", required=False, nargs='+', default='softmax',
                         choices=['ns', 'hs', 'softmax'],
-                        help="Taxonomy level to which genomes should be filtered. Choosing 'none' implies no taxonomy filtering.")
+                        help="Loss function used by fastDNA algorithm (default ['softmax']). <train>")
     parser.add_argument("-p", "--preiter", required=False, nargs='+', default=15, type=int,
-                        help="Number of pre-samples for Bayesian optimisation of hyper-parameters")
+                        help="Number of pre-samples for Bayesian optimisation of hyper-parameters (default [15]). <train>")
     parser.add_argument("-i", "--iter", required=False, nargs='+', default=25, type=int,
-                        help="Number of iterations of Bayesian optimisation of hyper-parameters")
+                        help="Number of iterations of Bayesian optimisation of hyper-parameters. <train>")
     parser.add_argument("-c", "--considered", required=False, nargs='+', default=50, type=int,
-                        help="Maximal number of hosts to include in fastDNA prediction step")
-    parser.add_argument("--nreps", required=False, nargs='+', default=1, type=int,
-                        help="Maximum number of representatives from the filtered group. Default value is 1.")  # TODO not implemented
-    parser.add_argument("--filter", required=False, nargs='+', default='species',
-                        choices=["phylum", "class", "order", "family", "genus", "species", "none", 'hybrid', 'debug', 'general'], # is it working?
-                        help="Taxonomy level to which genomes should be filtered. Choosing 'none' implies no taxonomy filtering.")  # TODO not implemented - must be implemented, since species take up to an hour
+                        help="Maximal number of hosts to include in fastDNA prediction step (default [50]). <train>")
+    parser.add_argument("--examples", required=False, nargs='+', default=1, type=int,
+                        help="Maximum number genomes from each \"XXX\" taxon to use in training (default [1]). <train>")
+    parser.add_argument("--examples_from", required=False, nargs='+', default='species',
+                        choices=["phylum", "class", "order", "family", "genus", "species"], # is it working?
+                        help="Taxonomy level to which genomes should be filtered (default ['species']). <train>")
+    parser.add_argument("--labels", required=False, nargs='+', default='species',
+                        choices=["phylum", "class", "order", "family", "genus", "species"], # is it working?
+                        help="Taxonomy level used to label genomes. This level will be predicted by classifier (default ['species']). <train>") 
     parser.add_argument("--fastdna", required=False, default='./fastDNA/fastdna',
-                        help="Path to fastDNA execuable")
+                        help="Path to fastDNA executable (default [./fastDNA/fastdna']). <train> <predict>")
     parser.add_argument("-t", "--threads", required=False, default=default_threads,
-                        help="Number of threads to use (default [all but one])")
+                        help="Number of threads to use (default [all but one]). <train> <predict>")
 
 
 
@@ -98,7 +101,7 @@ if __name__ == "__main__":
     print(type(args.iter))
 
     if args.classifier:
-        log.info('Starting PHastDNA in pre-trained mode')
+        log.info('Starting PHastDNA in pre-trained prediction mode')
         virus_dir = Path(args.viruses).resolve() # resolve is painful to use
         assert any([f.suffix in fasta_extensions for f in virus_dir.iterdir()]), f'No fasta files found in {virus_dir}'
         model_file = Path(args.classifier)
@@ -130,9 +133,11 @@ if __name__ == "__main__":
                               loss=args.loss,
                               threads=args.threads,
                               considered_hosts=args.considered,
+                              n_examples=args.examples,
+                              examples_from=args.examples_from,
+                              labels=args.labels,
                               samples=args.samples,
-                              fastdna_exe=fastdna_exe,
-                              rank=args.filter)
+                              fastdna_exe=fastdna_exe)
         optimizer.optimize()
 
     log.close() #  close log after successful run
