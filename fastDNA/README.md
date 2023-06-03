@@ -1,32 +1,27 @@
 ## Table of contents
 
-* [Introduction](#introduction)
-* [Requirements](#requirements)
-* [Building fastDNA](#building-fastdna)
-* [Command line interface](#command-line-interface)
-   * [Full documentation](#full-documentation)
-* [Python](#python)
-* [Data](#data)
-* [References](#references)
-   * [Continuous Embedding of DNA reads and application to metagenomics](#continuous-embedding-of-dna-reads-and-application-to-metagenomics)
-   * [Enriching Word Vectors with Subword Information](#enriching-word-vectors-with-subword-information)
-   * [Bag of Tricks for Efficient Text Classification](#bag-of-tricks-for-efficient-text-classification)
-   * [FastText.zip: Compressing text classification models](#fasttextzip-compressing-text-classification-models)
-* [License](#license)
+- [The data used in the paper is available here: http://projects.cbio.mines-paristech.fr/largescalemetagenomics/.](#the-data-used-in-the-paper-is-available-here-httpprojectscbiomines-paristechfrlargescalemetagenomics)
+  - [References](#references)
+    - [Continuous Embedding of DNA reads, and application to metagenomics](#continuous-embedding-of-dna-reads-and-application-to-metagenomics)
+    - [Enriching Word Vectors with Subword Information](#enriching-word-vectors-with-subword-information)
+    - [Bag of Tricks for Efficient Text Classification](#bag-of-tricks-for-efficient-text-classification)
+    - [FastText.zip: Compressing text classification models](#fasttextzip-compressing-text-classification-models)
+  - [License](#license)
 
 ## Introduction
 
 [fastDNA](#continuous-embedding-of-dna-reads-and-application-to-metagenomics) is a library for classification of short DNA sequences.
 It is adapted from the [fastText](https://fasttext.cc/) library.
+This version of fastDNA is modified to work best for phastDNA purposes. It is not advised to use it as a standalone application (although it is possible).
 
 
 ## Requirements
 
-Generally, **fastText** builds on modern Mac OS and Linux distributions.
-Since it uses some C++11 features, it requires a compiler with good C++11 support.
+Generally, this moodified **fastText** builds on modern Mac OS and Linux distributions.
+Since it uses some C++17 features, it requires a compiler with good C++17 support.
 These include :
 
-* (g++-4.7.2 or newer) or (clang-3.3 or newer)
+* (g++-7.1 or newer) or (clang-5.0 or newer)
 
 Compilation is carried out using a Makefile, so you will need to have a working **make**.
 
