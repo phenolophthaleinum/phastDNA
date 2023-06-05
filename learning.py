@@ -1,5 +1,5 @@
 import json
-from collections import defaultdict
+from collections import defaultdict, Counter
 from copy import deepcopy
 from itertools import count
 from pathlib import Path
@@ -15,8 +15,8 @@ from taxonomy import sample_taxon, DistanceMatrix, TaxonomicEvaluation
 from utils import (Parallel, default_threads,
                    sample_fasta_dir, labeled_fasta,
                    serialize, read_serialized,
-                   fastDNA_exe, fasta_extensions, time_this,
-                   log)
+                   fastDNA_exe, time_this,
+                   log, sanitize_names)
 
 
 class Classifier:
@@ -29,7 +29,7 @@ class Classifier:
                  working_dir: Path,
                  minn: int,
                  maxn: int,
-                 rank: str = 'species',
+                 labels: str = 'species',
                  lr: float = 0.1,
                  lr_update: float = 100,
                  dim: int = 100,
@@ -41,7 +41,8 @@ class Classifier:
                  considered_hosts: int = 10,
                  samples: int = 200,
                  fastdna_exe: Path = fastDNA_exe,
-                 debug=False):
+                 debug=False,
+                 performance_metric: str = 'accordance'):
         """
         Initializer for the fastDNA-based phage-host classifier.
 
@@ -62,7 +63,7 @@ class Classifier:
         """
         self.minn = minn
         self.maxn = maxn
-        self.rank = rank
+        self.labels = labels
         self.lr = lr
         self.lr_update = lr_update
         self.dim = dim
@@ -81,6 +82,7 @@ class Classifier:
         self.ranking = None
         self.performance = 0
         self.debug = debug
+        self.metric = performance_metric
         self.name = f'model.n{self.minn}-{self.maxn}.' \
                     f'lr{self.lr:.5f}-{self.lr_update:.5f}.' \
                     f'd{self.dim}.no{self.noise}.' \
@@ -92,8 +94,7 @@ class Classifier:
             training_host_labels: Path,
             host_matrix: DistanceMatrix,
             virus_samples: List[Path],
-            virus_metadata: Dict[str, Dict],
-            metric: str = 'accordance'):
+            virus_metadata: Dict[str, Dict]):
         """ todo
 
         :param training_host_fasta:
@@ -121,20 +122,31 @@ class Classifier:
                               n_jobs=self.threads)
 
         merged_rankings = defaultdict(dict)
-        for file_path, result in zip(virus_samples, score_jobs.result):
+        all_failed_scoring = []
+        all_caught_warnings = []
+        for file_path, (result, failed_methods, caught_warnings) in zip(virus_samples, score_jobs.result):
             virus_id = file_path.stem
+            all_failed_scoring.extend(failed_methods)
+            all_caught_warnings.extend(caught_warnings)
             for scoring_func, host_ranking in result.items():
                 merged_rankings[scoring_func][virus_id] = host_ranking
+        failed_count = Counter(all_failed_scoring)
+        warning_count = Counter(all_caught_warnings)
+        failed_warning = '\n'.join([f'{method} failed for {n_failed} viruses' for method, n_failed in failed_count.items()] + [f'Seen {w} ({n} times' for w, n in warning_count.items()])
+        if failed_warning:
+            log.warn(f'Found {len(failed_count)} failed methods,'
+                     f'\nthis happens during optimisation but usually means faulty fastDNA model'
+                     f'\n{failed_warning}')
 
         evaluation, missing_predictions = TaxonomicEvaluation.multi_method_evaluation(method_to_raking_dict=merged_rankings,
                                                                                       distances=host_matrix,
                                                                                       master_virus_dict=virus_metadata)
 
-        log.info(f'Found {missing_predictions} missing taxa with rank "{self.rank}" in matrix')
+        log.info(f'Found {missing_predictions} missing taxa with rank "{self.labels}" in matrix')
 
-        self.ranking = sorted(evaluation, key=lambda e: e.metrics[metric], reverse=True)
+        self.ranking = sorted(evaluation, key=lambda e: e.metrics[self.metric], reverse=True)
         evaluation = self.ranking[0]
-        self.scoring, self.performance = evaluation.description, evaluation.metrics[metric]
+        self.scoring, self.performance = evaluation.description, evaluation.metrics[self.metric]
 
         return evaluation
 
@@ -185,7 +197,8 @@ class Classifier:
 
         fragment_predictions = eval(stdout.decode())
         for pred_set in fragment_predictions:
-            assert pred_set and all([isinstance(k, str) and isinstance(v, float) for k, v in pred_set.items()]), pred_set
+            faulty_records = [(k, v) for k, v in pred_set.items() if not (isinstance(k, str) and isinstance(v, float))]
+            assert not faulty_records, faulty_records
 
         raw_result = pd.DataFrame.from_dict(fragment_predictions).fillna(1e-6)  # https://doi.org/10.1371/journal.pbio.3000106 "we estimate that there exist globally between 0.8 and 1.6 million prokaryotic OTUs"
 
@@ -265,7 +278,6 @@ class Optimizer:
                  host_dir: Path,
                  minn: int,
                  maxn: int,
-                 rank: str = 'species',
                  lr: Tuple[float, float] = (0.001, 0.999),
                  lr_update: Tuple[float, float] = (-3, 3),
                  dim: Tuple[int, int] = (30, 300),
@@ -275,12 +287,17 @@ class Optimizer:
                  loss: str = ('ns', 'hs', 'softmax'),
                  threads: int = default_threads,
                  considered_hosts: Tuple[int, int] = (10, 50),
+                 n_examples=1,
+                 examples_from='species',
+                 labels='species',
                  samples: int = 200,
                  fastdna_exe: Path = fastDNA_exe,
                  debug: bool = False):
 
         self.debug = debug
-        self.rank = rank
+        self.n_examples = n_examples
+        self.examples_from = examples_from
+        self.labels = labels
 
         self.virus_fasta_dir = virus_dir.joinpath('fasta')
         # TODO
@@ -289,23 +306,23 @@ class Optimizer:
         # passing link in linux to folder with files does not work
         metadata_json = virus_dir.joinpath('virus.json')
         with metadata_json.open() as mj:
-            self.virus_metadata = json.load(mj)
+            self.virus_metadata = sanitize_names(json.load(mj), virus=True)
 
         self.dir = working_dir
         self.dir.mkdir(exist_ok=True, parents=True)
 
         metadata_json = host_dir.joinpath('host.json')
-        with metadata_json.open() as mj:
-            self.host_metadata = json.load(mj)
+        with metadata_json.open() as hj:
+            self.host_metadata = sanitize_names(json.load(hj))
 
         training_genomes, genome_labels = sample_taxon(host_data=self.host_metadata,
-                                                       labeled_rank=self.rank,
-                                                       sampled_rank=self.rank)
+                                                       labeled_rank=self.labels,
+                                                       sampled_rank=self.examples_from)
         training_genome_files = [host_dir.joinpath(f'fasta/{genome_id}.fna') for genome_id in training_genomes]
         missing_fasta = [f for f in training_genome_files if not f.is_file()]
         assert not missing_fasta, f'missing fasta files:\n{missing_fasta}'
 
-        path_stem = self.dir.joinpath(f'Training.{self.rank}')
+        path_stem = self.dir.joinpath(f'Training.{self.labels}')
         self.training_fasta, self.training_labels = labeled_fasta(training_genome_files,
                                                                   genome_labels,
                                                                   path_stem=path_stem)
@@ -338,7 +355,7 @@ class Optimizer:
         self.best_classifier = Classifier(self.dir.joinpath('best_classifier'), 0, 0, '-', 0, 0, 0, 0, 0)
         self.report = pd.DataFrame()
         self.host_matrix = DistanceMatrix(self.host_metadata,
-                                          rank=self.rank)
+                                          rank=self.labels)
 
     def parameter_bounds(self) -> Dict[str, Tuple[float, float]]:
         """
@@ -443,7 +460,7 @@ class Optimizer:
                                         to_dir=sample_dir)
 
         classifier = Classifier(**iteration_params,
-                                rank=self.rank,
+                                labels=self.labels,
                                 working_dir=self.dir.joinpath('current_classifier'),
                                 fastdna_exe=self.fastdna_exe,
                                 debug=self.debug)
@@ -464,7 +481,7 @@ class Optimizer:
                      f'\n{evaluation.table()}')
 
         if (not iteration_number % 10) or iteration_number == self.iterations:
-            self.report.sort_values('performance', ascending=False, inplace=True)
+            self.report.sort_values(classifier.metric, ascending=False, inplace=True)
             self.report.to_excel(self.dir.joinpath('Optimisation_report.xlsx'))
 
         if self.debug:

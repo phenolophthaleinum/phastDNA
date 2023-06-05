@@ -1,4 +1,5 @@
 from typing import List
+import warnings
 
 import numpy as np
 from modin import pandas as pd  # import dask as dpd / import pandas as pd # which engine - pip install "modin[all]" is not space efficient and slow for enduser experience - we should specify the engine
@@ -190,9 +191,13 @@ default_scoring_functions = (beet_geometry, beet_harmony, beet_mean,
 
 def score_and_rank(raw_result: pd.DataFrame,
                    scoring_functions: List[callable] = default_scoring_functions):
-    try:
-        scored_predictions = [(f.__name__, f(raw_result).to_dict()) for f in scoring_functions]
-        sorted_predictions = {f_name: [(h, s) for h, s in sorted(f_result.items(), key=lambda hs: hs[1], reverse=True)] for f_name, f_result in scored_predictions}
-    except:
-        raise ValueError(raw_result.to_string())
-    return sorted_predictions
+    with warnings.catch_warnings(record=True) as caught_warnings:
+        scored_predictions = [(f.__name__, f(raw_result)) for f in scoring_functions]
+        sorted_predictions, failed = {}, set()
+        for f_name, prediction_frame in scored_predictions:
+            prediction_frame: pd.DataFrame
+            if prediction_frame.empty:
+                failed.add(f_name)
+            else:
+                sorted_predictions[f_name] = [(h, s) for h, s in sorted(prediction_frame.to_dict().items(), key=lambda hs: hs[1], reverse=True)]
+    return sorted_predictions, failed, [str(w.message) for w in caught_warnings]
