@@ -197,8 +197,9 @@ class Classifier:
 
         fragment_predictions = eval(stdout.decode())
         for pred_set in fragment_predictions:
-            faulty_records = [(k, v) for k, v in pred_set.items() if not (isinstance(k, str) and isinstance(v, float))]
-            assert not faulty_records, faulty_records
+            faulty_records = [(k, v) for k, v in pred_set.items() if not (isinstance(k, str) and isinstance(v, (float, int)))]
+            assert not faulty_records, f'Faulty fastDNA predictions:' \
+                                       f'\n{faulty_records}'
 
         raw_result = pd.DataFrame.from_dict(fragment_predictions).fillna(1e-6)  # https://doi.org/10.1371/journal.pbio.3000106 "we estimate that there exist globally between 0.8 and 1.6 million prokaryotic OTUs"
 
@@ -356,6 +357,7 @@ class Optimizer:
         self.report = pd.DataFrame()
         self.host_matrix = DistanceMatrix(self.host_metadata,
                                           rank=self.labels)
+        print(str(self.host_matrix))
 
     def parameter_bounds(self) -> Dict[str, Tuple[float, float]]:
         """
