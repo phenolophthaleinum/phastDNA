@@ -369,20 +369,24 @@ class Optimizer:
 
         # parameters that are continuous (no processing required)
         parameter_bounds = self.continuous
+        human_readable = {param: ' - '.join([f'{b}' for b in bounds]) for param, bounds in self.continuous.items()}
 
         # parameters with non-linear response curve (e.g. values that denote order of magnitude - 10eX)
         for param, bounds in self.exponential.items():
+            human_readable[f'{param} (exponential)'] = ' - '.join([f'{b:.2E}' for b in bounds])
             parameter_bounds[param] = (log10(bounds[0]), log10(bounds[1]))
 
         # parameters that can have only integer values
         for param, bounds in self.discrete.items():
             parameter_bounds[param] = (bounds[0], bounds[1] + 1)  # assure that "border values" have equal probabilities
+            human_readable[f'{param} (as integer)'] = ' - '.join([f'{int(b)}' for b in bounds])
 
         # parameters selected from a list of options (e.g. loss functions)
         for param, variants in self.categorical.items():
+            human_readable[f'{param}'] = ', '.join(variants)
             parameter_bounds[param] = (0, len(variants) - 1e-10)  # here the same is guaranteed by th python 0-based indexing
 
-        search_space_info = '\n'.join([f'{param}: {value_range}' for param, value_range in parameter_bounds.items()])
+        search_space_info = '\n'.join([f'{param: <26}{value_range}' for param, value_range in human_readable.items()])
         log.info(f'OPTIMIZER SEARCH SPACE:\n{search_space_info}')
 
         return parameter_bounds
