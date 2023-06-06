@@ -220,6 +220,7 @@ class TaxonomicEvaluation:
         """
         searched_field = 'lineage_names' if use_names else 'lineage'
         truncated_ranks = TAXONOMIC_RANKS[TAXONOMIC_RANKS.index(distances.rank):]
+        min_rank, second_rank = TAXONOMIC_RANKS[:2]
         per_taxon_hits = {rank: {i + 1: [] for i in range(top_n)} for rank in truncated_ranks}
 
         self.description = description
@@ -258,10 +259,10 @@ class TaxonomicEvaluation:
                 all_hit.update(hits)
                 self.scored_ranks[rank][rankin_position] = len(all_hit) / self.n_viruses
         self.metrics = {'accordance': self.accordance,
-                        'top_species': self.scored_ranks['species'][1],
-                        'top3_species': self.scored_ranks['species'][3],
-                        'top_genus': self.scored_ranks['genus'][1],
-                        'top3_genus': self.scored_ranks['genus'][3]}
+                        f'top_{min_rank}': self.scored_ranks[min_rank][1],
+                        f'top3_{min_rank}': self.scored_ranks[min_rank][3],
+                        f'top_{second_rank}': self.scored_ranks[second_rank][1],
+                        f'top3_{second_rank}': self.scored_ranks[second_rank][3]}
 
     def __repr__(self):
         table_data = [(f'{rank}:', '\t'.join([f'{s:.3f}' for s in scores.values()])) for rank, scores in self.scored_ranks.items()]
