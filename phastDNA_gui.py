@@ -34,12 +34,12 @@ def test_f():
 
         # name_prefix = "train" if 'loss' in data else "predict"
         # task_name = f'{name_prefix}_{datetime.datetime.now():%Y_%m_%d_%H_%M_%S%z}'
-        output_dir = Path(data["output_path"])
+        output_dir = Path(data["--output"])
         output_dir.mkdir(parents=True, exist_ok=True)
         # task_name = f'{data["output_path"]}%PHastDNA.log'
         # print(output_dir.name)
         task_name = f'{output_dir.name}%PHastDNA.log'
-        task_file_obj = open(f'{data["output_path"]}/PHastDNA.log', 'a')
+        task_file_obj = open(f'{data["--output"]}/PHastDNA.log', 'a')
         task_file_obj.write(" ")
         task_file_obj.close()
         # print(data)
@@ -49,7 +49,7 @@ def test_f():
         ptr = 0
 
         ptrs[task_name]['ptr'] = 0
-        ptrs[task_name]['path'] = f'{data["output_path"]}/PHastDNA.log'
+        ptrs[task_name]['path'] = f'{data["--output"]}/PHastDNA.log'
 
         # tasks[task_name] = {}
         # print(task_name)
@@ -66,8 +66,19 @@ def test_f():
         # cmd = subprocess.Popen(['python', 'dummyscript.py', '-l', task_name, ">", f"{task_name}.log"], shell=True)
         # with open(f"{task_name}.log", "w") as f:
         # cmd = subprocess.Popen(['python', 'dummyscript.py', '-l', task_name])
-        cmd = subprocess.Popen(['python', 'phastdna.py', '-O', data["output_path"], '-H', data["host_path"], '-V', data["virus_path"], '-e', '1', '-p', '1', '-i', '2', '--filter', data["filter"]])
-        print(data)
+        # cmd = subprocess.Popen(['python', 'phastdna.py', '-O', data["output_path"], '-H', data["host_path"], '-V', data["virus_path"], '-e', '1', '-p', '1', '-i', '2', '--filter', data["filter"]])
+        print(type(data['--preiter']))
+        arguments = []
+        mutable_data = dict(data)
+        mutable_data['--labels'] = mutable_data['--examples_from']
+        print(type(mutable_data['--preiter']))
+        for key, value in mutable_data.items():
+            arguments.append(key)
+            arguments.append(value)
+        print(*arguments)
+        print(['python', 'phastdna.py', *arguments])
+        cmd = subprocess.Popen(['python', 'phastdna.py', *arguments])
+        # print(data)
         # subprocess.Popen(['python', 'dummyscript.py', '-l', task_name], stdout=f)
         return flask.render_template('task.html', task_name=task_name)
         # return subprocess.check_output(['ping', 'google.com', '-t'])

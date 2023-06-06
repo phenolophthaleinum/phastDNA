@@ -33,9 +33,9 @@ if __name__ == "__main__":
                         help="Directory with training viral genomes. <train>")
     parser.add_argument("-v", "--viruses", required=False,
                         help="Directory with viral genomes for prediction. <predict>")
-    parser.add_argument("-r", "--lrate", required=False, nargs='+', default=-1,
+    parser.add_argument("-r", "--lrate", required=False, nargs='+', default=-1, type=float,
                         help="EXPONENT for the Learning rate (default [-1] = 1e-1 = 0.1). <train>")
-    parser.add_argument("-u", "--ulr", required=False, nargs='+', default=2,
+    parser.add_argument("-u", "--ulr", required=False, nargs='+', default=2, type=float,
                         help="EXPONENT for update dynamics of the the learning rate (default [2] = 1e2 = 100). <train>")
     parser.add_argument("-d", "--dim", required=False, nargs='+', default=100, type=int,
                         help="Dimensionality of k-mer embedding (default [100]). <train>")
@@ -59,7 +59,7 @@ if __name__ == "__main__":
     parser.add_argument("-i", "--iter", required=False, nargs='+', default=25, type=int,
                         help="Number of iterations of Bayesian optimisation of hyper-parameters. <train>")
     parser.add_argument("-c", "--considered", required=False, nargs='+', default=50, type=int,
-                        help="Maximal number of hosts to include in fastDNA prediction step (default [50]). <train>")
+                        help="Maximal number of hosts to include in fastDNA prediction step (default [50]). <predict> <train>")
     parser.add_argument("--examples", required=False, nargs='+', default=1, type=int,
                         help="Maximum number genomes from each \"XXX\" taxon to use in training (default [1]). <train>")
     parser.add_argument("--examples_from", required=False, nargs='+', default='species',
@@ -70,7 +70,7 @@ if __name__ == "__main__":
                         help="Taxonomy level used to label genomes. This level will be predicted by classifier (default ['species']). <train>") 
     parser.add_argument("--fastdna", required=False, default='./fastDNA/fastdna',
                         help="Path to fastDNA executable (default [./fastDNA/fastdna']). <train> <predict>")
-    parser.add_argument("-t", "--threads", required=False, default=default_threads,
+    parser.add_argument("-t", "--threads", required=False, default=default_threads, type=int,
                         help="Number of threads to use (default [all but one]). <train> <predict>")
 
 
@@ -99,6 +99,10 @@ if __name__ == "__main__":
 
     # Classify based on pre-trained model
     print(type(args.iter))
+    print(type(args.preiter))
+    print(type(args.lrate))
+    print(type(args.ulr))
+    print(type(args.threads))
 
     if args.classifier:
         log.info('Starting PHastDNA in pre-trained prediction mode')

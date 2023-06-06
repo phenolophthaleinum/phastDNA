@@ -345,10 +345,13 @@ class Optimizer:
             to_del = set()
             for param, param_value in param_category.items():
                 if not isinstance(param_value, (tuple, list)):
+                    print(type(param), type(param_value))
+                    print(param, param_value)
                     to_override[param] = 10 ** param_value if param in self.exponential else param_value
                     to_del.add(param)
             for redundant in to_del:
                 del param_category[redundant]
+        print(to_override)
         self.override.update(to_override)
 
         self.threads = threads

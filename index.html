@@ -158,7 +158,7 @@
                                                             </div>
                                                             <input type="text" pattern="^([A-Z]:\\)?(\.[\\/])?([\w\s.-]+[\\/])*[\w\s.-]+$" class="form-control"
                                                                 id="predict-path-output" aria-describedby="emailHelp"
-                                                                name="output_path" required>
+                                                                name="--output" required>
                                                             <div class="invalid-feedback">Please fill out this field
                                                                 with a valid path.</div>
                                                         </div>
@@ -186,7 +186,7 @@
                                                             </div>
                                                             <input type="text" pattern="^([A-Z]:\\)?(\.[\\/])?([\w\s.-]+[\\/])*[\w\s.-]+$" class="form-control"
                                                                 id="predict-path-classifier"
-                                                                aria-describedby="emailHelp" name="classifier_path"
+                                                                aria-describedby="emailHelp" name="--classifier"
                                                                 required>
                                                             <div class="invalid-feedback">Please fill out this field
                                                                 with a valid path.</div>
@@ -214,7 +214,7 @@
                                                             </div>
                                                             <input type="text" pattern="^([A-Z]:\\)?(\.[\\/])?([\w\s.-]+[\\/])*[\w\s.-]+$" class="form-control"
                                                                 id="predict-path-virus" aria-describedby="emailHelp"
-                                                                name="virus_path" required>
+                                                                name="--viruses" required>
                                                             <div class="invalid-feedback">Please fill out this field
                                                                 with a valid path.</div>
                                                         </div>
@@ -277,9 +277,9 @@
                                                                 </div>
                                                             </div>
                                                             <!-- setting value -->
-                                                            <input type="text" value="./fastDNA" class="form-control"
+                                                            <input type="text" value="./fastDNA/fastdna" class="form-control"
                                                                 id="predict-fastdna-path" aria-describedby="emailHelp"
-                                                                name="fastdna_path" required>
+                                                                name="--fastdna" required>
                                                             <div class="invalid-feedback">Please fill out this field
                                                                 with a valid path.</div>
                                                         </div>
@@ -305,7 +305,7 @@
                                                             <div class="col-sm-11 pt-1">
                                                                 <input type="range" class="slider" min="1" max="5"
                                                                     step="1" id="predict-fastdna-threads"
-                                                                    name="threads">
+                                                                    name="--threads">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -361,7 +361,7 @@
                                                             </div>
                                                             <input type="number" value="50" min="1" class="form-control"
                                                                 id="predict-fastdna-hits" aria-describedby="emailHelp"
-                                                                name="hits" required>
+                                                                name="--considered" required>
                                                             <div class="invalid-feedback">Please fill out this field
                                                                 with a positive value.</div>
                                                         </div>
@@ -431,7 +431,7 @@
                                                             </div>
                                                             <input type="text" pattern="^([A-Z]:\\)?(\.[\\/])?([\w\s.-]+[\\/])*[\w\s.-]+$" class="form-control"
                                                                 id="train-path-output" aria-describedby="emailHelp"
-                                                                name="output_path" required>
+                                                                name="--output" required>
                                                             <div class="invalid-feedback">Please fill out this field
                                                                 with a valid path.</div>
                                                         </div>
@@ -456,7 +456,7 @@
                                                                 </div>
                                                             </div>
                                                             <input type="text" pattern="^([A-Z]:\\)?(\.[\\/])?([\w\s.-]+[\\/])*[\w\s.-]+$" class="form-control" id="train-path-host"
-                                                                aria-describedby="emailHelp" name="host_path" required>
+                                                                aria-describedby="emailHelp" name="--hosts" required>
                                                             <div class="invalid-feedback">Please fill out this field
                                                                 with a valid path.</div>
                                                         </div>
@@ -481,7 +481,7 @@
                                                                 </div>
                                                             </div>
                                                             <input type="text" pattern="^([A-Z]:\\)?(\.[\\/])?([\w\s.-]+[\\/])*[\w\s.-]+$" class="form-control" id="train-path-virus"
-                                                                aria-describedby="emailHelp" name="virus_path" required>
+                                                                aria-describedby="emailHelp" name="--trainvir" required>
                                                             <div class="invalid-feedback">Please fill out this field
                                                                 with a valid path.</div>
                                                         </div>
@@ -544,9 +544,9 @@
                                                                 </div>
                                                             </div>
                                                             <!-- setting value -->
-                                                            <input type="text" value="./fastDNA" class="form-control"
+                                                            <input type="text" value="./fastDNA/fastdna" class="form-control"
                                                                 id="train-fastdna-path" aria-describedby="emailHelp"
-                                                                name="fastdna_path" required>
+                                                                name="--fastdna" required>
                                                             <div class="invalid-feedback">Please fill out this field
                                                                 with a valid path.</div>
                                                         </div>
@@ -570,7 +570,7 @@
                                                             </div>
                                                             <div class="col-sm-11 pt-1">
                                                                 <input type="range" class="slider" min="1" max="5"
-                                                                    step="1" id="train-fastdna-threads" name="threads">
+                                                                    step="1" id="train-fastdna-threads" name="--threads">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -632,7 +632,7 @@
                                                             </div>
                                                             <input type="number" value="100" min="1"
                                                                 class="form-control" id="train-training-dim"
-                                                                aria-describedby="emailHelp" name="dim" required>
+                                                                aria-describedby="emailHelp" name="--dim" required>
                                                             <div class="invalid-feedback">Please fill out this field
                                                                 with a positive value.</div>
                                                         </div>
@@ -672,7 +672,7 @@
                                                                     <input type="range" value="7" min="1" max="15"
                                                                         step="1" class="slider"
                                                                         id="train-training-minn"
-                                                                        aria-describedby="emailHelp" name="minn"
+                                                                        aria-describedby="emailHelp" name="--minn"
                                                                         required>
                                                                 </div>
                                                                 <!-- </div> -->
@@ -714,7 +714,7 @@
                                                                     <input type="range" value="8" min="1" max="15"
                                                                         step="1" class="slider"
                                                                         id="train-training-maxn"
-                                                                        aria-describedby="emailHelp" name="maxn"
+                                                                        aria-describedby="emailHelp" name="--maxn"
                                                                         required>
                                                                 </div>
                                                                 <!-- </div> -->
@@ -741,7 +741,7 @@
                                                             </div>
                                                             <input type="number" value="200" min="1"
                                                                 class="form-control" id="train-training-readlen"
-                                                                aria-describedby="emailHelp" name="read_len" required>
+                                                                aria-describedby="emailHelp" name="--fraglen" required>
                                                             <div class="invalid-feedback">Please fill out this field
                                                                 with a positive value.</div>
                                                         </div>
@@ -775,7 +775,7 @@
                                                             </div>
                                                             <input type="number" value="100" min="1"
                                                                 class="form-control" id="train-training-readnum"
-                                                                aria-describedby="emailHelp" name="read_num" required>
+                                                                aria-describedby="emailHelp" name="--samples" required>
                                                             <div class="invalid-feedback">Please fill out this field
                                                                 with a positive value.</div>
                                                         </div>
@@ -799,7 +799,7 @@
                                                             <input type="number" value="0.1" min="0" max="1"
                                                                 step="0.000001" class="form-control"
                                                                 id="train-training-lr" aria-describedby="emailHelp"
-                                                                name="lr" required>
+                                                                name="--lrate" required>
                                                             <div class="invalid-feedback">Please fill out this field
                                                                 with value between 0 and 1.</div>
                                                         </div>
@@ -822,7 +822,7 @@
                                                             </div>
                                                             <input type="number" value="100" min="0"
                                                                 class="form-control" id="train-training-ulr"
-                                                                aria-describedby="emailHelp" name="ulr" required>
+                                                                aria-describedby="emailHelp" name="--ulr" required>
                                                             <div class="invalid-feedback">Please fill out this field
                                                                 with a not negative value.</div>
                                                         </div>
@@ -856,7 +856,7 @@
                                                             </div>
                                                             <input type="number" value="20" min="1" class="form-control"
                                                                 id="train-training-epoch" aria-describedby="emailHelp"
-                                                                name="epoch" required>
+                                                                name="--epochs" required>
                                                             <div class="invalid-feedback">Please fill out this field
                                                                 with a positive value.</div>
                                                         </div>
@@ -881,7 +881,7 @@
                                                             <!-- <input type="number" value="100" min="0" class="form-control"
                                                                 id="train-training-loss" aria-describedby="emailHelp"
                                                                 name="loss" required> -->
-                                                            <select name="loss" id="train-training-loss"
+                                                            <select name="--loss" id="train-training-loss"
                                                                 class="form-select" aria-label="Default select example">
                                                                 <!-- <option selected>Open this select menu</option> -->
                                                                 <option value="softmax" selected>Softmax</option>
@@ -940,7 +940,7 @@
                                                             </div>
                                                             <input type="number" value="20" min="0" class="form-control"
                                                                 id="train-opt-preiter" aria-describedby="emailHelp"
-                                                                name="preiter" required>
+                                                                name="--preiter" required>
                                                             <div class="invalid-feedback">Please fill out this field
                                                                 with a non-negative value.</div>
                                                         </div>
@@ -964,7 +964,7 @@
                                                             </div>
                                                             <input type="number" value="30" min="1" class="form-control"
                                                                 id="train-opt-iter" aria-describedby="emailHelp"
-                                                                name="iter" required>
+                                                                name="--iter" required>
                                                             <div class="invalid-feedback">Please fill out this field
                                                                 with a positive value.</div>
                                                         </div>
@@ -988,7 +988,7 @@
                                                             </div>
                                                             <input type="number" value="50" min="1" class="form-control"
                                                                 id="train-opt-hits" aria-describedby="emailHelp"
-                                                                name="hits" required>
+                                                                name="--considered" required>
                                                             <div class="invalid-feedback">Please fill out this field
                                                                 with a positive value.</div>
                                                         </div>
@@ -1011,7 +1011,7 @@
                                                                     'None' implies no taxonomy filtering.
                                                                 </div>
                                                             </div>
-                                                            <select name="filter" id="train-opt-filter"
+                                                            <select name="--examples_from" id="train-opt-filter"
                                                                 class="form-select" aria-label="Default select example">
                                                                 <!-- <option selected>Open this select menu</option> -->
                                                                 <option value="species" selected>Species</option>
@@ -1046,7 +1046,7 @@
                                                             </div>
                                                             <input type="number" value="1" min="1" class="form-control"
                                                                 id="train-opt-reps" aria-describedby="emailHelp"
-                                                                name="reps" required>
+                                                                name="--examples" required>
                                                             <div class="invalid-feedback">Please fill out this field
                                                                 with a positive value.</div>
                                                         </div>

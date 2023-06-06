@@ -724,6 +724,9 @@ i.btn-icon {
     /* height: auto; */
     flex: 1;
     transition: max-height 0.3s ease-in-out;
+    max-height: 800px; 
+    overflow: auto; 
+    resize: vertical;
   }
 
   .fade-in {
