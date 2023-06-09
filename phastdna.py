@@ -98,6 +98,7 @@ if __name__ == "__main__":
     # log.file(output_dir.joinpath('PHastDNA.log'))
 
     # Classify based on pre-trained model
+    print(args)
     print(type(args.iter))
     print(type(args.preiter))
     print(type(args.lrate))

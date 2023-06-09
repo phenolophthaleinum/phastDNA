@@ -22,6 +22,8 @@ var train_form = document.getElementById('train-form');
 console.log(train_form);
 var currentTab = document.getElementById('pills-home-tab');
 var currentToasts = document.getElementsByClassName('.toast');
+var tax_dropdown = document.getElementById('train-opt-filter')
+var label_dropdown = document.getElementById('train-opt-filterLabel')
 // const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
 // const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
 params = {
@@ -52,6 +54,7 @@ params = {
     'train-opt-iter': 'Iterations number',
     'train-opt-hits': 'Considered hits',
     'train-opt-filter': 'Data filter',
+    'train-opt-filterLabel': "Label filter",
     'train-opt-reps': 'Representatives number',
   }
 }
@@ -765,3 +768,14 @@ Array.from(document.querySelectorAll(".run-btn")).forEach(btn => {
 //     // document.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest"});
   
 // });
+
+tax_dropdown.addEventListener('change', (e) => {
+  // console.log(`label dropdown val: ${e.target.value}`);
+  // console.log(`label dropdown idx: ${label_dropdown.selectedIndex}`);
+  for (let i = 0; i < label_dropdown.options.length; i++) {
+    if (label_dropdown.options[i].value === e.target.value) {
+      label_dropdown.selectedIndex = i;
+      break;
+    }
+  }
+})

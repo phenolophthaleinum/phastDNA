@@ -67,11 +67,13 @@ def test_f():
         # with open(f"{task_name}.log", "w") as f:
         # cmd = subprocess.Popen(['python', 'dummyscript.py', '-l', task_name])
         # cmd = subprocess.Popen(['python', 'phastdna.py', '-O', data["output_path"], '-H', data["host_path"], '-V', data["virus_path"], '-e', '1', '-p', '1', '-i', '2', '--filter', data["filter"]])
-        print(type(data['--preiter']))
+        
+        # print(type(data['--preiter']))
         arguments = []
         mutable_data = dict(data)
-        mutable_data['--labels'] = mutable_data['--examples_from']
-        print(type(mutable_data['--preiter']))
+        # mutable_data['--labels'] = mutable_data['--examples_from']
+        # print(type(mutable_data['--preiter']))
+
         for key, value in mutable_data.items():
             arguments.append(key)
             arguments.append(value)

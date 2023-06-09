@@ -164,6 +164,7 @@ class Classifier:
 
         self.model = self.dir.joinpath(f"{self.name}.bin")
 
+        print(self.threads)
         save_vec = ' -saveVec' if self.debug else ''
         command = f"{self.fastdna_exe.as_posix()} supervised " \
                   f"-input {training_fasta} -labels {training_labels}" \
@@ -347,13 +348,14 @@ class Optimizer:
                 if not isinstance(param_value, (tuple, list)):
                     print(type(param), type(param_value))
                     print(param, param_value)
-                    to_override[param] = log10(param_value) if param in self.exponential else param_value
+                    to_override[param] = param_value if param in self.exponential else param_value
                     to_del.add(param)
             for redundant in to_del:
                 del param_category[redundant]
         print(to_override)
         self.override.update(to_override)
 
+        print(f"optimizer threads {threads}")
         self.threads = threads
         self.fastdna_exe = fastdna_exe
         self.best_classifier = Classifier(self.dir.joinpath('best_classifier'), 0, 0, '-', 0, 0, 0, 0, 0)
@@ -454,8 +456,10 @@ class Optimizer:
         iteration_number = next(self.iteration_counter)
         if not iteration_number:
             iteration_number = next(self.iteration_counter)  # skip 0
-
+        
+        print(f"iteration_params {iteration_params}")
         iteration_params = self.parameter_decode(iteration_params)
+        print(f"after param_decode iteration_params {iteration_params}")
 
         log.info(f'ITERATION: {iteration_number}')
 

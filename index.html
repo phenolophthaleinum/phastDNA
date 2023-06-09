@@ -1029,6 +1029,35 @@
                                                         <div class="d-flex justify-content-between flex-wrap mb-3">
                                                             <!-- <div class="d-flex mb-3"> -->
                                                             <div class="d-flex">
+                                                                <h3 class="flavor-5">Label filter</h3>
+                                                                <button class="btn-icon" type="button"
+                                                                    data-bs-toggle="collapse"
+                                                                    data-bs-target="#train-filterLabelInfo"
+                                                                    aria-expanded="false"
+                                                                    aria-controls="train-filterLabelInfo">
+                                                                    <i class="bi bi-info-circle-fill btn btn-icon info-icon"></i>
+                                                                </button>
+                                                            </div>
+                                                            <div class="collapse mb-3 flex-grow-1"
+                                                                id="train-filterLabelInfo">
+                                                                <div class="glass-card flavor-visibility card card-body">
+                                                                    Taxonomy level used to label filtered genomes. This level will be predicted by the classifier.
+                                                                </div>
+                                                            </div>
+                                                            <select name="--labels" id="train-opt-filterLabel"
+                                                                class="form-select" aria-label="Default select example">
+                                                                <!-- <option selected>Open this select menu</option> -->
+                                                                <option value="species" selected>Species</option>
+                                                                <option value="genus">Genus</option>
+                                                                <option value="family">Family</option>
+                                                                <option value="order">Order</option>
+                                                                <option value="class">Class</option>
+                                                                <option value="phylum">Phylum</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="d-flex justify-content-between flex-wrap mb-3">
+                                                            <!-- <div class="d-flex mb-3"> -->
+                                                            <div class="d-flex">
                                                                 <h3 class="flavor-5">Representatives number</h3>
                                                                 <button class="btn-icon" type="button"
                                                                     data-bs-toggle="collapse"
