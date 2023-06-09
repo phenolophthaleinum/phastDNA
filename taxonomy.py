@@ -219,7 +219,7 @@ class TaxonomicEvaluation:
 
         searched_field = 'lineage_names' if use_names else 'lineage'
         truncated_ranks = TAXONOMIC_RANKS[TAXONOMIC_RANKS.index(distances.rank):]
-        min_rank, second_rank = truncated_ranks[0], truncated_ranks[1]
+        min_rank, second_rank = truncated_ranks[:2]
         per_taxon_hits = {rank: {i + 1: [] for i in range(top_n)} for rank in truncated_ranks}
 
         self.description = description

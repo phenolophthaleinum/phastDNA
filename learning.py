@@ -5,6 +5,7 @@ from itertools import count
 from pathlib import Path
 from shutil import rmtree
 from subprocess import Popen, PIPE
+from numpy import log10
 from typing import Any, Dict, List, Tuple
 
 import pandas as pd
@@ -198,8 +199,7 @@ class Classifier:
         fragment_predictions = eval(stdout.decode())
         for pred_set in fragment_predictions:
             faulty_records = [(k, v) for k, v in pred_set.items() if not (isinstance(k, str) and isinstance(v, (float, int)))]
-            assert not faulty_records, f'Faulty fastDNA predictions:' \
-                                       f'\n{faulty_records}'
+            assert not faulty_records, faulty_records
 
         raw_result = pd.DataFrame.from_dict(fragment_predictions).fillna(1e-6)  # https://doi.org/10.1371/journal.pbio.3000106 "we estimate that there exist globally between 0.8 and 1.6 million prokaryotic OTUs"
 
@@ -332,10 +332,10 @@ class Optimizer:
         self.pre_iterations = pre_iterations
         self.iterations = iterations
         self.iteration_counter = count(-1 * pre_iterations)
-        self.continuous = {}
+        self.continuous = {'lr_update': lr_update}
         self.discrete = {'minn': minn, 'maxn': maxn, 'dim': dim, 'noise': noise,
                          'frag_len': frag_len, 'epoch': epochs, 'considered_hosts': considered_hosts, 'samples': samples}
-        self.exponential = {'lr_update': lr_update, 'lr': lr}
+        self.exponential = {'lr': lr}
         self.categorical = {'loss': loss}
         self.override = {}
 
@@ -347,7 +347,7 @@ class Optimizer:
                 if not isinstance(param_value, (tuple, list)):
                     print(type(param), type(param_value))
                     print(param, param_value)
-                    to_override[param] = 10 ** param_value if param in self.exponential else param_value
+                    to_override[param] = log10(param_value) if param in self.exponential else param_value
                     to_del.add(param)
             for redundant in to_del:
                 del param_category[redundant]
@@ -370,19 +370,24 @@ class Optimizer:
 
         # parameters that are continuous (no processing required)
         parameter_bounds = self.continuous
+        human_readable = {param: ' - '.join([f'{b}' for b in bounds]) for param, bounds in self.continuous.items()}
 
         # parameters with non-linear response curve (e.g. values that denote order of magnitude - 10eX)
-        parameter_bounds.update(self.exponential)
+        for param, bounds in self.exponential.items():
+            human_readable[f'{param} (exponential)'] = ' - '.join([f'{b:.2E}' for b in bounds])
+            parameter_bounds[param] = (log10(bounds[0]), log10(bounds[1]))
 
         # parameters that can have only integer values
         for param, bounds in self.discrete.items():
             parameter_bounds[param] = (bounds[0], bounds[1] + 1)  # assure that "border values" have equal probabilities
+            human_readable[f'{param} (as integer)'] = ' - '.join([f'{int(b)}' for b in bounds])
 
         # parameters selected from a list of options (e.g. loss functions)
         for param, variants in self.categorical.items():
+            human_readable[f'{param}'] = ', '.join(variants)
             parameter_bounds[param] = (0, len(variants) - 1e-10)  # here the same is guaranteed by th python 0-based indexing
 
-        search_space_info = '\n'.join([f'{param}: {value_range}' for param, value_range in parameter_bounds.items()])
+        search_space_info = '\n'.join([f'{param: <26}{value_range}' for param, value_range in human_readable.items()])
         log.info(f'OPTIMIZER SEARCH SPACE:\n{search_space_info}')
 
         return parameter_bounds

@@ -34,9 +34,9 @@ if __name__ == "__main__":
     parser.add_argument("-v", "--viruses", required=False,
                         help="Directory with viral genomes for prediction. <predict>")
     parser.add_argument("-r", "--lrate", required=False, nargs='+', default=-1, type=float,
-                        help="EXPONENT for the Learning rate (default [-1] = 1e-1 = 0.1). <train>")
+                        help="EXPONENT for the Learning rate (default [0.1]). <train>")
     parser.add_argument("-u", "--ulr", required=False, nargs='+', default=2, type=float,
-                        help="EXPONENT for update dynamics of the the learning rate (default [2] = 1e2 = 100). <train>")
+                        help="EXPONENT for update dynamics of the the learning rate (default [100]). <train>")
     parser.add_argument("-d", "--dim", required=False, nargs='+', default=100, type=int,
                         help="Dimensionality of k-mer embedding (default [100]). <train>")
     parser.add_argument("-n", "--noise", required=False, nargs='+', default=0,
