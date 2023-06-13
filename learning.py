@@ -141,7 +141,8 @@ class Classifier:
 
         evaluation, missing_predictions = TaxonomicEvaluation.multi_method_evaluation(method_to_raking_dict=merged_rankings,
                                                                                       distances=host_matrix,
-                                                                                      master_virus_dict=virus_metadata)
+                                                                                      master_virus_dict=virus_metadata,
+                                                                                      threads=self.threads)
 
         log.info(f'Found {missing_predictions} missing taxa with rank "{self.labels}" in matrix')
 
@@ -300,6 +301,7 @@ class Optimizer:
         self.n_examples = n_examples
         self.examples_from = examples_from
         self.labels = labels
+        self.threads = threads
 
         self.virus_fasta_dir = virus_dir.joinpath('fasta')
         # TODO
@@ -327,7 +329,8 @@ class Optimizer:
         path_stem = self.dir.joinpath(f'Training.{self.labels}')
         self.training_fasta, self.training_labels = labeled_fasta(training_genome_files,
                                                                   genome_labels,
-                                                                  path_stem=path_stem)
+                                                                  path_stem=path_stem,
+                                                                  n_jobs=self.threads)
 
         self.param_table = self.dir.joinpath('parameters_to_results.tsv')
         self.pre_iterations = pre_iterations
@@ -356,7 +359,6 @@ class Optimizer:
         self.override.update(to_override)
 
         print(f"optimizer threads {threads}")
-        self.threads = threads
         self.fastdna_exe = fastdna_exe
         self.best_classifier = Classifier(self.dir.joinpath('best_classifier'), 0, 0, '-', 0, 0, 0, 0, 0)
         self.report = pd.DataFrame()
@@ -474,6 +476,7 @@ class Optimizer:
                                         to_dir=sample_dir)
 
         classifier = Classifier(**iteration_params,
+                                threads=self.threads,
                                 labels=self.labels,
                                 working_dir=self.dir.joinpath('current_classifier'),
                                 fastdna_exe=self.fastdna_exe,

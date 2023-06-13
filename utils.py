@@ -375,13 +375,15 @@ def sample_fasta_dir(fasta_dir: Path,
 
 def labeled_fasta(files: List[Path],
                   labels: List[str],
-                  path_stem: Path):
+                  path_stem: Path,
+                  n_jobs: int = None):
     assert len(files) == len(labels), f'Sample file list:' \
                                       f'\n{files[:3]} ({len(files)})' \
                                       f'\nDoes NOT match label list:\n{labels[:3]} ({len(labels)})'
     fasta_lines, label_lines = [], []
     read_jobs = Parallel(fasta_2_dict, files,
-                         description=f'labeling {len(files)} training genomes form {len(set(labels))} taxa')
+                         description=f'labeling {len(files)} training genomes form {len(set(labels))} taxa',
+                         n_jobs=n_jobs)
     for seq_dict, label in zip(read_jobs.result, labels):
         fasta_lines.extend([f'>{definition}\n{seq}' for definition, seq in seq_dict.items()])
         label_lines.extend([label for _ in seq_dict])

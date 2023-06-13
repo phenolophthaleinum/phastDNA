@@ -13,7 +13,7 @@ import joblib
 import numpy as np
 import pandas as pd
 
-from utils import Parallel, log
+from utils import Parallel, log, default_threads
 
 PathLike = Union[Path, str]
 
@@ -276,7 +276,8 @@ class TaxonomicEvaluation:
                                 distances: DistanceMatrix,
                                 master_virus_dict: Dict[str, Dict[str, Any]],
                                 use_names: bool = True,
-                                top_n: int = 3) -> Tuple[List['TaxonomicEvaluation'], int]:
+                                top_n: int = 3,
+                                threads: int = default_threads) -> Tuple[List['TaxonomicEvaluation'], int]:
         """
 
         :param method_to_raking_dict:
@@ -293,7 +294,8 @@ class TaxonomicEvaluation:
                         kwargs={'distances': distances,
                                 'master_virus_dict': master_virus_dict,
                                 'use_names': use_names,
-                                'top_n': top_n})
+                                'top_n': top_n},
+                        n_jobs=threads)
         missing_predictions = set()
         for r in jobs.result:
             missing_predictions.update(r.skipped)
