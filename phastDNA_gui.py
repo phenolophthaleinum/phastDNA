@@ -71,12 +71,19 @@ def test_f():
         # print(type(data['--preiter']))
         arguments = []
         mutable_data = dict(data)
+        filtered_dict = {('-'.join(k.split('-')[:-1]) if k.endswith('-lower') or k.endswith('-upper') else k): ((mutable_data[f'{"-".join(k.split("-")[:-1])}-lower'], mutable_data[f'{"-".join(k.split("-")[:-1])}-upper']) if k.endswith('-lower') or k.endswith('-upper') else v) for k, v in mutable_data.items()}
+        
+        print(filtered_dict)
+        # mutable_data = bounds_dict
         # mutable_data['--labels'] = mutable_data['--examples_from']
         # print(type(mutable_data['--preiter']))
 
-        for key, value in mutable_data.items():
+        for key, value in filtered_dict.items():
             arguments.append(key)
-            arguments.append(value)
+            if isinstance(value, tuple):
+                arguments.extend(value)
+            else:
+                arguments.append(value)
         print(*arguments)
         print(['python', 'phastdna.py', *arguments])
         cmd = subprocess.Popen(['python', 'phastdna.py', *arguments])

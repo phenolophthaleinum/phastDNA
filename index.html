@@ -607,14 +607,20 @@
                                                         <div
                                                             class="d-flex justify-content-between flex-wrap mb-3 flex-column">
                                                             <!-- <div class="d-flex mb-3"> -->
-                                                            <div class="d-flex">
-                                                                <h3 class="flavor-5">Word vector size</h3>
-                                                                <button class="btn-icon" type="button"
-                                                                    data-bs-toggle="collapse"
-                                                                    data-bs-target="#train-dimInfo"
-                                                                    aria-expanded="false" aria-controls="train-dimInfo">
-                                                                    <i class="bi bi-info-circle-fill btn btn-icon info-icon"></i>
-                                                                </button>
+                                                            <div class="d-flex justify-content-between">
+                                                                <div class="d-flex">
+                                                                    <h3 class="flavor-5">Word vector size</h3>
+                                                                    <button class="btn-icon" type="button"
+                                                                        data-bs-toggle="collapse"
+                                                                        data-bs-target="#train-dimInfo"
+                                                                        aria-expanded="false" aria-controls="train-dimInfo">
+                                                                        <i class="bi bi-info-circle-fill btn btn-icon info-icon"></i>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="d-flex fs-5" id="train-training-dim-opt" style="visibility: hidden;" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="This setting will be optimised." data-bs-trigger="hover">
+                                                                    <!-- <p class="flavor-7 fs-6 mx-3">Subject to optimisation</p> -->
+                                                                    <i class="bi bi-wrench-adjustable-circle-fill opt-icon"></i>
+                                                                </div>
                                                             </div>
                                                             <div class="collapse mb-3 flex-grow-1" id="train-dimInfo">
                                                                 <div class="glass-card flavor-visibility card card-body">
@@ -630,9 +636,32 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <input type="number" value="100" min="1"
+
+
+                                                            <!-- <input type="checkbox" id="rangeCheckbox">
+                                                            <label for="rangeCheckbox">Specify a range of dimensionality</label>
+                                                            <div id="rangeInput" style="display: none;">
+                                                                <label for="minDimInput">Minimum Dimensionality:</label>
+                                                                <input type="number" id="minDimInput" class="form-control" min="1" name="--dim" required>
+                                                                <label for="maxDimInput">Maximum Dimensionality:</label>
+                                                                <input type="number" id="maxDimInput" class="form-control" min="1" name="--dim" required>
+                                                            </div> -->
+
+                                                            <!-- <input type="number" value="100" min="1"
                                                                 class="form-control" id="train-training-dim"
-                                                                aria-describedby="emailHelp" name="--dim" required>
+                                                                aria-describedby="emailHelp" name="--dim" required> -->
+                                                            
+                                                            <div class="d-flex justify-content-around flex-wrap flex-row">
+                                                                <div class="d-flex flex-column flex-fill mx-3">
+                                                                    <label for="train-training-dim-lower" class="flavor-5">Lower bound</label>
+                                                                    <input type="number" value="100" min="1" class="form-control lower-bound-input" id="train-training-dim-lower" name="--dim-lower" required>
+                                                                </div>
+                                                                <div class="d-flex flex-column flex-fill mx-3">
+                                                                    <label for="train-training-dim-upper" class="flavor-5">Upper bound</label>
+                                                                    <input type="number" value="100" min="1" class="form-control upper-bound-input" id="train-training-dim-upper" name="--dim-upper" required>
+                                                                </div>
+                                                            </div>
+
                                                             <div class="invalid-feedback">Please fill out this field
                                                                 with a positive value.</div>
                                                         </div>
@@ -669,11 +698,19 @@
                                                                     <h4 id="minn-num" class="flavor-5">7</h4>
                                                                 </div>
                                                                 <div class="col-sm-11 pt-1">
-                                                                    <input type="range" value="7" min="1" max="15"
-                                                                        step="1" class="slider"
-                                                                        id="train-training-minn"
-                                                                        aria-describedby="emailHelp" name="--minn"
-                                                                        required>
+                                                                    <!-- <input id="ex2" type="text" class="span2" value="" data-slider-min="10" data-slider-max="1000" data-slider-step="5" data-slider-value="[250,450]"/>
+                                                                    <div class="range-slider"> -->
+                                                                        <input type="range" value="7" min="1" max="15"
+                                                                            step="1" class="slider"
+                                                                            id="train-training-minn"
+                                                                            aria-describedby="emailHelp" name="--minn"
+                                                                            required>
+                                                                        <!-- <input type="range" value="7" min="1" max="15"
+                                                                            step="1" class="slider"
+                                                                            id="train-training-minn-upper"
+                                                                            aria-describedby="emailHelp" name="--minn-upper"
+                                                                            required> -->
+                                                                    <!-- </div> -->
                                                                 </div>
                                                                 <!-- </div> -->
                                                             </div>
@@ -739,9 +776,21 @@
                                                                     Length of sampled reads from sequences.
                                                                 </div>
                                                             </div>
-                                                            <input type="number" value="200" min="1"
+
+                                                            <!-- <input type="number" value="200" min="1"
                                                                 class="form-control" id="train-training-readlen"
-                                                                aria-describedby="emailHelp" name="--fraglen" required>
+                                                                aria-describedby="emailHelp" name="--fraglen" required> -->
+                                                            <div class="d-flex justify-content-around flex-wrap flex-row">
+                                                                <div class="d-flex flex-column flex-fill mx-3">
+                                                                    <label for="train-training-dim-lower" class="flavor-5">Lower bound</label>
+                                                                    <input type="number" value="200" min="1" class="form-control lower-bound-input" id="train-training-readlen-lower" name="--fraglen-lower" required>
+                                                                </div>
+                                                                <div class="d-flex flex-column flex-fill mx-3">
+                                                                    <label for="train-training-dim-upper" class="flavor-5">Upper bound</label>
+                                                                    <input type="number" value="200" min="1" class="form-control upper-bound-input" id="train-training-readlen-upper" name="--fraglen-upper" required>
+                                                                </div>
+                                                            </div>
+                                                            
                                                             <div class="invalid-feedback">Please fill out this field
                                                                 with a positive value.</div>
                                                         </div>

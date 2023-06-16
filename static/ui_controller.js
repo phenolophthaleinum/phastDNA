@@ -1,3 +1,5 @@
+const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
 var param_btn = document.getElementById('offcanvas-params-btn');
 var run_pred_btn = document.getElementById('post-predict-button');
 var run_train_btn = document.getElementById('post-train-button');
@@ -41,10 +43,18 @@ params = {
     'train-path-virus': "Viruses path",
     'train-fastdna-path': 'fastDNA path',
     'train-fastdna-threads': 'Threads',
-    'train-training-dim': 'Word vector size',
+    'train-training-dim': {
+      'field_name': 'Word vector size',
+      'lower': 'train-training-dim-lower',
+      'upper': 'train-training-dim-upper'
+    },
     'train-training-minn': 'Minimum k-mer size',
     'train-training-maxn': 'Maximum k-mer size',
-    'train-training-readlen': 'Read length',
+    'train-training-readlen': {
+      'field_name': 'Read length',
+      'lower': 'train-training-readlen-lower',
+      'upper': 'train-training-readlen-upper'
+    },
     'train-training-readnum': 'Read samples number',
     'train-training-lr': 'Learning rate',
     'train-training-ulr': 'Learning rate update rate',
@@ -91,7 +101,26 @@ param_btn.onclick = function () {
       setup.appendChild(entry);
     }
     else {
-      continue;
+      if (typeof val === 'object') {
+        // console.log(params[currentTab][key]['lower']);
+        // console.log(key.lower);
+        
+        var lower_val = document.getElementById(val.lower).value;
+        var upper_val = document.getElementById(val.upper).value;
+        var final_value = lower_val === upper_val ? `${lower_val}` : `${lower_val} - ${upper_val}`;
+        // var upper_val = elem_value.upper;
+        var entry = document.createElement('div')
+        // entry.className = 'list-group-item';
+        entry.classList.add('list-group-item', 'glass');
+        entry.innerHTML = `<div class="d-flex w-100 justify-content-between">
+                              <h5 class="mb-1 flavor-5">${val.field_name}</h5>
+                            </div>
+                            <p class="mb-1 dynamic-break flavor-visibility">${final_value}</p>`;
+        setup.appendChild(entry);
+      }
+      else {
+        continue;
+      }
     }
   }
   if (setup.innerHTML === '') {
@@ -779,3 +808,112 @@ tax_dropdown.addEventListener('change', (e) => {
     }
   }
 })
+
+// const rangeCheckbox = document.getElementById('rangeCheckbox');
+// const rangeInput = document.getElementById('rangeInput');
+
+// rangeCheckbox.addEventListener('change', function() {
+//     if (this.checked) {
+//         rangeInput.style.display = 'block';
+//     } else {
+//         rangeInput.style.display = 'none';
+//     }
+// });
+
+var lowerBoundInputs = document.querySelectorAll('.lower-bound-input');
+var upperBoundInputs = document.querySelectorAll('.upper-bound-input');
+
+console.log(lowerBoundInputs);
+
+lowerBoundInputs.forEach(function(input) {
+  input.addEventListener('change', validateBounds);
+});
+
+upperBoundInputs.forEach(function(input) {
+  input.addEventListener('change', validateBounds);
+});
+
+function showOptIcon(obj){
+  obj.style.visibility = "visible";
+  // run_pred_btn.disabled = false;
+  // run_train_btn.disabled = false;
+  // param_btn.disabled = false;
+}
+function hideOptIcon(obj){
+  obj.style.visibility = "hidden";
+  // run_pred_btn.disabled = false;
+  // run_train_btn.disabled = false;
+  // param_btn.disabled = false;
+}
+
+function validateBounds(event) {
+  event.preventDefault();
+  var inputObj = event.target;
+  console.log(inputObj.classList);
+  var isLower = inputObj.classList.contains('lower-bound-input');
+  console.log(isLower);
+  var lowerBoundInput = isLower ? inputObj : inputObj.parentNode.previousElementSibling.querySelector('.lower-bound-input');
+  console.log(lowerBoundInput);
+  var upperBoundInput = isLower ? inputObj.parentNode.nextElementSibling.querySelector('.upper-bound-input') : inputObj;
+  console.log(upperBoundInput);
+  var lowerBound = parseInt(lowerBoundInput.value);
+  var upperBound = parseInt(upperBoundInput.value);
+  // var upperBoundInput = event.target.parentNode.nextElementSibling.querySelector('.upper-bound-input');
+  // console.log(upperBoundInput);
+  // var upperBound = upperBoundInput.value;
+
+  console.log(lowerBound);
+  console.log(upperBound);
+
+  var temp_name_list = event.target.id.split('-').slice(0, -1);
+  console.log(temp_name_list);
+  temp_name_list.push("opt");
+  console.log(temp_name_list.join('-'));
+  var opt_icon = document.querySelector(`#${temp_name_list.join('-')}`);
+  console.log(opt_icon)
+
+  if (lowerBound == upperBound) {
+    // opt_icon.style.visibility = "hidden";
+    gsap.to(opt_icon, {
+      y: 60,
+      opacity: 0,
+      force3D: true,
+      ease: "power1.inOut",
+      onComplete: hideOptIcon(opt_icon),
+      duration: 0.2
+    })
+  }
+  else {
+    gsap.to(opt_icon, {
+      onStart: showOptIcon(opt_icon),
+      y: 0,
+      opacity: 1,
+      duration: 0.2,
+      force3D: true,
+      ease: "power1.inOut",
+        // onComplete: function() {
+        //   this.targets()[0].style.display = "block";
+        // }
+    })
+  }
+
+  if (lowerBound >= upperBound) {
+    upperBoundInput.value = lowerBound;
+    gsap.to(opt_icon, {
+      y: 60,
+      opacity: 0,
+      force3D: true,
+      ease: "power1.inOut",
+      onComplete: hideOptIcon(opt_icon),
+      duration: 0.2
+    })
+      // event.target.classList.add('invalid'); // Add a CSS class to highlight the invalid input
+  }
+}
+
+// var slider = new Slider('#ex2', {});
+// var slider2 = new slider('#ex1', {
+// 	formatter: function(value) {
+// 		return 'Current value: ' + value;
+// 	}
+// });
