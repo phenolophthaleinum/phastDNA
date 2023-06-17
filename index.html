@@ -668,15 +668,21 @@
                                                         <div
                                                             class="d-flex justify-content-between flex-wrap mb-3 flex-column">
                                                             <!-- <div class="d-flex mb-3"> -->
-                                                            <div class="d-flex">
-                                                                <h3 class="flavor-5">Minimum k-mer size</h3>
-                                                                <button class="btn-icon" type="button"
-                                                                    data-bs-toggle="collapse"
-                                                                    data-bs-target="#train-minnInfo"
-                                                                    aria-expanded="false"
-                                                                    aria-controls="train-minnInfo">
-                                                                    <i class="bi bi-info-circle-fill btn btn-icon info-icon"></i>
-                                                                </button>
+                                                            <div class="d-flex justify-content-between"> 
+                                                                <div class="d-flex">
+                                                                    <h3 class="flavor-5">Minimum k-mer size</h3>
+                                                                    <button class="btn-icon" type="button"
+                                                                        data-bs-toggle="collapse"
+                                                                        data-bs-target="#train-minnInfo"
+                                                                        aria-expanded="false"
+                                                                        aria-controls="train-minnInfo">
+                                                                        <i class="bi bi-info-circle-fill btn btn-icon info-icon"></i>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="d-flex fs-5" id="train-training-minn-opt" style="visibility: hidden;" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="This setting will be optimised." data-bs-trigger="hover">
+                                                                    <!-- <p class="flavor-7 fs-6 mx-3">Subject to optimisation</p> -->
+                                                                    <i class="bi bi-wrench-adjustable-circle-fill opt-icon"></i>
+                                                                </div>
                                                             </div>
                                                             <div class="collapse mb-3 flex-grow-1" id="train-minnInfo">
                                                                 <div class="glass-card flavor-visibility card card-body">
@@ -692,41 +698,54 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="d-flex">
-                                                                <!-- <div class="row g-3"> -->
-                                                                <div class="col-sm">
-                                                                    <h4 id="minn-num" class="flavor-5">7</h4>
-                                                                </div>
-                                                                <div class="col-sm-11 pt-1">
-                                                                    <!-- <input id="ex2" type="text" class="span2" value="" data-slider-min="10" data-slider-max="1000" data-slider-step="5" data-slider-value="[250,450]"/>
-                                                                    <div class="range-slider"> -->
+                                                            <div class="d-flex justify-content-between flex-wrap flex-row">
+                                                                <!-- <div class="d-flex"> -->
+                                                                <!-- <div class="d-flex flex-column"> -->
+                                                                <!-- <div class="col-sm-2"> -->
+                                                                    <!-- <h4 id="minn-num" class="flavor-5">7</h4> -->
+                                                                <!-- </div> -->
+                                                                <!-- <div class="d-flex flex-column flex-grow-1 me-auto"> -->
+                                                                <!-- <div class="d-flex"> -->
+                                                                <!-- <div class="col-sm-10 pt-1"> -->
+                                                                <div class="container-sm mb-1">
+                                                                <!-- <div class="d-flex flex-column flex-fill"> -->
+                                                                    <!-- <input id="ex2" type="text" class="span2" value="" data-slider-min="10" data-slider-max="1000" data-slider-step="5" data-slider-value="[250,450]"/> -->
+                                                                    <label for="train-training-minn-lower" class="flavor-5 fs-4" id="minn-num">7</label>
+                                                                    <div class="range-slider">
                                                                         <input type="range" value="7" min="1" max="15"
                                                                             step="1" class="slider"
-                                                                            id="train-training-minn"
-                                                                            aria-describedby="emailHelp" name="--minn"
+                                                                            id="train-training-minn-lower"
+                                                                            aria-describedby="emailHelp" name="--minn-lower"
                                                                             required>
-                                                                        <!-- <input type="range" value="7" min="1" max="15"
+                                                                        <input type="range" value="7" min="1" max="15"
                                                                             step="1" class="slider"
                                                                             id="train-training-minn-upper"
                                                                             aria-describedby="emailHelp" name="--minn-upper"
-                                                                            required> -->
-                                                                    <!-- </div> -->
+                                                                            required>
+                                                                    </div>
                                                                 </div>
+                                                                <!-- </div> -->
                                                                 <!-- </div> -->
                                                             </div>
                                                         </div>
                                                         <div
                                                             class="d-flex justify-content-between flex-wrap mb-3 flex-column">
                                                             <!-- <div class="d-flex mb-3"> -->
-                                                            <div class="d-flex">
-                                                                <h3 class="flavor-5">Maximum k-mer size</h3>
-                                                                <button class="btn-icon" type="button"
-                                                                    data-bs-toggle="collapse"
-                                                                    data-bs-target="#train-maxnInfo"
-                                                                    aria-expanded="false"
-                                                                    aria-controls="train-maxnInfo">
-                                                                    <i class="bi bi-info-circle-fill btn btn-icon info-icon"></i>
-                                                                </button>
+                                                            <div class="d-flex justify-content-between">  
+                                                                <div class="d-flex">
+                                                                    <h3 class="flavor-5">Maximum k-mer size</h3>
+                                                                    <button class="btn-icon" type="button"
+                                                                        data-bs-toggle="collapse"
+                                                                        data-bs-target="#train-maxnInfo"
+                                                                        aria-expanded="false"
+                                                                        aria-controls="train-maxnInfo">
+                                                                        <i class="bi bi-info-circle-fill btn btn-icon info-icon"></i>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="d-flex fs-5" id="train-training-maxn-opt" style="visibility: hidden;" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="This setting will be optimised." data-bs-trigger="hover">
+                                                                    <!-- <p class="flavor-7 fs-6 mx-3">Subject to optimisation</p> -->
+                                                                    <i class="bi bi-wrench-adjustable-circle-fill opt-icon"></i>
+                                                                </div>
                                                             </div>
                                                             <div class="collapse mb-3 flex-grow-1" id="train-maxnInfo">
                                                                 <div class="glass-card flavor-visibility card card-body">
@@ -742,17 +761,26 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="d-flex">
+                                                            <div class="d-flex justify-content-between flex-wrap flex-row">
                                                                 <!-- <div class="row g-3"> -->
-                                                                <div class="col-sm">
+                                                                <!-- <div class="col-sm">
                                                                     <h4 id="maxn-num" class="flavor-5">8</h4>
-                                                                </div>
-                                                                <div class="col-sm-11 pt-1">
-                                                                    <input type="range" value="8" min="1" max="15"
-                                                                        step="1" class="slider"
-                                                                        id="train-training-maxn"
-                                                                        aria-describedby="emailHelp" name="--maxn"
-                                                                        required>
+                                                                </div> -->
+                                                                <!-- <div class="col-sm-11 pt-1"> -->
+                                                                <div class="container-sm mb-1">
+                                                                    <label for="train-training-maxn-lower" class="flavor-5 fs-4" id="maxn-num">8</label>
+                                                                    <div class="range-slider">
+                                                                        <input type="range" value="8" min="1" max="15"
+                                                                            step="1" class="slider"
+                                                                            id="train-training-maxn-lower"
+                                                                            aria-describedby="emailHelp" name="--maxn-lower"
+                                                                            required>
+                                                                        <input type="range" value="8" min="1" max="15"
+                                                                            step="1" class="slider"
+                                                                            id="train-training-maxn-upper"
+                                                                            aria-describedby="emailHelp" name="--maxn-upper"
+                                                                            required>
+                                                                    </div>
                                                                 </div>
                                                                 <!-- </div> -->
                                                             </div>
@@ -760,15 +788,21 @@
                                                         <div
                                                             class="d-flex justify-content-between flex-wrap mb-3 flex-column">
                                                             <!-- <div class="d-flex mb-3"> -->
-                                                            <div class="d-flex">
-                                                                <h3 class="flavor-5">Read length</h3>
-                                                                <button class="btn-icon" type="button"
-                                                                    data-bs-toggle="collapse"
-                                                                    data-bs-target="#train-readlenInfo"
-                                                                    aria-expanded="false"
-                                                                    aria-controls="train-readlenInfo">
-                                                                    <i class="bi bi-info-circle-fill btn btn-icon info-icon"></i>
-                                                                </button>
+                                                            <div class="d-flex justify-content-between">
+                                                                <div class="d-flex">
+                                                                    <h3 class="flavor-5">Read length</h3>
+                                                                    <button class="btn-icon" type="button"
+                                                                        data-bs-toggle="collapse"
+                                                                        data-bs-target="#train-readlenInfo"
+                                                                        aria-expanded="false"
+                                                                        aria-controls="train-readlenInfo">
+                                                                        <i class="bi bi-info-circle-fill btn btn-icon info-icon"></i>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="d-flex fs-5" id="train-training-readlen-opt" style="visibility: hidden;" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="This setting will be optimised." data-bs-trigger="hover">
+                                                                    <!-- <p class="flavor-7 fs-6 mx-3">Subject to optimisation</p> -->
+                                                                    <i class="bi bi-wrench-adjustable-circle-fill opt-icon"></i>
+                                                                </div>
                                                             </div>
                                                             <div class="collapse mb-3 flex-grow-1"
                                                                 id="train-readlenInfo">
@@ -797,15 +831,21 @@
                                                         <div
                                                             class="d-flex justify-content-between flex-wrap mb-3 flex-column">
                                                             <!-- <div class="d-flex mb-3"> -->
-                                                            <div class="d-flex">
-                                                                <h3 class="flavor-5">Read samples number</h3>
-                                                                <button class="btn-icon" type="button"
-                                                                    data-bs-toggle="collapse"
-                                                                    data-bs-target="#train-readnumInfo"
-                                                                    aria-expanded="false"
-                                                                    aria-controls="train-readnumInfo">
-                                                                    <i class="bi bi-info-circle-fill btn btn-icon info-icon"></i>
-                                                                </button>
+                                                            <div class="d-flex justify-content-between">
+                                                                <div class="d-flex">
+                                                                    <h3 class="flavor-5">Read samples number</h3>
+                                                                    <button class="btn-icon" type="button"
+                                                                        data-bs-toggle="collapse"
+                                                                        data-bs-target="#train-readnumInfo"
+                                                                        aria-expanded="false"
+                                                                        aria-controls="train-readnumInfo">
+                                                                        <i class="bi bi-info-circle-fill btn btn-icon info-icon"></i>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="d-flex fs-5" id="train-training-readnum-opt" style="visibility: hidden;" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="This setting will be optimised." data-bs-trigger="hover">
+                                                                    <!-- <p class="flavor-7 fs-6 mx-3">Subject to optimisation</p> -->
+                                                                    <i class="bi bi-wrench-adjustable-circle-fill opt-icon"></i>
+                                                                </div>
                                                             </div>
                                                             <div class="collapse mb-3 flex-grow-1"
                                                                 id="train-readnumInfo">
@@ -822,33 +862,62 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <input type="number" value="100" min="1"
-                                                                class="form-control" id="train-training-readnum"
-                                                                aria-describedby="emailHelp" name="--samples" required>
+                                                            <div class="d-flex justify-content-around flex-wrap flex-row">
+                                                                <div class="d-flex flex-column flex-fill mx-3">
+                                                                    <label for="train-training-readnum-lower" class="flavor-5">Lower bound</label>
+                                                                    <input type="number" value="100" min="1"
+                                                                        class="form-control lower-bound-input" id="train-training-readnum-lower"
+                                                                        aria-describedby="emailHelp" name="--samples-lower" required>
+                                                                </div>
+                                                                <div class="d-flex flex-column flex-fill mx-3">
+                                                                    <label for="train-training-readnum-upper" class="flavor-5">Upper bound</label>
+                                                                    <input type="number" value="100" min="1"
+                                                                        class="form-control upper-bound-input" id="train-training-readnum-upper"
+                                                                        aria-describedby="emailHelp" name="--samples-upper" required>
+                                                                </div>
+                                                            </div>
                                                             <div class="invalid-feedback">Please fill out this field
                                                                 with a positive value.</div>
                                                         </div>
                                                         <div
                                                             class="d-flex justify-content-between flex-wrap mb-3 flex-column">
                                                             <!-- <div class="d-flex mb-3"> -->
-                                                            <div class="d-flex">
-                                                                <h3 class="flavor-5">Learning rate</h3>
-                                                                <button class="btn-icon" type="button"
-                                                                    data-bs-toggle="collapse"
-                                                                    data-bs-target="#train-lrInfo" aria-expanded="false"
-                                                                    aria-controls="train-lrInfo">
-                                                                    <i class="bi bi-info-circle-fill btn btn-icon info-icon"></i>
-                                                                </button>
+                                                            <div class="d-flex justify-content-between">
+                                                                <div class="d-flex">
+                                                                    <h3 class="flavor-5">Learning rate</h3>
+                                                                    <button class="btn-icon" type="button"
+                                                                        data-bs-toggle="collapse"
+                                                                        data-bs-target="#train-lrInfo" aria-expanded="false"
+                                                                        aria-controls="train-lrInfo">
+                                                                        <i class="bi bi-info-circle-fill btn btn-icon info-icon"></i>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="d-flex fs-5" id="train-training-lr-opt" style="visibility: hidden;" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="This setting will be optimised." data-bs-trigger="hover">
+                                                                    <!-- <p class="flavor-7 fs-6 mx-3">Subject to optimisation</p> -->
+                                                                    <i class="bi bi-wrench-adjustable-circle-fill opt-icon"></i>
+                                                                </div>
                                                             </div>
                                                             <div class="collapse mb-3 flex-grow-1" id="train-lrInfo">
                                                                 <div class="glass-card flavor-visibility card card-body">
                                                                     Training learning rate.
                                                                 </div>
                                                             </div>
-                                                            <input type="number" value="0.1" min="0" max="1"
-                                                                step="0.000001" class="form-control"
-                                                                id="train-training-lr" aria-describedby="emailHelp"
-                                                                name="--lrate" required>
+                                                            <div class="d-flex justify-content-around flex-wrap flex-row">
+                                                                <div class="d-flex flex-column flex-fill mx-3">
+                                                                    <label for="train-training-lr-lower" class="flavor-5">Lower bound</label>
+                                                                    <input type="number" value="0.1" min="0" max="1"
+                                                                        step="0.000001" class="form-control lower-bound-input"
+                                                                        id="train-training-lr-lower" aria-describedby="emailHelp"
+                                                                        name="--lrate-lower" required>
+                                                                </div>
+                                                                <div class="d-flex flex-column flex-fill mx-3">
+                                                                    <label for="train-training-lr-upper" class="flavor-5">Upper bound</label>
+                                                                    <input type="number" value="0.1" min="0" max="1"
+                                                                        step="0.000001" class="form-control upper-bound-input"
+                                                                        id="train-training-lr-upper" aria-describedby="emailHelp"
+                                                                        name="--lrate-upper" required>
+                                                                </div>
+                                                            </div>
                                                             <div class="invalid-feedback">Please fill out this field
                                                                 with value between 0 and 1.</div>
                                                         </div>

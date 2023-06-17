@@ -6,8 +6,12 @@ var run_train_btn = document.getElementById('post-train-button');
 var setup = document.getElementById('current-setup');
 var threads_slider_predict = document.getElementById('predict-fastdna-threads');
 var threads_slider_train = document.getElementById('train-fastdna-threads');
-var minn_slider = document.getElementById('train-training-minn');
-var maxn_slider = document.getElementById('train-training-maxn');
+var minn_slider_lower = document.getElementById('train-training-minn-lower');
+var minn_slider_upper = document.getElementById('train-training-minn-upper');
+var minn_range = [7,7];
+var maxn_range = [8,8];
+var maxn_slider_lower = document.getElementById('train-training-maxn-lower');
+var maxn_slider_upper = document.getElementById('train-training-maxn-upper');
 var max_threads = window.navigator.hardwareConcurrency;
 threads_slider_predict.max = max_threads;
 threads_slider_train.max = max_threads;
@@ -48,17 +52,41 @@ params = {
       'lower': 'train-training-dim-lower',
       'upper': 'train-training-dim-upper'
     },
-    'train-training-minn': 'Minimum k-mer size',
-    'train-training-maxn': 'Maximum k-mer size',
+    'train-training-minn': {
+      'field_name': 'Minimum k-mer size',
+      'lower': 'train-training-minn-lower',
+      'upper': 'train-training-minn-upper'
+    },
+    'train-training-maxn': {
+      'field_name': 'Maximum k-mer size',
+      'lower': 'train-training-maxn-lower',
+      'upper': 'train-training-maxn-upper'
+    },
     'train-training-readlen': {
       'field_name': 'Read length',
       'lower': 'train-training-readlen-lower',
       'upper': 'train-training-readlen-upper'
     },
-    'train-training-readnum': 'Read samples number',
-    'train-training-lr': 'Learning rate',
-    'train-training-ulr': 'Learning rate update rate',
-    'train-training-epoch': 'Epochs number',
+    'train-training-readnum': {
+      'field_name': 'Read samples number',
+      'lower': 'train-training-readnum-lower',
+      'upper': 'train-training-readnum-upper'
+    },
+    'train-training-lr': {
+      'field_name': 'Learning rate',
+      'lower': 'train-training-lr-lower',
+      'upper': 'train-training-lr-upper'
+    },
+    'train-training-ulr': {
+      'field_name': 'Learning rate update rate',
+      'lower': 'train-training-ulr-lower',
+      'upper': 'train-training-ulr-upper'
+    },
+    'train-training-epoch': {
+      'field_name': 'Epochs number',
+      'lower': 'train-training-epoch-lower',
+      'upper': 'train-training-epoch-upper'
+    },
     'train-training-loss': 'Loss function',
     'train-opt-preiter': 'Pre-iterations number',
     'train-opt-iter': 'Iterations number',
@@ -431,13 +459,219 @@ threads_slider_train.addEventListener('input', (e) => {
   threads_num_train.textContent = e.target.value;
 })
 
-minn_slider.addEventListener('input', (e) => {
-  minn_num.textContent = e.target.value;
+minn_slider_lower.addEventListener('input', (e) => {
+  // console.log("lower knob moved")
+  console.log(`lower knob moved; lower: ${minn_slider_lower.value}, upper: ${minn_slider_upper.value}, target: ${e.target.value}, minrange[0]: ${minn_range[0]}, minrange[1]: ${minn_range[1]}`);
+  // if (e.target.value <= minn_range[1])
+  // {
+  //   minn_range[0] = e.target.value;
+  //   minn_num.textContent = e.target.value === minn_slider_upper.value ? `${minn_range[0]}` : `${minn_range[0]} - ${minn_range[1]}`;
+  // }
+  // else{
+  //   minn_range[0] = minn_range[1];
+  //   minn_slider_lower.value = minn_range[0];
+  //   minn_num.textContent = `${minn_range[0]}`;
+  // }
+
+  // if (e.target.value <= minn_slider_upper.value) {
+  //   minn_range[0] = e.target.value;
+  //   minn_num.textContent = e.target.value === minn_slider_upper.value ? `${minn_range[0]}` : `${minn_range[0]} - ${minn_range[1]}`;
+  // } else {
+  //   minn_slider_lower.value = minn_range[0]; // Reset the lower knob to its previous value
+  // }
+  var opt_icon = getOptIconObj(e);
+  if (parseInt(e.target.value) <= parseInt(minn_slider_upper.value)) {
+    minn_range[0] = e.target.value;
+    gsap.to(opt_icon, {
+      onStart: showOptIcon(opt_icon),
+      y: 0,
+      opacity: 1,
+      duration: 0.2,
+      force3D: true,
+      ease: "power1.inOut",
+        // onComplete: function() {
+        //   this.targets()[0].style.display = "block";
+        // }
+    });
+    if (e.target.value === minn_slider_upper.value) {
+      gsap.to(opt_icon, {
+        y: 60,
+        opacity: 0,
+        force3D: true,
+        ease: "power1.inOut",
+        onComplete: hideOptIcon(opt_icon),
+        duration: 0.2
+      });
+      minn_num.textContent = `${minn_range[0]}`;
+    } 
+    else {
+      minn_num.textContent = `${minn_range[0]} - ${minn_range[1]}`;
+    }
+    // minn_num.textContent = e.target.value === minn_slider_upper.value ? `${minn_range[0]}` : `${minn_range[0]} - ${minn_range[1]}`;
+  } else {
+    minn_slider_lower.value = minn_slider_upper.value; // Set the lower knob to the value of the upper knob
+  }
 })
 
-maxn_slider.addEventListener('input', (e) => {
-  maxn_num.textContent = e.target.value;
+minn_slider_upper.addEventListener('input', (e) => {
+  // console.log("upper knob moved")
+  // console.log(minn_slider_lower.value)
+  console.log(`upper knob moved; lower: ${minn_slider_lower.value}, upper: ${minn_slider_upper.value}, target: ${e.target.value}, minrange[0]: ${minn_range[0]}, minrange[1]: ${minn_range[1]}`);
+  // if (e.target.value >= minn_range[0])
+  // {
+  //   minn_range[1] = e.target.value;
+  //   minn_num.textContent = e.target.value === minn_slider_lower.value ? `${minn_range[1]}` : `${minn_range[0]} - ${minn_range[1]}`;
+  // }
+  // else{
+  //   minn_range[1] = minn_range[0];
+  //   minn_slider_upper.value = minn_range[1];
+  //   minn_num.textContent = `${minn_range[1]}`;
+  // }
+
+  var opt_icon = getOptIconObj(e);
+  if (parseInt(e.target.value) >= parseInt(minn_slider_lower.value)) {
+    minn_range[1] = e.target.value;
+    gsap.to(opt_icon, {
+      onStart: showOptIcon(opt_icon),
+      y: 0,
+      opacity: 1,
+      duration: 0.2,
+      force3D: true,
+      ease: "power1.inOut",
+        // onComplete: function() {
+        //   this.targets()[0].style.display = "block";
+        // }
+    });
+    if (e.target.value === minn_slider_lower.value) {
+      gsap.to(opt_icon, {
+        y: 60,
+        opacity: 0,
+        force3D: true,
+        ease: "power1.inOut",
+        onComplete: hideOptIcon(opt_icon),
+        duration: 0.2
+      });
+      minn_num.textContent = `${minn_range[0]}`;
+    } 
+    else {
+      minn_num.textContent = `${minn_range[0]} - ${minn_range[1]}`;
+    }
+    // minn_num.textContent = e.target.value === minn_slider_lower.value ? `${minn_range[1]}` : `${minn_range[0]} - ${minn_range[1]}`;
+  } else {
+    minn_slider_upper.value = minn_slider_lower.value; // Set the upper knob to the value of the lower knob
+  }
 })
+
+// maxn_slider.addEventListener('input', (e) => {
+//   maxn_num.textContent = e.target.value;
+// })
+
+maxn_slider_lower.addEventListener('input', (e) => {
+  // console.log("lower knob moved")
+  // console.log(`lower knob moved; lower: ${minn_slider_lower.value}, upper: ${minn_slider_upper.value}, target: ${e.target.value}, minrange[0]: ${minn_range[0]}, minrange[1]: ${minn_range[1]}`);
+  // if (e.target.value <= minn_range[1])
+  // {
+  //   minn_range[0] = e.target.value;
+  //   minn_num.textContent = e.target.value === minn_slider_upper.value ? `${minn_range[0]}` : `${minn_range[0]} - ${minn_range[1]}`;
+  // }
+  // else{
+  //   minn_range[0] = minn_range[1];
+  //   minn_slider_lower.value = minn_range[0];
+  //   minn_num.textContent = `${minn_range[0]}`;
+  // }
+
+  // if (e.target.value <= minn_slider_upper.value) {
+  //   minn_range[0] = e.target.value;
+  //   minn_num.textContent = e.target.value === minn_slider_upper.value ? `${minn_range[0]}` : `${minn_range[0]} - ${minn_range[1]}`;
+  // } else {
+  //   minn_slider_lower.value = minn_range[0]; // Reset the lower knob to its previous value
+  // }
+  var opt_icon = getOptIconObj(e);
+  if (parseInt(e.target.value) <= parseInt(maxn_slider_upper.value)) {
+    maxn_range[0] = e.target.value;
+    gsap.to(opt_icon, {
+      onStart: showOptIcon(opt_icon),
+      y: 0,
+      opacity: 1,
+      duration: 0.2,
+      force3D: true,
+      ease: "power1.inOut",
+        // onComplete: function() {
+        //   this.targets()[0].style.display = "block";
+        // }
+    });
+    if (e.target.value === maxn_slider_upper.value) {
+      gsap.to(opt_icon, {
+        y: 60,
+        opacity: 0,
+        force3D: true,
+        ease: "power1.inOut",
+        onComplete: hideOptIcon(opt_icon),
+        duration: 0.2
+      });
+      maxn_num.textContent = `${maxn_range[0]}`;
+    } 
+    else {
+      maxn_num.textContent = `${maxn_range[0]} - ${maxn_range[1]}`;
+    }
+    // minn_num.textContent = e.target.value === minn_slider_upper.value ? `${minn_range[0]}` : `${minn_range[0]} - ${minn_range[1]}`;
+  } else {
+    maxn_slider_lower.value = maxn_slider_upper.value; // Set the lower knob to the value of the upper knob
+  }
+})
+
+maxn_slider_upper.addEventListener('input', (e) => {
+  // console.log("upper knob moved")
+  // console.log(minn_slider_lower.value)
+  // console.log(`upper knob moved; lower: ${minn_slider_lower.value}, upper: ${minn_slider_upper.value}, target: ${e.target.value}, minrange[0]: ${minn_range[0]}, minrange[1]: ${minn_range[1]}`);
+  // if (e.target.value >= minn_range[0])
+  // {
+  //   minn_range[1] = e.target.value;
+  //   minn_num.textContent = e.target.value === minn_slider_lower.value ? `${minn_range[1]}` : `${minn_range[0]} - ${minn_range[1]}`;
+  // }
+  // else{
+  //   minn_range[1] = minn_range[0];
+  //   minn_slider_upper.value = minn_range[1];
+  //   minn_num.textContent = `${minn_range[1]}`;
+  // }
+
+  var opt_icon = getOptIconObj(e);
+  if (parseInt(e.target.value) >= parseInt(maxn_slider_lower.value)) {
+    maxn_range[1] = e.target.value;
+    gsap.to(opt_icon, {
+      onStart: showOptIcon(opt_icon),
+      y: 0,
+      opacity: 1,
+      duration: 0.2,
+      force3D: true,
+      ease: "power1.inOut",
+        // onComplete: function() {
+        //   this.targets()[0].style.display = "block";
+        // }
+    });
+    if (e.target.value === maxn_slider_lower.value) {
+      gsap.to(opt_icon, {
+        y: 60,
+        opacity: 0,
+        force3D: true,
+        ease: "power1.inOut",
+        onComplete: hideOptIcon(opt_icon),
+        duration: 0.2
+      });
+      maxn_num.textContent = `${maxn_range[0]}`;
+    } 
+    else {
+      maxn_num.textContent = `${maxn_range[0]} - ${maxn_range[1]}`;
+    }
+    // minn_num.textContent = e.target.value === minn_slider_lower.value ? `${minn_range[1]}` : `${minn_range[0]} - ${minn_range[1]}`;
+  } else {
+    maxn_slider_upper.value = maxn_slider_lower.value; // Set the upper knob to the value of the lower knob
+  }
+})
+
+function setRangeText(event) {
+  
+}
 
 
 // console.log(window.navigator.hardwareConcurrency);
@@ -856,8 +1090,10 @@ function validateBounds(event) {
   console.log(lowerBoundInput);
   var upperBoundInput = isLower ? inputObj.parentNode.nextElementSibling.querySelector('.upper-bound-input') : inputObj;
   console.log(upperBoundInput);
-  var lowerBound = parseInt(lowerBoundInput.value);
-  var upperBound = parseInt(upperBoundInput.value);
+  console.log(typeof lowerBoundInput.value);
+  console.log(lowerBoundInput.value);
+  var lowerBound = lowerBoundInput.value.includes('.') ? parseFloat(lowerBoundInput.value) : parseInt(lowerBoundInput.value);
+  var upperBound = upperBoundInput.value.includes('.') ? parseFloat(upperBoundInput.value) : parseInt(upperBoundInput.value);
   // var upperBoundInput = event.target.parentNode.nextElementSibling.querySelector('.upper-bound-input');
   // console.log(upperBoundInput);
   // var upperBound = upperBoundInput.value;
@@ -865,12 +1101,9 @@ function validateBounds(event) {
   console.log(lowerBound);
   console.log(upperBound);
 
-  var temp_name_list = event.target.id.split('-').slice(0, -1);
-  console.log(temp_name_list);
-  temp_name_list.push("opt");
-  console.log(temp_name_list.join('-'));
-  var opt_icon = document.querySelector(`#${temp_name_list.join('-')}`);
-  console.log(opt_icon)
+  // handleOptIcon(event, lowerBound, upperBound);
+
+  var opt_icon = getOptIconObj(event);
 
   if (lowerBound == upperBound) {
     // opt_icon.style.visibility = "hidden";
@@ -911,6 +1144,16 @@ function validateBounds(event) {
   }
 }
 
+
+function getOptIconObj(event) {
+  var temp_name_list = event.target.id.split('-').slice(0, -1);
+  console.log(temp_name_list);
+  temp_name_list.push("opt");
+  console.log(temp_name_list.join('-'));
+  var opt_icon = document.querySelector(`#${temp_name_list.join('-')}`);
+  console.log(opt_icon);
+  return opt_icon;
+}
 // var slider = new Slider('#ex2', {});
 // var slider2 = new slider('#ex1', {
 // 	formatter: function(value) {
