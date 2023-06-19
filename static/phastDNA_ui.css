@@ -466,6 +466,11 @@ input[type=number]:hover::-webkit-inner-spin-button {
   transition: opacity .2s;
   pointer-events: none;
   /* position: absolute; */
+  /* z-index: 0; */
+}
+
+.slider-upper {
+  background-color: transparent !important;
 }
 
 .range-slider {
@@ -490,7 +495,7 @@ input[type=number]:hover::-webkit-inner-spin-button {
 }
 
 .slider:hover {
-  opacity: 1; /* Fully shown on mouse-over */
+  opacity: 1;
 }
 
 .slider::-webkit-slider-thumb {
@@ -501,13 +506,15 @@ input[type=number]:hover::-webkit-inner-spin-button {
   border-radius: 50%; 
   background: rgb(254, 217, 183);
   cursor: pointer;
-  z-index: 2;
+  /* z-index: 2; */
   position: relative;
   /* margin-top: -7px; */
+  z-index: 2000;
 }
 
 .slider:hover:-webkit-slider-thumb {
   background: #67f0bb;
+  z-index: 2000;
 }
 
 .slider::-moz-range-thumb {
@@ -518,13 +525,21 @@ input[type=number]:hover::-webkit-inner-spin-button {
   border-radius: 50%;
   background: rgb(254, 217, 183);
   cursor: pointer;
-  z-index: 2;
+  /* z-index: 2; */
   position: relative; 
+  z-index: 2000;
 }
 
 .slider::-webkit-slider-runnable-track {
   cursor: pointer;
   position: relative;
+  z-index: 1;
+}
+
+.slider::-moz-range-track {
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
 }
 
 .dynamic-break {

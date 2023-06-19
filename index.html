@@ -924,38 +924,61 @@
                                                         <div
                                                             class="d-flex justify-content-between flex-wrap mb-3 flex-column">
                                                             <!-- <div class="d-flex mb-3"> -->
-                                                            <div class="d-flex">
-                                                                <h3 class="flavor-5">Learning rate update rate</h3>
-                                                                <button class="btn-icon" type="button"
-                                                                    data-bs-toggle="collapse"
-                                                                    data-bs-target="#train-ulrInfo"
-                                                                    aria-expanded="false" aria-controls="train-ulrInfo">
-                                                                    <i class="bi bi-info-circle-fill btn btn-icon info-icon"></i>
-                                                                </button>
+                                                            <div class="d-flex justify-content-between">
+                                                                <div class="d-flex">
+                                                                    <h3 class="flavor-5">Learning rate update rate</h3>
+                                                                    <button class="btn-icon" type="button"
+                                                                        data-bs-toggle="collapse"
+                                                                        data-bs-target="#train-ulrInfo"
+                                                                        aria-expanded="false" aria-controls="train-ulrInfo">
+                                                                        <i class="bi bi-info-circle-fill btn btn-icon info-icon"></i>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="d-flex fs-5" id="train-training-ulr-opt" style="visibility: hidden;" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="This setting will be optimised." data-bs-trigger="hover">
+                                                                    <!-- <p class="flavor-7 fs-6 mx-3">Subject to optimisation</p> -->
+                                                                    <i class="bi bi-wrench-adjustable-circle-fill opt-icon"></i>
+                                                                </div>
                                                             </div>
                                                             <div class="collapse mb-3 flex-grow-1" id="train-ulrInfo">
                                                                 <div class="glass-card flavor-visibility card card-body">
                                                                     Update dynamics of the the learning rate.
                                                                 </div>
                                                             </div>
-                                                            <input type="number" value="100" min="0"
-                                                                class="form-control" id="train-training-ulr"
-                                                                aria-describedby="emailHelp" name="--ulr" required>
+                                                            <div class="d-flex justify-content-around flex-wrap flex-row">
+                                                                <div class="d-flex flex-column flex-fill mx-3">
+                                                                    <label for="train-training-ulr-lower" class="flavor-5">Lower bound</label>
+                                                                    <input type="number" value="100" min="0"
+                                                                        class="form-control lower-bound-input" id="train-training-ulr-lower"
+                                                                        aria-describedby="emailHelp" name="--ulr-lower" required>
+                                                                </div>
+                                                                <div class="d-flex flex-column flex-fill mx-3">
+                                                                    <label for="train-training-ulr-upper" class="flavor-5">Upper bound</label>
+                                                                    <input type="number" value="100" min="0"
+                                                                        class="form-control upper-bound-input" id="train-training-ulr-upper"
+                                                                        aria-describedby="emailHelp" name="--ulr-upper" required>
+                                                                </div>
+                                                            </div>
                                                             <div class="invalid-feedback">Please fill out this field
                                                                 with a not negative value.</div>
                                                         </div>
                                                         <div
                                                             class="d-flex justify-content-between flex-wrap mb-3 flex-column">
                                                             <!-- <div class="d-flex mb-3"> -->
-                                                            <div class="d-flex">
-                                                                <h3 class="flavor-5">Epochs number</h3>
-                                                                <button class="btn-icon" type="button"
-                                                                    data-bs-toggle="collapse"
-                                                                    data-bs-target="#train-epochInfo"
-                                                                    aria-expanded="false"
-                                                                    aria-controls="train-epochInfo">
-                                                                    <i class="bi bi-info-circle-fill btn btn-icon info-icon"></i>
-                                                                </button>
+                                                            <div class="d-flex justify-content-between">
+                                                                <div class="d-flex">
+                                                                    <h3 class="flavor-5">Epochs number</h3>
+                                                                    <button class="btn-icon" type="button"
+                                                                        data-bs-toggle="collapse"
+                                                                        data-bs-target="#train-epochInfo"
+                                                                        aria-expanded="false"
+                                                                        aria-controls="train-epochInfo">
+                                                                        <i class="bi bi-info-circle-fill btn btn-icon info-icon"></i>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="d-flex fs-5" id="train-training-epoch-opt" style="visibility: hidden;" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="This setting will be optimised." data-bs-trigger="hover">
+                                                                    <!-- <p class="flavor-7 fs-6 mx-3">Subject to optimisation</p> -->
+                                                                    <i class="bi bi-wrench-adjustable-circle-fill opt-icon"></i>
+                                                                </div>
                                                             </div>
                                                             <div class="collapse mb-3 flex-grow-1" id="train-epochInfo">
                                                                 <div class="glass-card flavor-visibility card card-body">
@@ -972,9 +995,20 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <input type="number" value="20" min="1" class="form-control"
-                                                                id="train-training-epoch" aria-describedby="emailHelp"
-                                                                name="--epochs" required>
+                                                            <div class="d-flex justify-content-around flex-wrap flex-row">
+                                                                <div class="d-flex flex-column flex-fill mx-3">
+                                                                    <label for="train-training-epoch-lower" class="flavor-5">Lower bound</label>
+                                                                    <input type="number" value="20" min="1" class="form-control lower-bound-input"
+                                                                        id="train-training-epoch-lower" aria-describedby="emailHelp"
+                                                                        name="--epochs-lower" required>
+                                                                </div>
+                                                                <div class="d-flex flex-column flex-fill mx-3">
+                                                                    <label for="train-training-epoch-upper" class="flavor-5">Upper bound</label>
+                                                                    <input type="number" value="20" min="1" class="form-control upper-bound-input"
+                                                                        id="train-training-epoch-upper" aria-describedby="emailHelp"
+                                                                        name="--epochs-upper" required>
+                                                                </div>
+                                                            </div>
                                                             <div class="invalid-feedback">Please fill out this field
                                                                 with a positive value.</div>
                                                         </div>

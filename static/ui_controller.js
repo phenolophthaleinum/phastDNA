@@ -502,6 +502,7 @@ minn_slider_lower.addEventListener('input', (e) => {
         onComplete: hideOptIcon(opt_icon),
         duration: 0.2
       });
+      // minn_range[0] = minn_slider_upper.value;
       minn_num.textContent = `${minn_range[0]}`;
     } 
     else {
@@ -509,7 +510,11 @@ minn_slider_lower.addEventListener('input', (e) => {
     }
     // minn_num.textContent = e.target.value === minn_slider_upper.value ? `${minn_range[0]}` : `${minn_range[0]} - ${minn_range[1]}`;
   } else {
-    minn_slider_lower.value = minn_slider_upper.value; // Set the lower knob to the value of the upper knob
+    // minn_slider_lower.value = minn_slider_upper.value; // Set the lower knob to the value of the upper knob
+    minn_slider_upper.value = minn_slider_lower.value; // Set the lower knob to the value of the upper knob
+    minn_range[0] = minn_slider_lower.value;
+    minn_range[1] = minn_slider_upper.value;
+    minn_num.textContent = `${minn_range[0]}`;
   }
 })
 
@@ -558,7 +563,10 @@ minn_slider_upper.addEventListener('input', (e) => {
     }
     // minn_num.textContent = e.target.value === minn_slider_lower.value ? `${minn_range[1]}` : `${minn_range[0]} - ${minn_range[1]}`;
   } else {
-    minn_slider_upper.value = minn_slider_lower.value; // Set the upper knob to the value of the lower knob
+    minn_slider_lower.value = minn_slider_upper.value; // Set the upper knob to the value of the lower knob
+    minn_range[0] = minn_slider_lower.value;
+    minn_range[1] = minn_slider_upper.value;
+    minn_num.textContent = `${minn_range[0]}`;
   }
 })
 
@@ -616,7 +624,10 @@ maxn_slider_lower.addEventListener('input', (e) => {
     }
     // minn_num.textContent = e.target.value === minn_slider_upper.value ? `${minn_range[0]}` : `${minn_range[0]} - ${minn_range[1]}`;
   } else {
-    maxn_slider_lower.value = maxn_slider_upper.value; // Set the lower knob to the value of the upper knob
+    maxn_slider_upper.value = maxn_slider_lower.value; // Set the lower knob to the value of the upper knob
+    maxn_range[0] = maxn_slider_lower.value;
+    maxn_range[1] = maxn_slider_upper.value;
+    maxn_num.textContent = `${maxn_range[0]}`;
   }
 })
 
@@ -665,7 +676,10 @@ maxn_slider_upper.addEventListener('input', (e) => {
     }
     // minn_num.textContent = e.target.value === minn_slider_lower.value ? `${minn_range[1]}` : `${minn_range[0]} - ${minn_range[1]}`;
   } else {
-    maxn_slider_upper.value = maxn_slider_lower.value; // Set the upper knob to the value of the lower knob
+    maxn_slider_lower.value = maxn_slider_upper.value; // Set the upper knob to the value of the lower knob
+    maxn_range[0] = maxn_slider_lower.value;
+    maxn_range[1] = maxn_slider_upper.value;
+    maxn_num.textContent = `${maxn_range[0]}`;
   }
 })
 
@@ -1012,25 +1026,27 @@ Array.from(document.querySelectorAll(".run-btn")).forEach(btn => {
 //   })
 // })
 
+// autofocus on accordion section - problem: if something else is being hidden by bs.collapse, then it jumps the whole accordion and it shouldn't
 // const accordionElement = document.getElementsByClassName('accordion-collapse');
+// const accordionElement = [].slice.call(document.getElementsByClassName('accordion-flush'));
 // console.log(accordionElement);
 
-// accordionElement.addEventListener('shown.bs.collapse', function (event) {
+// accordionElement.forEach(elem => elem.addEventListener('shown.bs.collapse', function (event) {
 //   // code to run after accordion item is shown
 // //   console.log('Accordion item shown!');
 // //   console.log(event.target.previousElementSibling);
 //   event.target.previousElementSibling.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest"});
 
-// });
+// }));
 
-// accordionElement.addEventListener('hide.bs.collapse', function (event) {
+// accordionElement.forEach(elem => elem.addEventListener('hide.bs.collapse', function (event) {
 //     // code to run after accordion item is shown
 //   //   console.log('Accordion item shown!');
 //   //   console.log(event.target.previousElementSibling);
 //     scrollTo({top: 100, behavior: "smooth"});
 //     // document.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest"});
   
-// });
+// }));
 
 tax_dropdown.addEventListener('change', (e) => {
   // console.log(`label dropdown val: ${e.target.value}`);
