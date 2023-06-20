@@ -1176,3 +1176,20 @@ function getOptIconObj(event) {
 // 		return 'Current value: ' + value;
 // 	}
 // });
+
+gsap.registerPlugin(Flip);
+
+const a_desc = document.querySelector(".accordion-desc"), a_btn_desc = document.querySelector(".accordion-button-desc"), section = document.getElementById("train-collapseSettingsOpt");
+section.addEventListener("show.bs.collapse", () => {
+  const state = Flip.getState(".accordion-button-desc, .accordion-desc");
+  a_desc.classList.toggle("active");
+  a_btn_desc.classList.toggle("active");
+
+  Flip.from(state, {
+    duration: 0.6,
+    fade: true,
+    absolute: true,
+    toggleClass: "opening",
+    ease: "power1.inOut"
+  });
+});

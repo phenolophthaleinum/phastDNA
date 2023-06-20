@@ -443,6 +443,10 @@ input[type=number]:hover::-webkit-inner-spin-button {
   color: #d3ced4;
 }
 
+.flavor-active {
+  color: rgb(254, 217, 183);
+}
+
 .list-group {
   --bs-list-group-border-color: #8b898b;
 }
@@ -639,6 +643,18 @@ i.btn-icon {
                  0 0 40px rgba(66,220,219,.8),
                  0 0 50px rgba(66,220,219,.5),
                  0 0 80px rgba(66,220,219,.5); */
+}
+
+.accordion-button-desc, .accordion-button-desc.opening {
+  align-items: center;
+  opacity: 0;
+  transition: 0.5s;
+  transform: translate(-10%, 0%);
+}
+
+.accordion-button:hover .accordion-button-desc{
+  opacity: 1;
+  transform: translate(0%, 0%);
 }
 
 .accordion-button::after {

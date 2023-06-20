@@ -113,8 +113,12 @@
                                             <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                                 data-bs-target="#predict-collapseSettingsPath" aria-expanded="true"
                                                 aria-controls="predict-collapseSettingsPath">
-                                                Path settings <span class="m-2 badge rounded-pill bg-danger pill-medium"
-                                                    style="display: none;"> </span>
+                                                <div class="d-flex">
+                                                    Path settings
+                                                </div>
+                                                <div class="d-flex flavor-active align-self-center accordion-button-desc mx-3 fs-5">
+                                                     | Settings related to the required data paths.
+                                                </div>
                                             </button>
                                         </h2>
                                         <div id="predict-collapseSettingsPath" class="accordion-collapse collapse show"
@@ -129,10 +133,10 @@
                                   background-size: cover;" -->
                                   
                                                     <div class="container-fluid">
-                                                        <div class="d-flex align-content-between flex-wrap flex-column">
+                                                        <!-- <div class="d-flex align-content-between flex-wrap flex-column">
                                                             <p class="flavor-7 mt-auto col-md-8 fs-6">Settings related
                                                                 to required data paths.</p>
-                                                        </div>
+                                                        </div> -->
                                                         <div
                                                             class="d-flex justify-content-between flex-wrap mb-3 flex-column">
                                                             <div class="d-flex">
@@ -218,35 +222,6 @@
                                                             <div class="invalid-feedback">Please fill out this field
                                                                 with a valid path.</div>
                                                         </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="accordion-item">
-                                        <h2 class="accordion-header" id="predict-headingSettingsFastdna">
-                                            <button class="accordion-button collapsed" type="button"
-                                                data-bs-toggle="collapse"
-                                                data-bs-target="#predict-collapseSettingsFastdna" aria-expanded="false"
-                                                aria-controls="predict-collapseSettingsFastdna">
-                                                fastDNA settings
-                                            </button>
-                                        </h2>
-                                        <div id="predict-collapseSettingsFastdna" class="accordion-collapse collapse"
-                                            aria-labelledby="predict-headingSettingsFastdna"
-                                            data-bs-parent="#accordionPredict">
-                                            <div class="accordion-body">
-                                                <div class="glass p-5 mb-4 rounded-3">
-                                                <!-- style="background-image:linear-gradient(
-                                    rgba(0, 0, 0, 0.35), 
-                                    rgba(0, 0, 0, 0.35)); 
-                                  background-position: center;
-                                  background-size: cover;"> -->
-                                                    <div class="container-fluid">
-                                                        <div class="d-flex align-content-between flex-wrap flex-column">
-                                                            <p class="flavor-7 mt-auto col-md-8 fs-6"> Settings related
-                                                                to fastDNA</p>
-                                                        </div>
                                                         <div class="d-flex justify-content-between flex-wrap mb-3">
                                                             <!-- setting name + info -->
                                                             <div class="d-flex">
@@ -283,31 +258,6 @@
                                                             <div class="invalid-feedback">Please fill out this field
                                                                 with a valid path.</div>
                                                         </div>
-                                                        <div class="d-flex">
-                                                            <h3 class="flavor-5">Threads</h3>
-                                                            <button class="btn-icon" type="button"
-                                                                data-bs-toggle="collapse"
-                                                                data-bs-target="#predict-threadsInfo"
-                                                                aria-expanded="false"
-                                                                aria-controls="predict-threadsInfo">
-                                                                <i class="bi bi-info-circle-fill btn btn-icon info-icon"></i>
-                                                            </button>
-                                                        </div>
-                                                        <div class="collapse mb-3" id="predict-threadsInfo">
-                                                            <div class="glass-card flavor-visibility card card-body">
-                                                                Number of processor threads to be used by phastDNA.
-                                                            </div>
-                                                        </div>
-                                                        <div class="row g-3">
-                                                            <div class="col-sm">
-                                                                <h4 id="predict-threads-num" class="flavor-5">4</h4>
-                                                            </div>
-                                                            <div class="col-sm-11 pt-1">
-                                                                <input type="range" class="slider" min="1" max="5"
-                                                                    step="1" id="predict-fastdna-threads"
-                                                                    name="--threads">
-                                                            </div>
-                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -320,7 +270,12 @@
                                                 data-bs-target="#predict-collapseSettingsPrediction"
                                                 aria-expanded="false"
                                                 aria-controls="predict-collapseSettingsPrediction">
-                                                Prediction settings
+                                                <div class="d-flex">
+                                                    Run settings
+                                                </div>
+                                                <div class="d-flex flavor-active align-self-center accordion-button-desc mx-3 fs-5">
+                                                    | Settings related to the overall run parameters.
+                                                </div>
                                             </button>
                                         </h2>
                                         <div id="predict-collapseSettingsPrediction" class="accordion-collapse collapse"
@@ -365,6 +320,31 @@
                                                             <div class="invalid-feedback">Please fill out this field
                                                                 with a positive value.</div>
                                                         </div>
+                                                        <div class="d-flex">
+                                                            <h3 class="flavor-5">Threads</h3>
+                                                            <button class="btn-icon" type="button"
+                                                                data-bs-toggle="collapse"
+                                                                data-bs-target="#predict-threadsInfo"
+                                                                aria-expanded="false"
+                                                                aria-controls="predict-threadsInfo">
+                                                                <i class="bi bi-info-circle-fill btn btn-icon info-icon"></i>
+                                                            </button>
+                                                        </div>
+                                                        <div class="collapse mb-3" id="predict-threadsInfo">
+                                                            <div class="glass-card flavor-visibility card card-body">
+                                                                Number of processor threads to be used by phastDNA.
+                                                            </div>
+                                                        </div>
+                                                        <div class="row g-3">
+                                                            <div class="col-sm">
+                                                                <h4 id="predict-threads-num" class="flavor-5">4</h4>
+                                                            </div>
+                                                            <div class="col-sm-11 pt-1">
+                                                                <input type="range" class="slider" min="1" max="5"
+                                                                    step="1" id="predict-fastdna-threads"
+                                                                    name="--threads">
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                     <!-- </form> -->
                                                 </div>
@@ -385,11 +365,15 @@
                                 <div class="accordion accordion-flush" id="accordionTrain">
                                     <div class="accordion-item">
                                         <h2 class="accordion-header" id="train-headingSettingsPath">
-                                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            <button class="accordion-button d-inline-flex justify-content-start flex-wrap flex-row" type="button" data-bs-toggle="collapse"
                                                 data-bs-target="#train-collapseSettingsPath" aria-expanded="true"
                                                 aria-controls="train-collapseSettingsPath">
-                                                Path settings <span class="m-2 badge rounded-pill bg-danger pill-medium"
-                                                    style="display: none;"> </span>
+                                                <div class="d-flex">
+                                                    Path settings
+                                                </div>
+                                                <div class="d-flex flavor-active align-self-center accordion-button-desc mx-3 fs-5">
+                                                     | Settings related to the required data paths.
+                                                </div>
                                             </button>
                                         </h2>
                                         <div id="train-collapseSettingsPath" class="accordion-collapse collapse show"
@@ -403,10 +387,10 @@
                                   background-position: center;
                                   background-size: cover;"> -->
                                                     <div class="container-fluid">
-                                                        <div class="d-flex align-content-between flex-wrap flex-column">
+                                                        <!-- <div class="d-flex align-content-between flex-wrap flex-column">
                                                             <p class="flavor-7 mt-auto col-md-8 fs-6">Settings related
-                                                                to required data paths.</p>
-                                                        </div>
+                                                                to the required data paths.</p>
+                                                        </div> -->
                                                         <div
                                                             class="d-flex justify-content-between flex-wrap mb-3 flex-column">
                                                             <div class="d-flex">
@@ -485,35 +469,6 @@
                                                             <div class="invalid-feedback">Please fill out this field
                                                                 with a valid path.</div>
                                                         </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="accordion-item">
-                                        <h2 class="accordion-header" id="train-headingSettingsFastdna">
-                                            <button class="accordion-button collapsed" type="button"
-                                                data-bs-toggle="collapse"
-                                                data-bs-target="#train-collapseSettingsFastdna" aria-expanded="false"
-                                                aria-controls="train-collapseSettingsFastdna">
-                                                fastDNA settings
-                                            </button>
-                                        </h2>
-                                        <div id="train-collapseSettingsFastdna" class="accordion-collapse collapse"
-                                            aria-labelledby="train-headingSettingsFastdna"
-                                            data-bs-parent="#accordionTrain">
-                                            <div class="accordion-body">
-                                                <div class="glass p-5 mb-4 rounded-3">
-                                                 <!-- style="background-image:linear-gradient(
-                                    rgba(0, 0, 0, 0.15), 
-                                    rgba(0, 0, 0, 0.15)); 
-                                  background-position: center;
-                                  background-size: cover;"> -->
-                                                    <div class="container-fluid">
-                                                        <div class="d-flex align-content-between flex-wrap flex-column">
-                                                            <p class="flavor-7 mt-auto col-md-8 fs-6"> Settings related
-                                                                to fastDNA</p>
-                                                        </div>
                                                         <div class="d-flex justify-content-between flex-wrap mb-3">
                                                             <!-- setting name + info -->
                                                             <div class="d-flex">
@@ -550,6 +505,31 @@
                                                             <div class="invalid-feedback">Please fill out this field
                                                                 with a valid path.</div>
                                                         </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="accordion-item">
+                                        <h2 class="accordion-header" id="train-headingSettingsFastdna">
+                                            <button class="accordion-button collapsed" type="button"
+                                                data-bs-toggle="collapse"
+                                                data-bs-target="#train-collapseSettingsFastdna" aria-expanded="false"
+                                                aria-controls="train-collapseSettingsFastdna">
+                                                fastDNA settings
+                                            </button>
+                                        </h2>
+                                        <div id="train-collapseSettingsFastdna" class="accordion-collapse collapse"
+                                            aria-labelledby="train-headingSettingsFastdna"
+                                            data-bs-parent="#accordionTrain">
+                                            <div class="accordion-body">
+                                                <div class="glass p-5 mb-4 rounded-3">
+                                                    <div class="container-fluid">
+                                                        <div class="d-flex align-content-between flex-wrap flex-column">
+                                                            <p class="flavor-7 mt-auto col-md-8 fs-6"> Settings related
+                                                                to fastDNA</p>
+                                                        </div>
+                                                        
                                                         <div class="d-flex">
                                                             <h3 class="flavor-5">Threads</h3>
                                                             <button class="btn-icon" type="button"
@@ -577,14 +557,19 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <div class="accordion-item">
                                         <h2 class="accordion-header" id="train-headingSettingsTraining">
-                                            <button class="accordion-button collapsed" type="button"
+                                            <button class="accordion-button collapsed d-inline-flex justify-content-start flex-wrap" type="button"
                                                 data-bs-toggle="collapse"
                                                 data-bs-target="#train-collapseSettingsTraining" aria-expanded="false"
                                                 aria-controls="train-collapseSettingsTraining">
-                                                Training settings
+                                                <div class="d-flex">
+                                                    Hyperparameter settings
+                                                </div>
+                                                <div class="d-flex flavor-active align-self-center accordion-button-desc mx-3 fs-5">
+                                                    | Settings related to the training and optimisation.
+                                                </div>
                                             </button>
                                         </h2>
                                         <div id="train-collapseSettingsTraining" class="accordion-collapse collapse"
@@ -600,10 +585,10 @@
                                                     <!-- <form action="/" method="post" class="was-validated"> -->
                                                     <!-- <button type="submit" class="btn btn-primary">Post</button> -->
                                                     <div class="container-fluid">
-                                                        <div class="d-flex align-content-between flex-wrap flex-column">
+                                                        <!-- <div class="d-flex align-content-between flex-wrap flex-column">
                                                             <p class="flavor-7 mt-auto col-md-8 fs-6">Settings related
                                                                 to the training process of the fastDNA classifier.</p>
-                                                        </div>
+                                                        </div> -->
                                                         <div
                                                             class="d-flex justify-content-between flex-wrap mb-3 flex-column">
                                                             <!-- <div class="d-flex mb-3"> -->
@@ -1049,10 +1034,15 @@
                                     </div>
                                     <div class="accordion-item">
                                         <h2 class="accordion-header" id="train-headingSettingsOpt">
-                                            <button class="accordion-button collapsed" type="button"
+                                            <button class="accordion-button collapsed d-inline-flex justify-content-start flex-wrap flex-row" type="button"
                                                 data-bs-toggle="collapse" data-bs-target="#train-collapseSettingsOpt"
                                                 aria-expanded="false" aria-controls="train-collapseSettingsOpt">
-                                                Optimisation settings
+                                                <div class="d-flex">
+                                                    Run settings
+                                                </div>
+                                                <div class="d-flex flavor-active align-self-center accordion-button-desc mx-3 fs-5">
+                                                    | Settings related to the overall run parameters.
+                                                </div>
                                             </button>
                                         </h2>
                                         <div id="train-collapseSettingsOpt" class="accordion-collapse collapse"
@@ -1067,9 +1057,36 @@
                                                     <!-- <form action="/" method="post" class="was-validated"> -->
                                                     <!-- <button type="submit" class="btn btn-primary">Post</button> -->
                                                     <div class="container-fluid">
-                                                        <div class="d-flex align-content-between flex-wrap flex-column">
-                                                            <p class="flavor-7 mt-auto col-md-8 fs-6">Settings related
+                                                        <!-- <div class="d-flex align-content-between flex-wrap flex-column">
+                                                            <p class="flavor-7 mt-auto col-md-8 fs-6 accordion-desc">Settings related
                                                                 to the hyper-parameters optimisation.</p>
+                                                        </div> -->
+                                                        <div class="d-flex justify-content-between flex-wrap mb-3 flex-column">
+                                                            <div class="d-flex">
+                                                                <h3 class="flavor-5">Threads</h3>
+                                                                <button class="btn-icon" type="button"
+                                                                    data-bs-toggle="collapse"
+                                                                    data-bs-target="#train-threadsInfo"
+                                                                    aria-expanded="false" aria-controls="train-threadsInfo">
+                                                                    <i class="bi bi-info-circle-fill btn btn-icon info-icon"></i>
+                                                                </button>
+                                                            </div>
+                                                            <div class="collapse mb-3 flex-grow-1" id="train-threadsInfo">
+                                                                <div class="glass-card flavor-visibility card card-body">
+                                                                    Number of processor threads to be used by phastDNA.
+                                                                </div>
+                                                            </div>
+                                                            <div class="d-flex">
+                                                                <!-- <div class="row g-3"> -->
+                                                                    <div class="col-sm">
+                                                                        <h4 id="train-threads-num" class="flavor-5">4</h4>
+                                                                    </div>
+                                                                    <div class="col-sm-11 pt-1">
+                                                                        <input type="range" class="slider" min="1" max="5"
+                                                                            step="1" id="train-fastdna-threads" name="--threads">
+                                                                    </div>
+                                                                <!-- </div> -->
+                                                            </div>
                                                         </div>
                                                         <div class="d-flex justify-content-between flex-wrap mb-3">
                                                             <!-- <div class="d-flex mb-3"> -->
@@ -1371,6 +1388,7 @@
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/Flip.min.js"></script>
     <!-- <script src="gsap.js"></script> -->
     <script src="{{ url_for('static', filename='gsap.js') }}"></script>
     <!-- <script src="offcanvas_data.js"></script> -->
