@@ -1193,3 +1193,75 @@ section.addEventListener("show.bs.collapse", () => {
     ease: "power1.inOut"
   });
 });
+
+// $( '#train-training-loss' ).select2( {
+//   theme: "bootstrap-5",
+//   width: $( this ).data( 'width' ) ? $( this ).data( 'width' ) : $( this ).hasClass( 'w-100' ) ? '100%' : 'style',
+//   // placeholder: $(this).val(0),
+//   closeOnSelect: false,
+// } );
+
+// $( '#train-training-loss' ).on('change', function(e) {
+//   try {
+//     console.log($(this).select2('data')); 
+//   } catch (error) {
+    
+//   }
+// });
+
+// var multipleLoss = new Choices('#train-training-loss', {
+//   removeItemButton: true,
+//   maxItemCount:5,
+//   searchResultLimit:5,
+//   renderChoiceLimit:5,
+//   classNames: {
+//     containerOuter: 'choices',
+//     containerInner: 'choices__inner',
+//     input: 'choices__input',
+//     inputCloned: 'choices__input--cloned',
+//     list: 'choices__list',
+//     listItems: 'choices__list--multiple',
+//     listSingle: 'choices__list--single',
+//     listDropdown: 'choices__list--dropdown',
+//     item: 'choices__item',
+//     itemSelectable: 'choices__item--selectable',
+//     itemDisabled: 'choices__item--disabled',
+//     itemChoice: 'choices__item--choice',
+//     placeholder: 'choices__placeholder',
+//     group: 'choices__group',
+//     groupHeading: 'choices__heading',
+//     button: 'choices__button',
+//     activeState: 'is-active',
+//     focusState: 'is-focused',
+//     openState: 'is-open',
+//     disabledState: 'is-disabled',
+//     highlightedState: 'is-highlighted',
+//     selectedState: 'is-selected',
+//     flippedState: 'is-flipped',
+//     loadingState: 'is-loading',
+//     noResults: 'has-no-results',
+//     noChoices: 'has-no-choices'
+//   }
+// });
+
+// multipleLoss.passedElement.element.addEventListener('change', function() {
+//   checkInputfield(multipleLoss);
+// })
+
+// function checkInputfield(multipleLoss) {
+//   let inner_element = multipleLoss.containerInner.element;
+//   if (multipleLoss.getValue(true)) {
+//     inner_element.classList.remove('is-invalid');
+//   } else {
+//     inner_element.classList.add('is-invalid');
+//   }
+// }
+
+// $(document).ready(function() {
+// $('#train-training-loss').multiselect();
+// // });
+// $('.selectpicker').addClass('is-invalid').selectpicker('setStyle');
+let f = document.getElementById("train-training-loss");
+f.addEventListener("change", () => {
+  console.log(f.selectedOptions);
+})

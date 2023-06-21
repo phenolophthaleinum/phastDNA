@@ -31,6 +31,7 @@ def test_f():
     if flask.request.method == 'POST':
         # req_data = flask.request.get_json(force=True)
         data = flask.request.form
+        multi = flask.request.form.getlist('--loss')
 
         # name_prefix = "train" if 'loss' in data else "predict"
         # task_name = f'{name_prefix}_{datetime.datetime.now():%Y_%m_%d_%H_%M_%S%z}'
@@ -71,7 +72,10 @@ def test_f():
         # print(type(data['--preiter']))
         arguments = []
         mutable_data = dict(data)
+        print(mutable_data)
         filtered_dict = {('-'.join(k.split('-')[:-1]) if k.endswith('-lower') or k.endswith('-upper') else k): ((mutable_data[f'{"-".join(k.split("-")[:-1])}-lower'], mutable_data[f'{"-".join(k.split("-")[:-1])}-upper']) if k.endswith('-lower') or k.endswith('-upper') else v) for k, v in mutable_data.items()}
+        if len(multi) > 1:
+            filtered_dict.update({'--loss': tuple(multi)})
         
         print(filtered_dict)
         # mutable_data = bounds_dict

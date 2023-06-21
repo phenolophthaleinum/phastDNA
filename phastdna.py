@@ -4,11 +4,15 @@ from pathlib import Path
 from learning import Optimizer, Classifier
 from utils import default_threads, fasta_extensions, log
 
+
+# this is probably not ideal; possibly should be rewritten
 def parse_range(argument):
     if isinstance(argument, list):
         if len(tuple(argument)) == 1:
             argument, = argument
-        elif len(tuple(argument)) == 2:
+        elif len(tuple(argument)) >= 2:
+            if isinstance(argument[0], str):
+                return tuple(argument)
             return tuple([float(e) for e in argument])
         else:
             raise f'To many positional arguments {argument}'
@@ -76,6 +80,8 @@ if __name__ == "__main__":
 
 
     args = parser.parse_args()
+    print(args)
+    print(tuple(args.loss))
     for arg in vars(args):
         setattr(args, arg, parse_range(getattr(args, arg)))
     
