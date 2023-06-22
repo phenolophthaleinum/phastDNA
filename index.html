@@ -29,8 +29,8 @@
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/1.1.2/js/bootstrap-multiselect.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/1.1.2/css/bootstrap-multiselect.min.css"/> -->
 
-    <!-- <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
-    <link rel="stylesheet"href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css"/> -->
+    <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+    <link rel="stylesheet"href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css"/>
     <!-- <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script> -->
 
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" />
@@ -1033,16 +1033,54 @@
                                                             <!-- <input type="number" value="100" min="0" class="form-control"
                                                                 id="train-training-loss" aria-describedby="emailHelp"
                                                                 name="loss" required> -->
+                                                            <!-- <div class="d-flex">
+                                                                <div class="dropdown w-100">
+                                                                    <button class="btn btn-secondary dropdown-toggle w-100" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                                        Dropdown button
+                                                                    </button>
+                                                                    <ul class="dropdown-menu w-100">
+                                                                        <li>
+                                                                            <div class="dropdown-item">
+                                                                                <div class="form-check">
+                                                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1">
+                                                                                    <label class="form-check-label" for="flexCheckDefault1">
+                                                                                        Softmax
+                                                                                    </label>
+                                                                                </div>
+                                                                            </div>
+                                                                        </li>
+                                                                        <li>
+                                                                            <div class="dropdown-item">
+                                                                                <div class="form-check">
+                                                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault2">
+                                                                                    <label class="form-check-label" for="flexCheckDefault2">
+                                                                                        Negative sampling (ns)
+                                                                                    </label>
+                                                                                </div>
+                                                                            </div>
+                                                                        </li>
+                                                                        <li>
+                                                                            <div class="dropdown-item">
+                                                                                <div class="form-check">
+                                                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault3">
+                                                                                    <label class="form-check-label" for="flexCheckDefault3">
+                                                                                        Hierarchical softmax (hs)
+                                                                                    </label>
+                                                                                </div>
+                                                                            </div>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div> -->
                                                             <select name="--loss" id="train-training-loss"
-                                                                class="form-select" aria-label="Default select example" multiple>
-                                                                <!-- <option selected>Open this select menu</option> -->
+                                                                class="form-select" aria-label="Default select example" multiple required>
                                                                 <option value="softmax" selected>Softmax</option>
                                                                 <option value="ns">Negative sampling (ns)</option>
                                                                 <option value="hs">Hierarchical softmax (hs)</option>
                                                             </select>
+                                                            <div class="invalid-feedback">Please fill out this field
+                                                                with at least one element from the dropdown.</div>
                                                         </div>
-                                                        <div class="invalid-feedback">Please fill out this field
-                                                            with a positive value.</div>
                                                     </div>
                                                     <!-- </form> -->
                                                 </div>

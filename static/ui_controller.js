@@ -117,9 +117,12 @@ param_btn.onclick = function () {
     var elem = document.getElementById(key);
     if (elem && elem.value !== "") {
       var elem_value = elem.value;
+      if (elem.selectedOptions) {
+        var elem_value = Array.from(elem.selectedOptions).map(({value}) => value).join(', ');
+      }
       // var entry = document.createElement('h6');
       // entry.innerText = `${val}: ${elem_value}`;
-      var entry = document.createElement('div')
+      var entry = document.createElement('div');
       // entry.className = 'list-group-item';
       entry.classList.add('list-group-item', 'glass');
       entry.innerHTML = `<div class="d-flex w-100 justify-content-between">
@@ -1209,40 +1212,40 @@ section.addEventListener("show.bs.collapse", () => {
 //   }
 // });
 
-// var multipleLoss = new Choices('#train-training-loss', {
-//   removeItemButton: true,
-//   maxItemCount:5,
-//   searchResultLimit:5,
-//   renderChoiceLimit:5,
-//   classNames: {
-//     containerOuter: 'choices',
-//     containerInner: 'choices__inner',
-//     input: 'choices__input',
-//     inputCloned: 'choices__input--cloned',
-//     list: 'choices__list',
-//     listItems: 'choices__list--multiple',
-//     listSingle: 'choices__list--single',
-//     listDropdown: 'choices__list--dropdown',
-//     item: 'choices__item',
-//     itemSelectable: 'choices__item--selectable',
-//     itemDisabled: 'choices__item--disabled',
-//     itemChoice: 'choices__item--choice',
-//     placeholder: 'choices__placeholder',
-//     group: 'choices__group',
-//     groupHeading: 'choices__heading',
-//     button: 'choices__button',
-//     activeState: 'is-active',
-//     focusState: 'is-focused',
-//     openState: 'is-open',
-//     disabledState: 'is-disabled',
-//     highlightedState: 'is-highlighted',
-//     selectedState: 'is-selected',
-//     flippedState: 'is-flipped',
-//     loadingState: 'is-loading',
-//     noResults: 'has-no-results',
-//     noChoices: 'has-no-choices'
-//   }
-// });
+var multipleLoss = new Choices('#train-training-loss', {
+  removeItemButton: true,
+  maxItemCount:5,
+  searchResultLimit:5,
+  renderChoiceLimit:5,
+  classNames: {
+    containerOuter: 'choices is-valid',
+    containerInner: 'choices__inner',
+    input: 'choices__input',
+    inputCloned: 'choices__input--cloned',
+    list: 'choices__list',
+    listItems: 'choices__list--multiple',
+    listSingle: 'choices__list--single',
+    listDropdown: 'choices__list--dropdown',
+    item: 'choices__item',
+    itemSelectable: 'choices__item--selectable',
+    itemDisabled: 'choices__item--disabled',
+    itemChoice: 'choices__item--choice',
+    placeholder: 'choices__placeholder',
+    group: 'choices__group',
+    groupHeading: 'choices__heading',
+    button: 'choices__button',
+    activeState: 'is-active',
+    focusState: 'is-focused',
+    openState: 'is-open',
+    disabledState: 'is-disabled',
+    highlightedState: 'is-highlighted',
+    selectedState: 'is-selected',
+    flippedState: 'is-flipped',
+    loadingState: 'is-loading',
+    noResults: 'has-no-results',
+    noChoices: 'has-no-choices'
+  },
+});
 
 // multipleLoss.passedElement.element.addEventListener('change', function() {
 //   checkInputfield(multipleLoss);
@@ -1263,5 +1266,17 @@ section.addEventListener("show.bs.collapse", () => {
 // $('.selectpicker').addClass('is-invalid').selectpicker('setStyle');
 let f = document.getElementById("train-training-loss");
 f.addEventListener("change", () => {
-  console.log(f.selectedOptions);
+  var outer_elem = multipleLoss.containerOuter.element;
+  var inner_elem = multipleLoss.containerOuter.element;
+  if (f.selectedOptions.length === 0) {
+    outer_elem.classList.remove('is-valid');
+    outer_elem.classList.add('is-invalid');
+    // console.log(multipleLoss.containerOuter.element);
+  }
+  else {
+    outer_elem.classList.remove('is-invalid');
+    outer_elem.classList.add('is-valid');
+  }
+  // var l = Array.from(f.selectedOptions).map(({value}) => value);
+  // console.log(f.selectedOptions.length);
 })
