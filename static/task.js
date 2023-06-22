@@ -189,6 +189,7 @@ var interval = setInterval(function() {
       }
       // atest.innerText = response['content'];
       if (response['status'] === 0){
+        console.log(response['status'])
         var normalPara = document.createElement("p");
         var successPara = document.createElement("p");
         successPara.classList.add("fade-in", "status-success");
@@ -198,8 +199,13 @@ var interval = setInterval(function() {
         normalPara.innerText = response_split.slice(0, -2).join('\n');
         atest.appendChild(normalPara);
         atest.appendChild(successPara);
+        // atest.lastElementChild.scrollIntoView({ behavior: 'smooth', block: 'end' });
+        atest.animate({
+          scrollTop: atest.prop("scrollHeight")
+      }, 500);
       }
       else if (response['status'] === -1){
+        console.log(response['status'])
         // var normalPara = document.createElement("p");
         var successPara = document.createElement("p");
         successPara.classList.add("fade-in", "status-error");
@@ -210,6 +216,10 @@ var interval = setInterval(function() {
         // normalPara.innerText = response_split.slice(0, -2).join('\n');
         // atest.appendChild(normalPara);
         atest.appendChild(successPara);
+        // atest.lastElementChild.scrollIntoView({ behavior: 'smooth', block: 'end' });
+        atest.animate({
+          scrollTop: atest.prop("scrollHeight")
+      }, 500);
       }
       else {
         console.log(response['content']);
@@ -217,6 +227,10 @@ var interval = setInterval(function() {
         para.innerText = response['content'];
         para.classList.add('fade-in');
         atest.appendChild(para);
+        // atest.lastElementChild.scrollIntoView({ behavior: 'smooth', block: 'end' });
+        atest.animate({
+          scrollTop: atest.prop("scrollHeight")
+      }, 500);
       }
       // atest.innerHTML += `<p>${response['content']}</p><br>`;
 

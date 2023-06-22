@@ -13,7 +13,7 @@ import joblib
 import numpy as np
 import pandas as pd
 
-from utils import Parallel, log
+from utils import Parallel, log, default_threads
 
 PathLike = Union[Path, str]
 
@@ -154,9 +154,7 @@ class DistanceMatrix:
             log.update()
 
     def __repr__(self):
-        return f'DistanceMatrix ({len(self.taxa_indices)}' \
-               f'\n{list(self.taxonomy.keys())[:10]}...' \
-               f'\n{self.matrix}'
+        return f'DistanceMatrix with ({len(self.taxa_indices)} {self.rank} entries e.g. {list(self.taxonomy.keys())[:3]})'
 
     def get_distance(self, species_id_0, species_id_1):
         """
@@ -218,8 +216,10 @@ class TaxonomicEvaluation:
         :param top_n: number of top prediction to assess
         :return: todo
         """
+
         searched_field = 'lineage_names' if use_names else 'lineage'
         truncated_ranks = TAXONOMIC_RANKS[TAXONOMIC_RANKS.index(distances.rank):]
+        min_rank, second_rank = truncated_ranks[:2]
         per_taxon_hits = {rank: {i + 1: [] for i in range(top_n)} for rank in truncated_ranks}
 
         self.description = description
@@ -229,7 +229,6 @@ class TaxonomicEvaluation:
         self.skipped = set()
         self.hit = set()
         max_unit_shift = (len(TAXONOMIC_RANKS) + 1)
-
         for virus_id, predictions in sorted_predictions.items():
             lineage = get_lineage(master_virus_dict[virus_id]['host'], searched_field)  # TODO Edwards notation is VERY CONFUSING (should be master_virus_dict[virus_id]['host']['species/taxid']) !!!
             true_host_taxid = lineage[distances.rank]
@@ -258,10 +257,10 @@ class TaxonomicEvaluation:
                 all_hit.update(hits)
                 self.scored_ranks[rank][rankin_position] = len(all_hit) / self.n_viruses
         self.metrics = {'accordance': self.accordance,
-                        'top_species': self.scored_ranks['species'][1],
-                        'top3_species': self.scored_ranks['species'][3],
-                        'top_genus': self.scored_ranks['genus'][1],
-                        'top3_genus': self.scored_ranks['genus'][3]}
+                        f'top_{min_rank}': self.scored_ranks[min_rank][1],
+                        f'top3_{min_rank}': self.scored_ranks[min_rank][3],
+                        f'top_{second_rank}': self.scored_ranks[second_rank][1],
+                        f'top3_{second_rank}': self.scored_ranks[second_rank][3]}
 
     def __repr__(self):
         table_data = [(f'{rank}:', '\t'.join([f'{s:.3f}' for s in scores.values()])) for rank, scores in self.scored_ranks.items()]
@@ -277,7 +276,8 @@ class TaxonomicEvaluation:
                                 distances: DistanceMatrix,
                                 master_virus_dict: Dict[str, Dict[str, Any]],
                                 use_names: bool = True,
-                                top_n: int = 3) -> Tuple[List['TaxonomicEvaluation'], int]:
+                                top_n: int = 3,
+                                threads: int = default_threads) -> Tuple[List['TaxonomicEvaluation'], int]:
         """
 
         :param method_to_raking_dict:
@@ -294,7 +294,8 @@ class TaxonomicEvaluation:
                         kwargs={'distances': distances,
                                 'master_virus_dict': master_virus_dict,
                                 'use_names': use_names,
-                                'top_n': top_n})
+                                'top_n': top_n},
+                        n_jobs=threads)
         missing_predictions = set()
         for r in jobs.result:
             missing_predictions.update(r.skipped)

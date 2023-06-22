@@ -1,11 +1,17 @@
+const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
 var param_btn = document.getElementById('offcanvas-params-btn');
 var run_pred_btn = document.getElementById('post-predict-button');
 var run_train_btn = document.getElementById('post-train-button');
 var setup = document.getElementById('current-setup');
 var threads_slider_predict = document.getElementById('predict-fastdna-threads');
 var threads_slider_train = document.getElementById('train-fastdna-threads');
-var minn_slider = document.getElementById('train-training-minn');
-var maxn_slider = document.getElementById('train-training-maxn');
+var minn_slider_lower = document.getElementById('train-training-minn-lower');
+var minn_slider_upper = document.getElementById('train-training-minn-upper');
+var minn_range = [7,7];
+var maxn_range = [8,8];
+var maxn_slider_lower = document.getElementById('train-training-maxn-lower');
+var maxn_slider_upper = document.getElementById('train-training-maxn-upper');
 var max_threads = window.navigator.hardwareConcurrency;
 threads_slider_predict.max = max_threads;
 threads_slider_train.max = max_threads;
@@ -22,6 +28,8 @@ var train_form = document.getElementById('train-form');
 console.log(train_form);
 var currentTab = document.getElementById('pills-home-tab');
 var currentToasts = document.getElementsByClassName('.toast');
+var tax_dropdown = document.getElementById('train-opt-filter')
+var label_dropdown = document.getElementById('train-opt-filterLabel')
 // const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
 // const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
 params = {
@@ -39,19 +47,52 @@ params = {
     'train-path-virus': "Viruses path",
     'train-fastdna-path': 'fastDNA path',
     'train-fastdna-threads': 'Threads',
-    'train-training-dim': 'Word vector size',
-    'train-training-minn': 'Minimum k-mer size',
-    'train-training-maxn': 'Maximum k-mer size',
-    'train-training-readlen': 'Read length',
-    'train-training-readnum': 'Read samples number',
-    'train-training-lr': 'Learning rate',
-    'train-training-ulr': 'Learning rate update rate',
-    'train-training-epoch': 'Epochs number',
+    'train-training-dim': {
+      'field_name': 'Word vector size',
+      'lower': 'train-training-dim-lower',
+      'upper': 'train-training-dim-upper'
+    },
+    'train-training-minn': {
+      'field_name': 'Minimum k-mer size',
+      'lower': 'train-training-minn-lower',
+      'upper': 'train-training-minn-upper'
+    },
+    'train-training-maxn': {
+      'field_name': 'Maximum k-mer size',
+      'lower': 'train-training-maxn-lower',
+      'upper': 'train-training-maxn-upper'
+    },
+    'train-training-readlen': {
+      'field_name': 'Read length',
+      'lower': 'train-training-readlen-lower',
+      'upper': 'train-training-readlen-upper'
+    },
+    'train-training-readnum': {
+      'field_name': 'Read samples number',
+      'lower': 'train-training-readnum-lower',
+      'upper': 'train-training-readnum-upper'
+    },
+    'train-training-lr': {
+      'field_name': 'Learning rate',
+      'lower': 'train-training-lr-lower',
+      'upper': 'train-training-lr-upper'
+    },
+    'train-training-ulr': {
+      'field_name': 'Learning rate update rate',
+      'lower': 'train-training-ulr-lower',
+      'upper': 'train-training-ulr-upper'
+    },
+    'train-training-epoch': {
+      'field_name': 'Epochs number',
+      'lower': 'train-training-epoch-lower',
+      'upper': 'train-training-epoch-upper'
+    },
     'train-training-loss': 'Loss function',
     'train-opt-preiter': 'Pre-iterations number',
     'train-opt-iter': 'Iterations number',
     'train-opt-hits': 'Considered hits',
     'train-opt-filter': 'Data filter',
+    'train-opt-filterLabel': "Label filter",
     'train-opt-reps': 'Representatives number',
   }
 }
@@ -76,9 +117,12 @@ param_btn.onclick = function () {
     var elem = document.getElementById(key);
     if (elem && elem.value !== "") {
       var elem_value = elem.value;
+      if (elem.selectedOptions) {
+        var elem_value = Array.from(elem.selectedOptions).map(({value}) => value).join(', ');
+      }
       // var entry = document.createElement('h6');
       // entry.innerText = `${val}: ${elem_value}`;
-      var entry = document.createElement('div')
+      var entry = document.createElement('div');
       // entry.className = 'list-group-item';
       entry.classList.add('list-group-item', 'glass');
       entry.innerHTML = `<div class="d-flex w-100 justify-content-between">
@@ -88,7 +132,26 @@ param_btn.onclick = function () {
       setup.appendChild(entry);
     }
     else {
-      continue;
+      if (typeof val === 'object') {
+        // console.log(params[currentTab][key]['lower']);
+        // console.log(key.lower);
+        
+        var lower_val = document.getElementById(val.lower).value;
+        var upper_val = document.getElementById(val.upper).value;
+        var final_value = lower_val === upper_val ? `${lower_val}` : `${lower_val} - ${upper_val}`;
+        // var upper_val = elem_value.upper;
+        var entry = document.createElement('div')
+        // entry.className = 'list-group-item';
+        entry.classList.add('list-group-item', 'glass');
+        entry.innerHTML = `<div class="d-flex w-100 justify-content-between">
+                              <h5 class="mb-1 flavor-5">${val.field_name}</h5>
+                            </div>
+                            <p class="mb-1 dynamic-break flavor-visibility">${final_value}</p>`;
+        setup.appendChild(entry);
+      }
+      else {
+        continue;
+      }
     }
   }
   if (setup.innerHTML === '') {
@@ -399,13 +462,233 @@ threads_slider_train.addEventListener('input', (e) => {
   threads_num_train.textContent = e.target.value;
 })
 
-minn_slider.addEventListener('input', (e) => {
-  minn_num.textContent = e.target.value;
+minn_slider_lower.addEventListener('input', (e) => {
+  // console.log("lower knob moved")
+  console.log(`lower knob moved; lower: ${minn_slider_lower.value}, upper: ${minn_slider_upper.value}, target: ${e.target.value}, minrange[0]: ${minn_range[0]}, minrange[1]: ${minn_range[1]}`);
+  // if (e.target.value <= minn_range[1])
+  // {
+  //   minn_range[0] = e.target.value;
+  //   minn_num.textContent = e.target.value === minn_slider_upper.value ? `${minn_range[0]}` : `${minn_range[0]} - ${minn_range[1]}`;
+  // }
+  // else{
+  //   minn_range[0] = minn_range[1];
+  //   minn_slider_lower.value = minn_range[0];
+  //   minn_num.textContent = `${minn_range[0]}`;
+  // }
+
+  // if (e.target.value <= minn_slider_upper.value) {
+  //   minn_range[0] = e.target.value;
+  //   minn_num.textContent = e.target.value === minn_slider_upper.value ? `${minn_range[0]}` : `${minn_range[0]} - ${minn_range[1]}`;
+  // } else {
+  //   minn_slider_lower.value = minn_range[0]; // Reset the lower knob to its previous value
+  // }
+  var opt_icon = getOptIconObj(e);
+  if (parseInt(e.target.value) <= parseInt(minn_slider_upper.value)) {
+    minn_range[0] = e.target.value;
+    gsap.to(opt_icon, {
+      onStart: showOptIcon(opt_icon),
+      y: 0,
+      opacity: 1,
+      duration: 0.2,
+      force3D: true,
+      ease: "power1.inOut",
+        // onComplete: function() {
+        //   this.targets()[0].style.display = "block";
+        // }
+    });
+    if (e.target.value === minn_slider_upper.value) {
+      gsap.to(opt_icon, {
+        y: 60,
+        opacity: 0,
+        force3D: true,
+        ease: "power1.inOut",
+        onComplete: hideOptIcon(opt_icon),
+        duration: 0.2
+      });
+      // minn_range[0] = minn_slider_upper.value;
+      minn_num.textContent = `${minn_range[0]}`;
+    } 
+    else {
+      minn_num.textContent = `${minn_range[0]} - ${minn_range[1]}`;
+    }
+    // minn_num.textContent = e.target.value === minn_slider_upper.value ? `${minn_range[0]}` : `${minn_range[0]} - ${minn_range[1]}`;
+  } else {
+    // minn_slider_lower.value = minn_slider_upper.value; // Set the lower knob to the value of the upper knob
+    minn_slider_upper.value = minn_slider_lower.value; // Set the lower knob to the value of the upper knob
+    minn_range[0] = minn_slider_lower.value;
+    minn_range[1] = minn_slider_upper.value;
+    minn_num.textContent = `${minn_range[0]}`;
+  }
 })
 
-maxn_slider.addEventListener('input', (e) => {
-  maxn_num.textContent = e.target.value;
+minn_slider_upper.addEventListener('input', (e) => {
+  // console.log("upper knob moved")
+  // console.log(minn_slider_lower.value)
+  console.log(`upper knob moved; lower: ${minn_slider_lower.value}, upper: ${minn_slider_upper.value}, target: ${e.target.value}, minrange[0]: ${minn_range[0]}, minrange[1]: ${minn_range[1]}`);
+  // if (e.target.value >= minn_range[0])
+  // {
+  //   minn_range[1] = e.target.value;
+  //   minn_num.textContent = e.target.value === minn_slider_lower.value ? `${minn_range[1]}` : `${minn_range[0]} - ${minn_range[1]}`;
+  // }
+  // else{
+  //   minn_range[1] = minn_range[0];
+  //   minn_slider_upper.value = minn_range[1];
+  //   minn_num.textContent = `${minn_range[1]}`;
+  // }
+
+  var opt_icon = getOptIconObj(e);
+  if (parseInt(e.target.value) >= parseInt(minn_slider_lower.value)) {
+    minn_range[1] = e.target.value;
+    gsap.to(opt_icon, {
+      onStart: showOptIcon(opt_icon),
+      y: 0,
+      opacity: 1,
+      duration: 0.2,
+      force3D: true,
+      ease: "power1.inOut",
+        // onComplete: function() {
+        //   this.targets()[0].style.display = "block";
+        // }
+    });
+    if (e.target.value === minn_slider_lower.value) {
+      gsap.to(opt_icon, {
+        y: 60,
+        opacity: 0,
+        force3D: true,
+        ease: "power1.inOut",
+        onComplete: hideOptIcon(opt_icon),
+        duration: 0.2
+      });
+      minn_num.textContent = `${minn_range[0]}`;
+    } 
+    else {
+      minn_num.textContent = `${minn_range[0]} - ${minn_range[1]}`;
+    }
+    // minn_num.textContent = e.target.value === minn_slider_lower.value ? `${minn_range[1]}` : `${minn_range[0]} - ${minn_range[1]}`;
+  } else {
+    minn_slider_lower.value = minn_slider_upper.value; // Set the upper knob to the value of the lower knob
+    minn_range[0] = minn_slider_lower.value;
+    minn_range[1] = minn_slider_upper.value;
+    minn_num.textContent = `${minn_range[0]}`;
+  }
 })
+
+// maxn_slider.addEventListener('input', (e) => {
+//   maxn_num.textContent = e.target.value;
+// })
+
+maxn_slider_lower.addEventListener('input', (e) => {
+  // console.log("lower knob moved")
+  // console.log(`lower knob moved; lower: ${minn_slider_lower.value}, upper: ${minn_slider_upper.value}, target: ${e.target.value}, minrange[0]: ${minn_range[0]}, minrange[1]: ${minn_range[1]}`);
+  // if (e.target.value <= minn_range[1])
+  // {
+  //   minn_range[0] = e.target.value;
+  //   minn_num.textContent = e.target.value === minn_slider_upper.value ? `${minn_range[0]}` : `${minn_range[0]} - ${minn_range[1]}`;
+  // }
+  // else{
+  //   minn_range[0] = minn_range[1];
+  //   minn_slider_lower.value = minn_range[0];
+  //   minn_num.textContent = `${minn_range[0]}`;
+  // }
+
+  // if (e.target.value <= minn_slider_upper.value) {
+  //   minn_range[0] = e.target.value;
+  //   minn_num.textContent = e.target.value === minn_slider_upper.value ? `${minn_range[0]}` : `${minn_range[0]} - ${minn_range[1]}`;
+  // } else {
+  //   minn_slider_lower.value = minn_range[0]; // Reset the lower knob to its previous value
+  // }
+  var opt_icon = getOptIconObj(e);
+  if (parseInt(e.target.value) <= parseInt(maxn_slider_upper.value)) {
+    maxn_range[0] = e.target.value;
+    gsap.to(opt_icon, {
+      onStart: showOptIcon(opt_icon),
+      y: 0,
+      opacity: 1,
+      duration: 0.2,
+      force3D: true,
+      ease: "power1.inOut",
+        // onComplete: function() {
+        //   this.targets()[0].style.display = "block";
+        // }
+    });
+    if (e.target.value === maxn_slider_upper.value) {
+      gsap.to(opt_icon, {
+        y: 60,
+        opacity: 0,
+        force3D: true,
+        ease: "power1.inOut",
+        onComplete: hideOptIcon(opt_icon),
+        duration: 0.2
+      });
+      maxn_num.textContent = `${maxn_range[0]}`;
+    } 
+    else {
+      maxn_num.textContent = `${maxn_range[0]} - ${maxn_range[1]}`;
+    }
+    // minn_num.textContent = e.target.value === minn_slider_upper.value ? `${minn_range[0]}` : `${minn_range[0]} - ${minn_range[1]}`;
+  } else {
+    maxn_slider_upper.value = maxn_slider_lower.value; // Set the lower knob to the value of the upper knob
+    maxn_range[0] = maxn_slider_lower.value;
+    maxn_range[1] = maxn_slider_upper.value;
+    maxn_num.textContent = `${maxn_range[0]}`;
+  }
+})
+
+maxn_slider_upper.addEventListener('input', (e) => {
+  // console.log("upper knob moved")
+  // console.log(minn_slider_lower.value)
+  // console.log(`upper knob moved; lower: ${minn_slider_lower.value}, upper: ${minn_slider_upper.value}, target: ${e.target.value}, minrange[0]: ${minn_range[0]}, minrange[1]: ${minn_range[1]}`);
+  // if (e.target.value >= minn_range[0])
+  // {
+  //   minn_range[1] = e.target.value;
+  //   minn_num.textContent = e.target.value === minn_slider_lower.value ? `${minn_range[1]}` : `${minn_range[0]} - ${minn_range[1]}`;
+  // }
+  // else{
+  //   minn_range[1] = minn_range[0];
+  //   minn_slider_upper.value = minn_range[1];
+  //   minn_num.textContent = `${minn_range[1]}`;
+  // }
+
+  var opt_icon = getOptIconObj(e);
+  if (parseInt(e.target.value) >= parseInt(maxn_slider_lower.value)) {
+    maxn_range[1] = e.target.value;
+    gsap.to(opt_icon, {
+      onStart: showOptIcon(opt_icon),
+      y: 0,
+      opacity: 1,
+      duration: 0.2,
+      force3D: true,
+      ease: "power1.inOut",
+        // onComplete: function() {
+        //   this.targets()[0].style.display = "block";
+        // }
+    });
+    if (e.target.value === maxn_slider_lower.value) {
+      gsap.to(opt_icon, {
+        y: 60,
+        opacity: 0,
+        force3D: true,
+        ease: "power1.inOut",
+        onComplete: hideOptIcon(opt_icon),
+        duration: 0.2
+      });
+      maxn_num.textContent = `${maxn_range[0]}`;
+    } 
+    else {
+      maxn_num.textContent = `${maxn_range[0]} - ${maxn_range[1]}`;
+    }
+    // minn_num.textContent = e.target.value === minn_slider_lower.value ? `${minn_range[1]}` : `${minn_range[0]} - ${minn_range[1]}`;
+  } else {
+    maxn_slider_lower.value = maxn_slider_upper.value; // Set the upper knob to the value of the lower knob
+    maxn_range[0] = maxn_slider_lower.value;
+    maxn_range[1] = maxn_slider_upper.value;
+    maxn_num.textContent = `${maxn_range[0]}`;
+  }
+})
+
+function setRangeText(event) {
+  
+}
 
 
 // console.log(window.navigator.hardwareConcurrency);
@@ -746,22 +1029,286 @@ Array.from(document.querySelectorAll(".run-btn")).forEach(btn => {
 //   })
 // })
 
+// autofocus on accordion section - problem: if something else is being hidden by bs.collapse, then it jumps the whole accordion and it shouldn't
 // const accordionElement = document.getElementsByClassName('accordion-collapse');
+// const accordionElement = [].slice.call(document.getElementsByClassName('accordion-flush'));
 // console.log(accordionElement);
 
-// accordionElement.addEventListener('shown.bs.collapse', function (event) {
+// accordionElement.forEach(elem => elem.addEventListener('shown.bs.collapse', function (event) {
 //   // code to run after accordion item is shown
 // //   console.log('Accordion item shown!');
 // //   console.log(event.target.previousElementSibling);
 //   event.target.previousElementSibling.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest"});
 
-// });
+// }));
 
-// accordionElement.addEventListener('hide.bs.collapse', function (event) {
+// accordionElement.forEach(elem => elem.addEventListener('hide.bs.collapse', function (event) {
 //     // code to run after accordion item is shown
 //   //   console.log('Accordion item shown!');
 //   //   console.log(event.target.previousElementSibling);
 //     scrollTo({top: 100, behavior: "smooth"});
 //     // document.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest"});
   
+// }));
+
+tax_dropdown.addEventListener('change', (e) => {
+  // console.log(`label dropdown val: ${e.target.value}`);
+  // console.log(`label dropdown idx: ${label_dropdown.selectedIndex}`);
+  for (let i = 0; i < label_dropdown.options.length; i++) {
+    if (label_dropdown.options[i].value === e.target.value) {
+      label_dropdown.selectedIndex = i;
+      break;
+    }
+  }
+})
+
+// const rangeCheckbox = document.getElementById('rangeCheckbox');
+// const rangeInput = document.getElementById('rangeInput');
+
+// rangeCheckbox.addEventListener('change', function() {
+//     if (this.checked) {
+//         rangeInput.style.display = 'block';
+//     } else {
+//         rangeInput.style.display = 'none';
+//     }
 // });
+
+var lowerBoundInputs = document.querySelectorAll('.lower-bound-input');
+var upperBoundInputs = document.querySelectorAll('.upper-bound-input');
+
+console.log(lowerBoundInputs);
+
+lowerBoundInputs.forEach(function(input) {
+  input.addEventListener('change', validateBounds);
+});
+
+upperBoundInputs.forEach(function(input) {
+  input.addEventListener('change', validateBounds);
+});
+
+function showOptIcon(obj){
+  obj.style.visibility = "visible";
+  // run_pred_btn.disabled = false;
+  // run_train_btn.disabled = false;
+  // param_btn.disabled = false;
+}
+function hideOptIcon(obj){
+  obj.style.visibility = "hidden";
+  // run_pred_btn.disabled = false;
+  // run_train_btn.disabled = false;
+  // param_btn.disabled = false;
+}
+
+function validateBounds(event) {
+  event.preventDefault();
+  var inputObj = event.target;
+  console.log(inputObj.classList);
+  var isLower = inputObj.classList.contains('lower-bound-input');
+  console.log(isLower);
+  var lowerBoundInput = isLower ? inputObj : inputObj.parentNode.previousElementSibling.querySelector('.lower-bound-input');
+  console.log(lowerBoundInput);
+  var upperBoundInput = isLower ? inputObj.parentNode.nextElementSibling.querySelector('.upper-bound-input') : inputObj;
+  console.log(upperBoundInput);
+  console.log(typeof lowerBoundInput.value);
+  console.log(lowerBoundInput.value);
+  var lowerBound = lowerBoundInput.value.includes('.') ? parseFloat(lowerBoundInput.value) : parseInt(lowerBoundInput.value);
+  var upperBound = upperBoundInput.value.includes('.') ? parseFloat(upperBoundInput.value) : parseInt(upperBoundInput.value);
+  // var upperBoundInput = event.target.parentNode.nextElementSibling.querySelector('.upper-bound-input');
+  // console.log(upperBoundInput);
+  // var upperBound = upperBoundInput.value;
+
+  console.log(lowerBound);
+  console.log(upperBound);
+
+  // handleOptIcon(event, lowerBound, upperBound);
+
+  var opt_icon = getOptIconObj(event);
+
+  if (lowerBound == upperBound) {
+    // opt_icon.style.visibility = "hidden";
+    gsap.to(opt_icon, {
+      y: 60,
+      opacity: 0,
+      force3D: true,
+      ease: "power1.inOut",
+      onComplete: hideOptIcon(opt_icon),
+      duration: 0.2
+    })
+  }
+  else {
+    gsap.to(opt_icon, {
+      onStart: showOptIcon(opt_icon),
+      y: 0,
+      opacity: 1,
+      duration: 0.2,
+      force3D: true,
+      ease: "power1.inOut",
+        // onComplete: function() {
+        //   this.targets()[0].style.display = "block";
+        // }
+    })
+  }
+
+  if (lowerBound >= upperBound) {
+    upperBoundInput.value = lowerBound;
+    gsap.to(opt_icon, {
+      y: 60,
+      opacity: 0,
+      force3D: true,
+      ease: "power1.inOut",
+      onComplete: hideOptIcon(opt_icon),
+      duration: 0.2
+    })
+      // event.target.classList.add('invalid'); // Add a CSS class to highlight the invalid input
+  }
+}
+
+
+function getOptIconObj(event) {
+  var temp_name_list = event.target.id.split('-').slice(0, -1);
+  console.log(temp_name_list);
+  temp_name_list.push("opt");
+  console.log(temp_name_list.join('-'));
+  var opt_icon = document.querySelector(`#${temp_name_list.join('-')}`);
+  console.log(opt_icon);
+  return opt_icon;
+}
+// var slider = new Slider('#ex2', {});
+// var slider2 = new slider('#ex1', {
+// 	formatter: function(value) {
+// 		return 'Current value: ' + value;
+// 	}
+// });
+
+gsap.registerPlugin(Flip);
+
+const a_desc = document.querySelector(".accordion-desc"), a_btn_desc = document.querySelector(".accordion-button-desc"), section = document.getElementById("train-collapseSettingsOpt");
+section.addEventListener("show.bs.collapse", () => {
+  const state = Flip.getState(".accordion-button-desc, .accordion-desc");
+  a_desc.classList.toggle("active");
+  a_btn_desc.classList.toggle("active");
+
+  Flip.from(state, {
+    duration: 0.6,
+    fade: true,
+    absolute: true,
+    toggleClass: "opening",
+    ease: "power1.inOut"
+  });
+});
+
+// $( '#train-training-loss' ).select2( {
+//   theme: "bootstrap-5",
+//   width: $( this ).data( 'width' ) ? $( this ).data( 'width' ) : $( this ).hasClass( 'w-100' ) ? '100%' : 'style',
+//   // placeholder: $(this).val(0),
+//   closeOnSelect: false,
+// } );
+
+// $( '#train-training-loss' ).on('change', function(e) {
+//   try {
+//     console.log($(this).select2('data')); 
+//   } catch (error) {
+    
+//   }
+// });
+
+var multipleLoss = new Choices('#train-training-loss', {
+  removeItemButton: true,
+  maxItemCount:5,
+  searchResultLimit:5,
+  renderChoiceLimit:5,
+  classNames: {
+    containerOuter: 'choices is-valid',
+    containerInner: 'choices__inner',
+    input: 'choices__input',
+    inputCloned: 'choices__input--cloned',
+    list: 'choices__list',
+    listItems: 'choices__list--multiple',
+    listSingle: 'choices__list--single',
+    listDropdown: 'choices__list--dropdown',
+    item: 'choices__item',
+    itemSelectable: 'choices__item--selectable',
+    itemDisabled: 'choices__item--disabled',
+    itemChoice: 'choices__item--choice',
+    placeholder: 'choices__placeholder',
+    group: 'choices__group',
+    groupHeading: 'choices__heading',
+    button: 'choices__button',
+    activeState: 'is-active',
+    focusState: 'is-focused',
+    openState: 'is-open',
+    disabledState: 'is-disabled',
+    highlightedState: 'is-highlighted',
+    selectedState: 'is-selected',
+    flippedState: 'is-flipped',
+    loadingState: 'is-loading',
+    noResults: 'has-no-results',
+    noChoices: 'has-no-choices'
+  },
+});
+
+// multipleLoss.passedElement.element.addEventListener('change', function() {
+//   checkInputfield(multipleLoss);
+// })
+
+// function checkInputfield(multipleLoss) {
+//   let inner_element = multipleLoss.containerInner.element;
+//   if (multipleLoss.getValue(true)) {
+//     inner_element.classList.remove('is-invalid');
+//   } else {
+//     inner_element.classList.add('is-invalid');
+//   }
+// }
+
+// $(document).ready(function() {
+// $('#train-training-loss').multiselect();
+// // });
+// $('.selectpicker').addClass('is-invalid').selectpicker('setStyle');
+let f = document.getElementById("train-training-loss");
+f.addEventListener("change", (e) => {
+  var opt_icon = document.getElementById("train-training-loss-opt");
+  var outer_elem = multipleLoss.containerOuter.element;
+  var inner_elem = multipleLoss.containerOuter.element;
+  if (f.selectedOptions.length === 0) {
+    outer_elem.classList.remove('is-valid');
+    outer_elem.classList.add('is-invalid');
+    gsap.to(opt_icon, {
+      y: 60,
+      opacity: 0,
+      force3D: true,
+      ease: "power1.inOut",
+      onComplete: hideOptIcon(opt_icon),
+      duration: 0.2
+    })
+    // console.log(multipleLoss.containerOuter.element);
+  }
+  else if (f.selectedOptions.length === 1) {
+    outer_elem.classList.remove('is-invalid');
+    outer_elem.classList.add('is-valid');
+    gsap.to(opt_icon, {
+      y: 60,
+      opacity: 0,
+      force3D: true,
+      ease: "power1.inOut",
+      onComplete: hideOptIcon(opt_icon),
+      duration: 0.2
+    })
+  }
+  else {
+    outer_elem.classList.remove('is-invalid');
+    outer_elem.classList.add('is-valid');
+    gsap.to(opt_icon, {
+      onStart: showOptIcon(opt_icon),
+      y: 0,
+      opacity: 1,
+      duration: 0.2,
+      force3D: true,
+      ease: "power1.inOut",
+        // onComplete: function() {
+        //   this.targets()[0].style.display = "block";
+        // }
+    })
+  }
+  // var l = Array.from(f.selectedOptions).map(({value}) => value);
+  // console.log(f.selectedOptions.length);
+})

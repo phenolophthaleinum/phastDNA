@@ -10,8 +10,8 @@ from itertools import chain
 from multiprocessing import cpu_count
 from pathlib import Path
 from timeit import default_timer as timer
+from traceback import format_tb
 from typing import Any, Callable, Collection, Dict, List, Type
-from traceback import print_tb, format_tb
 
 import joblib
 import numpy as np
@@ -107,7 +107,8 @@ class Loger:
         if self.done == self.total:
             self.set_task('\ndone\n', 0)
 
-log = Loger() # initialize main log object
+
+log = Loger()  # initialize main log object
 sys.excepthook = log.catch
 
 
@@ -243,6 +244,18 @@ def fasta_2_dict(fasta_path: Path) -> Dict[str, str]:
     return {seq.id: seq.seq for seq in reader}
 
 
+def sanitize_names(metadata_dict: Dict[str, Dict[str, Any]],
+                   virus: bool = False):
+    offending_characters = '[]{}()!"\'#&%^/\\|'
+    for record, metadata in metadata_dict.items():
+        bacterium_dict = metadata['host'] if virus else metadata
+        sanitized_field, field_index = {rank: (name, i) for i, (rank, name) in enumerate(zip(bacterium_dict['lineage_ranks'], bacterium_dict['lineage_names']))}['species']
+        for c in offending_characters:
+            sanitized_field = sanitized_field.replace(c, '')
+        bacterium_dict['lineage_names'][field_index] = sanitized_field
+    return metadata_dict
+
+
 def reverse_complement(seq):
     """ todo
 
@@ -362,13 +375,15 @@ def sample_fasta_dir(fasta_dir: Path,
 
 def labeled_fasta(files: List[Path],
                   labels: List[str],
-                  path_stem: Path):
+                  path_stem: Path,
+                  n_jobs: int = None):
     assert len(files) == len(labels), f'Sample file list:' \
                                       f'\n{files[:3]} ({len(files)})' \
                                       f'\nDoes NOT match label list:\n{labels[:3]} ({len(labels)})'
     fasta_lines, label_lines = [], []
     read_jobs = Parallel(fasta_2_dict, files,
-                         description=f'Labeling {len(files)} training genomes form {len(set(labels))} taxa')
+                         description=f'labeling {len(files)} training genomes form {len(set(labels))} taxa',
+                         n_jobs=n_jobs)
     for seq_dict, label in zip(read_jobs.result, labels):
         fasta_lines.extend([f'>{definition}\n{seq}' for definition, seq in seq_dict.items()])
         label_lines.extend([label for _ in seq_dict])

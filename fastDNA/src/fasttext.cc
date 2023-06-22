@@ -269,7 +269,10 @@ void FastText::printInfo(real progress, real loss, std::ostream& log_stream) {
   if ((int)progress % 5 == 0){
     // TODO: this is not ideal, since someone might want to make wd outside the program root
     std::filesystem::path input_path = std::filesystem::path(args_->input);
-    std::filesystem::path log_path = "./" + input_path.parent_path().filename().string() + "/PHastDNA.log";
+    // log_stream << input_path.string();
+    std::filesystem::path log_path = input_path;
+    log_path.replace_filename("PHastDNA.log");
+    log_stream << log_path.string();
     std::ofstream outfile(log_path, std::ios_base::app);
     // auto iter = std::prev(std::filesystem::directory_iterator(input_path.parent_path().string()), 1);
     // log_stream << iter->path() << '\n';
