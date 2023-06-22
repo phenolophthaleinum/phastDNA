@@ -1265,17 +1265,49 @@ var multipleLoss = new Choices('#train-training-loss', {
 // // });
 // $('.selectpicker').addClass('is-invalid').selectpicker('setStyle');
 let f = document.getElementById("train-training-loss");
-f.addEventListener("change", () => {
+f.addEventListener("change", (e) => {
+  var opt_icon = document.getElementById("train-training-loss-opt");
   var outer_elem = multipleLoss.containerOuter.element;
   var inner_elem = multipleLoss.containerOuter.element;
   if (f.selectedOptions.length === 0) {
     outer_elem.classList.remove('is-valid');
     outer_elem.classList.add('is-invalid');
+    gsap.to(opt_icon, {
+      y: 60,
+      opacity: 0,
+      force3D: true,
+      ease: "power1.inOut",
+      onComplete: hideOptIcon(opt_icon),
+      duration: 0.2
+    })
     // console.log(multipleLoss.containerOuter.element);
+  }
+  else if (f.selectedOptions.length === 1) {
+    outer_elem.classList.remove('is-invalid');
+    outer_elem.classList.add('is-valid');
+    gsap.to(opt_icon, {
+      y: 60,
+      opacity: 0,
+      force3D: true,
+      ease: "power1.inOut",
+      onComplete: hideOptIcon(opt_icon),
+      duration: 0.2
+    })
   }
   else {
     outer_elem.classList.remove('is-invalid');
     outer_elem.classList.add('is-valid');
+    gsap.to(opt_icon, {
+      onStart: showOptIcon(opt_icon),
+      y: 0,
+      opacity: 1,
+      duration: 0.2,
+      force3D: true,
+      ease: "power1.inOut",
+        // onComplete: function() {
+        //   this.targets()[0].style.display = "block";
+        // }
+    })
   }
   // var l = Array.from(f.selectedOptions).map(({value}) => value);
   // console.log(f.selectedOptions.length);
