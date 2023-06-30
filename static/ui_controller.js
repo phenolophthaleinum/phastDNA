@@ -87,6 +87,11 @@ params = {
       'lower': 'train-training-epoch-lower',
       'upper': 'train-training-epoch-upper'
     },
+    'train-training-noise': {
+      'field_name': 'Noise (mutations)',
+      'lower': 'train-training-noise-lower',
+      'upper': 'train-training-noise-upper'
+    },
     'train-training-loss': 'Loss function',
     'train-opt-preiter': 'Pre-iterations number',
     'train-opt-iter': 'Iterations number',

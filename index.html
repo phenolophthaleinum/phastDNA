@@ -44,7 +44,7 @@
             <!-- header menu -->
             <header class="viewport-header d-flex align-items-center pb-3 mb-5">
                 <div class="d-flex me-auto align-items-start">
-                    <h1 class="me-auto display-1">phastDNA</h1><p class="d-inline-flex lead">1.0.0-alpha</p>
+                    <h1 class="me-auto display-1">phastDNA</h1><p class="d-inline-flex lead">1.1.0-alpha</p>
                 </div>
                 <div class="d-flex p-4">
                     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
@@ -154,7 +154,9 @@
                                                                     Path to directory with result files.
                                                                 </div>
                                                             </div>
-                                                            <input type="text" pattern="^([A-Z]:\\)?(\.[\\/])?([\w\s.-]+[\\/])*[\w\s.-]+$" class="form-control"
+                                                            <!-- new  ^([A-Z]:\\)?(\.[\\/])?([\w\s.\-]+[\\/])*[\w\s.\-]+$ -->
+                                                            <!-- old ^([A-Z]:\\)?(\.[\\/])?([\w\s.-]+[\\/])*[\w\s.-]+$ -->
+                                                            <input type="text" pattern="^([A-Z]:\\)?(\.[\\/])?([\w\s.\-]+[\\/])*[\w\s.\-]+$" class="form-control"
                                                                 id="predict-path-output" aria-describedby="emailHelp"
                                                                 name="--output" required>
                                                             <div class="invalid-feedback">Please fill out this field
@@ -407,7 +409,9 @@
                                                                     Path to directory with result files.
                                                                 </div>
                                                             </div>
-                                                            <input type="text" pattern="^([A-Z]:\\)?(\.[\\/])?([\w\s.-]+[\\/])*[\w\s.-]+$" class="form-control"
+                                                            <!-- new ^([A-Z]:\\)?(\.[\\/])?([\w\s.\-]+[\\/])*[\w\s.\-]+$ -->
+                                                            <!-- old ^([A-Z]:\\)?(\.[\\/])?([\w\s.-]+[\\/])*[\w\s.-]+$ -->
+                                                            <input type="text" pattern="^(?:[A-Z]:\\|\/)?(?:\.\.\/|\.\/)?(?:[\w\s.-]+[\\\/])*[\w\s.-]+$" class="form-control"
                                                                 id="train-path-output" aria-describedby="emailHelp"
                                                                 name="--output" required>
                                                             <div class="invalid-feedback">Please fill out this field
@@ -986,6 +990,47 @@
                                                                     <input type="number" value="20" min="1" class="form-control upper-bound-input"
                                                                         id="train-training-epoch-upper" aria-describedby="emailHelp"
                                                                         name="--epochs-upper" required>
+                                                                </div>
+                                                            </div>
+                                                            <div class="invalid-feedback">Please fill out this field
+                                                                with a positive value.</div>
+                                                        </div>
+                                                        <div
+                                                            class="d-flex justify-content-between flex-wrap mb-3 flex-column">
+                                                            <!-- <div class="d-flex mb-3"> -->
+                                                            <div class="d-flex justify-content-between">
+                                                                <div class="d-flex">
+                                                                    <h3 class="flavor-5">Noise (mutations)</h3>
+                                                                    <button class="btn-icon" type="button"
+                                                                        data-bs-toggle="collapse"
+                                                                        data-bs-target="#train-noiseInfo"
+                                                                        aria-expanded="false"
+                                                                        aria-controls="train-noiseInfo">
+                                                                        <i class="bi bi-info-circle-fill btn btn-icon info-icon"></i>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="d-flex fs-5" id="train-training-noise-opt" style="visibility: hidden;" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="This setting will be optimised." data-bs-trigger="hover">
+                                                                    <!-- <p class="flavor-7 fs-6 mx-3">Subject to optimisation</p> -->
+                                                                    <i class="bi bi-wrench-adjustable-circle-fill opt-icon"></i>
+                                                                </div>
+                                                            </div>
+                                                            <div class="collapse mb-3 flex-grow-1" id="train-noiseInfo">
+                                                                <div class="glass-card flavor-visibility card card-body">
+                                                                    Level of training noise, percent of random mutations.
+                                                                </div>
+                                                            </div>
+                                                            <div class="d-flex justify-content-around flex-wrap flex-row">
+                                                                <div class="d-flex flex-column flex-fill mx-3">
+                                                                    <label for="train-training-noise-lower" class="flavor-5">Lower bound</label>
+                                                                    <input type="number" value="0" min="0" class="form-control lower-bound-input"
+                                                                        id="train-training-noise-lower" aria-describedby="emailHelp"
+                                                                        name="--noise-lower" required>
+                                                                </div>
+                                                                <div class="d-flex flex-column flex-fill mx-3">
+                                                                    <label for="train-training-noise-upper" class="flavor-5">Upper bound</label>
+                                                                    <input type="number" value="0" min="0" class="form-control upper-bound-input"
+                                                                        id="train-training-noise-upper" aria-describedby="emailHelp"
+                                                                        name="--noise-upper" required>
                                                                 </div>
                                                             </div>
                                                             <div class="invalid-feedback">Please fill out this field

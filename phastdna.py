@@ -43,7 +43,7 @@ if __name__ == "__main__":
                         help="EXPONENT for update dynamics of the the learning rate (default [100]). <train>")
     parser.add_argument("-d", "--dim", required=False, nargs='+', default=100, type=int,
                         help="Dimensionality of k-mer embedding (default [100]). <train>")
-    parser.add_argument("-n", "--noise", required=False, nargs='+', default=0,
+    parser.add_argument("-n", "--noise", required=False, nargs='+', default=0, type=int,
                         help="Mutation rate (divergence) between phage and host sequences (/100,000, default [0]). <train>")
     parser.add_argument("-f", "--fraglen", required=False, nargs='+', default=200, type=int,
                         help="Length of simulated read sequences (default [200]). <train>")
