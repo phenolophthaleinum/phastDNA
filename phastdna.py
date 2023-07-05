@@ -1,3 +1,4 @@
+import json
 from argparse import ArgumentParser
 from pathlib import Path
 
@@ -119,8 +120,10 @@ if __name__ == "__main__":
 
         classifier = Classifier.load(path=model_file)
         host_ranking = classifier.predict(virus_dir)
-
-
+        # Save results
+        results_file = output_dir.joinpath('predictions.json')
+        json.dump(host_ranking, open(results_file, 'w'), indent=4)
+        log.info(f'Results saved to {results_file}')    
 
 
     # Train a new model and optimize hyperparameters
