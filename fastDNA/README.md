@@ -30,9 +30,8 @@ Compilation is carried out using a Makefile, so you will need to have a working 
 
 
 ```
-$ git clone https://github.com/rmenegaux/fastDNA.git
-$ cd fastDNA
-$ make
+cd fastDNA
+make
 ```
 
 This will produce object files for all the classes as well as the main binary `fastdna`.
