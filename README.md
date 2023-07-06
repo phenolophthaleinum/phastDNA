@@ -1,6 +1,6 @@
-# phastDNA
-
 <a name="readme-top"></a>
+
+# phastDNA
 
 ## Getting started
 phastDNA can be run as a CLI program or as a GUI program. Both version has exactly the same comptuational capabilities. GUI app is a user-friendly version intended for users who are not experts in bioinformatics.
@@ -69,6 +69,7 @@ Currently, that's the only dataset that is compatible for training. This is the 
 ```
 ---
 ```
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Usage
 
@@ -94,6 +95,8 @@ python phastDNA_gui.py
 The webapp is hosted on computer's localhost. The address will be printed once the app is started.
 Open that address in your browser to access phastDNA GUI. The address most likely will be: `http://127.0.0.1:5000/`
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ## Roadmap
 - [ ] Standarise usage of other datasets
 - [ ] Improving classifiers
@@ -102,7 +105,14 @@ Open that address in your browser to access phastDNA GUI. The address most likel
 - [ ] Migrate UI to Electron app
 - [ ] Create documentation
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ## License
 Distributed under the GNU General Public License v3.0. See LICENSE.txt for more information.
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ## References
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
