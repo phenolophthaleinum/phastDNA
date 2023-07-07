@@ -66,11 +66,11 @@ pip install -r requirements.txt
 
 5. *Optional*: download Edwards et al. dataset for training
 
-Currently, that's the only dataset that is compatible with training. This is the highest priority to standardise the usage of different datasets.
+Currently, that's the only dataset that is compatible with training. This is the highest priority to standardise the usage of different datasets. Original link to the dataset is not available anymore, but its copy is hosted at [AMU Computational Biology Department](http://combio.pl/):
 
 <!-- is this not available? -->
 ```
----
+wget http://combio.pl/files/edwards2016.zip
 ```
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
