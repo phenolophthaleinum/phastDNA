@@ -25,12 +25,12 @@ Depending on use case, the hardware requirements vary.
 
 #### Prediction
 
-- multi-threaded processor - the more threads, the faster phastDNA will run
+- multi-threaded processor - the more threads, the faster phastDNA should run
 
 #### Training
 
-- multi-threaded processor - the more threads, the faster phastDNA will run
-- => 10 GB RAM - this is a safe number, since 10 GB was enough for most of the runs on Edwards et. al. dataset. RAM usage also depends on settings - higher min and max k-mer size will result in higher memory allocation, as well as higher number of input sequences.
+- multi-threaded processor - the more threads, the faster phastDNA should run
+- => 10 GB RAM - this is a safe number, since 10 GB was enough for most of the runs on Edwards et al. dataset. RAM usage also depends on settings - higher min and max k-mer size will result in higher memory allocation, as well as higher number of input sequences.
 - 10 GB of disk space, under the same conditions as the memory requirement. Also, an SSD is recommended, since phastDNA performs quite a bit of IO operations. HDD will work, but will be significantly slower. 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -54,10 +54,13 @@ python -m venv venv && source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-4. *Optional*: build fastDNA from source
+4. *Optional*: build [fastDNA](https://github.com/rmenegaux/fastDNA) from source
 
 > **Note**
 > If included binaries does not work, this step will be **required**.
+
+> **Warning**
+> Only included source of fastDNA is compatible with phastDNA. If you would like to introduce any changes, use the included code, not from the fastDNA repository.
 
 [View fastDNA README](fastDNA/README.md#requirements)
 
