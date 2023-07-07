@@ -3,7 +3,7 @@
 # phastDNA
 
 ## Getting started
-phastDNA can be run as a CLI program or as a GUI program. Both version has exactly the same comptuational capabilities. GUI app is a user-friendly version intended for users who are not experts in bioinformatics.
+phastDNA can be run as a CLI program or as a GUI program. Both versions have exactly the same computational capabilities. GUI app is a user-friendly version intended for users who are not experts in bioinformatics or familiar with terminal.
 
 ### System Requirements
 There are different software requirements, depending on the usage of the app.
@@ -11,17 +11,17 @@ There are different software requirements, depending on the usage of the app.
 #### Running phastDNA from CLI only:
 
 - Python 3.8 or newer
-- UNIX based operating system
+- UNIX-based operating system
 
 #### Full phastDNA (CLI + GUI)
 
 - Python 3.8 or newer
-- UNIX based operating system
-- Modern web browser (Chromium based browsers are preferred, e.g. Google Chrome)
+- UNIX-based operating system
+- Modern web browser (Chromium-based browsers are preferred, e.g. Google Chrome)
 - Internet connection
 
 ### Hardware requirements:
-Depending on use case, the hardware requirements vary.
+Depending on the use case, the hardware requirements vary.
 
 #### Prediction
 
@@ -31,12 +31,12 @@ Depending on use case, the hardware requirements vary.
 
 - multi-threaded processor - the more threads, the faster phastDNA should run
 - => 10 GB RAM - this is a safe number, since 10 GB was enough for most of the runs on Edwards et al. dataset. RAM usage also depends on settings - higher min and max k-mer size will result in higher memory allocation, as well as higher number of input sequences.
-- 10 GB of disk space, under the same conditions as the memory requirement. Also, an SSD is recommended, since phastDNA performs quite a bit of IO operations. HDD will work, but will be significantly slower. 
+- 10 GB of disk space, under the same conditions as the memory requirement. Also, an SSD is recommended, since phastDNA performs quite a bit of IO operations. HDD will work but will be significantly slower. 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Installation
-1. Clone this repository or download latest version from Releases section:
+1. Clone this repository or download the latest version from the Releases section:
 ```bash
 git clone https://github.com/phenolophthaleinum/phastDNA.git
 cd phastDNA
@@ -57,7 +57,7 @@ pip install -r requirements.txt
 4. *Optional*: build [fastDNA](https://github.com/rmenegaux/fastDNA) from source
 
 > **Note**
-> If included binaries does not work, this step will be **required**.
+> If included binaries do not work, this step will be **required**.
 
 > **Warning**
 > Only included source of fastDNA is compatible with phastDNA. If you would like to introduce any changes, use the included code, not from the fastDNA repository.
@@ -66,7 +66,7 @@ pip install -r requirements.txt
 
 5. *Optional*: download Edwards et al. dataset for training
 
-Currently, that's the only dataset that is compatible for training. This is the highest priority to standarise the usage of different datasets.
+Currently, that's the only dataset that is compatible with training. This is the highest priority to standardise the usage of different datasets.
 
 <!-- is this not available? -->
 ```
