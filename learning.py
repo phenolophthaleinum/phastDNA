@@ -223,7 +223,11 @@ class Classifier:
                                          n_samples=self.samples,
                                          n_jobs=self.threads,
                                          to_dir=sample_dir)
-
+        
+        print(len(virus_samples))
+        print({'fastdna_exe': self.fastdna_exe.as_posix(),
+                                             'model_path': self.model.as_posix(),
+                                             'considered_hosts': self.considered_hosts})
         fastdna_pred_jobs = Parallel(Classifier._fastdna_predict,
                                      virus_samples,
                                      kwargs={'fastdna_exe': self.fastdna_exe.as_posix(),
@@ -235,6 +239,8 @@ class Classifier:
         # print(type(self.scoring))
         # print(type(getattr(scoring, self.scoring)))
         # print(callable(getattr(scoring, self.scoring)))
+        # print(fastdna_pred_jobs.result)
+        # print(len(fastdna_pred_jobs.result))
         score_jobs = Parallel(self.scoring if callable(self.scoring) else getattr(scoring, self.scoring), # dirty fix for ensuring that there will be a callable obj
                               fastdna_pred_jobs.result,
                               description='scoring results',
