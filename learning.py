@@ -261,6 +261,7 @@ class Classifier:
     def clean(self):
         rmtree(self.dir)
 
+    # TODO: remove full paths on save, leave only name of model
     def save(self, path: Path):
         saved_copy = deepcopy(self)
         path.mkdir(parents=True)
@@ -273,6 +274,10 @@ class Classifier:
         log.info(f'Files stored at:\n{saved_copy.model.as_posix()}\n{model_path}')
         return saved_copy
 
+    # TODO: here:
+    #       - assign user provided working dir
+    #       - combine model name with user provided working dir 
+    #       - assign user provided fastDNA path
     @staticmethod
     def load(path: Path) -> 'Classifier':
         master_file = path.joinpath('classifier.pkl')
