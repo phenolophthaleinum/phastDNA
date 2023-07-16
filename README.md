@@ -26,6 +26,7 @@ Depending on the use case, the hardware requirements vary.
 #### Prediction
 
 - multi-threaded processor - the more threads, the faster phastDNA should run
+- at least 4 GB RAM - this is a safe number for Edwards et al. dataset. For larger datasets or for prediction using models trained with longer k-mers or with more samples, you will likely need more RAM
 
 #### Training
 
