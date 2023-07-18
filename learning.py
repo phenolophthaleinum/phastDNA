@@ -261,7 +261,7 @@ class Classifier:
     def clean(self):
         rmtree(self.dir)
 
-    # TODO: remove full paths on save, leave only name of model
+
     def save(self, path: Path):
         saved_copy = deepcopy(self)
         path.mkdir(parents=True)
@@ -274,15 +274,17 @@ class Classifier:
         log.info(f'Files stored at:\n{saved_copy.model.as_posix()}\n{model_path}')
         return saved_copy
 
-    # TODO: here:
-    #       - assign user provided working dir
-    #       - combine model name with user provided working dir 
-    #       - assign user provided fastDNA path
+    # TODO: not necessairly here - classifier file and then object should have the fastdna binary embedded inside - easier for everybody
     @staticmethod
-    def load(path: Path) -> 'Classifier':
-        master_file = path.joinpath('classifier.pkl')
+    def load(model_path: Path, fastdna_path: Path) -> 'Classifier':
+        # wd_path.mkdir(exist_ok=True, parents=True)
+        master_file = model_path.joinpath('classifier.pkl')
         classifier = read_serialized(master_file)
         assert isinstance(classifier, Classifier), f'No valid classifier file at {master_file}'
+        classifier.dir = model_path
+        classifier.fastdna_exe = fastdna_path
+        classifier.model = classifier.dir.joinpath(f"{classifier.name}.bin")
+        assert fastdna_path.exists(), f'fastDNA executable not found at {fastdna_path}'
         assert classifier.model.is_file(), f'No valid fastDNA model file at {classifier.model}'
         return classifier
 
