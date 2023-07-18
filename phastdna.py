@@ -118,7 +118,7 @@ if __name__ == "__main__":
         assert any([f.suffix in fasta_extensions for f in virus_dir.iterdir()]), f'No fasta files found in {virus_dir}'
         model_file = Path(args.classifier)
 
-        classifier = Classifier.load(path=model_file)
+        classifier = Classifier.load(model_path=model_file, fastdna_path=fastdna_exe)
         host_ranking = classifier.predict(virus_dir)
         # Save results
         results_file = output_dir.joinpath('predictions.csv')
