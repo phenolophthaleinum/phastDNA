@@ -1,4 +1,5 @@
 import json
+import scoring
 from collections import defaultdict, Counter
 from copy import deepcopy
 from itertools import count
@@ -215,13 +216,18 @@ class Classifier:
         :param virus_genome_dir: dictionary with phage fasta files for the host prediction
         :return: dictionary with rankings of the hosts: {virus: [(host_best, high_score), (...), (host_worst, low_score)]}
         """
+        print(virus_genome_dir)
         sample_dir = self.dir.joinpath(f'{virus_genome_dir.name}_sample')
         virus_samples = sample_fasta_dir(virus_genome_dir,
                                          length=self.frag_len,
                                          n_samples=self.samples,
                                          n_jobs=self.threads,
                                          to_dir=sample_dir)
-
+        
+        print(len(virus_samples))
+        print({'fastdna_exe': self.fastdna_exe.as_posix(),
+                                             'model_path': self.model.as_posix(),
+                                             'considered_hosts': self.considered_hosts})
         fastdna_pred_jobs = Parallel(Classifier._fastdna_predict,
                                      virus_samples,
                                      kwargs={'fastdna_exe': self.fastdna_exe.as_posix(),
@@ -229,22 +235,33 @@ class Classifier:
                                              'considered_hosts': self.considered_hosts},
                                      description='running fastDNA',
                                      n_jobs=self.threads)
-
-        score_jobs = Parallel(self.scoring,
+        # print(self.scoring)
+        # print(type(self.scoring))
+        # print(type(getattr(scoring, self.scoring)))
+        # print(callable(getattr(scoring, self.scoring)))
+        # print(fastdna_pred_jobs.result)
+        # print(len(fastdna_pred_jobs.result))
+        score_jobs = Parallel(self.scoring if callable(self.scoring) else getattr(scoring, self.scoring), # dirty fix for ensuring that there will be a callable obj
                               fastdna_pred_jobs.result,
                               description='scoring results',
                               n_jobs=self.threads)
 
         merged_rankings = defaultdict(dict)
+        print(virus_samples)
         for file_path, host_ranking in zip(virus_samples, score_jobs.result):
             virus_id = file_path.stem
-            merged_rankings[virus_id] = host_ranking
+            print(virus_id)
+            print(type(host_ranking))
+            merged_rankings[virus_id] = host_ranking.sort_values(ascending=False).to_dict()
 
+        # print(merged_rankings)    
+        # print(type(merged_rankings))
         return dict(merged_rankings)
 
     def clean(self):
         rmtree(self.dir)
 
+    # TODO: remove full paths on save, leave only name of model
     def save(self, path: Path):
         saved_copy = deepcopy(self)
         path.mkdir(parents=True)
@@ -257,6 +274,10 @@ class Classifier:
         log.info(f'Files stored at:\n{saved_copy.model.as_posix()}\n{model_path}')
         return saved_copy
 
+    # TODO: here:
+    #       - assign user provided working dir
+    #       - combine model name with user provided working dir 
+    #       - assign user provided fastDNA path
     @staticmethod
     def load(path: Path) -> 'Classifier':
         master_file = path.joinpath('classifier.pkl')

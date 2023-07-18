@@ -76,7 +76,7 @@ def test_f():
         filtered_dict = {('-'.join(k.split('-')[:-1]) if k.endswith('-lower') or k.endswith('-upper') else k): ((mutable_data[f'{"-".join(k.split("-")[:-1])}-lower'], mutable_data[f'{"-".join(k.split("-")[:-1])}-upper']) if k.endswith('-lower') or k.endswith('-upper') else v) for k, v in mutable_data.items()}
         if len(multi) > 1:
             filtered_dict.update({'--loss': tuple(multi)})
-        filtered_dict.pop('search_terms')
+            filtered_dict.pop('search_terms')
         
         print(filtered_dict)
         # mutable_data = bounds_dict

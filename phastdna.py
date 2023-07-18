@@ -1,3 +1,4 @@
+import pandas as pd
 from argparse import ArgumentParser
 from pathlib import Path
 
@@ -39,11 +40,11 @@ if __name__ == "__main__":
                         help="Directory with viral genomes for prediction. <predict>")
     parser.add_argument("-r", "--lrate", required=False, nargs='+', default=-1, type=float,
                         help="EXPONENT for the Learning rate (default [0.1]). <train>")
-    parser.add_argument("-u", "--ulr", required=False, nargs='+', default=2, type=float,
+    parser.add_argument("-u", "--ulr", required=False, nargs='+', default=100, type=float,
                         help="EXPONENT for update dynamics of the the learning rate (default [100]). <train>")
     parser.add_argument("-d", "--dim", required=False, nargs='+', default=100, type=int,
                         help="Dimensionality of k-mer embedding (default [100]). <train>")
-    parser.add_argument("-n", "--noise", required=False, nargs='+', default=0,
+    parser.add_argument("-n", "--noise", required=False, nargs='+', default=0, type=int,
                         help="Mutation rate (divergence) between phage and host sequences (/100,000, default [0]). <train>")
     parser.add_argument("-f", "--fraglen", required=False, nargs='+', default=200, type=int,
                         help="Length of simulated read sequences (default [200]). <train>")
@@ -119,8 +120,13 @@ if __name__ == "__main__":
 
         classifier = Classifier.load(path=model_file)
         host_ranking = classifier.predict(virus_dir)
-
-
+        # Save results
+        results_file = output_dir.joinpath('predictions.csv')
+        # json.dump(host_ranking, open(results_file, 'w'), indent=4)
+        # save host ranking as a table  
+        results_df = pd.DataFrame.from_dict(host_ranking, orient='columns')
+        results_df.to_csv(results_file)
+        log.info(f'Results saved to {results_file}')    
 
 
     # Train a new model and optimize hyperparameters

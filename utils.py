@@ -241,7 +241,7 @@ def fasta_2_dict(fasta_path: Path) -> Dict[str, str]:
     :return:
     """
     reader = Fasta(fasta_path.as_posix())
-    return {seq.id: seq.seq for seq in reader}
+    return {seq.id: seq.seq.upper() for seq in reader}
 
 
 def sanitize_names(metadata_dict: Dict[str, Dict[str, Any]],
