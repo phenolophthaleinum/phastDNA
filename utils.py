@@ -4,6 +4,7 @@ import json
 import pickle
 import random
 import sys
+from loguru import logger
 from collections import Counter
 from functools import wraps
 from itertools import chain
@@ -102,7 +103,8 @@ class Loger:
             current = self.done + 1
         new_tiles = int(current / self.tile) - int(self.done / self.tile)
         if new_tiles:
-            self._record('#' * new_tiles, newline=False)
+            # self._record('#' * new_tiles, newline=False)
+            self._record(f'{self.done}/{self.total}')
         self.done = current
         if self.done == self.total:
             self.set_task('\ndone\n', 0)
@@ -110,6 +112,7 @@ class Loger:
 
 log = Loger()  # initialize main log object
 sys.excepthook = log.catch
+
 
 
 # PARALLELIZATION
@@ -144,10 +147,14 @@ class Parallel(joblib.Parallel):
                                  max_nbytes, mmap_mode, prefer, require)
         kwargs = {} if not kwargs else kwargs
         log.set_task(description, input_collection)
+        self.total_task = len(input_collection)
+        self.log_update = max(1, int(self.total_task * 0.05))
         self.result = self.__call__((joblib.delayed(parallelized_function)(e, **kwargs)) for e in input_collection)
 
     def print_progress(self):
         log.update(self.n_completed_tasks)
+        if self.n_completed_tasks % self.log_update == 0:
+            logger.info(f'{self.n_completed_tasks}/{self.total_task}')
 
 
 class BatchParallel(Parallel):

@@ -1,4 +1,6 @@
 import pandas as pd
+import sys
+from loguru import logger
 from argparse import ArgumentParser
 from pathlib import Path
 
@@ -24,6 +26,9 @@ def parse_range(argument):
 
 
 if __name__ == "__main__":
+
+    logger.remove()
+    logger.add(sys.stderr, format='<green>{time:YYYY-MM-DD HH:mm:ss}</green> | {level: ^7} | <level>{message}</level>', level='INFO')
 
     parser = ArgumentParser(description='fastDNA - build models for phage-host recognition '
                                         'based on similarity of semantically embedded k-mer composition '
@@ -91,7 +96,8 @@ if __name__ == "__main__":
     assert fastdna_exe.is_file(), f'fastDNA executable not found at {fastdna_exe}'
     output_dir = Path(args.output).resolve()
     output_dir.mkdir(parents=True, exist_ok=True) # shouldn't it check if exists? This throws exception if dir is already made
-    log.file(output_dir.joinpath('PHastDNA.log'))
+    log.file(output_dir.joinpath('PHastDNA_old.log'))
+    logger.add(output_dir.joinpath("PHastDNA.log"), format='<green>{time:YYYY-MM-DD HH:mm:ss}</green> | {level: ^7} | <level>{message}</level>', level='INFO')
 
 
 
@@ -105,7 +111,8 @@ if __name__ == "__main__":
     # log.file(output_dir.joinpath('PHastDNA.log'))
 
     # Classify based on pre-trained model
-    print(args)
+    print("loguru msg:")
+    logger.info(args)
     print(type(args.iter))
     print(type(args.preiter))
     print(type(args.lrate))
@@ -125,7 +132,10 @@ if __name__ == "__main__":
         # json.dump(host_ranking, open(results_file, 'w'), indent=4)
         # save host ranking as a table  
         results_df = pd.DataFrame.from_dict(host_ranking, orient='columns')
-        results_df.to_csv(results_file)
+        results_df = results_df.rename_axis("Host").reset_index()
+        results_df_melted = results_df.melt(id_vars=["Host"], var_name="Virus", value_name="Score")
+        results_df_sorted = results_df_melted.groupby('Virus').apply(lambda x: x.sort_values(by='Score', ascending=False)).reset_index(drop=True)
+        results_df_sorted.to_csv(results_file, index=False)
         log.info(f'Results saved to {results_file}')    
 
 
@@ -158,4 +168,5 @@ if __name__ == "__main__":
         optimizer.optimize()
 
     log.close() #  close log after successful run
+    logger.info('finished')
 
