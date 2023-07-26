@@ -23,12 +23,20 @@ def parse_range(argument):
         return float(argument)
     else:
         return argument
+    
+def unhandled_error(*exc_info):
+    print(exc_info)
+    # logger.exception(f'Unhandled error', exc_info=(exc_info[0], exc_info[1], exc_info[2]))
+    logger.opt(exception=exc_info).error(f'Unhandled error')
+
+sys.excepthook = unhandled_error
 
 
 if __name__ == "__main__":
 
     logger.remove()
-    logger.add(sys.stderr, format='<green>{time:YYYY-MM-DD HH:mm:ss}</green> | {level: ^7} | <level>{message}</level>', level='INFO')
+    logger.add(sys.stderr, format='<green>{time:YYYY-MM-DD HH:mm:ss.SSS}</green> | {level: ^7} | <level>{message}</level>', level='INFO')
+    # logger.add(sys.stderr, backtrace=True, level='ERROR')
 
     parser = ArgumentParser(description='fastDNA - build models for phage-host recognition '
                                         'based on similarity of semantically embedded k-mer composition '
@@ -91,13 +99,13 @@ if __name__ == "__main__":
     for arg in vars(args):
         setattr(args, arg, parse_range(getattr(args, arg)))
     
-
-    fastdna_exe = Path(args.fastdna).resolve()
-    assert fastdna_exe.is_file(), f'fastDNA executable not found at {fastdna_exe}'
     output_dir = Path(args.output).resolve()
     output_dir.mkdir(parents=True, exist_ok=True) # shouldn't it check if exists? This throws exception if dir is already made
     log.file(output_dir.joinpath('PHastDNA_old.log'))
-    logger.add(output_dir.joinpath("PHastDNA.log"), format='<green>{time:YYYY-MM-DD HH:mm:ss}</green> | {level: ^7} | <level>{message}</level>', level='INFO')
+    logger.add(output_dir.joinpath("PHastDNA.log"), format='<green>{time:YYYY-MM-DD HH:mm:ss:SSS}</green> | {level: ^7} | <level>{message}</level>', level='INFO')
+    fastdna_exe = Path(args.fastdna).resolve()
+    assert fastdna_exe.is_file(), f'fastDNA executable not found at {fastdna_exe}'
+    # logger.add(output_dir.joinpath("PHastDNA.log"), backtrace=True, level='ERROR')
 
 
 
@@ -112,7 +120,7 @@ if __name__ == "__main__":
 
     # Classify based on pre-trained model
     print("loguru msg:")
-    logger.info(args)
+    # logger.info(args)
     print(type(args.iter))
     print(type(args.preiter))
     print(type(args.lrate))
@@ -120,7 +128,7 @@ if __name__ == "__main__":
     print(type(args.threads))
 
     if args.classifier:
-        log.info('Starting PHastDNA in pre-trained prediction mode')
+        logger.info('Starting phastDNA in pre-trained prediction mode')
         virus_dir = Path(args.viruses).resolve() # resolve is painful to use
         assert any([f.suffix in fasta_extensions for f in virus_dir.iterdir()]), f'No fasta files found in {virus_dir}'
         model_file = Path(args.classifier)
@@ -136,12 +144,12 @@ if __name__ == "__main__":
         results_df_melted = results_df.melt(id_vars=["Host"], var_name="Virus", value_name="Score")
         results_df_sorted = results_df_melted.groupby('Virus').apply(lambda x: x.sort_values(by='Score', ascending=False)).reset_index(drop=True)
         results_df_sorted.to_csv(results_file, index=False)
-        log.info(f'Results saved to {results_file}')    
+        logger.info(f'Results saved to {results_file}')    
 
 
     # Train a new model and optimize hyperparameters
     elif args.hosts:
-        log.info('Starting PHastDNA in training mode')
+        logger.info('Starting phastDNA in training mode')
         virus_dir = Path(args.trainvir).resolve()
         host_dir = Path(args.hosts).resolve()
         optimizer = Optimizer(pre_iterations=args.preiter,
@@ -167,6 +175,5 @@ if __name__ == "__main__":
                               fastdna_exe=fastdna_exe)
         optimizer.optimize()
 
-    log.close() #  close log after successful run
     logger.info('finished')
 

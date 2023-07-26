@@ -3,6 +3,8 @@ var atest = document.getElementById("ajax-test");
 var spinner = document.getElementById("spinner");
 var task_name = document.getElementById("task-name").innerText;
 var page_title = document.getElementsByTagName('title').innerText;
+var anchor = document.querySelector(".anchor");
+const error_regex = new RegExp("(.+ERROR)[\s\S]*", 'gm');
 pathAnim = gsap.to(".icon-path", {
   // opacity: 0,
   strokeDashoffset: 0,
@@ -197,40 +199,50 @@ var interval = setInterval(function() {
         response_split = response['content'].split('\n');
         successPara.innerText = response_split.at(-2);
         normalPara.innerText = response_split.slice(0, -2).join('\n');
-        atest.appendChild(normalPara);
-        atest.appendChild(successPara);
+        // atest.appendChild(normalPara);
+        // atest.appendChild(successPara);
+        atest.insertBefore(normalPara, anchor);
+        atest.insertBefore(successPara, anchor);
         // atest.lastElementChild.scrollIntoView({ behavior: 'smooth', block: 'end' });
-        atest.animate({
-          scrollTop: atest.prop("scrollHeight")
-      }, 500);
+      //   atest.animate({
+      //     scrollTop: atest.prop("scrollHeight")
+      // }, 500);
+      atest.scrollTop = atest.scrollHeight;
       }
       else if (response['status'] === -1){
         console.log(response['status'])
-        // var normalPara = document.createElement("p");
+        var normalPara = document.createElement("p");
         var successPara = document.createElement("p");
         successPara.classList.add("fade-in", "status-error");
-        // normalPara.classList.add("fade-in");
-        // response_split = response['content'].split('\n');
+        normalPara.classList.add("fade-in");
+        response_split = response['content'].split(error_regex);
         // successPara.innerText = response_split.at(-2);
-        successPara.innerText = response['content'];
-        // normalPara.innerText = response_split.slice(0, -2).join('\n');
+        // console.log(response['content'].split(error_regex).slice(-2).join(''));
+        successPara.innerText = response_split.slice(-2).join('');
+        normalPara.innerText = response_split.slice(0, -2);
+        console.log(response_split.slice(0))
         // atest.appendChild(normalPara);
-        atest.appendChild(successPara);
+        // atest.appendChild(successPara);
+        atest.insertBefore(normalPara, anchor);
+        atest.insertBefore(successPara, anchor);
         // atest.lastElementChild.scrollIntoView({ behavior: 'smooth', block: 'end' });
-        atest.animate({
-          scrollTop: atest.prop("scrollHeight")
-      }, 500);
+      //   atest.animate({
+      //     scrollTop: atest.prop("scrollHeight")
+      // }, 500);
+      atest.scrollTop = atest.scrollHeight;
       }
       else {
         console.log(response['content']);
         var para = document.createElement("p");
         para.innerText = response['content'];
         para.classList.add('fade-in');
-        atest.appendChild(para);
+        // atest.appendChild(para);
+        atest.insertBefore(para, anchor);
         // atest.lastElementChild.scrollIntoView({ behavior: 'smooth', block: 'end' });
-        atest.animate({
-          scrollTop: atest.prop("scrollHeight")
-      }, 500);
+      //   atest.animate({
+      //     scrollTop: atest.prop("scrollHeight")
+      // }, 500);
+      atest.scrollTop = atest.scrollHeight;
       }
       // atest.innerHTML += `<p>${response['content']}</p><br>`;
 

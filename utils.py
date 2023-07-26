@@ -111,7 +111,7 @@ class Loger:
 
 
 log = Loger()  # initialize main log object
-sys.excepthook = log.catch
+# sys.excepthook = log.catch
 
 
 

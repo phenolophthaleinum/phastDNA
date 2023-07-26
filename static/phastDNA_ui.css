@@ -855,6 +855,12 @@ i.btn-icon {
     max-height: 800px; 
     overflow: auto; 
     resize: vertical;
+    font-family: 'Roboto Mono', monospace;
+  }
+
+  .anchor {
+    overflow-anchor: auto;
+    height: 1px;
   }
 
   .fade-in {
@@ -1018,3 +1024,15 @@ i.btn-icon {
 
   .lower-bound-input {}
   .upper-bound-input {}
+
+  ::-moz-selection { /* Code for Firefox */
+    color: white;
+    mix-blend-mode: difference;
+    background: rgba(244, 139, 123, 0.3) !important;
+  }
+  
+  ::selection {
+    color: white;
+    mix-blend-mode: difference;
+    background: rgba(244, 139, 123, 0.3) !important;
+  }
