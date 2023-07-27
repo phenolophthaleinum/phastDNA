@@ -5,6 +5,13 @@ var task_name = document.getElementById("task-name").innerText;
 var page_title = document.getElementsByTagName('title').innerText;
 var anchor = document.querySelector(".anchor");
 const error_regex = new RegExp("(.+ERROR)[\s\S]*", 'gm');
+var overflowing = false;
+
+
+function isOverflowing(elem) {
+  return elem.scrollHeight > elem.clientHeight;
+}
+
 pathAnim = gsap.to(".icon-path", {
   // opacity: 0,
   strokeDashoffset: 0,
@@ -207,7 +214,11 @@ var interval = setInterval(function() {
       //   atest.animate({
       //     scrollTop: atest.prop("scrollHeight")
       // }, 500);
-      atest.scrollTop = atest.scrollHeight;
+      // atest.scrollTop = atest.scrollHeight;
+        if (!overflowing) {
+          overflowing = isOverflowing(atest);
+          atest.scrollTop = atest.scrollHeight;
+        }
       }
       else if (response['status'] === -1){
         console.log(response['status'])
@@ -229,7 +240,11 @@ var interval = setInterval(function() {
       //   atest.animate({
       //     scrollTop: atest.prop("scrollHeight")
       // }, 500);
-      atest.scrollTop = atest.scrollHeight;
+      // atest.scrollTop = atest.scrollHeight;
+        if (!overflowing) {
+          overflowing = isOverflowing(atest);
+          atest.scrollTop = atest.scrollHeight;
+        }
       }
       else {
         console.log(response['content']);
@@ -242,7 +257,11 @@ var interval = setInterval(function() {
       //   atest.animate({
       //     scrollTop: atest.prop("scrollHeight")
       // }, 500);
-      atest.scrollTop = atest.scrollHeight;
+      // atest.scrollTop = atest.scrollHeight;
+        if (!overflowing) {
+          overflowing = isOverflowing(atest);
+          atest.scrollTop = atest.scrollHeight;
+        }
       }
       // atest.innerHTML += `<p>${response['content']}</p><br>`;
 

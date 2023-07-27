@@ -146,13 +146,16 @@ class Parallel(joblib.Parallel):
                                  pre_dispatch, batch_size, temp_folder,
                                  max_nbytes, mmap_mode, prefer, require)
         kwargs = {} if not kwargs else kwargs
-        log.set_task(description, input_collection)
+        # log.set_task(description, input_collection)
+        logger.info(description)
         self.total_task = len(input_collection)
         self.log_update = max(1, int(self.total_task * 0.05))
         self.result = self.__call__((joblib.delayed(parallelized_function)(e, **kwargs)) for e in input_collection)
 
     def print_progress(self):
-        log.update(self.n_completed_tasks)
+        # log.update(self.n_completed_tasks)
+        if self.n_completed_tasks == self.total_task:
+            logger.info('Done!')
         if self.n_completed_tasks % self.log_update == 0:
             logger.info(f'{self.n_completed_tasks}/{self.total_task}')
 
@@ -389,7 +392,7 @@ def labeled_fasta(files: List[Path],
                                       f'\nDoes NOT match label list:\n{labels[:3]} ({len(labels)})'
     fasta_lines, label_lines = [], []
     read_jobs = Parallel(fasta_2_dict, files,
-                         description=f'labeling {len(files)} training genomes form {len(set(labels))} taxa',
+                         description=f'Labelling {len(files)} training genomes form {len(set(labels))} taxa',
                          n_jobs=n_jobs)
     for seq_dict, label in zip(read_jobs.result, labels):
         fasta_lines.extend([f'>{definition}\n{seq}' for definition, seq in seq_dict.items()])

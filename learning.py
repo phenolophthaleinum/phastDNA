@@ -8,6 +8,7 @@ from shutil import rmtree
 from subprocess import Popen, PIPE
 from numpy import log10
 from typing import Any, Dict, List, Tuple
+from loguru import logger
 
 import pandas as pd
 from bayes_opt import BayesianOptimization
@@ -108,6 +109,7 @@ class Classifier:
         :return:
         """
 
+        logger.info(f'Running fastDNA-supervised')
         self._fastdna_train(training_host_fasta, training_host_labels)
 
         fastdna_pred_jobs = Parallel(Classifier._fastdna_predict,
@@ -115,12 +117,12 @@ class Classifier:
                                      kwargs={'fastdna_exe': self.fastdna_exe.as_posix(),
                                              'model_path': self.model.as_posix(),
                                              'considered_hosts': self.considered_hosts},
-                                     description='running fastDNA-predict',
+                                     description='Running fastDNA-predict',
                                      n_jobs=self.threads)
 
         score_jobs = Parallel(score_and_rank,
                               fastdna_pred_jobs.result,
-                              description='scoring results',
+                              description='Scoring results',
                               n_jobs=self.threads)
 
         merged_rankings = defaultdict(dict)
@@ -136,7 +138,7 @@ class Classifier:
         warning_count = Counter(all_caught_warnings)
         failed_warning = '\n'.join([f'{method} failed for {n_failed} viruses' for method, n_failed in failed_count.items()] + [f'Seen {w} ({n} times' for w, n in warning_count.items()])
         if failed_warning:
-            log.warn(f'Found {len(failed_count)} failed methods,'
+            logger.warning(f'Found {len(failed_count)} failed methods,'
                      f'\nthis happens during optimisation but usually means faulty fastDNA model'
                      f'\n{failed_warning}')
 
@@ -145,7 +147,7 @@ class Classifier:
                                                                                       master_virus_dict=virus_metadata,
                                                                                       threads=self.threads)
 
-        log.info(f'Found {missing_predictions} missing taxa with rank "{self.labels}" in matrix')
+        logger.info(f'Found {missing_predictions} missing taxa with rank "{self.labels}" in matrix')
 
         self.ranking = sorted(evaluation, key=lambda e: e.metrics[self.metric], reverse=True)
         evaluation = self.ranking[0]
@@ -176,7 +178,7 @@ class Classifier:
                   f"-dim {self.dim} -noise {self.noise} -length {self.frag_len} " \
                   f"-epoch {self.epochs} -loss {self.loss} -thread {self.threads}" \
                   f"{save_vec}"
-        log.info(command)
+        logger.info(command)
         process = Popen(command, stdout=PIPE, shell=True)
         output, error = process.communicate()  # TODO where should it go?
         if error:
@@ -243,7 +245,7 @@ class Classifier:
         # print(len(fastdna_pred_jobs.result))
         score_jobs = Parallel(self.scoring if callable(self.scoring) else getattr(scoring, self.scoring), # dirty fix for ensuring that there will be a callable obj
                               fastdna_pred_jobs.result,
-                              description='scoring results',
+                              description='Scoring results',
                               n_jobs=self.threads)
 
         merged_rankings = defaultdict(dict)
@@ -271,7 +273,7 @@ class Classifier:
         saved_copy.model = model_path
         saved_copy.dir = path
         serialize(saved_copy, classifier_path)
-        log.info(f'Files stored at:\n{saved_copy.model.as_posix()}\n{model_path}')
+        logger.info(f'Files stored at:\n{saved_copy.model.as_posix()}\n{model_path}')
         return saved_copy
 
     # TODO: not necessairly here - classifier file and then object should have the fastdna binary embedded inside - easier for everybody
@@ -331,6 +333,8 @@ class Optimizer:
         # assert any([f.suffix in fasta_extensions for f in self.virus_fasta_dir.iterdir()]), f'No fasta files found in {virus_dir}' # this works on windows with 3.10 py somehow but not on linux with 3.8 py
         # TODO
         # passing link in linux to folder with files does not work
+        
+        logger.info("Reading metadata")
         metadata_json = virus_dir.joinpath('virus.json')
         with metadata_json.open() as mj:
             self.virus_metadata = sanitize_names(json.load(mj), virus=True)
@@ -341,21 +345,25 @@ class Optimizer:
         metadata_json = host_dir.joinpath('host.json')
         with metadata_json.open() as hj:
             self.host_metadata = sanitize_names(json.load(hj))
-
+        
+        # sampling taxa
+        logger.info(f"Sampling {self.n_examples} genomes from each taxa at {self.examples_from} level")
         training_genomes, genome_labels = sample_taxon(host_data=self.host_metadata,
                                                        labeled_rank=self.labels,
-                                                       sampled_rank=self.examples_from)
+                                                       sampled_rank=self.examples_from,
+                                                       max_representatives=self.n_examples)
         training_genome_files = [host_dir.joinpath(f'fasta/{genome_id}.fna') for genome_id in training_genomes]
         missing_fasta = [f for f in training_genome_files if not f.is_file()]
         assert not missing_fasta, f'missing fasta files:\n{missing_fasta}'
 
+        # labelling fastas
         path_stem = self.dir.joinpath(f'Training.{self.labels}')
         self.training_fasta, self.training_labels = labeled_fasta(training_genome_files,
                                                                   genome_labels,
                                                                   path_stem=path_stem,
                                                                   n_jobs=self.threads)
 
-        self.param_table = self.dir.joinpath('parameters_to_results.tsv')
+        self.param_table = self.dir.joinpath('parameters_to_results.tsv') # unused
         self.pre_iterations = pre_iterations
         self.iterations = iterations
         self.iteration_counter = count(-1 * pre_iterations)
@@ -415,7 +423,7 @@ class Optimizer:
             parameter_bounds[param] = (0, len(variants) - 1e-10)  # here the same is guaranteed by th python 0-based indexing
 
         search_space_info = '\n'.join([f'{param: <26}{value_range}' for param, value_range in human_readable.items()])
-        log.info(f'OPTIMIZER SEARCH SPACE:\n{search_space_info}')
+        logger.info(f'Optimiser search space:\n{search_space_info}')
 
         return parameter_bounds
 
@@ -486,7 +494,7 @@ class Optimizer:
         iteration_params = self.parameter_decode(iteration_params)
         print(f"after param_decode iteration_params {iteration_params}")
 
-        log.info(f'ITERATION: {iteration_number}')
+        logger.info(f'Iteration: {iteration_number}')
 
         partial_report = dict(iteration_params)
 
@@ -517,7 +525,7 @@ class Optimizer:
         if classifier.performance >= self.best_classifier.performance:
             self.best_classifier.clean()
             self.best_classifier = classifier.save(self.dir.joinpath('best_classifier'))
-            log.info(f'Better classifier found:'
+            logger.info(f'Better classifier found:'
                      f'\n{evaluation.table()}')
 
         if (not iteration_number % 10) or iteration_number == self.iterations:

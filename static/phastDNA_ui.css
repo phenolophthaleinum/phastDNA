@@ -858,6 +858,10 @@ i.btn-icon {
     font-family: 'Roboto Mono', monospace;
   }
 
+  .console-output * {
+    overflow-anchor: none;
+  }
+
   .anchor {
     overflow-anchor: auto;
     height: 1px;
