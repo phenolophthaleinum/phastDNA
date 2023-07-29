@@ -4,6 +4,7 @@ import subprocess
 import mmap
 import datetime
 import threading
+import re
 from pathlib import Path
 from threading import Thread
 from collections import defaultdict
@@ -13,6 +14,7 @@ app = flask.Flask(__name__, template_folder=".")
 
 current_task_file = ''
 ptrs = defaultdict(dict)
+
 # tasks = {}
 
 
@@ -99,6 +101,31 @@ def test_f():
         # return subprocess.check_output(['ping', 'google.com', '-t'])
 
 
+def check_status(logs):
+    if 'finished' in logs:
+        return 0
+
+    if 'Traceback' in logs:
+        return -1
+    
+
+def check_events(logs):
+    lines = logs.split("\n")
+    events = []
+    progresses = []
+    iteration = None
+    for l in lines:
+        if '| EVENT:' in l:
+            events.append(l.strip())
+        if '| Progress:' in l:
+            progresses.append(l.strip())
+        if 'Iteration' in l:
+            iteration = l.strip().split(": ")[-1]
+    event = events[-1].split(': ')[-1] if events else None
+    progress = progresses[-1].split(': ')[-1] if progresses else None
+    return {'event': event, 'progress': progress, 'iter': iteration}
+
+
 @app.route("/test/<id>")
 def get_status(id):
     # global ptr
@@ -123,15 +150,11 @@ def get_status(id):
         logs = str(mm[ptr:], 'utf-8')
         ptr = len(mm)
 
-        if 'finished' in logs:
-            status = 0
-
-        if 'Traceback' in logs:
-            status = -1
-
+        status = check_status(logs)
+        ptrs[id]['run_info'] = check_events(logs)
         ptrs[id]['ptr'] = ptr
         # print(logs)
-    return flask.jsonify({'content': logs, 'status': status})
+    return flask.jsonify({'content': logs, 'status': status, 'run_info': ptrs[id]['run_info']})
 
 
 if __name__ == '__main__':

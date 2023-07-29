@@ -145,7 +145,7 @@ class DistanceMatrix:
         np.fill_diagonal(self.matrix, 0)
 
         # log.set_task('creating distance matrix', remaining_taxa)
-        logger.info('Creating distance matrix')
+        logger.info('EVENT: Creating distance matrix')
         while remaining_taxa:
             query_taxid = remaining_taxa.pop(0)
             query_lineage, qi = self.taxonomy[query_taxid], self.taxa_indices[query_taxid]

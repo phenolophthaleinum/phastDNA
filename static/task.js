@@ -198,7 +198,7 @@ var interval = setInterval(function() {
       }
       // atest.innerText = response['content'];
       if (response['status'] === 0){
-        console.log(response['status'])
+        console.log(response['status']);
         var normalPara = document.createElement("p");
         var successPara = document.createElement("p");
         successPara.classList.add("fade-in", "status-success");
@@ -221,7 +221,7 @@ var interval = setInterval(function() {
         }
       }
       else if (response['status'] === -1){
-        console.log(response['status'])
+        console.log(response['status']);
         var normalPara = document.createElement("p");
         var successPara = document.createElement("p");
         successPara.classList.add("fade-in", "status-error");
@@ -247,7 +247,8 @@ var interval = setInterval(function() {
         }
       }
       else {
-        console.log(response['content']);
+        // console.log(response['content']);
+        console.log(response['run_info']);
         var para = document.createElement("p");
         para.innerText = response['content'];
         para.classList.add('fade-in');
