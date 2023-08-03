@@ -378,7 +378,7 @@ def sample_fasta_dir(fasta_dir: Path,
                                      'n': n_samples,
                                      'max_ambiguities': max_ambiguities,
                                      'to_dir': to_dir},
-                             description=f'EVENT: Sampling sequences from {fasta_dir.as_posix()}',
+                             description=f'EVENT: Sampling sequences from {fasta_dir.as_posix()} [3]',
                              n_jobs=n_jobs)
         return [sample for sample in jobs.result]
 
@@ -392,7 +392,7 @@ def labeled_fasta(files: List[Path],
                                       f'\nDoes NOT match label list:\n{labels[:3]} ({len(labels)})'
     fasta_lines, label_lines = [], []
     read_jobs = Parallel(fasta_2_dict, files,
-                         description=f'EVENT: Labelling {len(files)} training genomes form {len(set(labels))} taxa',
+                         description=f'EVENT: Labelling {len(files)} training genomes form {len(set(labels))} taxa [2]',
                          n_jobs=n_jobs)
     for seq_dict, label in zip(read_jobs.result, labels):
         fasta_lines.extend([f'>{definition}\n{seq}' for definition, seq in seq_dict.items()])

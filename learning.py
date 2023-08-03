@@ -109,7 +109,7 @@ class Classifier:
         :return:
         """
 
-        logger.info(f'EVENT: Running fastDNA-supervised')
+        logger.info(f'EVENT: Running fastDNA-supervised [4]')
         self._fastdna_train(training_host_fasta, training_host_labels)
 
         fastdna_pred_jobs = Parallel(Classifier._fastdna_predict,
@@ -117,12 +117,12 @@ class Classifier:
                                      kwargs={'fastdna_exe': self.fastdna_exe.as_posix(),
                                              'model_path': self.model.as_posix(),
                                              'considered_hosts': self.considered_hosts},
-                                     description='EVENT: Running fastDNA-predict',
+                                     description='EVENT: Running fastDNA-predict [5]',
                                      n_jobs=self.threads)
 
         score_jobs = Parallel(score_and_rank,
                               fastdna_pred_jobs.result,
-                              description='Scoring results',
+                              description='EVENT: Scoring results [6]',
                               n_jobs=self.threads)
 
         merged_rankings = defaultdict(dict)
@@ -334,7 +334,7 @@ class Optimizer:
         # TODO
         # passing link in linux to folder with files does not work
         
-        logger.info("EVENT: Reading metadata")
+        logger.info("EVENT: Reading metadata [0]")
         metadata_json = virus_dir.joinpath('virus.json')
         with metadata_json.open() as mj:
             self.virus_metadata = sanitize_names(json.load(mj), virus=True)
@@ -347,7 +347,7 @@ class Optimizer:
             self.host_metadata = sanitize_names(json.load(hj))
         
         # sampling taxa
-        logger.info(f"EVENT: Sampling {self.n_examples} genomes from each taxa at {self.examples_from} level")
+        logger.info(f"EVENT: Sampling {self.n_examples} genomes from each taxa at {self.examples_from} level [1]")
         training_genomes, genome_labels = sample_taxon(host_data=self.host_metadata,
                                                        labeled_rank=self.labels,
                                                        sampled_rank=self.examples_from,

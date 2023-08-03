@@ -411,7 +411,7 @@ input:-webkit-autofill{
 }
 
 .choices.is-valid .choices__inner {
-  border: 1px solid #198754 !important;
+  border: 1px solid rgb(25, 135, 84) !important;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23198754' d='M2.3 6.73.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e"), url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path fill='none' stroke='%23fed9b7' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/></svg>") !important;
   background-repeat: no-repeat;
   background-position: right calc(.375em + 1.4rem) center, right calc(.375em + .1875rem) center;
@@ -839,6 +839,22 @@ i.btn-icon {
     filter: drop-shadow(0px 0px 15px rgb(102, 227, 143));
   }
 
+  .p1 {
+    filter: drop-shadow(0px 0px 15px rgb(88, 193, 232));
+  }
+  
+  .p2 {
+    filter: drop-shadow(0px 0px 15px rgb(176, 116, 219));
+  }
+  
+  .p3 {
+    filter: drop-shadow(0px 0px 15px rgb(250, 226, 87));
+  }
+  
+  .p4 {
+    filter: drop-shadow(0px 0px 15px rgb(102, 227, 143));
+  }
+
   .console-container {
     display: flex;
     flex-direction: column;
@@ -1040,3 +1056,147 @@ i.btn-icon {
     mix-blend-mode: difference;
     background: rgba(244, 139, 123, 0.3) !important;
   }
+
+  .progress-container {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    /* overflow: auto;  */
+    margin-bottom: 100px;
+    /*   max-width: 100%; */
+    /* width: 1000px; */
+  }
+
+  .progress-container::before {
+    content: "";
+    /* background-color: rgba(46, 43, 43, 0.3); */
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    height: 10px;
+    width: 100%;
+    z-index: -1;
+    border-radius: 5px;  
+    /* background: #d3d3d3; */
+    background-color: rgba(114, 106, 91, 0.199) !important;
+    backdrop-filter: blur(12px);
+    outline: none;
+    opacity: 0.7;
+  }
+
+  .progress {
+    /* rgb(254, 217, 183) */
+    /* rgba(118, 120, 237, 0.3) */
+    /* rgb(169, 64, 245) */
+    background-color: rgba(254, 217, 183, 0.7);
+    position: absolute;
+    filter: drop-shadow(0px 0px 5px rgba(254, 217, 183, 1));
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    height: 10px;
+    width: 0%;
+    z-index: -1;
+    /* transition: 0.4s ease; */
+    transition: 0.4s cubic-bezier(1,.1,.65,.89);
+  }
+
+  .circle {
+    background: rgba(122, 122, 122, 1);
+    color: rgba(114, 106, 91, 0.199);
+    backdrop-filter: blur(12px);
+    border-radius: 50%;
+    height: 25px;
+    width: 25px;
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    /* border: 3px solid rgba(114, 106, 91, 0.199); */
+    /* transition: 0.4s ease-in-out; */
+    transition: 0.4s ease-in-out;
+  }
+
+  .circle .caption {
+    text-align: center;
+    display: block;
+    position: relative;
+    font-size: 70%;
+    font-weight: bolder;
+    bottom: -30px;
+  }
+
+  .circle.active {
+    /* border-color: var(--accent-color); */
+    /* background-color: rgb(102, 227, 143); */
+    /* filter: drop-shadow(0px 0px 5px rgba(102, 227, 143, 0.7)); */
+    /* color: var(--accent-color); */
+    scale: 1.2;
+  }
+
+  .circle.done {
+    /* border-color: var(--accent-color); */
+    /* background-color: rgb(146, 243, 179); */
+    background-color: rgba(122, 122, 122, 1);
+    filter: drop-shadow(0px 0px 5px rgba(102, 227, 143, 0.7));
+    /* color: var(--accent-color); */
+    scale: 1;
+  }
+
+  .circle.error {
+    background-color: rgba(122, 122, 122, 1);
+    filter: drop-shadow(0px 0px 5px rgba(227, 102, 102, 0.7));
+    scale: 1;
+  }
+
+  .icon-circle {
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    overflow: visible;
+    display: flex;
+    /* opacity: 0; */
+  }
+  
+  .icon-path {
+      fill: none;
+      stroke-width: 20;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .circle .done-check {
+    color: rgb(146, 243, 179);
+    /* width: 26px;
+    height: 26px; */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* align-items: inherit;
+    overflow: visible; */
+    display: flex;
+    animation: fadeIn 0.3s ease-in-out;
+    /* animation-delay: 0.1s; */
+  }
+
+  .circle .error-x {
+    color: rgb(243, 146, 146);
+    /* width: 26px;
+    height: 26px; */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* align-items: inherit;
+    overflow: visible; */
+    display: flex;
+    animation: fadeIn 0.3s ease-in-out;
+    /* animation-delay: 0.1s; */
+  }
+
+
+  

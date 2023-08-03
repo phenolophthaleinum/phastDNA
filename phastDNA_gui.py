@@ -42,7 +42,7 @@ def test_f():
         output_dir.mkdir(parents=True, exist_ok=True)
         # task_name = f'{data["output_path"]}%PHastDNA.log'
         # print(output_dir.name)
-        task_name = f'{output_dir.name}%PHastDNA.log'
+        task_name = f'{output_dir.name}'
         task_file_obj = open(f'{data["--output"]}/PHastDNA.log', 'a')
         task_file_obj.write(" ")
         task_file_obj.close()
@@ -108,6 +108,8 @@ def check_status(logs):
     if 'Traceback' in logs:
         return -1
     
+    return 1
+    
 
 def check_events(logs):
     lines = logs.split("\n")
@@ -121,9 +123,11 @@ def check_events(logs):
             progresses.append(l.strip())
         if 'Iteration' in l:
             iteration = l.strip().split(": ")[-1]
-    event = events[-1].split(': ')[-1] if events else None
+    event_temp = events[-1].split(': ')[-1].split(" ") if events else None
+    event = ' '.join(event_temp[:-1]) if event_temp else None
+    event_id = int(event_temp[-1][1:-1]) if event_temp else None
     progress = progresses[-1].split(': ')[-1] if progresses else None
-    return {'event': event, 'progress': progress, 'iter': iteration}
+    return {'event': event, 'event_id': event_id, 'progress': progress, 'iter': iteration}
 
 
 @app.route("/test/<id>")
