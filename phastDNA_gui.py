@@ -97,15 +97,15 @@ def test_f():
         cmd = subprocess.Popen(['python', 'phastdna.py', *arguments])
         # print(data)
         # subprocess.Popen(['python', 'dummyscript.py', '-l', task_name], stdout=f)
-        return flask.render_template('task.html', task_name=task_name)
+        return flask.render_template('task.html', task_name=task_name, iters=filtered_dict['--iter'])
         # return subprocess.check_output(['ping', 'google.com', '-t'])
 
 
 def check_status(logs):
-    if 'finished' in logs:
+    if 'SUCCESS' in logs:
         return 0
 
-    if 'Traceback' in logs:
+    if 'ERROR' in logs:
         return -1
     
     return 1

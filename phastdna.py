@@ -175,5 +175,5 @@ if __name__ == "__main__":
                               fastdna_exe=fastdna_exe)
         optimizer.optimize()
 
-    logger.info('finished')
+    logger.success('Finished!')
 

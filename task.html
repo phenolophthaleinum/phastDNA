@@ -73,7 +73,19 @@
                     <div class="container glass p-4 mb-4 rounded-3">
                         <div class="d-flex justify-content-between flex-wrap mb-4">
                             <h2 id="task-name">{{task_name}}</h2>
-                            <h2>Iteration: </h2>
+                            <div id="counter-div" class="d-flex flex-row" style="overflow: hidden; height: 45px; width: 100px; position: relative; justify-content: flex-end;">
+                                <!-- <div style="position: absolute;"> -->
+                                    <div style="position: relative;left: -2%;">
+                                        <div class="nomargin" id="num0" style="top: 0%; position: relative;">-</div>
+                                        <div class="nomargin" id="num1" style="top: 104%;position: relative;">-</div>
+                                        <!-- <h3>1</h3>
+                                        <h3>2</h3>
+                                        <h3>3</h3>
+                                        <h3>4</h3> -->
+                                    </div>
+                                    <div class="nomargin" style="position: relative;">/</div><div class="nomargin" style="position: relative;">{{iters}}</div>
+                                <!-- </div> -->
+                            </div>
                             <!-- <svg xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"
                                 viewBox="0 0 200 200" class="icon" id="spinner">
                                 <path class="icon-path" pathLength="100" stroke-dasharray="100" stroke-dashoffset="-98"
@@ -97,25 +109,25 @@
                             <div class="progress-container">
                                 <div class="progress" id="progress"></div>
                                 <div class="circle">
-                                    <div class="caption flavor-visibility">Reading metadata</div>
+                                    <h3 class="caption flavor-visibility">Reading metadata</h3>
                                 </div>
                                 <div class="circle">
-                                    <div class="caption flavor-visibility">Sampling genomes</div>
+                                    <h3 class="caption flavor-visibility">Sampling genomes</h3>
                                 </div>
                                 <div class="circle">
-                                    <div class="caption flavor-visibility">Labelling genomes</div>
+                                    <h3 class="caption flavor-visibility">Labelling genomes</h3>
                                 </div>
                                 <div class="circle">
-                                    <div class="caption flavor-visibility">Sampling virus sequences</div>
+                                    <h3 class="caption flavor-visibility">Sampling virus sequences</h3>
                                 </div>
                                 <div class="circle">
-                                    <div class="caption flavor-visibility">Running fastDNA-supervised</div>
+                                    <h3 class="caption flavor-visibility">Running fastDNA-supervised</h3>
                                 </div>
                                 <div class="circle">
-                                    <div class="caption flavor-visibility">Running fastDNA-predict</div>
+                                    <h3 class="caption flavor-visibility">Running fastDNA-predict</h3>
                                 </div>
                                 <div class="circle">
-                                    <div class="caption flavor-visibility">Scoring and evaluating results</div>
+                                    <h3 class="caption flavor-visibility">Scoring and evaluating results</h3>
                                 </div>
                             </div>
                         </div>
@@ -130,7 +142,7 @@
                                         Run details
                                     </div>
                                     <div class="d-flex flavor-active align-self-center accordion-button-desc mx-3 fs-5">
-                                         | Settings related to the required data paths.
+                                         | 
                                     </div>
                                 </button>
                             </h2>
@@ -166,7 +178,7 @@
                                         Console output
                                     </div>
                                     <div class="d-flex flavor-active align-self-center accordion-button-desc mx-3 fs-5">
-                                        | Settings related to the overall run parameters.
+                                        | Raw information logging.
                                     </div>
                                 </button>
                             </h2>

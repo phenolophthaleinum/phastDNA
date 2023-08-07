@@ -159,6 +159,7 @@ body {
   font-size: 120%;
   /* height: 100%; */
   color: #40c3c2;
+  --myBlur: 0px;
 }
 
 body {
@@ -1119,11 +1120,26 @@ i.btn-icon {
 
   .circle .caption {
     text-align: center;
-    display: block;
+    display: flex;
     position: relative;
-    font-size: 70%;
-    font-weight: bolder;
+    font-size: calc(0.7rem + .6vw);
+    /* font-size: 70%; */
+    /* font-weight: bolder; */
     bottom: -30px;
+    transition: 0.5s;
+  }
+
+  @media (min-width: 1200px){
+    .circle .caption {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+  }
+
+  @media (max-width: 700px){
+    .circle .caption {
+      font-size: 0.7rem;
+    }
   }
 
   .circle.active {
@@ -1196,6 +1212,53 @@ i.btn-icon {
     display: flex;
     animation: fadeIn 0.3s ease-in-out;
     /* animation-delay: 0.1s; */
+  }
+
+  /* @keyframes slideUp {
+    0%,
+    50% {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+       
+    60%,
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }   */
+  @keyframes slideUp {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-100%);
+    }
+  }
+
+  .counter {
+    position: relative;
+    overflow: hidden;
+    height: 20px;
+    width: 50px;
+  }
+  
+  .number {
+    position: absolute;
+    top: 0;
+    animation: slideUp 1s ease-in-out forwards;
+  }
+
+  .next {
+    top:20px;
+  }
+
+  .nomargin {
+    /* margin-bottom: 0px; */
+    /* line-height: 1.2; */
+    font-weight: 500;
+    font-size: 125%;
+    filter: blur(var(--myBlur))
   }
 
 

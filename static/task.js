@@ -1,4 +1,7 @@
 
+// const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+// const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
+var popoverList = []
 var atest = document.getElementById("ajax-test");
 var spinner = document.getElementById("spinner");
 var task_name = document.getElementById("task-name").innerText;
@@ -9,6 +12,11 @@ const circles = document.querySelectorAll(".circle");
 const error_regex = new RegExp("(.+ERROR)[\s\S]*", 'gm');
 var overflowing = false;
 let currentActive = 0;
+let counter = 0;
+let counterSet = false;
+let num0 = document.getElementById('num0')
+let num1 = document.getElementById('num1')
+let currentProgress = 'No data yet.';
 
 // events = {
 //   'Reading metadata': {
@@ -34,16 +42,92 @@ let currentActive = 0;
 //   }
 // }
 
+function count() {
+  let tl = gsap.timeline();
+  if (counter < 40) {
+      counter++;
+  }
+  else {
+      counter = 40;
+  }
+  num1.textContent = counter;
+  // dir = !dir;
+  tl.to(["#num0", "#num1"], {
+      top: "-=200%",
+      // top: dir ? "-=" + 2 * lineHeight + "px" : "+=" + 2 * lineHeight + "px",
+      // top: `-${pHeight}px`,
+      ease: Power3.easeInOut,
+      duration: .9,
+      // "--myBlur": 3,
+      onComplete: swapNums
+  });
+  tl.to(["#num0", "#num1"], {
+      ease: Power3.easeInOut,
+      duration: 0.5,
+      "--myBlur": 3,
+  }, "<");
+  tl.to(["#num0", "#num1"], {
+      ease: Power3.easeInOut,
+      duration: 0.35,
+      "--myBlur": 0,
+  }, 0.5);
+}
+
+function swapNums() {
+  num0.textContent = counter;
+  gsap.set(["#num0", "#num1"], {
+      top: "+=200%",
+      // top: "+=" + 2 * lineHeight + "px",
+      // top: `+${pHeight}px`,
+      duration: .9,
+      "--myBlur": 0,
+  })
+}
+
 function updateStep(status) {
+  popoverList.forEach((popover) => {
+    popover.dispose()
+  });
+  popoverList = [];
   circles.forEach((circle, index) => {
       var spinner = circle.querySelector('.icon-circle');
       var check = circle.querySelector('.done-check');
+
+      if (status === -1) {
+        // Handle error status
+        circle.classList.remove("active");
+        if (check)
+            return;
+        // if (spinner == null)
+        //     createError(circle);
+        if (spinner) {
+            removeSpinner(spinner, () => {
+                createError(circle);
+            });
+            circle.classList.add("error");
+        }
+        // Exit the program
+        return;
+      }
+
+      if (status === 0 && index === circles.length - 1) {
+        // Handle success status on the last circle
+        circle.classList.add("done");
+        circle.classList.remove("active");
+        if (spinner)
+            removeSpinner(spinner, () => {
+                if (!check)
+                    createCheck(circle);
+            });
+        return;
+      }
 
       if (index < currentActive) {
           // Circles before the current one - remove spinner, add check, and mark as done
           circle.classList.add("done");
           // circle.classList.add("error");
           circle.classList.remove("active");
+          console.log(popoverList);
           if (spinner)
           removeSpinner(spinner, () => {
               if (!check)
@@ -57,17 +141,24 @@ function updateStep(status) {
           // Current circle - ensure spinner is present, and remove check (if it exists) and done class
           circle.classList.add("active");
           circle.classList.remove('done');
+          circle.setAttribute("data-bs-toggle", "popover");
+          circle.setAttribute("data-bs-placement", "top");
+          circle.setAttribute("data-bs-content", currentProgress);
+          circle.setAttribute("data-bs-trigger", "hover");
+          // const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+// const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
+          popoverList.push(new bootstrap.Popover(circle));
           if (spinner == null)
               // createSpinner(circle)
               setTimeout(() => createSpinner(circle), 400);
           if (check)
               removeCheck(circle);
-          if (status === 0)
-          removeSpinner(spinner, () => {
-            if (!check)
-                createCheck(circle);
-                // createError(circle);
-        });
+        //   if (status === 0)
+        //   removeSpinner(spinner, () => {
+        //     if (!check)
+        //         createCheck(circle);
+        //         // createError(circle);
+        // });
       }
       else {
           // Circles after the current one - remove both spinner and check, and "active" and "done" classes
@@ -205,10 +296,28 @@ var interval = setInterval(function() {
         document.title = "phastDNA: task successful"
         clearInterval(interval)
       }
-      event_id = response['run_info']['event_id']
-      if (event_id || response['status'] < 1){
+      event_id = response['run_info']['event_id'];
+      progress_value = response['run_info']['progress'];
+      if (event_id){
         currentActive = event_id;
+        currentProgress = 'No data yet.';
         updateStep(response['status']);
+      }
+      else if (progress_value){
+        currentProgress = progress_value;
+        updateStep();
+      }
+      else if (response['status'] < 1){
+        updateStep(response['status']);
+      }
+
+      if (response['run_info']['iter'])
+      {
+        if (!counterSet) {
+          counter = response['run_info']['iter'] - 1;
+          counterSet = true;
+        }
+        count();
       }
       // atest.innerText = response['content'];
       if (response['status'] === 0){
