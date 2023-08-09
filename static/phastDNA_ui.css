@@ -1043,6 +1043,20 @@ i.btn-icon {
     border-bottom-color: transparent !important; 
   }
 
+  /* .popover-title {
+    background-color: rgba(211, 206, 212, 0.3);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-color: transparent;
+  } */
+
+  .popover-header {
+    background-color: rgba(211, 206, 212, 0.3) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border-color: transparent !important;
+  }
+
   .lower-bound-input {}
   .upper-bound-input {}
 

@@ -127,7 +127,7 @@ function updateStep(status) {
           circle.classList.add("done");
           // circle.classList.add("error");
           circle.classList.remove("active");
-          console.log(popoverList);
+          // console.log(popoverList);
           if (spinner)
           removeSpinner(spinner, () => {
               if (!check)
@@ -143,6 +143,7 @@ function updateStep(status) {
           circle.classList.remove('done');
           circle.setAttribute("data-bs-toggle", "popover");
           circle.setAttribute("data-bs-placement", "top");
+          circle.setAttribute("data-bs-title", "Step progress");
           circle.setAttribute("data-bs-content", currentProgress);
           circle.setAttribute("data-bs-trigger", "hover");
           // const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
@@ -305,7 +306,13 @@ var interval = setInterval(function() {
       }
       else if (progress_value){
         currentProgress = progress_value;
-        updateStep();
+        // popoverElem = document.querySelector('.circle[data-bs-toggle="popover"]');
+        // popoverElem.setAttribute("data-bs-content", currentProgress);
+        popoverList[0].setContent({
+          ".popover-body": currentProgress
+        });
+        // console.log(popoverElem);
+        // updateStep();
       }
       else if (response['status'] < 1){
         updateStep(response['status']);
