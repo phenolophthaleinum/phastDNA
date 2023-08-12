@@ -265,7 +265,7 @@ void FastText::printInfo(real progress, real loss, std::ostream& log_stream) {
   int32_t etam = (eta % 3600) / 60;
   progress = progress * 100;
   static int prev_progress = -1;
-  log_stream << prev_progress << '\n';
+  // log_stream << prev_progress << '\n';
   // mm change
   // std::filesystem::path cwd = std::filesystem::current_path();
   // std::stringstream output_stream;
@@ -294,7 +294,7 @@ void FastText::printInfo(real progress, real loss, std::ostream& log_stream) {
     //get miliseconds from now
     int64_t milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(now.time_since_epoch()).count() % 1000;
     log_stream << std::put_time(std::localtime(&now_c), "%Y-%m-%d %H:%M:%S") << ':' << std::setw(3) << milliseconds;
-    log_stream << " |  INFO   |";
+    log_stream << " |  INFO   | fastDNA | run:";
     log_stream << " Progress: ";
     log_stream << std::setprecision(1) << std::setw(5) << progress << "%";
     log_stream << " fragments/sec/thread: " << std::setw(7) << int64_t(wst);
@@ -306,7 +306,7 @@ void FastText::printInfo(real progress, real loss, std::ostream& log_stream) {
     if (outfile.is_open()) {
       outfile << std::fixed;
       outfile << std::put_time(std::localtime(&now_c), "%Y-%m-%d %H:%M:%S") << ':' << std::setw(3) << milliseconds;
-      outfile << " |  INFO   |";
+      outfile << " |  INFO   | fastDNA | run:";
       outfile << " Progress: ";
       outfile << std::setprecision(1) << std::setw(5) << progress << "%";
       outfile << " fragments/sec/thread: " << std::setw(7) << int64_t(wst);

@@ -178,7 +178,7 @@ class Classifier:
                   f"-dim {self.dim} -noise {self.noise} -length {self.frag_len} " \
                   f"-epoch {self.epochs} -loss {self.loss} -thread {self.threads}" \
                   f"{save_vec}"
-        logger.info(command)
+        logger.info(f"fastDNA | cmd: {command}")
         process = Popen(command, stdout=PIPE, shell=True)
         output, error = process.communicate()  # TODO where should it go?
         if error:
@@ -273,7 +273,7 @@ class Classifier:
         saved_copy.model = model_path
         saved_copy.dir = path
         serialize(saved_copy, classifier_path)
-        logger.info(f'Files stored at:\n{saved_copy.model.as_posix()}\n{model_path}')
+        logger.info(f'Files stored at:\n{saved_copy.model.as_posix()}')
         return saved_copy
 
     # TODO: not necessairly here - classifier file and then object should have the fastdna binary embedded inside - easier for everybody
@@ -498,6 +498,8 @@ class Optimizer:
 
         partial_report = dict(iteration_params)
 
+        logger.info(f"Chosen hyperparameters: {partial_report}")
+
         frag_len, samples = iteration_params['frag_len'], iteration_params['samples']
         sample_dir = self.dir.joinpath('virus_samples').joinpath(f'{frag_len}_{samples}')
         virus_sample = sample_fasta_dir(self.virus_fasta_dir,
@@ -522,6 +524,8 @@ class Optimizer:
         partial_report.update(evaluation.metrics)
         partial_report['best_scoring'] = evaluation.description
         self.report = pd.concat([self.report, pd.DataFrame.from_records([partial_report])], ignore_index=True)
+        # print(self.report)
+        logger.info(f"Iteration evaluation: {evaluation.metrics}")
         if classifier.performance >= self.best_classifier.performance:
             self.best_classifier.clean()
             self.best_classifier = classifier.save(self.dir.joinpath('best_classifier'))

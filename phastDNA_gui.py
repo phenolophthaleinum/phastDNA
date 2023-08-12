@@ -1,12 +1,9 @@
 import flask
-import time
 import subprocess
 import mmap
-import datetime
-import threading
+import json
 import re
 from pathlib import Path
-from threading import Thread
 from collections import defaultdict
 
 
@@ -94,40 +91,77 @@ def test_f():
                 arguments.append(value)
         print(*arguments)
         print(['python', 'phastdna.py', *arguments])
-        cmd = subprocess.Popen(['python', 'phastdna.py', *arguments])
+        command = ['python', 'phastdna.py', *arguments]
+        cmd = subprocess.Popen(command)
         # print(data)
         # subprocess.Popen(['python', 'dummyscript.py', '-l', task_name], stdout=f)
-        return flask.render_template('task.html', task_name=task_name, iters=filtered_dict['--iter'])
+        return flask.render_template('task.html', task_name=task_name, iters=filtered_dict['--iter'], full_cmd=command)
         # return subprocess.check_output(['ping', 'google.com', '-t'])
 
 
 def check_status(logs):
     if 'SUCCESS' in logs:
         return 0
-
     if 'ERROR' in logs:
         return -1
-    
     return 1
     
 
+# TODO: fastdna progress, model performance from each iter
 def check_events(logs):
     lines = logs.split("\n")
     events = []
     progresses = []
     iteration = None
+    hyperparams_json = None
+    fdna_cmd = None
+    fdna_progresses = []
     for l in lines:
-        if '| EVENT:' in l:
-            events.append(l.strip())
         if '| Progress:' in l:
             progresses.append(l.strip())
+            continue
+        if '| EVENT:' in l:
+            events.append(l.strip())
+            continue
         if 'Iteration' in l:
             iteration = l.strip().split(": ")[-1]
+            continue
+        if 'hyperparameters:' in l:
+            valid_json = l.strip().split("hyperparameters: ")[-1].replace("'", "\"")
+            hyperparams_json = json.loads(valid_json)
+            continue
+        if '| fastDNA | run:' in l:
+            fdna_progresses.append(l.strip().split('| fastDNA | run: ')[-1])
+            continue
+        if '| fastDNA | cmd:' in l:
+            fdna_cmd = l.strip().split('| fastDNA | cmd: ')[-1]
+            continue
+
+
     event_temp = events[-1].split(': ')[-1].split(" ") if events else None
     event = ' '.join(event_temp[:-1]) if event_temp else None
     event_id = int(event_temp[-1][1:-1]) if event_temp else None
+
     progress = progresses[-1].split(': ')[-1] if progresses else None
-    return {'event': event, 'event_id': event_id, 'progress': progress, 'iter': iteration}
+    
+    if fdna_progresses:
+        fdna_progress_tmp = fdna_progresses[-1]
+        fdna_progress_tmp_split = re.split("\s+", fdna_progress_tmp)
+        fdna_progress = {fdna_progress_tmp_split[i]: fdna_progress_tmp_split[i + 1] for i in range(0, len(fdna_progress_tmp_split) - 1, 2)} if fdna_progress_tmp_split else None
+    else:
+        fdna_progress = None
+
+
+    return {'event': event, 
+            'event_id': event_id, 
+            'progress': progress, 
+            'iter': iteration,
+            'hypers': hyperparams_json,
+            'fastdna': {
+                'cmd': fdna_cmd,
+                'progress': fdna_progress
+            },
+            }
 
 
 @app.route("/test/<id>")
