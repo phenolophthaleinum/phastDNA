@@ -13,6 +13,17 @@ current_task_file = ''
 ptrs = defaultdict(dict)
 
 # tasks = {}
+hypers_lookup = {
+    '--dim': 'Word vector size',
+    '--minn': 'Minimum k-mer size',
+    '--maxn': 'Maximum k-mer size',
+    '--fraglen': 'Read length',
+    '--samples': 'Read samples number',
+    '--lrate': 'Learning rate',
+    '--ulr': 'Learning rate update rate',
+    '--epochs': 'Epochs number',
+    '--noise': 'Noise (mutations)',
+}
 
 
 # def run_wrapper(task_name):
@@ -35,15 +46,15 @@ def test_f():
 
         # name_prefix = "train" if 'loss' in data else "predict"
         # task_name = f'{name_prefix}_{datetime.datetime.now():%Y_%m_%d_%H_%M_%S%z}'
+        
+        # prepare log file - otherwise communication between site and phastdna fails
         output_dir = Path(data["--output"])
         output_dir.mkdir(parents=True, exist_ok=True)
-        # task_name = f'{data["output_path"]}%PHastDNA.log'
-        # print(output_dir.name)
         task_name = f'{output_dir.name}'
         task_file_obj = open(f'{data["--output"]}/PHastDNA.log', 'a')
         task_file_obj.write(" ")
         task_file_obj.close()
-        # print(data)
+
         global current_task_file
         global ptr
         current_task_file = task_name
@@ -82,21 +93,24 @@ def test_f():
         # mutable_data = bounds_dict
         # mutable_data['--labels'] = mutable_data['--examples_from']
         # print(type(mutable_data['--preiter']))
-
+        search_space = {}
         for key, value in filtered_dict.items():
             arguments.append(key)
             if isinstance(value, tuple):
                 arguments.extend(value)
+                search_space[key] = value
             else:
                 arguments.append(value)
         print(*arguments)
         print(['python', 'phastdna.py', *arguments])
         command = ['python', 'phastdna.py', *arguments]
         cmd = subprocess.Popen(command)
-        # print(data)
-        # subprocess.Popen(['python', 'dummyscript.py', '-l', task_name], stdout=f)
-        return flask.render_template('task.html', task_name=task_name, iters=filtered_dict['--iter'], full_cmd=command)
-        # return subprocess.check_output(['ping', 'google.com', '-t'])
+        return flask.render_template('task.html', 
+                                     task_name=task_name, 
+                                     iters=filtered_dict['--iter'], 
+                                     full_cmd=" ". join(command), 
+                                     search_space=search_space,
+                                     hypers_lookup=hypers_lookup)
 
 
 def check_status(logs):

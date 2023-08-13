@@ -1275,5 +1275,13 @@ i.btn-icon {
     filter: blur(var(--myBlur))
   }
 
+  .border-bottom-flavored {
+    border-bottom: rgb(254, 217, 183) 2px solid;
+  }
+
+  .console-font {
+    font-family: 'Roboto Mono', monospace;
+  }
+
 
   

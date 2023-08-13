@@ -156,12 +156,35 @@
                         rgba(0, 0, 0, 0.35)); 
                       background-position: center;
                       background-size: cover;" -->
-                      
-                                        <div class="container-fluid">
-                                            <!-- <div class="d-flex align-content-between flex-wrap flex-column">
-                                                <p class="flavor-7 mt-auto col-md-8 fs-6">Settings related
-                                                    to required data paths.</p>
+
+                                        <div class="container px-4 py-5" id="search-space-grid">
+                                            <h2 class="pb-2 border-bottom border-bottom-flavored flavor">Command</h2>
+                                            <div class="glass p-5 mb-4 rounded-3">
+                                                <p class="flavor-visibility console-font">{{full_cmd}}</p>
+                                            </div>
+                                            <h2 class="pb-2 border-bottom border-bottom-flavored flavor">Search space</h2>
+                                        
+                                            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-5">
+                                                {% for k, v in search_space.items() %}
+                                                <div class="col d-flex align-items-start">
+                                                    <!-- <svg class="bi text-body-secondary flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#bootstrap"/></svg> -->
+                                                    <div>
+                                                        <h3 class="fw-bold mb-0 fs-4  flavor-5">{{hypers_lookup[k]}}</h3>
+                                                        <p class="d-inline-flex lead flavor-5 console-font">{{k}}</p>
+                                                        <p class="flavor-visibility">{{v[0]}} - {{v[1]}}</p>
+                                                    </div>
+                                                </div>
+                                                {% endfor %}
+                                                <!-- <p>{{full_cmd}}</p> -->
+                                                <!-- <p>{{search_space}}</p> -->
+                                            <!-- <div class="col d-flex align-items-start"> -->
+                                                <!-- <svg class="bi text-body-secondary flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#bootstrap"/></svg> -->
+                                                <!-- <div>
+                                                <h3 class="fw-bold mb-0 fs-4  flavor-5">Word vector size</h3>
+                                                <p class="flavor-visibility">100 - 200</p>
+                                                </div>
                                             </div> -->
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
