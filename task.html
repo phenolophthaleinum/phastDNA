@@ -159,12 +159,23 @@
 
                                         <div class="container px-4 py-5" id="search-space-grid">
                                             <h2 class="pb-2 border-bottom border-bottom-flavored flavor">Command</h2>
-                                            <div class="glass p-5 mb-4 rounded-3">
-                                                <p class="flavor-visibility console-font">{{full_cmd}}</p>
+                                            <div class="glass glass-wrapper p-3 mb-4 rounded-3">
+                                                <div class="d-flex justify-content-between" style="text-wrap: nowrap;">
+                                                    <div class="intext flavor-visibility console-font" id="run-full-cmd">
+                                                        {{full_cmd}}
+                                                    </div>
+                                                    <div class="inicon">
+                                                        <button class="btn-icon" type="button" onclick="copyToClipboard('run-full-cmd')" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-content="Copy to clipboard">
+                                                            <div class="inicon-glass px-3 py-2 rounded-3">
+                                                                <i class="bi bi-clipboard btn-icon"></i><i class="bi bi-clipboard-check btn-icon" style="opacity: 0;"></i>
+                                                            </div>
+                                                        </button>
+                                                    </div>
+                                                </div>
                                             </div>
                                             <h2 class="pb-2 border-bottom border-bottom-flavored flavor">Search space</h2>
                                         
-                                            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-5">
+                                            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-2">
                                                 {% for k, v in search_space.items() %}
                                                 <div class="col d-flex align-items-start">
                                                     <!-- <svg class="bi text-body-secondary flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#bootstrap"/></svg> -->

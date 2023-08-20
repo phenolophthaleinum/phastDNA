@@ -142,6 +142,7 @@ function updateStep(status) {
           circle.classList.add("active");
           circle.classList.remove('done');
           circle.setAttribute("data-bs-toggle", "popover");
+          circle.setAttribute("data-bs-html", "true");
           circle.setAttribute("data-bs-placement", "top");
           circle.setAttribute("data-bs-title", "Step progress");
           circle.setAttribute("data-bs-content", currentProgress);
@@ -299,6 +300,7 @@ var interval = setInterval(function() {
       }
       event_id = response['run_info']['event_id'];
       progress_value = response['run_info']['progress'];
+      fastdna_progress = response['run_info']['fastdna']['progress'];
       if (event_id){
         currentActive = event_id;
         currentProgress = 'No data yet.';
@@ -313,6 +315,18 @@ var interval = setInterval(function() {
         });
         // console.log(popoverElem);
         // updateStep();
+      }
+      else if (fastdna_progress){
+        // parsed_progress = JSON.parse(fastdna_progress);
+        progress_str = '';
+        Object.keys(fastdna_progress).forEach((key) => {
+          progress_str += `${key} ${fastdna_progress[key]}</br>`
+        });
+        console.log(progress_str);
+        currentProgress = progress_str;
+        popoverList[0].setContent({
+          ".popover-body": currentProgress
+        });
       }
       else if (response['status'] < 1){
         updateStep(response['status']);
@@ -402,3 +416,45 @@ var interval = setInterval(function() {
     }
   });
 }, 2000);
+
+
+function copyToClipboard(elem) {
+  var copyText = document.getElementById(elem);
+  console.log(copyText);
+  var button = document.querySelector('.btn-icon');
+
+  // Disable the button
+  button.disabled = true;
+  // copyText.select();
+  // copyText.setSelectionRange(0, 999999);
+
+  navigator.clipboard.writeText(copyText.innerText);
+  // alert("Copied the text: " + copyText.innerText);
+
+  gsap.to(".bi-clipboard", {
+      opacity: 0,
+      duration: 0.18,
+      ease: "expo.inOut"
+  });
+  gsap.to(".bi-clipboard-check", {
+      opacity: 1,
+      duration: 0.18,
+      ease: "expo.inOut"
+  });
+
+  setTimeout(function() {
+      gsap.to(".bi-clipboard", {
+          opacity: 1,
+          duration: 0.18,
+          ease: "expo.inOut"
+      });
+      gsap.to(".bi-clipboard-check", {
+          opacity: 0,
+          duration: 0.18,
+          ease: "expo.inOut"
+      });
+
+      // Enable the button
+      button.disabled = false;
+  }, 2000);
+}

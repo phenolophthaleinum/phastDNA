@@ -128,6 +128,7 @@ def check_events(logs):
     progresses = []
     iteration = None
     hyperparams_json = None
+    evaluation_json = None
     fdna_cmd = None
     fdna_progresses = []
     for l in lines:
@@ -137,19 +138,23 @@ def check_events(logs):
         if '| EVENT:' in l:
             events.append(l.strip())
             continue
-        if 'Iteration' in l:
-            iteration = l.strip().split(": ")[-1]
-            continue
-        if 'hyperparameters:' in l:
-            valid_json = l.strip().split("hyperparameters: ")[-1].replace("'", "\"")
-            hyperparams_json = json.loads(valid_json)
-            continue
         if '| fastDNA | run:' in l:
             fdna_progresses.append(l.strip().split('| fastDNA | run: ')[-1])
             continue
         if '| fastDNA | cmd:' in l:
             fdna_cmd = l.strip().split('| fastDNA | cmd: ')[-1]
             continue
+        if 'Iteration:' in l:
+            iteration = l.strip().split(": ")[-1]
+        if 'hyperparameters:' in l:
+            valid_json = l.strip().split("hyperparameters: ")[-1].replace("'", "\"")
+            hyperparams_json = json.loads(valid_json)
+            continue
+        if 'evaluation:' in l:
+            valid_json = l.strip().split("evaluation: ")[-1].replace("'", "\"")
+            evaluation_json = json.loads(valid_json)
+            continue
+
 
 
     event_temp = events[-1].split(': ')[-1].split(" ") if events else None
@@ -171,6 +176,7 @@ def check_events(logs):
             'progress': progress, 
             'iter': iteration,
             'hypers': hyperparams_json,
+            'eval': evaluation_json,
             'fastdna': {
                 'cmd': fdna_cmd,
                 'progress': fdna_progress
