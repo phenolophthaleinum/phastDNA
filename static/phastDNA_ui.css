@@ -720,7 +720,8 @@ i.btn-icon {
 }
 
 .accordion-button::after {
-  display: none;
+  /* this changes arrows */
+  display: none; 
 }
 
 .accordion-button:not(.collapsed) {
@@ -750,6 +751,10 @@ i.btn-icon {
   /* border-radius: 2%; */
   /* width: 100vw;
     position: absolute; */
+}
+
+.accordion-button-iters {
+  padding: 0.25rem;
 }
 
 .neon-logo {
@@ -1354,3 +1359,20 @@ i.btn-icon {
     /* -webkit-backdrop-filter: blur(12px); */
     /* border-radius: 1%; */
   }
+
+  .badge-iter {
+    margin-left: 1rem !important;
+    backdrop-filter: blur(12px) !important;
+    background-color: rgba(109, 104, 104, 0.3) !important;
+    font-size: 0.5em;
+  }
+
+  .highest-badge {
+    box-shadow: 0 0 10px #7678ed;
+    background-color: #7678ed !important;
+  }
+
+  .accordion-body-inner {
+    backdrop-filter: blur(0px);
+  }
+

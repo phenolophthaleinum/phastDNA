@@ -17,6 +17,11 @@ let counterSet = false;
 let num0 = document.getElementById('num0')
 let num1 = document.getElementById('num1')
 let currentProgress = 'No data yet.';
+let currentIter = null;
+let accordionIters = document.getElementById("accordionIters");
+let iterationData = {};
+var bestScore = 0;
+// var bestBadge = null;
 
 // events = {
 //   'Reading metadata': {
@@ -44,11 +49,11 @@ let currentProgress = 'No data yet.';
 
 function count() {
   let tl = gsap.timeline();
-  if (counter < 40) {
+  if (counter < 9999) {
       counter++;
   }
   else {
-      counter = 40;
+      counter = 9999;
   }
   num1.textContent = counter;
   // dir = !dir;
@@ -332,13 +337,39 @@ var interval = setInterval(function() {
         updateStep(response['status']);
       }
 
+      if (response['run_info']['eval']) {
+        iterationData[`iter_${currentIter}`] = {'eval': response['run_info']['eval']};
+        iterButton = document.getElementById(`button-iter_${currentIter}`);
+        currentScore = parseFloat(response['run_info']['eval']['accordance']);
+        if (currentScore <= bestScore){
+          iterButton.innerHTML += `
+          <span class="badge rounded-pill text-bg-primary badge-iter">${response['run_info']['eval']['accordance']}</span>
+          `;
+        }
+        else {
+          try {
+            document.querySelector(".highest-badge").classList.remove('highest-badge');
+          } catch (err){
+              console.log(err);
+          }
+          iterButton.innerHTML += `
+          <span class="badge rounded-pill text-bg-primary badge-iter highest-badge">${response['run_info']['eval']['accordance']}</span>
+          `;
+          bestScore = currentScore;
+        }
+      }
+
       if (response['run_info']['iter'])
       {
         if (!counterSet) {
           counter = response['run_info']['iter'] - 1;
           counterSet = true;
         }
+        currentIter = response['run_info']['iter'];
         count();
+        iterationData[`iter_${currentIter}`] = {'hypers': response['run_info']['hypers']};
+        console.log(iterationData);
+        createIterationRecord(accordionIters, currentIter);
       }
       // atest.innerText = response['content'];
       if (response['status'] === 0){
@@ -458,3 +489,42 @@ function copyToClipboard(elem) {
       button.disabled = false;
   }, 2000);
 }
+
+function createIterationRecord(container, iter_num) {
+  record_id = `iter_${iter_num}`;
+  record_html = `
+  <div class="accordion-item">
+    <h5 class="accordion-header">
+        <button id="button-${record_id}" class="accordion-button accordion-button-iters collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#${record_id}" aria-expanded="true" aria-controls="${record_id}">
+        Iteration ${iter_num}
+        </button>
+    </h5>
+    <div id="${record_id}" class="accordion-collapse collapse">
+        <div class="accordion-body">
+        <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+        </div>
+    </div>
+  </div>
+  `;
+  container.innerHTML += record_html;
+}
+
+accordionIters.addEventListener('show.bs.collapse', e => {
+  badge = e.target.previousElementSibling.querySelector(".badge");
+  gsap.to(badge, {
+      opacity: 0,
+      y: 100,
+      duration: 0.3,
+      ease: "power3.inOut"
+  });
+})
+
+accordionIters.addEventListener('hide.bs.collapse', e => {
+  badge = e.target.previousElementSibling.querySelector(".badge");
+  gsap.to(badge, {
+      opacity: 1,
+      y: 0,
+      duration: 0.3,
+      ease: "power3.inOut"
+  });
+})
