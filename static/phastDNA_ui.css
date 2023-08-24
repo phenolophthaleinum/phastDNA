@@ -1378,3 +1378,7 @@ i.btn-icon {
     backdrop-filter: blur(0px);
   }
 
+  .capitalise {
+    text-transform: capitalize;
+  }
+

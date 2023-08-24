@@ -23,6 +23,8 @@ hypers_lookup = {
     '--ulr': 'Learning rate update rate',
     '--epochs': 'Epochs number',
     '--noise': 'Noise (mutations)',
+    '--considered': 'Considered hosts',
+    '--loss': 'Loss function'
 }
 
 
@@ -146,13 +148,22 @@ def check_events(logs):
             continue
         if 'Iteration:' in l:
             iteration = l.strip().split(": ")[-1]
+            continue
         if 'hyperparameters:' in l:
             valid_json = l.strip().split("hyperparameters: ")[-1].replace("'", "\"")
             hyperparams_json = json.loads(valid_json)
+            hyperparams_json = {f"--{key}": [hypers_lookup[f"--{key}"], value] for key, value in hyperparams_json.items()}
             continue
         if 'evaluation:' in l:
             valid_json = l.strip().split("evaluation: ")[-1].replace("'", "\"")
-            evaluation_json = json.loads(valid_json)
+            evaluation_json_temp = json.loads(valid_json)
+            evaluation_json = defaultdict(dict)
+            for key, value in evaluation_json_temp.items():
+                if key != 'accordance':
+                    n_top, tax_level = key.split("_")
+                    evaluation_json[tax_level][n_top] = value
+                else:
+                    evaluation_json[key] = value
             continue
 
 

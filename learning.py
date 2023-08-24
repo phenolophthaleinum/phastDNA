@@ -33,15 +33,15 @@ class Classifier:
                  minn: int,
                  maxn: int,
                  labels: str = 'species',
-                 lr: float = 0.1,
-                 lr_update: float = 100,
+                 lrate: float = 0.1,
+                 ulr: float = 100,
                  dim: int = 100,
                  noise: int = 0,
-                 frag_len: int = 200,
-                 epoch: int = 20,
+                 fraglen: int = 200,
+                 epochs: int = 20,
                  loss: str = 'softmax',
                  threads: int = default_threads,
-                 considered_hosts: int = 10,
+                 considered: int = 10,
                  samples: int = 200,
                  fastdna_exe: Path = fastDNA_exe,
                  debug=False,
@@ -67,16 +67,16 @@ class Classifier:
         self.minn = minn
         self.maxn = maxn
         self.labels = labels
-        self.lr = lr
-        self.lr_update = lr_update
+        self.lr = lrate
+        self.lr_update = ulr
         self.dim = dim
         self.noise = noise
-        self.frag_len = frag_len
-        self.epochs = epoch
+        self.frag_len = fraglen
+        self.epochs = epochs
         self.loss = loss
         self.threads = threads
         self.samples = samples
-        self.considered_hosts = considered_hosts
+        self.considered_hosts = considered
         self.dir = working_dir
         self.fastdna_exe = fastdna_exe
         self.dir.mkdir(parents=True)
@@ -367,10 +367,10 @@ class Optimizer:
         self.pre_iterations = pre_iterations
         self.iterations = iterations
         self.iteration_counter = count(-1 * pre_iterations)
-        self.continuous = {'lr_update': lr_update}
+        self.continuous = {'ulr': lr_update}
         self.discrete = {'minn': minn, 'maxn': maxn, 'dim': dim, 'noise': noise,
-                         'frag_len': frag_len, 'epoch': epochs, 'considered_hosts': considered_hosts, 'samples': samples}
-        self.exponential = {'lr': lr}
+                         'fraglen': frag_len, 'epochs': epochs, 'considered': considered_hosts, 'samples': samples}
+        self.exponential = {'lrate': lr}
         self.categorical = {'loss': loss}
         self.override = {}
 
@@ -500,7 +500,7 @@ class Optimizer:
 
         logger.info(f"Chosen hyperparameters: {partial_report}")
 
-        frag_len, samples = iteration_params['frag_len'], iteration_params['samples']
+        frag_len, samples = iteration_params['fraglen'], iteration_params['samples']
         sample_dir = self.dir.joinpath('virus_samples').joinpath(f'{frag_len}_{samples}')
         virus_sample = sample_fasta_dir(self.virus_fasta_dir,
                                         length=frag_len,

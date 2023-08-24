@@ -1,4 +1,13 @@
-
+class DefaultDict {
+  constructor(defaultValueFunc) {
+    return new Proxy({}, {
+      get: (target, new_key) => new_key in target ? 
+        target[new_key] : 
+        (target[new_key] = typeof defaultValueFunc === 'function' ? 
+          new DefaultDict(defaultValueFunc) : defaultValueFunc)
+    });
+  }
+}
 // const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
 // const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
 var popoverList = []
@@ -19,7 +28,7 @@ let num1 = document.getElementById('num1')
 let currentProgress = 'No data yet.';
 let currentIter = null;
 let accordionIters = document.getElementById("accordionIters");
-let iterationData = {};
+let iterationData = new DefaultDict(Object);
 var bestScore = 0;
 // var bestBadge = null;
 
@@ -338,7 +347,8 @@ var interval = setInterval(function() {
       }
 
       if (response['run_info']['eval']) {
-        iterationData[`iter_${currentIter}`] = {'eval': response['run_info']['eval']};
+        // iterationData[`iter_${currentIter}`] = {'eval': response['run_info']['eval']};
+        iterationData[`iter_${currentIter}`]['eval'] = response['run_info']['eval'];
         iterButton = document.getElementById(`button-iter_${currentIter}`);
         currentScore = parseFloat(response['run_info']['eval']['accordance']);
         if (currentScore <= bestScore){
@@ -367,7 +377,8 @@ var interval = setInterval(function() {
         }
         currentIter = response['run_info']['iter'];
         count();
-        iterationData[`iter_${currentIter}`] = {'hypers': response['run_info']['hypers']};
+        // iterationData[`iter_${currentIter}`] = {'hypers': response['run_info']['hypers']};
+        iterationData[`iter_${currentIter}`]['hypers'] = response['run_info']['hypers'];
         console.log(iterationData);
         createIterationRecord(accordionIters, currentIter);
       }
@@ -517,22 +528,51 @@ accordionIters.addEventListener('show.bs.collapse', e => {
   dataContainer = e.target.querySelector(`#${e.target.id}-data`);
   // console.log(dataContainer);
 
-  // hypers populate
-  hypersHtml = '<h2 class="pb-2 border-bottom border-bottom-flavored flavor">Chosen hyperparameters</h2><div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-2">';
+  // populate data
+  dataHtml = '<h2 class="pb-2 border-bottom border-bottom-flavored flavor">Chosen hyperparameters</h2><div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-2">';
   hypersData = iterationData[e.target.id]['hypers'];
   for (let key in hypersData) {
-    hypersHtml += `
+    dataHtml += `
     <div class="col d-flex align-items-start">
       <div>
-        <h3 class="fw-bold mb-0 fs-4 flavor-5"> ${key} </h3>
-        <p class="flavor-visibility"> ${hypersData[key]} </p>
+        <h3 class="fw-bold mb-0 fs-4 flavor-5"> ${hypersData[key][0]} </h3>
+        <p class="d-inline-flex lead flavor-5 console-font"> ${key}</p>
+        <p class="flavor-visibility"> ${hypersData[key][1]} </p>
       </div>
     </div>
     `;
   }
-  hypersHtml += '</div>';
-  console.log(hypersHtml);
-  dataContainer.innerHTML = hypersHtml;
+  dataHtml += '</div>';
+  console.log(dataHtml);
+  try {
+    evalData = iterationData[e.target.id]['eval'];
+    dataHtml += `
+    <h2 class="pb-2 border-bottom border-bottom-flavored flavor">Model evaluation</h2>
+    <div class="row">
+      <div class="d-flex justify-content-between flex-wrap">
+    `;
+    for (let key in evalData) {
+      if (key != 'accordance') {
+        dataHtml += `
+        <div class="d-flex flex-column">
+          <h3 class="flavor-5 fw-bold fs-4 capitalise"> ${key} %</h3>
+          <p class="flavor-visibility">Top: ${evalData[key]['top']}</p>
+          <p class="flavor-visibility">Top 3: ${evalData[key]['top3']}</p>
+        </div>
+        `;
+      } else {
+        dataHtml += `
+        <div class="d-flex flex-column">
+          <h3 class="flavor-5 fw-bold fs-4 capitalise"> ${key} </h3>
+          <p class="flavor-visibility"> ${evalData[key]} </p>
+        </div>
+        `;
+      }
+    }
+  } catch (err) {
+    console.log(err);
+  }
+  dataContainer.innerHTML = dataHtml;
   console.log(dataContainer);
 
   badge = e.target.previousElementSibling.querySelector(".badge");
