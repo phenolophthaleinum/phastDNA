@@ -495,13 +495,15 @@ function createIterationRecord(container, iter_num) {
   record_html = `
   <div class="accordion-item">
     <h5 class="accordion-header">
-        <button id="button-${record_id}" class="accordion-button accordion-button-iters collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#${record_id}" aria-expanded="true" aria-controls="${record_id}">
+        <button id="button-${record_id}" class="accordion-button accordion-button-iters collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#${record_id}" aria-expanded="false" aria-controls="${record_id}">
         Iteration ${iter_num}
         </button>
     </h5>
     <div id="${record_id}" class="accordion-collapse collapse">
         <div class="accordion-body">
-        <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+          <div class="container-fluid" id="${record_id}-data">
+            <h3 class="flavor fw-bold">No data yet.</h3>
+          </div>
         </div>
     </div>
   </div>
@@ -510,6 +512,29 @@ function createIterationRecord(container, iter_num) {
 }
 
 accordionIters.addEventListener('show.bs.collapse', e => {
+  console.log(e.target.id);
+  console.log(iterationData[e.target.id]['hypers']);
+  dataContainer = e.target.querySelector(`#${e.target.id}-data`);
+  // console.log(dataContainer);
+
+  // hypers populate
+  hypersHtml = '<h2 class="pb-2 border-bottom border-bottom-flavored flavor">Chosen hyperparameters</h2><div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-2">';
+  hypersData = iterationData[e.target.id]['hypers'];
+  for (let key in hypersData) {
+    hypersHtml += `
+    <div class="col d-flex align-items-start">
+      <div>
+        <h3 class="fw-bold mb-0 fs-4 flavor-5"> ${key} </h3>
+        <p class="flavor-visibility"> ${hypersData[key]} </p>
+      </div>
+    </div>
+    `;
+  }
+  hypersHtml += '</div>';
+  console.log(hypersHtml);
+  dataContainer.innerHTML = hypersHtml;
+  console.log(dataContainer);
+
   badge = e.target.previousElementSibling.querySelector(".badge");
   gsap.to(badge, {
       opacity: 0,
@@ -527,4 +552,9 @@ accordionIters.addEventListener('hide.bs.collapse', e => {
       duration: 0.3,
       ease: "power3.inOut"
   });
+})
+
+accordionIters.addEventListener('hidden.bs.collapse', e => {
+  dataContainer = e.target.querySelector(`#${e.target.id}-data`);
+  dataContainer.innerHTML = '';
 })

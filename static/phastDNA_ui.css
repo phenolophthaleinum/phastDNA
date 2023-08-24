@@ -491,6 +491,7 @@ input[type=number]:hover::-webkit-inner-spin-button {
 
 .flavor-2 {
   color: #f48b7b;
+  transition: 0.5s;
 }
 
 .flavor-7 {
@@ -499,6 +500,7 @@ input[type=number]:hover::-webkit-inner-spin-button {
 
 .flavor-5 {
   color: #40c3c2;
+  transition: 0.5s;
 }
 
 .flavor-visibility {
@@ -754,7 +756,7 @@ i.btn-icon {
 }
 
 .accordion-button-iters {
-  padding: 0.25rem;
+  padding: 0.4rem;
 }
 
 .neon-logo {
