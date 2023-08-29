@@ -41,6 +41,9 @@
         href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
     
+    <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous" async></script>
+
+    
     <!-- <script>
         let hypers_lookup = '{{hypers_lookup}}';
     </script> -->
@@ -139,14 +142,14 @@
                     <div class="accordion accordion-flush" id="accordionPredict">
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="predict-headingSettingsPath">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#predict-collapseSettingsPath" aria-expanded="false"
                                     aria-controls="predict-collapseSettingsPath">
                                     <div class="d-flex">
                                         Run details
                                     </div>
                                     <div class="d-flex flavor-active align-self-center accordion-button-desc mx-3 fs-5">
-                                         | 
+                                         | Details about this run
                                     </div>
                                 </button>
                             </h2>
@@ -161,7 +164,7 @@
                       background-position: center;
                       background-size: cover;" -->
 
-                                        <div class="container px-4 py-5" id="search-space-grid">
+                                        <div class="container-fluid" id="search-space-grid">
                                             <h2 class="pb-2 border-bottom border-bottom-flavored flavor">Command</h2>
                                             <div class="glass glass-wrapper p-3 mb-4 rounded-3">
                                                 <div class="d-flex justify-content-between" style="text-wrap: nowrap;">
@@ -179,26 +182,28 @@
                                             </div>
                                             <h2 class="pb-2 border-bottom border-bottom-flavored flavor">Search space</h2>
                                         
-                                            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-2">
-                                                {% for k, v in search_space.items() %}
-                                                <div class="col d-flex align-items-start">
-                                                    <!-- <svg class="bi text-body-secondary flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#bootstrap"/></svg> -->
-                                                    <div>
-                                                        <h3 class="fw-bold mb-0 fs-4  flavor-5">{{hypers_lookup[k]}}</h3>
-                                                        <p class="d-inline-flex lead flavor-5 console-font">{{k}}</p>
-                                                        <p class="flavor-visibility">{{v[0]}} - {{v[1]}}</p>
+                                            <div class="container-fluid card-grid-scroll-wrapper">
+                                                <div class="row row-cols-1 row-cols-sm-1 row-cols-md-1 row-cols-lg-2 row-cols-xl-2 g-1 py-2" id="search-space-masonry">
+                                                    {% for k, v in search_space.items() %}
+                                                    <div class="col">
+                                                        <div class="container-card-fluid card card-params">
+                                                            <div class="row g-0">
+                                                            <div class="col-md-8">
+                                                                <div class="card-body card-body-params">
+                                                                <h5 class="card-title card-title-params flavor-5">{{hypers_lookup[k]}}</h5>
+                                                                <p class="card-text console-font fs-6 flavor-visibility lead">{{k}}</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4 d-flex">
+                                                                <div class="card-body card-body-params d-flex" style="justify-content: end; align-items: center;">
+                                                                    <p class="card-text card-text-params flavor-visibility fw-bold fs-5">{{v[0]}} - {{v[1]}}</p>
+                                                                </div>
+                                                            </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
+                                                    {% endfor %}
                                                 </div>
-                                                {% endfor %}
-                                                <!-- <p>{{full_cmd}}</p> -->
-                                                <!-- <p>{{search_space}}</p> -->
-                                            <!-- <div class="col d-flex align-items-start"> -->
-                                                <!-- <svg class="bi text-body-secondary flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#bootstrap"/></svg> -->
-                                                <!-- <div>
-                                                <h3 class="fw-bold mb-0 fs-4  flavor-5">Word vector size</h3>
-                                                <p class="flavor-visibility">100 - 200</p>
-                                                </div>
-                                            </div> -->
                                             </div>
                                         </div>
                                     </div>

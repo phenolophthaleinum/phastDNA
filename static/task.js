@@ -28,6 +28,7 @@ let num1 = document.getElementById('num1')
 let currentProgress = 'No data yet.';
 let currentIter = null;
 let accordionIters = document.getElementById("accordionIters");
+let accordionDetails = document.getElementById("accordionPredict");
 let iterationData = new DefaultDict(Object);
 var bestScore = 0;
 // var bestBadge = null;
@@ -369,6 +370,10 @@ var interval = setInterval(function() {
         }
       }
 
+      if (response['run_info']['elapsed_time']) {
+        iterationData[`iter_${currentIter}`]['elapsed_time'] = response['run_info']['elapsed_time'];
+      }
+
       if (response['run_info']['iter'])
       {
         if (!counterSet) {
@@ -529,45 +534,134 @@ accordionIters.addEventListener('show.bs.collapse', e => {
   // console.log(dataContainer);
 
   // populate data
-  dataHtml = '<h2 class="pb-2 border-bottom border-bottom-flavored flavor">Chosen hyperparameters</h2><div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-2">';
+  // dataHtml = '<h2 class="pb-2 border-bottom border-bottom-flavored flavor">Chosen hyperparameters</h2><div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-2">';
+  // masonry version
+  // dataHtml = '<h2 class="pb-2 border-bottom border-bottom-flavored flavor">Chosen hyperparameters</h2><div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-1 py-2 iters-grid-masonry">';
+  // scrollable version
+  dataHtml = '<h2 class="pb-2 border-bottom border-bottom-flavored flavor">Chosen hyperparameters</h2><div class="container-fluid card-grid-scroll-wrapper"><div class="row row-cols-1 row-cols-sm-1 row-cols-md-1 row-cols-lg-2 row-cols-xl-2 g-1 py-2 iters-grid-masonry">';
   hypersData = iterationData[e.target.id]['hypers'];
   for (let key in hypersData) {
+    // dataHtml += `
+    // <div class="col d-flex align-items-start">
+    //   <div>
+    //     <h3 class="fw-bold mb-0 fs-4 flavor-5"> ${hypersData[key][0]} </h3>
+    //     <p class="d-inline-flex lead flavor-5 console-font"> ${key}</p>
+    //     <p class="flavor-visibility"> ${hypersData[key][1]} </p>
+    //   </div>
+    // </div>
+    // `;
+    //old version + optional masonry
+    // dataHtml += `
+    // <div class="col">
+    //     <div class="card card-params" style="max-width: 400px;">
+    //         <div class="row g-0">
+    //         <div class="col-md-8">
+    //             <div class="card-body card-body-params">
+    //             <h5 class="card-title card-title-params flavor-5">${hypersData[key][0]}</h5>
+    //             <p class="card-text console-font fs-6 flavor-visibility lead">${key}</p>
+    //             <!-- <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p> -->
+    //             </div>
+    //         </div>
+    //         <div class="col-md-4 d-flex">
+    //             <div class="card-body card-body-params d-flex" style="justify-content: end; align-items: center;">
+    //                 <p class="card-text card-text-params flavor-visibility">${hypersData[key][1]}</p>
+    //             </div>
+    //         </div>
+    //         </div>
+    //     </div>
+    // </div>
+    // `;
+    //new version, scrollable
     dataHtml += `
-    <div class="col d-flex align-items-start">
-      <div>
-        <h3 class="fw-bold mb-0 fs-4 flavor-5"> ${hypersData[key][0]} </h3>
-        <p class="d-inline-flex lead flavor-5 console-font"> ${key}</p>
-        <p class="flavor-visibility"> ${hypersData[key][1]} </p>
-      </div>
+    <div class="col">
+        <div class="container-card-fluid card card-params">
+            <div class="row g-0">
+            <div class="col-md-8">
+                <div class="card-body card-body-params">
+                <h5 class="card-title card-title-params flavor-5">${hypersData[key][0]}</h5>
+                <p class="card-text console-font fs-6 flavor-visibility lead">${key}</p>
+                <!-- <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p> -->
+                </div>
+            </div>
+            <div class="col-md-4 d-flex">
+                <div class="card-body card-body-params d-flex" style="justify-content: end; align-items: center;">
+                    <p class="card-text card-text-params flavor-visibility fw-bold fs-5">${hypersData[key][1]}</p>
+                </div>
+            </div>
+            </div>
+        </div>
     </div>
     `;
   }
-  dataHtml += '</div>';
+  dataHtml += '</div></div>';
   console.log(dataHtml);
   try {
     evalData = iterationData[e.target.id]['eval'];
+    // dataHtml += `
+    // <h2 class="pb-2 border-bottom border-bottom-flavored flavor">Model evaluation</h2>
+    // <div class="row">
+    //   <div class="d-flex justify-content-between flex-wrap">
+    // `;
     dataHtml += `
     <h2 class="pb-2 border-bottom border-bottom-flavored flavor">Model evaluation</h2>
-    <div class="row">
-      <div class="d-flex justify-content-between flex-wrap">
+    <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-3 g-1 py-2 iters-grid-masonry">
     `;
     for (let key in evalData) {
       if (key != 'accordance') {
+        // dataHtml += `
+        // <div class="d-flex flex-column">
+        //   <h3 class="flavor-5 fw-bold fs-4 capitalise"> ${key} %</h3>
+        //   <p class="flavor-visibility">Top: ${evalData[key]['top']}</p>
+        //   <p class="flavor-visibility">Top 3: ${evalData[key]['top3']}</p>
+        // </div>
+        // `;
         dataHtml += `
-        <div class="d-flex flex-column">
-          <h3 class="flavor-5 fw-bold fs-4 capitalise"> ${key} %</h3>
-          <p class="flavor-visibility">Top: ${evalData[key]['top']}</p>
-          <p class="flavor-visibility">Top 3: ${evalData[key]['top3']}</p>
+        <div class="col">
+            <div class="card card-eval" style="max-width: 400px;">
+                <div class="card-body card-body-params">
+                    <h5 class="card-title card-title-params flavor-5 capitalise">${key} %</h5>
+                    <div class="d-flex justify-content-around">
+                        <div class="d-flex flex-column">
+                            <label class="flavor-2" style="font-size: 80%;">Top</label>
+                            <p data-top=${evalData[key]['top']} class="card-text flavor-visibility fw-bold">${evalData[key]['top']}</p>
+                        </div>
+                        <div class="d-flex flex-column">
+                            <label class="flavor-2" style="font-size: 80%;">Top3</label>
+                            <p class="card-text flavor-visibility fw-bold">${evalData[key]['top3']}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         `;
       } else {
+        // dataHtml += `
+        // <div class="d-flex flex-column">
+        //   <h3 class="flavor-5 fw-bold fs-4 capitalise"> ${key} </h3>
+        //   <p class="flavor-visibility"> ${evalData[key]} </p>
+        // </div>
+        // `;
         dataHtml += `
-        <div class="d-flex flex-column">
-          <h3 class="flavor-5 fw-bold fs-4 capitalise"> ${key} </h3>
-          <p class="flavor-visibility"> ${evalData[key]} </p>
+        <div class="col">
+            <div class="card card-eval" style="max-width: 400px;">
+                <div class="card-body card-body-params">
+                <h5 class="card-title card-title-params flavor-5 capitalise">${key}</h5>
+                <div class="d-flex flex-column">
+                    <label style="user-select: none; font-size: 80%; color: transparent;">Top</label>
+                    <p data-accordance=${evalData[key]} style="text-align: end;" class="card-text flavor-visibility fw-bold">${evalData[key]}</p>
+                </div>
+                </div>
+            </div>
         </div>
         `;
       }
+    }
+    if (iterationData[e.target.id]['elapsed_time']) {
+      dataHtml += `
+      </div>
+      <h2 class="pb-2 border-bottom border-bottom-flavored flavor">Elapsed time</h2>
+      <h3 class="flavor-5 fw-bold">${iterationData[e.target.id]['elapsed_time']}</h3>
+    `;
     }
   } catch (err) {
     console.log(err);
@@ -582,7 +676,7 @@ accordionIters.addEventListener('show.bs.collapse', e => {
       duration: 0.3,
       ease: "power3.inOut"
   });
-})
+});
 
 accordionIters.addEventListener('hide.bs.collapse', e => {
   badge = e.target.previousElementSibling.querySelector(".badge");
@@ -592,9 +686,25 @@ accordionIters.addEventListener('hide.bs.collapse', e => {
       duration: 0.3,
       ease: "power3.inOut"
   });
-})
+});
 
 accordionIters.addEventListener('hidden.bs.collapse', e => {
   dataContainer = e.target.querySelector(`#${e.target.id}-data`);
   dataContainer.innerHTML = '';
-})
+});
+
+// accordionIters.addEventListener('shown.bs.collapse', e => {
+//   var msnry = new Masonry(".iters-grid-masonry", {
+//       percentPosition: true,
+//       itemSelector: '.col',
+//   });
+//   msnry.layout();
+// });
+
+// accordionDetails.addEventListener('shown.bs.collapse', e => {
+//     var msnry = new Masonry("#search-space-masonry", {
+//         percentPosition: true,
+//         itemSelector: '.col',
+//     });
+//     msnry.layout();
+// });

@@ -133,6 +133,7 @@ def check_events(logs):
     evaluation_json = None
     fdna_cmd = None
     fdna_progresses = []
+    elapsed_time = None
     for l in lines:
         if '| Progress:' in l:
             progresses.append(l.strip())
@@ -161,11 +162,12 @@ def check_events(logs):
             for key, value in evaluation_json_temp.items():
                 if key != 'accordance':
                     n_top, tax_level = key.split("_")
-                    evaluation_json[tax_level][n_top] = value
+                    evaluation_json[tax_level][n_top] = f"{round(float(value) * 100, 3)}"
                 else:
-                    evaluation_json[key] = value
+                    evaluation_json[key] = f"{round(float(value), 4)}"
             continue
-
+        if 'executed successfully in' in l:
+            elapsed_time = ' '.join([elem for elem in l.strip().split(" ")[-3:] if not elem.startswith("0")])
 
 
     event_temp = events[-1].split(': ')[-1].split(" ") if events else None
@@ -188,6 +190,7 @@ def check_events(logs):
             'iter': iteration,
             'hypers': hyperparams_json,
             'eval': evaluation_json,
+            'elapsed_time': elapsed_time,
             'fastdna': {
                 'cmd': fdna_cmd,
                 'progress': fdna_progress

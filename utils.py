@@ -11,6 +11,7 @@ from itertools import chain
 from multiprocessing import cpu_count
 from pathlib import Path
 from timeit import default_timer as timer
+from datetime import timedelta
 from traceback import format_tb
 from typing import Any, Callable, Collection, Dict, List, Type
 
@@ -208,6 +209,17 @@ class BatchParallel(Parallel):
         self.result = tuple(chain.from_iterable(self.result))
 
 
+def format_time(time_delta: float):
+    """
+    Formats timedelta object to easily readable time string.
+    """
+    total_secs = timedelta(seconds=time_delta).total_seconds()
+    hours, remainder = divmod(total_secs, 3600)
+    mins, secs = divmod(remainder, 60)
+
+    return f"{int(hours)}h {int(mins)}m {secs:.4f}s"
+
+
 # LOGGING
 def time_this(func):
     """
@@ -223,11 +235,19 @@ def time_this(func):
         if values is None:
             print(f"{func.__name__!r} execution error")
         else:
-            print(f"{func.__name__!r} executed successfully in {runtime:.6f} seconds")
+            # print(f"{func.__name__!r} executed successfully in {runtime:.6f} seconds")
+            logger.info(f"{func.__name__!r} executed successfully in {format_time(runtime)}")
             return values
 
     return wrapper_timer
 
+# start = timer()
+# t.sleep(1.2)
+# end = timer()
+# runtime = end - start
+# formatted_runtime = datetime.timedelta(seconds=runtime)
+# formatted_runtime = datetime.time.fromisoformat(str(datetime.timedelta(seconds=runtime)))
+# datetime.time(formatted_runtime)
 
 # FILE HANDLING
 def make_tax_json(host_data: Dict[str, Dict[str, Any]]):
