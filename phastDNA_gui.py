@@ -83,36 +83,50 @@ def test_f():
         # cmd = subprocess.Popen(['python', 'phastdna.py', '-O', data["output_path"], '-H', data["host_path"], '-V', data["virus_path"], '-e', '1', '-p', '1', '-i', '2', '--filter', data["filter"]])
         
         # print(type(data['--preiter']))
-        arguments = []
-        mutable_data = dict(data)
-        print(mutable_data)
-        filtered_dict = {('-'.join(k.split('-')[:-1]) if k.endswith('-lower') or k.endswith('-upper') else k): ((mutable_data[f'{"-".join(k.split("-")[:-1])}-lower'], mutable_data[f'{"-".join(k.split("-")[:-1])}-upper']) if k.endswith('-lower') or k.endswith('-upper') else v) for k, v in mutable_data.items()}
-        if len(multi) > 1:
-            filtered_dict.update({'--loss': tuple(multi)})
-        filtered_dict.pop('search_terms')
-        
-        print(filtered_dict)
-        # mutable_data = bounds_dict
-        # mutable_data['--labels'] = mutable_data['--examples_from']
-        # print(type(mutable_data['--preiter']))
-        search_space = {}
-        for key, value in filtered_dict.items():
-            arguments.append(key)
-            if isinstance(value, tuple):
-                arguments.extend(value)
-                search_space[key] = value
-            else:
-                arguments.append(value)
-        print(*arguments)
-        print(['python', 'phastdna.py', *arguments])
-        command = ['python', 'phastdna.py', *arguments]
-        cmd = subprocess.Popen(command)
-        return flask.render_template('task.html', 
-                                     task_name=task_name, 
-                                     iters=filtered_dict['--iter'], 
-                                     full_cmd=" ". join(command), 
-                                     search_space=search_space,
-                                     hypers_lookup=hypers_lookup)
+
+        if "--hosts" in data:
+            arguments = []
+            mutable_data = dict(data)
+            print(mutable_data)
+            filtered_dict = {('-'.join(k.split('-')[:-1]) if k.endswith('-lower') or k.endswith('-upper') else k): ((mutable_data[f'{"-".join(k.split("-")[:-1])}-lower'], mutable_data[f'{"-".join(k.split("-")[:-1])}-upper']) if k.endswith('-lower') or k.endswith('-upper') else v) for k, v in mutable_data.items()}
+            if len(multi) > 1:
+                filtered_dict.update({'--loss': tuple(multi)})
+            filtered_dict.pop('search_terms')
+            
+            print(filtered_dict)
+            # mutable_data = bounds_dict
+            # mutable_data['--labels'] = mutable_data['--examples_from']
+            # print(type(mutable_data['--preiter']))
+            search_space = {}
+            for key, value in filtered_dict.items():
+                arguments.append(key)
+                if isinstance(value, tuple):
+                    arguments.extend(value)
+                    search_space[key] = value
+                else:
+                    arguments.append(value)
+            print(*arguments)
+            print(['python', 'phastdna.py', *arguments])
+            command = ['python', 'phastdna.py', *arguments]
+            cmd = subprocess.Popen(command)
+            return flask.render_template('task.html',
+                                        mode="train",
+                                        task_name=task_name, 
+                                        iters=filtered_dict['--iter'], 
+                                        full_cmd=" ".join(command), 
+                                        search_space=search_space,
+                                        hypers_lookup=hypers_lookup)
+        if "--classifier" in data:
+            mutable_data = dict(data)
+            pred_file = output_dir.joinpath("predictions.csv")
+            arguments = [elem for sub_tuple in mutable_data.items() for elem in sub_tuple]
+            command = ['python', 'phastdna.py', *arguments]
+            cmd = subprocess.Popen(command)
+            return flask.render_template('task.html',
+                                        mode="predict",
+                                        pred_file=pred_file,
+                                        task_name=task_name, 
+                                        full_cmd=" ".join(command))
 
 
 def check_status(logs):

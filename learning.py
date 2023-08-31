@@ -11,6 +11,7 @@ from typing import Any, Dict, List, Tuple
 from loguru import logger
 
 import pandas as pd
+# import time as t
 from bayes_opt import BayesianOptimization
 
 from scoring import score_and_rank
@@ -220,6 +221,7 @@ class Classifier:
         """
         print(virus_genome_dir)
         sample_dir = self.dir.joinpath(f'{virus_genome_dir.name}_sample')
+        logger.info(f'EVENT: Sampling sequences from {virus_genome_dir.as_posix()} [1]')
         virus_samples = sample_fasta_dir(virus_genome_dir,
                                          length=self.frag_len,
                                          n_samples=self.samples,
@@ -235,7 +237,7 @@ class Classifier:
                                      kwargs={'fastdna_exe': self.fastdna_exe.as_posix(),
                                              'model_path': self.model.as_posix(),
                                              'considered_hosts': self.considered_hosts},
-                                     description='running fastDNA',
+                                     description='EVENT: Running fastDNA-predict [2]',
                                      n_jobs=self.threads)
         # print(self.scoring)
         # print(type(self.scoring))
@@ -245,9 +247,10 @@ class Classifier:
         # print(len(fastdna_pred_jobs.result))
         score_jobs = Parallel(self.scoring if callable(self.scoring) else getattr(scoring, self.scoring), # dirty fix for ensuring that there will be a callable obj
                               fastdna_pred_jobs.result,
-                              description='Scoring results',
+                              description='EVENT: Scoring results [3]',
                               n_jobs=self.threads)
 
+        
         merged_rankings = defaultdict(dict)
         print(virus_samples)
         for file_path, host_ranking in zip(virus_samples, score_jobs.result):
@@ -280,6 +283,7 @@ class Classifier:
     @staticmethod
     def load(model_path: Path, fastdna_path: Path) -> 'Classifier':
         # wd_path.mkdir(exist_ok=True, parents=True)
+        logger.info("EVENT: Loading model [0]")
         master_file = model_path.joinpath('classifier.pkl')
         classifier = read_serialized(master_file)
         assert isinstance(classifier, Classifier), f'No valid classifier file at {master_file}'
@@ -502,6 +506,7 @@ class Optimizer:
 
         frag_len, samples = iteration_params['fraglen'], iteration_params['samples']
         sample_dir = self.dir.joinpath('virus_samples').joinpath(f'{frag_len}_{samples}')
+        logger.info(f'EVENT: Sampling sequences from {self.virus_fasta_dir.as_posix()} [3]')
         virus_sample = sample_fasta_dir(self.virus_fasta_dir,
                                         length=frag_len,
                                         n_samples=samples,

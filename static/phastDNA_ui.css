@@ -1348,6 +1348,7 @@ i.btn-icon {
     position: absolute;
     right: 28%;
     top: 15%;
+    z-index: -10;
   }
 
   .btn-icon-clipboard {

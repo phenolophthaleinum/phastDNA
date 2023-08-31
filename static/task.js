@@ -1,3 +1,4 @@
+// custom defaultdict equivalent from python
 class DefaultDict {
   constructor(defaultValueFunc) {
     return new Proxy({}, {
@@ -8,6 +9,15 @@ class DefaultDict {
     });
   }
 }
+
+// custom round method; https://stackoverflow.com/questions/11832914/how-to-round-to-at-most-2-decimal-places-if-necessary
+function round(num, decimalPlaces = 0) {
+  var p = Math.pow(10, decimalPlaces);
+  var n = (num * p) * (1 + Number.EPSILON);
+  return Math.round(n) / p;
+}
+
+// VARIABLES
 // const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
 // const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
 var popoverList = []
@@ -61,6 +71,9 @@ function count() {
   let tl = gsap.timeline();
   if (counter < 9999) {
       counter++;
+      if (counter === 0) {
+        counter++;
+      }
   }
   else {
       counter = 9999;
@@ -108,6 +121,10 @@ function updateStep(status) {
       var spinner = circle.querySelector('.icon-circle');
       var check = circle.querySelector('.done-check');
 
+      console.log(spinner);
+      console.log(check);
+      console.log(currentActive);
+
       if (status === -1) {
         // Handle error status
         circle.classList.remove("active");
@@ -129,12 +146,19 @@ function updateStep(status) {
         // Handle success status on the last circle
         circle.classList.add("done");
         circle.classList.remove("active");
-        if (spinner)
-            removeSpinner(spinner, () => {
-                if (!check)
-                    createCheck(circle);
-            });
-        return;
+        console.log("status0 && last");
+        console.log(spinner);
+        console.log(check);
+        console.log(currentActive);
+        if (spinner){
+          removeSpinner(spinner, () => {
+            if (!check)
+                createCheck(circle);
+          });
+        } else if (!check) {
+          createCheck(circle);
+        }
+        return "end";
       }
 
       if (index < currentActive) {
@@ -344,7 +368,7 @@ var interval = setInterval(function() {
         });
       }
       else if (response['status'] < 1){
-        updateStep(response['status']);
+        console.log(updateStep(response['status']));
       }
 
       if (response['run_info']['eval']) {
@@ -372,6 +396,12 @@ var interval = setInterval(function() {
 
       if (response['run_info']['elapsed_time']) {
         iterationData[`iter_${currentIter}`]['elapsed_time'] = response['run_info']['elapsed_time'];
+        try {
+          elapsed_time_elem = document.getElementById("predict-time");
+          elapsed_time_elem.innerText = response['run_info']['elapsed_time'];
+        }catch (err) {
+          console.log(err)
+        }
       }
 
       if (response['run_info']['iter'])
@@ -390,6 +420,7 @@ var interval = setInterval(function() {
       // atest.innerText = response['content'];
       if (response['status'] === 0){
         console.log(response['status']);
+        console.log(response);
         var normalPara = document.createElement("p");
         var successPara = document.createElement("p");
         successPara.classList.add("fade-in", "status-success");
@@ -439,7 +470,8 @@ var interval = setInterval(function() {
       }
       else {
         // console.log(response['content']);
-        console.log(response['run_info']);
+        // console.log(response['run_info']);
+        console.log(response)
         var para = document.createElement("p");
         para.innerText = response['content'];
         para.classList.add('fade-in');
@@ -469,6 +501,13 @@ function copyToClipboard(elem) {
   var copyText = document.getElementById(elem);
   console.log(copyText);
   var button = document.querySelector('.btn-icon');
+  var clipboard_icon = copyText.nextElementSibling.querySelector(".bi-clipboard");
+  // .querySelector(".bi-clipboard");
+  var clipboard_icon_checked = copyText.nextElementSibling.querySelector(".bi-clipboard-check");
+  // .querySelector(".bi-clipboard-check");
+  console.log(clipboard_icon);
+  // console.log(clipboard_icon);
+  console.log(clipboard_icon_checked);
 
   // Disable the button
   button.disabled = true;
@@ -478,24 +517,24 @@ function copyToClipboard(elem) {
   navigator.clipboard.writeText(copyText.innerText);
   // alert("Copied the text: " + copyText.innerText);
 
-  gsap.to(".bi-clipboard", {
+  gsap.to(clipboard_icon, {
       opacity: 0,
       duration: 0.18,
       ease: "expo.inOut"
   });
-  gsap.to(".bi-clipboard-check", {
+  gsap.to(clipboard_icon_checked, {
       opacity: 1,
       duration: 0.18,
       ease: "expo.inOut"
   });
 
   setTimeout(function() {
-      gsap.to(".bi-clipboard", {
+      gsap.to(clipboard_icon, {
           opacity: 1,
           duration: 0.18,
           ease: "expo.inOut"
       });
-      gsap.to(".bi-clipboard-check", {
+      gsap.to(clipboard_icon_checked, {
           opacity: 0,
           duration: 0.18,
           ease: "expo.inOut"
@@ -585,7 +624,7 @@ accordionIters.addEventListener('show.bs.collapse', e => {
             </div>
             <div class="col-md-4 d-flex">
                 <div class="card-body card-body-params d-flex" style="justify-content: end; align-items: center;">
-                    <p class="card-text card-text-params flavor-visibility fw-bold fs-5">${hypersData[key][1]}</p>
+                    <p style="overflow-wrap: anywhere;" class="card-text card-text-params flavor-visibility fw-bold fs-5">${hypersData[key][1]}</p>
                 </div>
             </div>
             </div>

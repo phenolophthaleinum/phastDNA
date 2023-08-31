@@ -3,9 +3,10 @@ import sys
 from loguru import logger
 from argparse import ArgumentParser
 from pathlib import Path
+from timeit import default_timer as timer
 
 from learning import Optimizer, Classifier
-from utils import default_threads, fasta_extensions, log
+from utils import default_threads, fasta_extensions, log, format_time
 
 
 # this is probably not ideal; possibly should be rewritten
@@ -128,6 +129,7 @@ if __name__ == "__main__":
     print(type(args.threads))
 
     if args.classifier:
+        start = timer()
         logger.info('Starting phastDNA in pre-trained prediction mode')
         virus_dir = Path(args.viruses).resolve() # resolve is painful to use
         assert any([f.suffix in fasta_extensions for f in virus_dir.iterdir()]), f'No fasta files found in {virus_dir}'
@@ -144,7 +146,10 @@ if __name__ == "__main__":
         results_df_melted = results_df.melt(id_vars=["Host"], var_name="Virus", value_name="Score")
         results_df_sorted = results_df_melted.groupby('Virus').apply(lambda x: x.sort_values(by='Score', ascending=False)).reset_index(drop=True)
         results_df_sorted.to_csv(results_file, index=False)
-        logger.info(f'Results saved to {results_file}')    
+        logger.info(f'Results saved to {results_file}')
+        end = timer()
+        runtime = end - start
+        logger.info(f"Prediction executed successfully in {format_time(runtime)}")
 
 
     # Train a new model and optimize hyperparameters

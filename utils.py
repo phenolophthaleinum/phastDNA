@@ -398,7 +398,7 @@ def sample_fasta_dir(fasta_dir: Path,
                                      'n': n_samples,
                                      'max_ambiguities': max_ambiguities,
                                      'to_dir': to_dir},
-                             description=f'EVENT: Sampling sequences from {fasta_dir.as_posix()} [3]',
+                             description=f'Sampling sequences from {fasta_dir.as_posix()} in progress.',
                              n_jobs=n_jobs)
         return [sample for sample in jobs.result]
 

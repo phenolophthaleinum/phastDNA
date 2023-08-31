@@ -1,0 +1,169 @@
+<div class="row">
+    <div class="container glass p-4 mb-4 rounded-3">
+        <div class="d-flex justify-content-between flex-wrap mb-4">
+            <h2 id="task-name">{{task_name}}</h2>
+            <div id="counter-div" class="d-flex flex-row" style="overflow: hidden; height: 45px; width: 100px; position: relative; justify-content: flex-end;">
+                <div style="position: relative;left: -2%;">
+                    <div class="nomargin" id="num0" style="top: 0%; position: relative;">-</div>
+                    <div class="nomargin" id="num1" style="top: 104%;position: relative;">-</div>
+                </div>
+                <div class="nomargin" style="position: relative;">/</div><div class="nomargin" style="position: relative;">{{iters}}</div>
+            </div>
+        </div>
+        <div class="container-xl">
+            <div class="progress-container">
+                <div class="progress" id="progress"></div>
+                <div class="circle">
+                    <h3 class="caption flavor-visibility">Reading metadata</h3>
+                </div>
+                <div class="circle">
+                    <h3 class="caption flavor-visibility">Sampling genomes</h3>
+                </div>
+                <div class="circle">
+                    <h3 class="caption flavor-visibility">Labelling genomes</h3>
+                </div>
+                <div class="circle">
+                    <h3 class="caption flavor-visibility">Sampling virus sequences</h3>
+                </div>
+                <div class="circle">
+                    <h3 class="caption flavor-visibility">Running fastDNA-supervised</h3>
+                </div>
+                <div class="circle">
+                    <h3 class="caption flavor-visibility">Running fastDNA-predict</h3>
+                </div>
+                <div class="circle">
+                    <h3 class="caption flavor-visibility">Scoring and evaluating results</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="accordion accordion-flush" id="accordionPredict">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="predict-headingSettingsPath">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#predict-collapseSettingsPath" aria-expanded="false"
+                    aria-controls="predict-collapseSettingsPath">
+                    <div class="d-flex">
+                        Run details
+                    </div>
+                    <div class="d-flex flavor-active align-self-center accordion-button-desc mx-3 fs-5">
+                        | Details about this run
+                    </div>
+                </button>
+            </h2>
+            <div id="predict-collapseSettingsPath" class="accordion-collapse collapse"
+                aria-labelledby="predict-headingSettingsPath"
+                data-bs-parent="#accordionPredict">
+                <div class="accordion-body">
+                    <div class="glass p-5 mb-4 rounded-3"> 
+                        <div class="container-fluid" id="search-space-grid">
+                            <h2 class="pb-2 border-bottom border-bottom-flavored flavor">Command</h2>
+                            <div class="glass glass-wrapper p-3 mb-4 rounded-3">
+                                <div class="d-flex justify-content-between" style="text-wrap: nowrap;">
+                                    <div class="intext flavor-visibility console-font" id="run-full-cmd">
+                                        {{full_cmd}}
+                                    </div>
+                                    <div class="inicon">
+                                        <button class="btn-icon" type="button" onclick="copyToClipboard('run-full-cmd')" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-content="Copy to clipboard">
+                                            <div class="inicon-glass px-3 py-2 rounded-3">
+                                                <i class="bi bi-clipboard btn-icon"></i><i class="bi bi-clipboard-check btn-icon" style="opacity: 0;"></i>
+                                            </div>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <h2 class="pb-2 border-bottom border-bottom-flavored flavor">Search space</h2>
+                        
+                            <div class="container-fluid card-grid-scroll-wrapper">
+                                <div class="row row-cols-1 row-cols-sm-1 row-cols-md-1 row-cols-lg-2 row-cols-xl-2 g-1 py-2" id="search-space-masonry">
+                                    {% for k, v in search_space.items() %}
+                                        <div class="col">
+                                            <div class="container-card-fluid card card-params">
+                                                <div class="row g-0">
+                                                <div class="col-md-8">
+                                                    <div class="card-body card-body-params">
+                                                    <h5 class="card-title card-title-params flavor-5">{{hypers_lookup[k]}}</h5>
+                                                    <p class="card-text console-font fs-6 flavor-visibility lead">{{k}}</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 d-flex">
+                                                    <div class="card-body card-body-params d-flex" style="justify-content: end; align-items: center;">
+                                                        {% if v[0] != v[1]%}
+                                                            <p style="overflow-wrap: anywhere;" class="card-text card-text-params flavor-visibility fw-bold fs-5">{{v[0]}} - {{v[1]}}</p>
+                                                        {% else %}
+                                                            <p style="overflow-wrap: anywhere;" class="card-text card-text-params flavor-visibility fw-bold fs-5">{{v[0]}}</p>
+                                                        {% endif %}
+                                                    </div>
+                                                </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="predict-headingSettingsPrediction">
+                <button class="accordion-button collapsed" type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#predict-collapseSettingsPrediction"
+                    aria-expanded="false"
+                    aria-controls="predict-collapseSettingsPrediction">
+                    <div class="d-flex">
+                        Console output
+                    </div>
+                    <div class="d-flex flavor-active align-self-center accordion-button-desc mx-3 fs-5">
+                        | Raw information logging.
+                    </div>
+                </button>
+            </h2>
+            <div id="predict-collapseSettingsPrediction" class="accordion-collapse collapse"
+                aria-labelledby="predict-headingSettingsPrediction"
+                data-bs-parent="#accordionPredict">
+                <div class="accordion-body">
+                    <div class="glass p-5 mb-4 rounded-3">
+                        <div class="container-fluid">
+                            <div class="console-output flavor-visibility" id="ajax-test">
+                                <div class="anchor"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="result-headingIterationDetails">
+                <button class="accordion-button collapsed" type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#result-collapseIterationDetails"
+                    aria-expanded="false"
+                    aria-controls="result-collapseIterationDetails">
+                    <div class="d-flex">
+                        Iteration details
+                    </div>
+                    <div class="d-flex flavor-active align-self-center accordion-button-desc mx-3 fs-5">
+                        | Details of each optimisation iteration.
+                    </div>
+                </button>
+            </h2>
+            <div id="result-collapseIterationDetails" class="accordion-collapse collapse"
+                aria-labelledby="result-headingIterationDetails"
+                data-bs-parent="#accordionPredict">
+                <div class="accordion-body">
+                    <div class="glass p-5 mb-4 rounded-3">
+                        <div class="container-fluid">
+                            <!-- accordion for iteration records -->
+                            <div class="accordion" id="accordionIters">
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
