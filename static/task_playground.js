@@ -9,6 +9,13 @@ let counterDiv = document.querySelector('#counter-div');
 let num0 = document.getElementById('num0')
 let num1 = document.getElementById('num1')
 
+const staticPopoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+const staticPopoverList = [...staticPopoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl, {
+    delay: {
+        show: 0,
+        hide: 0
+    },
+}));
 // counterDiv.addEventListener('click', () => {
 //   numDivs[1].style.animation = 'slideUp 0.5s forwards'; // add animation dynamically
 //   numDivs[1].addEventListener('animationend', () => {
@@ -552,3 +559,166 @@ function removeCheck(circleElem) {
 //   ease: "linear",
 //   // yoyo: true,
 //   });
+
+function copyToClipboard(elem) {
+    var copyText = document.getElementById(elem);
+    console.log(copyText);
+    var button = document.querySelector('.btn-icon');
+
+    // Disable the button
+    button.disabled = true;
+    // copyText.select();
+    // copyText.setSelectionRange(0, 999999);
+
+    navigator.clipboard.writeText(copyText.innerText);
+    // alert("Copied the text: " + copyText.innerText);
+
+    gsap.to(".bi-clipboard", {
+        opacity: 0,
+        duration: 0.18,
+        ease: "expo.inOut"
+    });
+    gsap.to(".bi-clipboard-check", {
+        opacity: 1,
+        duration: 0.18,
+        ease: "expo.inOut"
+    });
+
+    setTimeout(function() {
+        gsap.to(".bi-clipboard", {
+            opacity: 1,
+            duration: 0.18,
+            ease: "expo.inOut"
+        });
+        gsap.to(".bi-clipboard-check", {
+            opacity: 0,
+            duration: 0.18,
+            ease: "expo.inOut"
+        });
+
+        // Enable the button
+        button.disabled = false;
+    }, 2000);
+}
+
+// let cards = Array.from(document.querySelectorAll('.card'));
+// let startY, endY, startIndex, endIndex;
+
+// gsap.registerPlugin(Draggable);
+
+// Draggable.create(".card", {
+//   type: "y",
+//   bounds: "#accordion",
+//   onPress: function() {
+//     startY = this.y;
+//     startIndex = cards.indexOf(this.target);
+//   },
+//   onRelease: function() {
+//     endY = this.y;
+//     endIndex = cards.findIndex(card => this.y > card.offsetTop - card.offsetHeight / 2 && this.y < card.offsetTop + card.offsetHeight / 2);
+//     if (endIndex !== -1 && endIndex !== startIndex) {
+//       this.target.parentNode.insertBefore(this.target, endIndex > startIndex ? cards[endIndex].nextSibling : cards[endIndex]);
+//       cards = Array.from(document.querySelectorAll('.card'));
+//     } else {
+//       gsap.to(this.target, {y: startY});
+//     }
+//   }
+// });
+
+var badges = document.querySelectorAll(".badge-iter");
+var bestScore = 0;
+var bestBadge = null;
+
+function classifyBadges() {
+    try {
+        bestBadge.classList.remove('highest-badge');
+    } catch (err){
+        console.log(err);
+    }
+    badges.forEach((elem) => {
+        var badgeScore = parseFloat(elem.textContent);
+        if (badgeScore > bestScore) {
+            bestScore = badgeScore;
+            bestBadge = elem;
+        }
+    });
+    bestBadge.classList.add('highest-badge');
+}
+
+classifyBadges();
+
+var accordionIter = document.getElementById("accordionPanelsStayOpenExample");
+var accordionDetails = document.getElementById("predict-collapseSettingsPath");
+
+accordionDetails.addEventListener('shown.bs.collapse', e => {
+    console.log("space masonry trigger ples");
+    var msnry = new Masonry("#search-space-masonry", {
+        percentPosition: true,
+        itemSelector: '.col',
+        // columnWidth: 200
+    });
+    console.log(msnry);
+    msnry.layout();
+
+    // document.getElementById("search-space-masonry").masonry({
+    //     "itemSelector": ".col",
+    //     "percentPosition": true
+    // });
+});
+
+accordionIter.addEventListener('show.bs.collapse', e => {
+    console.log(e.target.id);
+    badge = e.target.previousElementSibling.querySelector(".badge");
+    // console.log(badge);
+    gsap.to(badge, {
+        opacity: 0,
+        y: 100,
+        duration: 0.3,
+        ease: "power3.inOut"
+    });
+})
+
+accordionIter.addEventListener('hide.bs.collapse', e => {
+    badge = e.target.previousElementSibling.querySelector(".badge");
+    gsap.to(badge, {
+        opacity: 1,
+        y: 0,
+        duration: 0.3,
+        ease: "power3.inOut"
+    });
+});
+
+var iso = new Isotope( '#accordionPanelsStayOpenExample', {
+    itemSelector: '.accordion-item',
+    layoutMode: 'masonry',
+    getSortData: {
+      accordance: '[data-accordance]'
+    }
+});
+
+var sortByGroup = document.querySelectorAll('.btn-check');
+console.log(sortByGroup)
+sortByGroup.forEach(function(elem) {
+    elem.addEventListener( 'click', function( event ) {
+        console.log(event.target);
+        var sortValue = event.target.getAttribute('data-sort-value');
+        console.log(sortValue);
+        iso.arrange({ sortBy: sortValue });
+    });
+});
+
+accordionIter.addEventListener('shown.bs.collapse', e => {
+    // iso.layout();
+    console.log(iso);
+    
+    // iso.reloadItems();
+    // iso.arrange({ sortBy: 'original-order' });
+    iso.layout();
+})
+
+accordionIter.addEventListener('hide.bs.collapse', e => {
+    iso.layout();
+});
+accordionIter.addEventListener('hidden.bs.collapse', e => {
+    iso.layout();
+});
