@@ -20,6 +20,7 @@
 #include <numeric>
 #include <fstream>
 #include <filesystem>
+#include <chrono>
 
 namespace fasttext {
 
@@ -263,10 +264,13 @@ void FastText::printInfo(real progress, real loss, std::ostream& log_stream) {
   int32_t etah = eta / 3600;
   int32_t etam = (eta % 3600) / 60;
   progress = progress * 100;
+  static int prev_progress = -1;
+  // log_stream << prev_progress << '\n';
   // mm change
   // std::filesystem::path cwd = std::filesystem::current_path();
   // std::stringstream output_stream;
-  if ((int)progress % 5 == 0){
+  if ((int)progress % 5 == 0 && prev_progress != (int)progress) {
+    prev_progress = (int)progress;
     // TODO: this is not ideal, since someone might want to make wd outside the program root
     std::filesystem::path input_path = std::filesystem::path(args_->input);
     // log_stream << input_path.string();
@@ -285,7 +289,13 @@ void FastText::printInfo(real progress, real loss, std::ostream& log_stream) {
     // output_stream << log_stream.str();
     // log_streams are old code, prints to stdout
     log_stream << std::fixed;
-    log_stream << "Progress: ";
+    std::chrono::system_clock::time_point now = std::chrono::system_clock::now();
+    std::time_t now_c = std::chrono::system_clock::to_time_t(now);
+    //get miliseconds from now
+    int64_t milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(now.time_since_epoch()).count() % 1000;
+    log_stream << std::put_time(std::localtime(&now_c), "%Y-%m-%d %H:%M:%S") << ':' << std::setw(3) << milliseconds;
+    log_stream << " |  INFO   | fastDNA | run:";
+    log_stream << " Progress: ";
     log_stream << std::setprecision(1) << std::setw(5) << progress << "%";
     log_stream << " fragments/sec/thread: " << std::setw(7) << int64_t(wst);
     log_stream << " lr: " << std::setw(9) << std::setprecision(6) << lr;
@@ -295,7 +305,9 @@ void FastText::printInfo(real progress, real loss, std::ostream& log_stream) {
     log_stream << std::flush;
     if (outfile.is_open()) {
       outfile << std::fixed;
-      outfile << "Progress: ";
+      outfile << std::put_time(std::localtime(&now_c), "%Y-%m-%d %H:%M:%S") << ':' << std::setw(3) << milliseconds;
+      outfile << " |  INFO   | fastDNA | run:";
+      outfile << " Progress: ";
       outfile << std::setprecision(1) << std::setw(5) << progress << "%";
       outfile << " fragments/sec/thread: " << std::setw(7) << int64_t(wst);
       outfile << " lr: " << std::setw(9) << std::setprecision(6) << lr;

@@ -115,6 +115,8 @@ tabs = {
 //     console.log('done loading');
 //   }
 // });
+var pop_data = document.getElementById("train-training-dim-opt");
+console.log(pop_data.dataset.bsContent);
 
 param_btn.onclick = function () {
   setup.innerHTML = '';

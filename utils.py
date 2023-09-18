@@ -4,12 +4,14 @@ import json
 import pickle
 import random
 import sys
+from loguru import logger
 from collections import Counter
 from functools import wraps
 from itertools import chain
 from multiprocessing import cpu_count
 from pathlib import Path
 from timeit import default_timer as timer
+from datetime import timedelta
 from traceback import format_tb
 from typing import Any, Callable, Collection, Dict, List, Type
 
@@ -102,14 +104,16 @@ class Loger:
             current = self.done + 1
         new_tiles = int(current / self.tile) - int(self.done / self.tile)
         if new_tiles:
-            self._record('#' * new_tiles, newline=False)
+            # self._record('#' * new_tiles, newline=False)
+            self._record(f'{self.done}/{self.total}')
         self.done = current
         if self.done == self.total:
             self.set_task('\ndone\n', 0)
 
 
 log = Loger()  # initialize main log object
-sys.excepthook = log.catch
+# sys.excepthook = log.catch
+
 
 
 # PARALLELIZATION
@@ -143,11 +147,18 @@ class Parallel(joblib.Parallel):
                                  pre_dispatch, batch_size, temp_folder,
                                  max_nbytes, mmap_mode, prefer, require)
         kwargs = {} if not kwargs else kwargs
-        log.set_task(description, input_collection)
+        # log.set_task(description, input_collection)
+        logger.info(description)
+        self.total_task = len(input_collection)
+        self.log_update = max(1, int(self.total_task * 0.05))
         self.result = self.__call__((joblib.delayed(parallelized_function)(e, **kwargs)) for e in input_collection)
 
     def print_progress(self):
-        log.update(self.n_completed_tasks)
+        # log.update(self.n_completed_tasks)
+        if self.n_completed_tasks % self.log_update == 0:
+            logger.info(f'Progress: {self.n_completed_tasks}/{self.total_task}')
+        if self.n_completed_tasks == self.total_task:
+            logger.info('Done!')
 
 
 class BatchParallel(Parallel):
@@ -198,6 +209,17 @@ class BatchParallel(Parallel):
         self.result = tuple(chain.from_iterable(self.result))
 
 
+def format_time(time_delta: float):
+    """
+    Formats timedelta object to easily readable time string.
+    """
+    total_secs = timedelta(seconds=time_delta).total_seconds()
+    hours, remainder = divmod(total_secs, 3600)
+    mins, secs = divmod(remainder, 60)
+
+    return f"{int(hours)}h {int(mins)}m {secs:.4f}s"
+
+
 # LOGGING
 def time_this(func):
     """
@@ -213,11 +235,19 @@ def time_this(func):
         if values is None:
             print(f"{func.__name__!r} execution error")
         else:
-            print(f"{func.__name__!r} executed successfully in {runtime:.6f} seconds")
+            # print(f"{func.__name__!r} executed successfully in {runtime:.6f} seconds")
+            logger.info(f"{func.__name__!r} executed successfully in {format_time(runtime)}")
             return values
 
     return wrapper_timer
 
+# start = timer()
+# t.sleep(1.2)
+# end = timer()
+# runtime = end - start
+# formatted_runtime = datetime.timedelta(seconds=runtime)
+# formatted_runtime = datetime.time.fromisoformat(str(datetime.timedelta(seconds=runtime)))
+# datetime.time(formatted_runtime)
 
 # FILE HANDLING
 def make_tax_json(host_data: Dict[str, Dict[str, Any]]):
@@ -368,7 +398,7 @@ def sample_fasta_dir(fasta_dir: Path,
                                      'n': n_samples,
                                      'max_ambiguities': max_ambiguities,
                                      'to_dir': to_dir},
-                             description=f'Sampling sequences from {fasta_dir.as_posix()}',
+                             description=f'Sampling sequences from {fasta_dir.as_posix()} in progress.',
                              n_jobs=n_jobs)
         return [sample for sample in jobs.result]
 
@@ -382,7 +412,7 @@ def labeled_fasta(files: List[Path],
                                       f'\nDoes NOT match label list:\n{labels[:3]} ({len(labels)})'
     fasta_lines, label_lines = [], []
     read_jobs = Parallel(fasta_2_dict, files,
-                         description=f'labeling {len(files)} training genomes form {len(set(labels))} taxa',
+                         description=f'EVENT: Labelling {len(files)} training genomes form {len(set(labels))} taxa [2]',
                          n_jobs=n_jobs)
     for seq_dict, label in zip(read_jobs.result, labels):
         fasta_lines.extend([f'>{definition}\n{seq}' for definition, seq in seq_dict.items()])

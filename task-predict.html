@@ -1,0 +1,111 @@
+<div class="row">
+    <div class="container glass p-4 mb-4 rounded-3">
+        <div class="d-flex justify-content-between flex-wrap mb-4">
+            <h2 id="task-name">{{task_name}}</h2>
+        </div>
+        <div class="container-xl">
+            <div class="progress-container">
+                <div class="progress" id="progress"></div>
+                <div class="circle">
+                    <h3 class="caption flavor-visibility">Loading model</h3>
+                </div>
+                <div class="circle">
+                    <h3 class="caption flavor-visibility">Sampling virus sequences</h3>
+                </div>
+                <div class="circle">
+                    <h3 class="caption flavor-visibility">Running fastDNA-predict</h3>
+                </div>
+                <div class="circle">
+                    <h3 class="caption flavor-visibility">Scoring results</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="accordion accordion-flush" id="accordionPredict">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="predict-headingSettingsPath">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#predict-collapseSettingsPath" aria-expanded="false"
+                    aria-controls="predict-collapseSettingsPath">
+                    <div class="d-flex">
+                        Run details
+                    </div>
+                    <div class="d-flex flavor-active align-self-center accordion-button-desc mx-3 fs-5">
+                        | Details about this run
+                    </div>
+                </button>
+            </h2>
+            <div id="predict-collapseSettingsPath" class="accordion-collapse collapse"
+                aria-labelledby="predict-headingSettingsPath"
+                data-bs-parent="#accordionPredict">
+                <div class="accordion-body">
+                    <div class="glass p-5 mb-4 rounded-3"> 
+                        <div class="container-fluid" id="run-details">
+                            <h2 class="pb-2 border-bottom border-bottom-flavored flavor">Command</h2>
+                            <div class="glass glass-wrapper p-3 mb-4 rounded-3">
+                                <div class="d-flex justify-content-between" style="text-wrap: nowrap;">
+                                    <div class="intext flavor-visibility console-font" id="run-full-cmd">
+                                        {{full_cmd}}
+                                    </div>
+                                    <div class="inicon">
+                                        <button class="btn-icon" type="button" onclick="copyToClipboard('run-full-cmd')" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-content="Copy to clipboard">
+                                            <div class="inicon-glass px-3 py-2 rounded-3">
+                                                <i class="bi bi-clipboard btn-icon"></i><i class="bi bi-clipboard-check btn-icon" style="opacity: 0;"></i>
+                                            </div>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <h2 class="pb-2 border-bottom border-bottom-flavored flavor">Output file path</h2>
+                            <div class="glass glass-wrapper p-3 mb-4 rounded-3">
+                                <div class="d-flex justify-content-between" style="text-wrap: nowrap;">
+                                    <div class="intext flavor-visibility console-font" id="out-file-path">
+                                        {{pred_file}}
+                                    </div>
+                                    <div class="inicon">
+                                        <button class="btn-icon" type="button" onclick="copyToClipboard('out-file-path')" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-content="Copy to clipboard">
+                                            <div class="inicon-glass px-3 py-2 rounded-3">
+                                                <i class="bi bi-clipboard btn-icon"></i><i class="bi bi-clipboard-check btn-icon" style="opacity: 0;"></i>
+                                            </div>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <h2 class="pb-2 border-bottom border-bottom-flavored flavor">Elapsed time</h2>
+                            <h3 class="flavor-5 fw-bold" id="predict-time">No data yet</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="predict-headingSettingsPrediction">
+                <button class="accordion-button collapsed" type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#predict-collapseSettingsPrediction"
+                    aria-expanded="false"
+                    aria-controls="predict-collapseSettingsPrediction">
+                    <div class="d-flex">
+                        Console output
+                    </div>
+                    <div class="d-flex flavor-active align-self-center accordion-button-desc mx-3 fs-5">
+                        | Raw information logging.
+                    </div>
+                </button>
+            </h2>
+            <div id="predict-collapseSettingsPrediction" class="accordion-collapse collapse"
+                aria-labelledby="predict-headingSettingsPrediction"
+                data-bs-parent="#accordionPredict">
+                <div class="accordion-body">
+                    <div class="glass p-5 mb-4 rounded-3">
+                        <div class="container-fluid">
+                            <div class="console-output flavor-visibility" id="ajax-test">
+                                <div class="anchor"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

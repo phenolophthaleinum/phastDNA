@@ -8,6 +8,7 @@ import random
 from collections import defaultdict
 from pathlib import Path
 from typing import Dict, List, Tuple, Any, Union
+from loguru import logger
 
 import joblib
 import numpy as np
@@ -143,7 +144,8 @@ class DistanceMatrix:
         self.matrix = np.empty([n_species, n_species], dtype=np.int16)
         np.fill_diagonal(self.matrix, 0)
 
-        log.set_task('creating distance matrix', remaining_taxa)
+        # log.set_task('creating distance matrix', remaining_taxa)
+        logger.info('EVENT: Creating distance matrix')
         while remaining_taxa:
             query_taxid = remaining_taxa.pop(0)
             query_lineage, qi = self.taxonomy[query_taxid], self.taxa_indices[query_taxid]
@@ -151,7 +153,7 @@ class DistanceMatrix:
                 target_lineage = self.taxonomy[target_taxid]
                 ti = self.taxa_indices[target_taxid]
                 self.matrix[qi][ti] = self.matrix[ti][qi] = taxonomic_distance(query_lineage, target_lineage, base_rank=rank)
-            log.update()
+            # log.update()
 
     def __repr__(self):
         return f'DistanceMatrix with ({len(self.taxa_indices)} {self.rank} entries e.g. {list(self.taxonomy.keys())[:3]})'

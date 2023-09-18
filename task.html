@@ -40,6 +40,13 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
+    
+    <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous" async></script>
+
+    
+    <!-- <script>
+        let hypers_lookup = '{{hypers_lookup}}';
+    </script> -->
 </head>
 
 <body>
@@ -48,43 +55,27 @@
         <div class="container-xl p-4 py-md-5">
             <!-- header menu -->
             <header class="viewport-header d-flex align-items-center pb-3 mb-5">
-                <h1 class="me-auto display-1">phastDNA</h1>
+                <div class="d-flex me-auto align-items-start">
+                    <h1 class="me-auto display-1">phastDNA</h1><p class="d-inline-flex lead">1.2.0</p>
+                </div>
+                <div class="d-flex p-4">
+                    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home"
+                                aria-selected="true">Task | {{mode}}</button>
+                        </li>
+                    </ul>
+                </div>
             </header>
             <!-- main content -->
             <main>
-                <div class="row">
-                    <!-- <div class="container glass p-4 mb-4 rounded-3">
-                        <h2 id="task_name"></h2>
-                        <div class="spinner-border text-primary" role="status">
-                            <span class="visually-hidden">Loading...</span>
-                          </div>
-                    </div> -->
-                    <div class="container glass p-4 mb-4 rounded-3">
-                        <div class="d-flex justify-content-between flex-wrap mb-4">
-                            <h2 id="task-name">{{task_name}}</h2>
-                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"
-                                viewBox="0 0 200 200" class="icon" id="spinner">
-                                <path class="icon-path" pathLength="100" stroke-dasharray="100" stroke-dashoffset="-98"
-                                    stroke-linecap="round" id="p1" d="M 100 0 C 152 1 199 44 199 100 "
-                                    stroke="#0ebeff" />
-                                <path class="icon-path" id="p2" d="M 100 199 C 152 199 199 156 199 100" pathLength="100"
-                                    stroke-dasharray="100" stroke-dashoffset="98" stroke="#ae63e4"
-                                    stroke-linecap="round" />
-                                <path class="icon-path" id="p3" d="M 0 100 C 1 152 44 199 100 199" pathLength="100"
-                                    stroke-dasharray="100" stroke-dashoffset="98" stroke="#ffdd40"
-                                    stroke-linecap="round" />
-                                <path class="icon-path" id="p4" d="M 100 0 C 44 1 1 44 0 100" pathLength="100"
-                                    stroke-dasharray="100" stroke-dashoffset="98" stroke="#47cf73"
-                                    stroke-linecap="round" />
-                            </svg>
-                        </div>
-                        <!-- <div class="spinner-border text-primary" role="status" id="spinner">
-                            <span class="visually-hidden">Loading...</span>
-                        </div> -->
-                        <div class="console-output flavor-visibility" id="ajax-test">
-                        </div>
-                    </div>
-                </div>
+                {% if mode == "train"%}
+                    {% include "task-train.html" %}
+                {% endif %}
+                {% if mode == "predict" %}
+                    {% include "task-predict.html" %}
+                {% endif%}
             </main>
         </div>
     </div>
@@ -96,6 +87,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
     <!-- <script src="gsap.js"></script> -->
     <script src="{{ url_for('static', filename='task.js') }}"></script>
+    <script src="{{ url_for('static', filename='utils.js') }}"></script>
     <!-- <script src="offcanvas_data.js"></script> -->
     <!-- <script src="{{ url_for('static', filename='ui_controller.js') }}"></script> -->
 </body>
