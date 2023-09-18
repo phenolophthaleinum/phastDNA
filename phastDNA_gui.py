@@ -12,7 +12,6 @@ app = flask.Flask(__name__, template_folder=".")
 current_task_file = ''
 ptrs = defaultdict(dict)
 
-# tasks = {}
 hypers_lookup = {
     '--dim': 'Word vector size',
     '--minn': 'Minimum k-mer size',
@@ -26,12 +25,6 @@ hypers_lookup = {
     '--considered': 'Considered hosts',
     '--loss': 'Loss function'
 }
-
-
-# def run_wrapper(task_name):
-#     with open(f"{task_name}.log", "w") as f:
-#         cmd = subprocess.Popen(['python', 'dummyscript.py', '-l', task_name], stdout=f)
-    # subprocess.Popen(['python', 'dummyscript.py', '-l', task_name, ">", f"{task_name}.log"], shell=True)
 
 
 @app.route('/')
