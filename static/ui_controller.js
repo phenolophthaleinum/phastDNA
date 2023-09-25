@@ -30,6 +30,7 @@ var currentTab = document.getElementById('pills-home-tab');
 var currentToasts = document.getElementsByClassName('.toast');
 var tax_dropdown = document.getElementById('train-opt-filter')
 var label_dropdown = document.getElementById('train-opt-filterLabel')
+var form_file = document.getElementById('formFile')
 // const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
 // const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
 params = {
@@ -1319,3 +1320,10 @@ f.addEventListener("change", (e) => {
   // var l = Array.from(f.selectedOptions).map(({value}) => value);
   // console.log(f.selectedOptions.length);
 })
+
+// form_file.addEventListener("click", (e) => {
+//   if (e.isTrusted) {
+//     e.preventDefault();
+//   }
+//   // e.target.click();
+// });

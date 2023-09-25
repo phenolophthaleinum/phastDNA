@@ -3,3 +3,6 @@
 /phdna_out
 /phdna_out2
 /__pycache__
+/node_modules
+/phdna_test_outside
+/fastDNA/.vs

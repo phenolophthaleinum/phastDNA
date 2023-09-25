@@ -1,0 +1,23 @@
+{
+  "name": "phastdna",
+  "version": "1.3.0",
+  "description": "GUI app for phastDNA: Virus-host interaction prediction using local fluctuations of genome nucleotide content",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron --trace-warnings .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phenolophthaleinum/phastDNA.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/phenolophthaleinum/phastDNA/issues"
+  },
+  "homepage": "https://github.com/phenolophthaleinum/phastDNA#readme",
+  "devDependencies": {
+    "electron": "^26.2.2"
+  }
+}
