@@ -337,7 +337,7 @@ function test() {
 //     }
 // }
 
-gsap.set(".btn-primary", {
+gsap.set(".btn-float-anim", {
   y: 60,
 });
 
@@ -370,7 +370,7 @@ window.onload = function () {
         //   onComplete: hideParamButton,
         //   duration: 0.2
         // })
-        gsap.to(".btn-primary", {
+        gsap.to(".btn-float-anim", {
           y: 60,
           opacity: 0,
           force3D: true,
@@ -419,7 +419,7 @@ window.onload = function () {
         //   force3D: true,
         // })
         
-        gsap.to(".btn-primary", {
+        gsap.to(".btn-float-anim", {
           onStart: showButton,
           y: 0,
           opacity: 1,

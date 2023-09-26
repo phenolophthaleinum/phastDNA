@@ -44,7 +44,7 @@
             <!-- header menu -->
             <header class="viewport-header d-flex align-items-center pb-3 mb-5">
                 <div class="d-flex me-auto align-items-start">
-                    <h1 class="me-auto display-1">phastDNA</h1><p class="d-inline-flex lead">1.2.0x</p>
+                    <h1 class="me-auto display-1">phastDNA</h1><p class="d-inline-flex lead">1.3.0-dev</p>
                 </div>
                 <div class="d-flex p-4">
                     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
@@ -156,9 +156,14 @@
                                                             </div>
                                                             <!-- new  ^([A-Z]:\\)?(\.[\\/])?([\w\s.\-]+[\\/])*[\w\s.\-]+$ -->
                                                             <!-- old ^([A-Z]:\\)?(\.[\\/])?([\w\s.-]+[\\/])*[\w\s.-]+$ -->
-                                                            <input type="text" pattern="^([A-Z]:\\)?(\.[\\/])?([\w\s.\-]+[\\/])*[\w\s.\-]+$" class="form-control"
-                                                                id="predict-path-output" aria-describedby="emailHelp"
-                                                                name="--output" required>
+                                                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                                                <input type="text" pattern="^([A-Z]:\\)?(\.[\\/])?([\w\s.\-]+[\\/])*[\w\s.\-]+$" class="form-control"
+                                                                    id="predict-path-output" aria-describedby="emailHelp"
+                                                                    name="--output" required>
+                                                                <button class="btn btn-primary">
+                                                                    <i class="bi bi-folder2-open"></i>
+                                                                </button>
+                                                            </div>
                                                             <div class="invalid-feedback">Please fill out this field
                                                                 with a valid path.</div>
                                                         </div>
@@ -184,10 +189,15 @@
                                                                     Path to pre-trained phastDNA classifier.
                                                                 </div>
                                                             </div>
-                                                            <input type="text" pattern="^([A-Z]:\\)?(\.[\\/])?([\w\s.-]+[\\/])*[\w\s.-]+$" class="form-control"
-                                                                id="predict-path-classifier"
-                                                                aria-describedby="emailHelp" name="--classifier"
-                                                                required>
+                                                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                                                <input type="text" pattern="^([A-Z]:\\)?(\.[\\/])?([\w\s.-]+[\\/])*[\w\s.-]+$" class="form-control"
+                                                                    id="predict-path-classifier"
+                                                                    aria-describedby="emailHelp" name="--classifier"
+                                                                    required>
+                                                                <button class="btn btn-primary">
+                                                                    <i class="bi bi-folder2-open"></i>
+                                                                </button>
+                                                            </div>
                                                             <div class="invalid-feedback">Please fill out this field
                                                                 with a valid path.</div>
                                                         </div>
@@ -212,13 +222,18 @@
                                                                     Path to directory with viral genomes.
                                                                 </div>
                                                             </div>
-                                                            <input type="text" pattern="^([A-Z]:\\)?(\.[\\/])?([\w\s.-]+[\\/])*[\w\s.-]+$" class="form-control"
-                                                                id="predict-path-virus" aria-describedby="emailHelp"
-                                                                name="--viruses" required>
+                                                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                                                <input type="text" pattern="^([A-Z]:\\)?(\.[\\/])?([\w\s.-]+[\\/])*[\w\s.-]+$" class="form-control"
+                                                                    id="predict-path-virus" aria-describedby="emailHelp"
+                                                                    name="--viruses" required>
+                                                                <button class="btn btn-primary">
+                                                                    <i class="bi bi-folder2-open"></i>
+                                                                </button>
+                                                            </div>
                                                             <div class="invalid-feedback">Please fill out this field
                                                                 with a valid path.</div>
                                                         </div>
-                                                        <div class="d-flex justify-content-between flex-wrap mb-3">
+                                                        <div class="d-flex justify-content-between flex-wrap mb-3 flex-column">
                                                             <!-- setting name + info -->
                                                             <div class="d-flex">
                                                                 <h3 class="flavor-5">fastDNA path</h3>
@@ -248,17 +263,19 @@
                                                                 </div>
                                                             </div>
                                                             <!-- setting value -->
-                                                            <input type="text" value="./fastDNA/fastdna" class="form-control"
-                                                                id="predict-fastdna-path" aria-describedby="emailHelp"
-                                                                name="--fastdna" required>
+                                                            <!-- <div class="d-flex justify-content-around flex-wrap flex-row"> -->
+                                                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                                                <!-- <div class="d-flex flex-column flex-fill gap-2"> -->
+                                                                    <input type="text" value="./fastDNA/fastdna" class="form-control"
+                                                                    id="predict-fastdna-path" aria-describedby="emailHelp"
+                                                                    name="--fastdna" required>
+                                                                <!-- </div> -->
+                                                                <button class="btn btn-primary">
+                                                                    <i class="bi bi-folder2-open"></i>
+                                                                </button>
+                                                            </div>
                                                             <div class="invalid-feedback">Please fill out this field
                                                                 with a valid path.</div>
-                                                        </div>
-                                                        <div class="d-flex justify-content-between flex-wrap mb-3">
-                                                            <div class="mb-3">
-                                                                <label for="formFile" class="form-label">Default file input example</label>
-                                                                <input class="form-control" type="file" id="formFile">
-                                                              </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -417,9 +434,14 @@
                                                             </div>
                                                             <!-- new ^([A-Z]:\\)?(\.[\\/])?([\w\s.\-]+[\\/])*[\w\s.\-]+$ -->
                                                             <!-- old ^([A-Z]:\\)?(\.[\\/])?([\w\s.-]+[\\/])*[\w\s.-]+$ -->
-                                                            <input type="text" pattern="^(?:[A-Z]:\\|\/)?(?:\.\.\/|\.\/)?(?:[\w\s.-]+[\\\/])*[\w\s.-]+$" class="form-control"
-                                                                id="train-path-output" aria-describedby="emailHelp"
-                                                                name="--output" required>
+                                                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                                                <input type="text" pattern="^(?:[A-Z]:\\|\/)?(?:\.\.\/|\.\/)?(?:[\w\s.-]+[\\\/])*[\w\s.-]+$" class="form-control"
+                                                                    id="train-path-output" aria-describedby="emailHelp"
+                                                                    name="--output" required>
+                                                                <button class="btn btn-primary">
+                                                                    <i class="bi bi-folder2-open"></i>
+                                                                </button>
+                                                            </div>
                                                             <div class="invalid-feedback">Please fill out this field
                                                                 with a valid path.</div>
                                                         </div>
@@ -443,8 +465,13 @@
                                                                     Path to directory with host genomes.
                                                                 </div>
                                                             </div>
-                                                            <input type="text" pattern="^([A-Z]:\\)?(\.[\\/])?([\w\s.-]+[\\/])*[\w\s.-]+$" class="form-control" id="train-path-host"
-                                                                aria-describedby="emailHelp" name="--hosts" required>
+                                                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                                                <input type="text" pattern="^([A-Z]:\\)?(\.[\\/])?([\w\s.-]+[\\/])*[\w\s.-]+$" class="form-control" id="train-path-host"
+                                                                    aria-describedby="emailHelp" name="--hosts" required>
+                                                                <button class="btn btn-primary">
+                                                                    <i class="bi bi-folder2-open"></i>
+                                                                </button>
+                                                            </div>
                                                             <div class="invalid-feedback">Please fill out this field
                                                                 with a valid path.</div>
                                                         </div>
@@ -468,12 +495,17 @@
                                                                     Path to directory with viral genomes.
                                                                 </div>
                                                             </div>
-                                                            <input type="text" pattern="^([A-Z]:\\)?(\.[\\/])?([\w\s.-]+[\\/])*[\w\s.-]+$" class="form-control" id="train-path-virus"
-                                                                aria-describedby="emailHelp" name="--trainvir" required>
+                                                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                                                <input type="text" pattern="^([A-Z]:\\)?(\.[\\/])?([\w\s.-]+[\\/])*[\w\s.-]+$" class="form-control" id="train-path-virus"
+                                                                    aria-describedby="emailHelp" name="--trainvir" required>
+                                                                <button class="btn btn-primary">
+                                                                    <i class="bi bi-folder2-open"></i>
+                                                                </button>
+                                                            </div>
                                                             <div class="invalid-feedback">Please fill out this field
                                                                 with a valid path.</div>
                                                         </div>
-                                                        <div class="d-flex justify-content-between flex-wrap mb-3">
+                                                        <div class="d-flex justify-content-between flex-wrap mb-3 flex-column">
                                                             <!-- setting name + info -->
                                                             <div class="d-flex">
                                                                 <h3 class="flavor-5">fastDNA path</h3>
@@ -503,9 +535,14 @@
                                                                 </div>
                                                             </div>
                                                             <!-- setting value -->
-                                                            <input type="text" value="./fastDNA/fastdna" class="form-control"
-                                                                id="train-fastdna-path" aria-describedby="emailHelp"
-                                                                name="--fastdna" required>
+                                                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                                                <input type="text" value="./fastDNA/fastdna" class="form-control"
+                                                                    id="train-fastdna-path" aria-describedby="emailHelp"
+                                                                    name="--fastdna" required>
+                                                                <button class="btn btn-primary">
+                                                                    <i class="bi bi-folder2-open"></i>
+                                                                </button>
+                                                            </div>
                                                             <div class="invalid-feedback">Please fill out this field
                                                                 with a valid path.</div>
                                                         </div>
@@ -1370,7 +1407,7 @@
                         <div class="col-sm"> -->
                             <!-- block; opacity: 0; -->
                     <button type="button" style="display: none;" id="offcanvas-params-btn"
-                        class="btn btn-primary custom-btn px-4 btn-lg" data-bs-toggle="offcanvas"
+                        class="btn btn-primary custom-btn px-4 btn-lg btn-float-anim" data-bs-toggle="offcanvas"
                         data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions" >
                         <!-- <i id="offcanvas-params-btn-icon" class="bi bi-three-dots-vertical" style="display: none;"></i> -->
                         <!-- <div class="d-flex align-content-between" id="offcanvas-params-btn-label"> -->
@@ -1383,7 +1420,7 @@
                     <!-- </div>
                         <div class="col-sm-11"> -->
                     <button id="post-predict-button" style="display: none;" type="submit"
-                        class="btn btn-primary run-btn btn-lg" form="predict-form" >
+                        class="btn btn-primary run-btn btn-lg btn-float-anim" form="predict-form" >
                         <div class="d-flex justify-content-center btn-slide">
                             <div id="predict-btn-icon" class="d-flex justify-content-center red-test flex-column">
                                 <!-- <div id="train-btn-icon" class="red-test left-column"> -->
@@ -1402,7 +1439,7 @@
                     <!-- <i class="bi bi-play-fill"></i>
                                     <p class="btn-label" id="post-train-button-label">Run</p> -->
                     <!-- <div class="d-flex justify-content-between flex-wrap red-test-wrapper"> -->
-                    <button id="post-train-button" type="submit" style="display: none;" class="btn btn-primary run-btn btn-lg"
+                    <button id="post-train-button" type="submit" style="display: none;" class="btn btn-primary run-btn btn-lg btn-float-anim"
                         form="train-form" >
                         <!-- <div class="red-test"></div> -->
                         <!-- <div class="d-flex"> -->
