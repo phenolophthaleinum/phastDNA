@@ -160,7 +160,7 @@
                                                                 <input type="text" pattern="^([A-Z]:\\)?(\.[\\/])?([\w\s.\-]+[\\/])*[\w\s.\-]+$" class="form-control"
                                                                     id="predict-path-output" aria-describedby="emailHelp"
                                                                     name="--output" required>
-                                                                <button class="btn btn-primary">
+                                                                <button class="btn btn-primary btn-primary-dialog" type="button">
                                                                     <i class="bi bi-folder2-open"></i>
                                                                 </button>
                                                             </div>
@@ -194,7 +194,7 @@
                                                                     id="predict-path-classifier"
                                                                     aria-describedby="emailHelp" name="--classifier"
                                                                     required>
-                                                                <button class="btn btn-primary">
+                                                                <button class="btn btn-primary btn-primary-dialog" type="button">
                                                                     <i class="bi bi-folder2-open"></i>
                                                                 </button>
                                                             </div>
@@ -226,7 +226,7 @@
                                                                 <input type="text" pattern="^([A-Z]:\\)?(\.[\\/])?([\w\s.-]+[\\/])*[\w\s.-]+$" class="form-control"
                                                                     id="predict-path-virus" aria-describedby="emailHelp"
                                                                     name="--viruses" required>
-                                                                <button class="btn btn-primary">
+                                                                <button class="btn btn-primary btn-primary-dialog" type="button">
                                                                     <i class="bi bi-folder2-open"></i>
                                                                 </button>
                                                             </div>
@@ -270,7 +270,7 @@
                                                                     id="predict-fastdna-path" aria-describedby="emailHelp"
                                                                     name="--fastdna" required>
                                                                 <!-- </div> -->
-                                                                <button class="btn btn-primary">
+                                                                <button class="btn btn-primary btn-primary-dialog" type="button">
                                                                     <i class="bi bi-folder2-open"></i>
                                                                 </button>
                                                             </div>
@@ -438,7 +438,7 @@
                                                                 <input type="text" pattern="^(?:[A-Z]:\\|\/)?(?:\.\.\/|\.\/)?(?:[\w\s.-]+[\\\/])*[\w\s.-]+$" class="form-control"
                                                                     id="train-path-output" aria-describedby="emailHelp"
                                                                     name="--output" required>
-                                                                <button class="btn btn-primary">
+                                                                <button class="btn btn-primary btn-primary-dialog" type="button">
                                                                     <i class="bi bi-folder2-open"></i>
                                                                 </button>
                                                             </div>
@@ -468,7 +468,7 @@
                                                             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                                                                 <input type="text" pattern="^([A-Z]:\\)?(\.[\\/])?([\w\s.-]+[\\/])*[\w\s.-]+$" class="form-control" id="train-path-host"
                                                                     aria-describedby="emailHelp" name="--hosts" required>
-                                                                <button class="btn btn-primary">
+                                                                <button class="btn btn-primary btn-primary-dialog" type="button">
                                                                     <i class="bi bi-folder2-open"></i>
                                                                 </button>
                                                             </div>
@@ -498,7 +498,7 @@
                                                             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                                                                 <input type="text" pattern="^([A-Z]:\\)?(\.[\\/])?([\w\s.-]+[\\/])*[\w\s.-]+$" class="form-control" id="train-path-virus"
                                                                     aria-describedby="emailHelp" name="--trainvir" required>
-                                                                <button class="btn btn-primary">
+                                                                <button class="btn btn-primary btn-primary-dialog" type="button">
                                                                     <i class="bi bi-folder2-open"></i>
                                                                 </button>
                                                             </div>
@@ -539,7 +539,7 @@
                                                                 <input type="text" value="./fastDNA/fastdna" class="form-control"
                                                                     id="train-fastdna-path" aria-describedby="emailHelp"
                                                                     name="--fastdna" required>
-                                                                <button class="btn btn-primary">
+                                                                <button class="btn btn-primary btn-primary-dialog" type="button">
                                                                     <i class="bi bi-folder2-open"></i>
                                                                 </button>
                                                             </div>
@@ -1521,6 +1521,7 @@
     <script src="{{ url_for('static', filename='gsap.js') }}"></script>
     <!-- <script src="offcanvas_data.js"></script> -->
     <script src="{{ url_for('static', filename='ui_controller.js') }}"></script>
+    <script src="{{ url_for('static', filename='renderer.js') }}"></script>
 </body>
 
 </html>

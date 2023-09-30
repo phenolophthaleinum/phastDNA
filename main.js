@@ -27,11 +27,10 @@ function createWindow () {
   // and load the index.html of the app.
   // mainWindow.loadFile('index.html')
   
-  var flask = child_process.spawnSync('python.exe', ['./phastDNA_gui.py']);
+  var flask = child_process.spawn('python', ['./phastDNA_gui.py']);
 
   // and load the Flask app.
   mainWindow.loadURL('http://localhost:5000')
-
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
 }
@@ -40,6 +39,7 @@ function createWindow () {
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
+  console.log('App is ready!');
   createWindow()
 
   app.on('activate', function () {
@@ -47,6 +47,8 @@ app.whenReady().then(() => {
     // dock icon is clicked and there are no other windows open.
     if (BrowserWindow.getAllWindows().length === 0) createWindow()
   })
+
+  console.log('App is ready!');
   ipcMain.on('open-dir-dialog', function (e) {
     dialog.showOpenDialog({
      title: 'Select a directory',
