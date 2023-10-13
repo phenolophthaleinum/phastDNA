@@ -13,7 +13,7 @@
 #include <iostream>
 #include <numeric>
 #include <stdexcept>
-#include <string>
+// #include <string>
 
 namespace fasttext {
 
