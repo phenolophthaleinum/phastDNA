@@ -280,6 +280,7 @@ def sanitize_names(metadata_dict: Dict[str, Dict[str, Any]],
     for record, metadata in metadata_dict.items():
         bacterium_dict = metadata['host'] if virus else metadata
         sanitized_field, field_index = {rank: (name, i) for i, (rank, name) in enumerate(zip(bacterium_dict['lineage_ranks'], bacterium_dict['lineage_names']))}['species']
+        print(sanitized_field)        
         for c in offending_characters:
             sanitized_field = sanitized_field.replace(c, '')
         bacterium_dict['lineage_names'][field_index] = sanitized_field
