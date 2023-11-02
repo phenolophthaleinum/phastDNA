@@ -419,9 +419,12 @@ def labeled_fasta(files: List[Path],
     read_jobs = Parallel(fasta_2_dict, files,
                          description=f'EVENT: Labelling {len(files)} training genomes form {len(set(labels))} taxa [2]',
                          n_jobs=n_jobs)
+    pinstance = psutil.Process(os.getpid())
+    memory_info = pinstance.memory_info()
     for seq_dict, label in zip(read_jobs.result, labels):
         fasta_lines.extend([f'>{definition}\n{seq}' for definition, seq in seq_dict.items()])
         label_lines.extend([label for _ in seq_dict])
+        logger.info(f'RSS: {memory_info.rss / 1024 / 1024} MB; VMS: {memory_info.vms / 1024 / 1024} MB')
     out_fasta, out_labels = path_stem.parent.joinpath(f'{path_stem.name}.fasta'), path_stem.parent.joinpath(f'{path_stem.name}.labels')
     with out_fasta.open('w') as fs:
         fs.write('\n'.join(fasta_lines))
