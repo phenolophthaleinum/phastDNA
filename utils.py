@@ -6,6 +6,7 @@ import random
 import sys
 import os
 import psutil
+import mmap
 from loguru import logger
 from collections import Counter
 from functools import wraps
@@ -160,7 +161,8 @@ class Parallel(joblib.Parallel):
         # log.update(self.n_completed_tasks)
         if self.n_completed_tasks % self.log_update == 0:
             memory_info = self.pinstance.memory_info()
-            logger.info(f'Progress: {self.n_completed_tasks}/{self.total_task}; RSS: {memory_info.rss / 1024 / 1024} MB; VMS: {memory_info.vms / 1024 / 1024} MB')
+            logger.info(f"Debug for {self.n_completed_tasks}/{self.total_task} ; RSS: {memory_info.rss / 1024 / 1024} MB; VMS: {memory_info.vms / 1024 / 1024} MB")
+            logger.info(f'Progress: {self.n_completed_tasks}/{self.total_task}')
         if self.n_completed_tasks == self.total_task:
             logger.info('Done!')
 
@@ -421,13 +423,35 @@ def labeled_fasta(files: List[Path],
                          n_jobs=n_jobs)
     pinstance = psutil.Process(os.getpid())
     memory_info = pinstance.memory_info()
-    for seq_dict, label in zip(read_jobs.result, labels):
-        fasta_lines.extend([f'>{definition}\n{seq}' for definition, seq in seq_dict.items()])
-        label_lines.extend([label for _ in seq_dict])
-        logger.info(f'RSS: {memory_info.rss / 1024 / 1024} MB; VMS: {memory_info.vms / 1024 / 1024} MB')
     out_fasta, out_labels = path_stem.parent.joinpath(f'{path_stem.name}.fasta'), path_stem.parent.joinpath(f'{path_stem.name}.labels')
-    with out_fasta.open('w') as fs:
-        fs.write('\n'.join(fasta_lines))
+    written_files = 0
+    with out_fasta.open('a') as fs:
+        for seq_dict, label in zip(read_jobs.result, labels):
+            fasta_lines = [f'>{definition}\n{seq}' for definition, seq in seq_dict.items()]
+            fs.write('\n'.join(fasta_lines))
+            label_lines.extend([label for _ in seq_dict])
+            written_files += len(seq_dict)
+            logger.info(f"Written {written_files} sequences from {len(files)} sequences")
+            # logger.info(f'RSS: {memory_info.rss / 1024 / 1024} MB; VMS: {memory_info.vms / 1024 / 1024} MB')
+
+    # out_fasta_obj = out_fasta.open('a')
+    # out_fasta_obj.write("\n")
+    # out_fasta_obj.close()
+    # with out_fasta.open('r+b') as fs:
+    #     mmapped_file = mmap.mmap(fs.fileno(), 0)
+    #     for seq_dict, label in zip(read_jobs.result, labels):
+    #         fasta_lines = [f'>{definition}\n{seq}' for definition, seq in seq_dict.items()]
+    #         label_lines.extend([label for _ in seq_dict])
+    #         mmapped_file.write('\n'.join(fasta_lines).encode())
+            # logger.info(f'RSS: {memory_info.rss / 1024 / 1024} MB; VMS: {memory_info.vms / 1024 / 1024} MB')
+
+    # for seq_dict, label in zip(read_jobs.result, labels):
+    #     fasta_lines.extend([f'>{definition}\n{seq}' for definition, seq in seq_dict.items()])
+    #     label_lines.extend([label for _ in seq_dict])
+    #     logger.info(f'RSS: {memory_info.rss / 1024 / 1024} MB; VMS: {memory_info.vms / 1024 / 1024} MB')
+    # out_fasta, out_labels = path_stem.parent.joinpath(f'{path_stem.name}.fasta'), path_stem.parent.joinpath(f'{path_stem.name}.labels')
+    # with out_fasta.open('w') as fs:
+    #     fs.write('\n'.join(fasta_lines))
     with out_labels.open('w') as ls:
         ls.write('\n'.join(label_lines))
     return out_fasta, out_labels
