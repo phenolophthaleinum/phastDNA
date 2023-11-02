@@ -162,6 +162,18 @@ body {
   --myBlur: 0px;
 }
 
+.container-fluid {
+  transition: 0.4s cubic-bezier(1,.1,.65,.89);
+}
+
+.accordion {
+  transition: 0.4s cubic-bezier(1,.1,.65,.89);
+}
+
+.container-xl {
+  transition: 0.4s cubic-bezier(1,.1,.65,.89);
+}
+
 body {
   font-size: 120%;
   /* height: 100%; */

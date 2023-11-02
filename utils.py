@@ -4,6 +4,8 @@ import json
 import pickle
 import random
 import sys
+import os
+import psutil
 from loguru import logger
 from collections import Counter
 from functools import wraps
@@ -149,6 +151,7 @@ class Parallel(joblib.Parallel):
         kwargs = {} if not kwargs else kwargs
         # log.set_task(description, input_collection)
         logger.info(description)
+        self.pinstance = psutil.Process(os.getpid())
         self.total_task = len(input_collection)
         self.log_update = max(1, int(self.total_task * 0.05))
         self.result = self.__call__((joblib.delayed(parallelized_function)(e, **kwargs)) for e in input_collection)
@@ -156,7 +159,8 @@ class Parallel(joblib.Parallel):
     def print_progress(self):
         # log.update(self.n_completed_tasks)
         if self.n_completed_tasks % self.log_update == 0:
-            logger.info(f'Progress: {self.n_completed_tasks}/{self.total_task}')
+            memory_info = self.pinstance.memory_info()
+            logger.info(f'Progress: {self.n_completed_tasks}/{self.total_task}; RSS: {memory_info.rss / 1024 / 1024} MB; VMS: {memory_info.vms / 1024 / 1024} MB')
         if self.n_completed_tasks == self.total_task:
             logger.info('Done!')
 
