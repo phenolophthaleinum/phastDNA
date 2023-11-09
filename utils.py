@@ -428,8 +428,10 @@ def labeled_fasta(files: List[Path],
     with out_fasta.open('a') as fs:
         for seq_dict, label in zip(read_jobs.result, labels):
             fasta_lines = [f'>{definition}\n{seq}' for definition, seq in seq_dict.items()]
-            logger.info(fasta_lines)
-            fs.write('\n'.join(fasta_lines))
+            # logger.info(fasta_lines)
+            # fs.write('\n'.join(fasta_lines))
+            newline_char = '\n'
+            fs.write(f'{newline_char.join(fasta_lines)}\n')
             label_lines.extend([label for _ in seq_dict])
             written_files += len(seq_dict)
             logger.info(f"Written {written_files} sequences from {len(files)} sequences")
