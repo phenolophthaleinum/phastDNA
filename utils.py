@@ -277,7 +277,15 @@ def fasta_2_dict(fasta_path: Path) -> Dict[str, str]:
     :return:
     """
     reader = Fasta(fasta_path.as_posix())
-    return {seq.id: seq.seq.upper() for seq in reader}
+    # following only for debug
+    d = {}
+    for seq in reader:
+        if len(seq) > 2000:
+            d[seq.id] = seq.seq.upper()
+        else:
+            logger.info(f"Ommited {seq.id} ({len(seq)}bp)")
+    return d
+    # return {seq.id: seq.seq.upper() for seq in reader if len(seq) > 2000}
 
 
 def sanitize_names(metadata_dict: Dict[str, Dict[str, Any]],
