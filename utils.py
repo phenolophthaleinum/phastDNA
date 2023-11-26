@@ -281,7 +281,7 @@ def fasta_2_dict(fasta_path: Path) -> Dict[str, str]:
     d = {}
     for seq in reader:
         if len(seq) > 2000:
-            d[seq.name] = seq.seq.upper()
+            d[seq.description] = seq.seq.upper()
         else:
             logger.info(f"Ommited file:{fasta_path.stem} ({len(seq)}bp). Sequence ID: {seq.id}")
     return d
@@ -435,7 +435,7 @@ def labeled_fasta(files: List[Path],
     written_files = 0
     with out_fasta.open('a') as fs:
         for seq_dict, label in zip(read_jobs.result, labels):
-            logger.info(f"SeqDict: {seq_dict} / Label: {label}")
+            logger.info(f"SeqDict: {seq_dict.keys()} / Label: {label}")
             fasta_lines = [f'>{definition}\n{seq}' for definition, seq in seq_dict.items()]
             # logger.info(fasta_lines)
             # fs.write('\n'.join(fasta_lines))
