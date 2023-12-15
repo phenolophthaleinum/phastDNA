@@ -280,7 +280,7 @@ def fasta_2_dict(fasta_path: Path) -> Dict[str, str]:
     # following only for debug
     d = {}
     for seq in reader:
-        if len(seq) > 2000:
+        if len(seq) > 50_000:
             d[seq.description] = seq.seq.upper()
         else:
             logger.info(f"Ommited file:{fasta_path.stem} ({len(seq)}bp). Sequence ID: {seq.id}")
