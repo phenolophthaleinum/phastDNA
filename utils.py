@@ -271,7 +271,7 @@ def make_tax_json(host_data: Dict[str, Dict[str, Any]]):
         json.dump(host_data, fh, indent=4)
 
 
-def fasta_2_dict(fasta_path: Path) -> Dict[str, str]:
+def fasta_2_dict_host(fasta_path: Path) -> Dict[str, str]:
     """ todo
     :param fasta_path:
     :return:
@@ -286,6 +286,11 @@ def fasta_2_dict(fasta_path: Path) -> Dict[str, str]:
             logger.info(f"Ommited file:{fasta_path.stem} ({len(seq)}bp). Sequence ID: {seq.id}")
     return d
     # return {seq.id: seq.seq.upper() for seq in reader if len(seq) > 2000}
+
+
+def fasta_2_dict(fasta_path: Path) -> Dict[str, str]:
+    reader = Fasta(fasta_path.as_posix())
+    return {seq.id: seq.seq.upper() for seq in reader}
 
 
 def sanitize_names(metadata_dict: Dict[str, Dict[str, Any]],
@@ -426,7 +431,7 @@ def labeled_fasta(files: List[Path],
                                       f'\n{files[:3]} ({len(files)})' \
                                       f'\nDoes NOT match label list:\n{labels[:3]} ({len(labels)})'
     fasta_lines, label_lines = [], []
-    read_jobs = Parallel(fasta_2_dict, files,
+    read_jobs = Parallel(fasta_2_dict_host, files,
                          description=f'EVENT: Labelling {len(files)} training genomes form {len(set(labels))} taxa [2]',
                          n_jobs=n_jobs)
     pinstance = psutil.Process(os.getpid())
