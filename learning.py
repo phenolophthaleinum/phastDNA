@@ -542,6 +542,7 @@ class Optimizer:
         self.report = pd.concat([self.report, pd.DataFrame.from_records([partial_report])], ignore_index=True)
         # print(self.report)
         logger.info(f"Iteration evaluation: {evaluation.metrics}")
+        logger.info(f"Debug for evaluation metric: metric: {classifier.metric}, performance: {classifier.performance}")
         if classifier.performance >= self.best_classifier.performance:
             self.best_classifier.clean()
             self.best_classifier = classifier.save(self.dir.joinpath('best_classifier'))
