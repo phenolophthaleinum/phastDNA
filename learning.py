@@ -86,12 +86,20 @@ class Classifier:
         self.ranking = None
         self.performance = 0
         self.debug = debug
-        self.metric = performance_metric
+        self.metric = self.assign_performance_metric(performance_metric)
         self.name = f'model.n{self.minn}-{self.maxn}.' \
                     f'lr{self.lr:.5f}-{self.lr_update:.5f}.' \
                     f'd{self.dim}.no{self.noise}.' \
                     f'fl{self.frag_len}.e{self.epochs}.' \
                     f'lo{self.loss}.sa{samples}'
+    
+    def assign_performance_metric(self, performance_metric: str):
+        # option to add any other metric than 'top'
+        if performance_metric not in ['accordance']:
+            performance_metric = f'{performance_metric}_{self.labels}'
+            return performance_metric
+        else:
+            return performance_metric
 
     def fit(self,
             training_host_fasta: Path,
@@ -324,13 +332,15 @@ class Optimizer:
                  labels='species',
                  samples: int = 200,
                  fastdna_exe: Path = fastDNA_exe,
-                 debug: bool = False):
+                 debug: bool = False,
+                 performance_metric: str = 'accordance'):
 
         self.debug = debug
         self.n_examples = n_examples
         self.examples_from = examples_from
         self.labels = labels
         self.threads = threads
+        self.performance_metric = performance_metric
 
         self.virus_fasta_dir = virus_dir.joinpath('fasta')
         # TODO
@@ -518,7 +528,8 @@ class Optimizer:
                                 labels=self.labels,
                                 working_dir=self.dir.joinpath('current_classifier'),
                                 fastdna_exe=self.fastdna_exe,
-                                debug=self.debug)
+                                debug=self.debug,
+                                performance_metric=self.performance_metric)
 
         evaluation = classifier.fit(training_host_fasta=self.training_fasta,
                                     training_host_labels=self.training_labels,

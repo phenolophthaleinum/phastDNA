@@ -89,6 +89,8 @@ if __name__ == "__main__":
                         help="Taxonomy level used to label genomes. This level will be predicted by classifier (default ['species']). <train>") 
     parser.add_argument("--fastdna", required=False, default='./fastDNA/fastdna',
                         help="Path to fastDNA executable (default [./fastDNA/fastdna']). <train> <predict>")
+    parser.add_argument("--performance_metric", required=False, default='accordance', choices=["accordance", "top", "top3"],
+                        help="Performance metric used for the trained model (default ['accordance']). <train>")
     parser.add_argument("-t", "--threads", required=False, default=default_threads, type=int,
                         help="Number of threads to use (default [all but one]). <train> <predict>")
 
