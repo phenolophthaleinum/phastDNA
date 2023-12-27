@@ -179,7 +179,8 @@ if __name__ == "__main__":
                               examples_from=args.examples_from,
                               labels=args.labels,
                               samples=args.samples,
-                              fastdna_exe=fastdna_exe)
+                              fastdna_exe=fastdna_exe,
+                              performance_metric=args.performance_metric)
         optimizer.optimize()
 
     logger.success('Finished!')
