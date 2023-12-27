@@ -151,12 +151,12 @@ class Classifier:
                      f'\nthis happens during optimisation but usually means faulty fastDNA model'
                      f'\n{failed_warning}')
 
-        evaluation, missing_predictions = TaxonomicEvaluation.multi_method_evaluation(method_to_raking_dict=merged_rankings,
+        evaluation, missing_predictions, missing_predictions_count = TaxonomicEvaluation.multi_method_evaluation(method_to_raking_dict=merged_rankings,
                                                                                       distances=host_matrix,
                                                                                       master_virus_dict=virus_metadata,
                                                                                       threads=self.threads)
-
-        logger.info(f'Found {missing_predictions} missing taxa with rank "{self.labels}" in matrix')
+        logger.info(f'Found {missing_predictions_count} missing taxa with rank "{self.labels}" in matrix')
+        logger.info(f'Skippped taxa: {missing_predictions}')
 
         self.ranking = sorted(evaluation, key=lambda e: e.metrics[self.metric], reverse=True)
         evaluation = self.ranking[0]
@@ -542,6 +542,7 @@ class Optimizer:
         self.report = pd.concat([self.report, pd.DataFrame.from_records([partial_report])], ignore_index=True)
         # print(self.report)
         logger.info(f"Iteration evaluation: {evaluation.metrics}")
+        logger.info(f"Debug for evaluation metric: metric: {classifier.metric}, performance: {classifier.performance}")
         if classifier.performance >= self.best_classifier.performance:
             self.best_classifier.clean()
             self.best_classifier = classifier.save(self.dir.joinpath('best_classifier'))

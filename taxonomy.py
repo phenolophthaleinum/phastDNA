@@ -301,7 +301,7 @@ class TaxonomicEvaluation:
         missing_predictions = set()
         for r in jobs.result:
             missing_predictions.update(r.skipped)
-        return jobs.result, len(missing_predictions)
+        return jobs.result, missing_predictions, len(missing_predictions)
 
     @staticmethod
     def labeled_evaluation(name_and_ranking: Dict[str, Dict[str, Dict[str, Any]]],
