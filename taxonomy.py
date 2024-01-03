@@ -245,6 +245,7 @@ class TaxonomicEvaluation:
                     matched_ranks = truncated_ranks[observed_distance:]
                     [per_taxon_hits[rank][rankin_position].append(virus_id) for rank in matched_ranks]
                 else:
+                    logger.info(f'{host_taxid} not in {distances.taxonomy}') if not host_taxid in distances.taxonomy else logger.info(f'{true_host_taxid} not in {distances.taxonomy}')
                     self.observed_shift += max_unit_shift / rankin_position
                     self.skipped.add(host_taxid)
 
