@@ -1,0 +1,2234 @@
+Key pagg not found in lineage1. Omitted in the taxid fetch
+Lineage names are different for sulf
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Rhodobacterales', 'Roseobacteraceae', 'Sulfitobacter', 'Sulfitobacter sp. EE-36']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Rhodobacterales', 'Roseobacteraceae', 'Sulfitobacter', 'Sulfitobacter sp.']
+-------------------
+Lineage names are different for aura
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Hyphomicrobiales', 'Aurantimonadaceae', 'Aurantimonas', 'Aurantimonas sp. Leaf443']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Hyphomicrobiales', 'Aurantimonadaceae', 'Aurantimonas', 'Aurantimonas sp.']
+-------------------
+Lineage names are different for idio
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Alteromonadales', 'Idiomarinaceae', None, 'Idiomarinaceae bacterium HL-53']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Alteromonadales', 'Idiomarinaceae', None, 'Idiomarinaceae bacterium']
+-------------------
+Lineage names are different for syn
+ete_way:   ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Synechococcales', 'Merismopediaceae', 'Synechocystis', 'Synechocystis sp. PCC 6803']
+acc_taxid: ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Synechococcales', 'Merismopediaceae', 'Synechocystis', 'Synechocystis sp.']
+-------------------
+Lineage names are different for hal
+ete_way:   ['Archaea', 'Euryarchaeota', 'Halobacteria', 'Halobacteriales', 'Halobacteriaceae', 'Halobacterium', 'Halobacterium salinarum']
+acc_taxid: ['Archaea', 'Euryarchaeota', 'Halobacteria', 'Halobacteriales', 'Halobacteriaceae', 'Halobacterium', 'Halobacterium sp.']
+-------------------
+Lineage names are different for mlo
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Hyphomicrobiales', 'Phyllobacteriaceae', 'Mesorhizobium', 'Mesorhizobium japonicum']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Hyphomicrobiales', 'Phyllobacteriaceae', 'Mesorhizobium', 'Mesorhizobium loti']
+-------------------
+Key cac not found in lineage1. Omitted in the taxid fetch
+Lineage names are different for ana
+ete_way:   ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Nostocales', 'Nostocaceae', 'Nostoc', 'Nostoc sp. PCC 7120 = FACHB-418']
+acc_taxid: ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Nostocales', 'Nostocaceae', 'Nostoc', 'Nostoc sp.']
+-------------------
+Lineage names are different for rso
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Burkholderiales', 'Burkholderiaceae', 'Ralstonia', 'Ralstonia pseudosolanacearum']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Burkholderiales', 'Burkholderiaceae', 'Ralstonia', 'Ralstonia solanacearum']
+-------------------
+Lineage names are different for pst
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Pseudomonadales', 'Pseudomonadaceae', 'Pseudomonas', 'Pseudomonas syringae group genomosp. 3']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Pseudomonadales', 'Pseudomonadaceae', 'Pseudomonas', 'Pseudomonas syringae']
+-------------------
+Lineage names are different for bfl
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Enterobacteriaceae', 'Blochmannia', 'Candidatus Blochmannia floridanus']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Enterobacteriaceae', 'Blochmannia', None]
+-------------------
+Lineage names are different for syw
+ete_way:   ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Synechococcales', 'Prochlorococcaceae', 'Parasynechococcus', 'Parasynechococcus marenigrum']
+acc_taxid: ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Synechococcales', 'Synechococcaceae', 'Synechococcus', 'Synechococcus sp.']
+-------------------
+Lineage names are different for plu
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Morganellaceae', 'Photorhabdus', 'Photorhabdus laumondii']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Morganellaceae', 'Photorhabdus', 'Photorhabdus luminescens']
+-------------------
+Key neq not found in lineage1. Omitted in the taxid fetch
+Lineage names are different for wol
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Rickettsiales', 'Anaplasmataceae', 'Wolbachia', 'Wolbachia endosymbiont of Drosophila melanogaster']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Rickettsiales', 'Anaplasmataceae', 'Wolbachia', None]
+-------------------
+Lineage names are different for pcu
+ete_way:   ['Bacteria', 'Chlamydiota', 'Chlamydiia', 'Parachlamydiales', 'Parachlamydiaceae', 'Protochlamydia', 'Candidatus Protochlamydia amoebophila']
+acc_taxid: ['Bacteria', 'Chlamydiota', 'Chlamydiia', 'Parachlamydiales', 'Parachlamydiaceae', 'Protochlamydia', None]
+-------------------
+Lineage names are different for aci
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Moraxellales', 'Moraxellaceae', 'Acinetobacter', 'Acinetobacter baylyi']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Moraxellales', 'Moraxellaceae', 'Acinetobacter', 'Acinetobacter sp.']
+-------------------
+Lineage names are different for bga
+ete_way:   ['Bacteria', 'Spirochaetota', 'Spirochaetia', 'Spirochaetales', 'Borreliaceae', 'Borreliella', 'Borreliella bavariensis']
+acc_taxid: ['Bacteria', 'Spirochaetota', 'Spirochaetia', 'Spirochaetales', 'Borreliaceae', 'Borreliella', 'Borreliella garinii']
+-------------------
+Lineage names are different for wbm
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Rickettsiales', 'Anaplasmataceae', 'Wolbachia', 'Wolbachia endosymbiont of Brugia malayi']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Rickettsiales', 'Anaplasmataceae', 'Wolbachia', None]
+-------------------
+Lineage names are different for pub
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Candidatus Pelagibacterales', 'Candidatus Pelagibacteraceae', 'Pelagibacter', 'Candidatus Pelagibacter ubique']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Candidatus Pelagibacterales', 'Candidatus Pelagibacteraceae', 'Pelagibacter', None]
+-------------------
+Lineage names are different for psp
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Pseudomonadales', 'Pseudomonadaceae', 'Pseudomonas', 'Pseudomonas savastanoi']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Pseudomonadales', 'Pseudomonadaceae', 'Pseudomonas', 'Pseudomonas syringae']
+-------------------
+Lineage names are different for reu
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Burkholderiales', 'Burkholderiaceae', 'Cupriavidus', 'Cupriavidus pinatubonensis']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Burkholderiales', 'Burkholderiaceae', 'Cupriavidus', 'Cupriavidus necator']
+-------------------
+Lineage names are different for bpn
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Enterobacteriaceae', 'Blochmannia', 'Candidatus Blochmannia pennsylvanicus']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Enterobacteriaceae', 'Blochmannia', None]
+-------------------
+Lineage names are different for pha
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Alteromonadales', 'Pseudoalteromonadaceae', 'Pseudoalteromonas', 'Pseudoalteromonas translucida']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Alteromonadales', 'Pseudoalteromonadaceae', 'Pseudoalteromonas', 'Pseudoalteromonas haloplanktis']
+-------------------
+Lineage names are different for xcv
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Xanthomonadales', 'Xanthomonadaceae', 'Xanthomonas', 'Xanthomonas euvesicatoria']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Xanthomonadales', 'Xanthomonadaceae', 'Xanthomonas', 'Xanthomonas campestris']
+-------------------
+Lineage names are different for syd
+ete_way:   ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Synechococcales', 'Synechococcaceae', 'Synechococcus', 'Synechococcus sp. CC9605']
+acc_taxid: ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Synechococcales', 'Synechococcaceae', 'Synechococcus', 'Synechococcus sp.']
+-------------------
+Lineage names are different for sye
+ete_way:   ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Synechococcales', 'Synechococcaceae', 'Synechococcus', 'Synechococcus sp. CC9902']
+acc_taxid: ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Synechococcales', 'Synechococcaceae', 'Synechococcus', 'Synechococcus sp.']
+-------------------
+Lineage names are different for cya
+ete_way:   ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Synechococcales', 'Synechococcaceae', 'Synechococcus', 'Synechococcus sp. JA-3-3Ab']
+acc_taxid: ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Synechococcales', 'Synechococcaceae', 'Synechococcus', 'Synechococcus sp.']
+-------------------
+Lineage names are different for cyb
+ete_way:   ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Synechococcales', 'Synechococcaceae', 'Synechococcus', "Synechococcus sp. JA-2-3B'a(2-13)"]
+acc_taxid: ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Synechococcales', 'Synechococcaceae', 'Synechococcus', 'Synechococcus sp.']
+-------------------
+Lineage names are different for fra
+ete_way:   ['Bacteria', 'Actinomycetota', 'Actinomycetes', 'Frankiales', 'Frankiaceae', 'Frankia', 'Frankia casuarinae']
+acc_taxid: ['Bacteria', 'Actinomycetota', 'Actinomycetes', 'Frankiales', 'Frankiaceae', 'Frankia', 'Frankia sp.']
+-------------------
+Lineage names are different for jan
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Rhodobacterales', 'Roseobacteraceae', 'Jannaschia', 'Jannaschia sp. CCS1']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Rhodobacterales', 'Roseobacteraceae', 'Jannaschia', 'Jannaschia sp.']
+-------------------
+Lineage names are different for pol
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Burkholderiales', 'Comamonadaceae', 'Polaromonas', 'Polaromonas sp. JS666']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Burkholderiales', 'Comamonadaceae', 'Polaromonas', 'Polaromonas sp.']
+-------------------
+Key rpd not found in lineage1. Omitted in the taxid fetch
+Lineage names are different for aba
+ete_way:   ['Bacteria', 'Acidobacteriota', 'Terriglobia', 'Terriglobales', 'Acidobacteriaceae', 'Koribacter', 'Candidatus Koribacter versatilis']
+acc_taxid: ['Bacteria', 'Acidobacteriota', 'Terriglobia', 'Terriglobales', 'Acidobacteriaceae', 'Koribacter', None]
+-------------------
+Lineage names are different for sit
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Rhodobacterales', 'Roseobacteraceae', 'Ruegeria', 'Ruegeria sp. TM1040']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Rhodobacterales', 'Roseobacteraceae', 'Ruegeria', 'Ruegeria sp.']
+-------------------
+Lineage names are different for bcn
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Burkholderiales', 'Burkholderiaceae', 'Burkholderia', 'Burkholderia orbicola']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Burkholderiales', 'Burkholderiaceae', 'Burkholderia', 'Burkholderia cenocepacia']
+-------------------
+Lineage names are different for mmc
+ete_way:   ['Bacteria', 'Actinomycetota', 'Actinomycetes', 'Mycobacteriales', 'Mycobacteriaceae', 'Mycobacterium', 'Mycobacterium sp. MCS']
+acc_taxid: ['Bacteria', 'Actinomycetota', 'Actinomycetes', 'Mycobacteriales', 'Mycobacteriaceae', 'Mycobacterium', 'Mycobacterium sp.']
+-------------------
+Lineage names are different for pat
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Alteromonadales', 'Alteromonadaceae', 'Paraglaciecola', 'Paraglaciecola sp. T6c']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Alteromonadales', 'Pseudoalteromonadaceae', 'Pseudoalteromonas', 'Pseudoalteromonas atlantica']
+-------------------
+Lineage names are different for mes
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Hyphomicrobiales', 'Phyllobacteriaceae', 'Chelativorans', 'Chelativorans sp. BNC1']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Hyphomicrobiales', 'Phyllobacteriaceae', 'Chelativorans', 'Chelativorans sp.']
+-------------------
+Key hwa not found in lineage1. Omitted in the taxid fetch
+Lineage names are different for she
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Alteromonadales', 'Shewanellaceae', 'Shewanella', 'Shewanella sp. MR-4']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Alteromonadales', 'Shewanellaceae', 'Shewanella', 'Shewanella sp.']
+-------------------
+Lineage names are different for shm
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Alteromonadales', 'Shewanellaceae', 'Shewanella', 'Shewanella sp. MR-7']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Alteromonadales', 'Shewanellaceae', 'Shewanella', 'Shewanella sp.']
+-------------------
+Lineage names are different for syg
+ete_way:   ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Synechococcales', 'Synechococcaceae', 'Synechococcus', 'Synechococcus sp. CC9311']
+acc_taxid: ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Synechococcales', 'Synechococcaceae', 'Synechococcus', 'Synechococcus sp.']
+-------------------
+Lineage names are different for rle
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Hyphomicrobiales', 'Rhizobiaceae', 'Rhizobium', 'Rhizobium johnstonii']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Hyphomicrobiales', 'Rhizobiaceae', 'Rhizobium', 'Rhizobium leguminosarum']
+-------------------
+Lineage names are different for crp
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Oceanospirillales', 'Halomonadaceae', 'Candidatus Carsonella', 'Candidatus Carsonella ruddii']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Oceanospirillales', 'Halomonadaceae', 'Candidatus Carsonella', None]
+-------------------
+Lineage names are different for sus
+ete_way:   ['Bacteria', 'Acidobacteriota', 'Terriglobia', 'Bryobacterales', 'Solibacteraceae', 'Solibacter', 'Candidatus Solibacter usitatus']
+acc_taxid: ['Bacteria', 'Acidobacteriota', 'Terriglobia', 'Bryobacterales', 'Solibacteraceae', 'Solibacter', None]
+-------------------
+Lineage names are different for llc
+ete_way:   ['Bacteria', 'Bacillota', 'Bacilli', 'Lactobacillales', 'Streptococcaceae', 'Lactococcus', 'Lactococcus cremoris']
+acc_taxid: ['Bacteria', 'Bacillota', 'Bacilli', 'Lactobacillales', 'Streptococcaceae', 'Lactococcus', 'Lactococcus lactis']
+-------------------
+Lineage names are different for art
+ete_way:   ['Bacteria', 'Actinomycetota', 'Actinomycetes', 'Micrococcales', 'Micrococcaceae', 'Arthrobacter', 'Arthrobacter sp. FB24']
+acc_taxid: ['Bacteria', 'Actinomycetota', 'Actinomycetes', 'Micrococcales', 'Micrococcaceae', 'Arthrobacter', 'Arthrobacter sp.']
+-------------------
+Lineage names are different for shn
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Alteromonadales', 'Shewanellaceae', 'Shewanella', 'Shewanella sp. ANA-3']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Alteromonadales', 'Shewanellaceae', 'Shewanella', 'Shewanella sp.']
+-------------------
+Lineage names are different for azo
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Rhodocyclales', 'Zoogloeaceae', 'Azoarcus', 'Azoarcus olearius']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Rhodocyclales', 'Zoogloeaceae', 'Azoarcus', 'Azoarcus sp.']
+-------------------
+Lineage names are different for mkm
+ete_way:   ['Bacteria', 'Actinomycetota', 'Actinomycetes', 'Mycobacteriales', 'Mycobacteriaceae', 'Mycobacterium', 'Mycobacterium sp. KMS']
+acc_taxid: ['Bacteria', 'Actinomycetota', 'Actinomycetes', 'Mycobacteriales', 'Mycobacteriaceae', 'Mycobacterium', 'Mycobacterium sp.']
+-------------------
+Lineage names are different for nca
+ete_way:   ['Bacteria', 'Actinomycetota', 'Actinomycetes', 'Propionibacteriales', 'Nocardioidaceae', 'Nocardioides', 'Nocardioides sp. JS614']
+acc_taxid: ['Bacteria', 'Actinomycetota', 'Actinomycetes', 'Propionibacteriales', 'Nocardioidaceae', 'Nocardioides', 'Nocardioides sp.']
+-------------------
+Lineage names are different for shw
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Alteromonadales', 'Shewanellaceae', 'Shewanella', 'Shewanella sp. W3-18-1']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Alteromonadales', 'Shewanellaceae', 'Shewanella', 'Shewanella sp.']
+-------------------
+Lineage names are different for ajs
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Burkholderiales', 'Comamonadaceae', 'Acidovorax', 'Acidovorax sp. JS42']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Burkholderiales', 'Comamonadaceae', 'Acidovorax', 'Acidovorax sp.']
+-------------------
+Lineage names are different for llm
+ete_way:   ['Bacteria', 'Bacillota', 'Bacilli', 'Lactobacillales', 'Streptococcaceae', 'Lactococcus', 'Lactococcus cremoris']
+acc_taxid: ['Bacteria', 'Bacillota', 'Bacilli', 'Lactobacillales', 'Streptococcaceae', 'Lactococcus', 'Lactococcus lactis']
+-------------------
+Lineage names are different for mjl
+ete_way:   ['Bacteria', 'Actinomycetota', 'Actinomycetes', 'Mycobacteriales', 'Mycobacteriaceae', 'Mycobacterium', 'Mycobacterium sp. JLS']
+acc_taxid: ['Bacteria', 'Actinomycetota', 'Actinomycetes', 'Mycobacteriales', 'Mycobacteriaceae', 'Mycobacterium', 'Mycobacterium sp.']
+-------------------
+Key mmq not found in lineage1. Omitted in the taxid fetch
+Lineage names are different for pnu
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Burkholderiales', 'Burkholderiaceae', 'Polynucleobacter', 'Polynucleobacter asymbioticus']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Burkholderiales', 'Burkholderiaceae', 'Polynucleobacter', 'Polynucleobacter necessarius']
+-------------------
+Lineage names are different for ent
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Enterobacteriaceae', 'Enterobacter', 'Enterobacter sp. 638']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Enterobacteriaceae', 'Enterobacter', 'Enterobacter sp.']
+-------------------
+Key bra not found in lineage1. Omitted in the taxid fetch
+Lineage names are different for syr
+ete_way:   ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Synechococcales', 'Synechococcaceae', 'Synechococcus', 'Synechococcus sp. RCC307']
+acc_taxid: ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Synechococcales', 'Synechococcaceae', 'Synechococcus', 'Synechococcus sp.']
+-------------------
+Lineage names are different for syx
+ete_way:   ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Synechococcales', 'Synechococcaceae', 'Synechococcus', 'Synechococcus sp. WH 7803']
+acc_taxid: ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Synechococcales', 'Synechococcaceae', 'Synechococcus', 'Synechococcus sp.']
+-------------------
+Lineage names are different for bbt
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Hyphomicrobiales', 'Nitrobacteraceae', 'Bradyrhizobium', 'Bradyrhizobium sp. BTAi1']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Hyphomicrobiales', 'Nitrobacteraceae', 'Bradyrhizobium', 'Bradyrhizobium sp.']
+-------------------
+Lineage names are different for vok
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', None, None, 'Candidatus Vesicomyosocius', 'Candidatus Vesicomyosocius okutanii']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', None, None, 'Candidatus Vesicomyosocius', None]
+-------------------
+Lineage names are different for prw
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Moraxellales', 'Moraxellaceae', 'Psychrobacter', 'Psychrobacter sp. PRwf-1']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Moraxellales', 'Moraxellaceae', 'Psychrobacter', 'Psychrobacter sp.']
+-------------------
+Lineage names are different for rrs
+ete_way:   ['Bacteria', 'Chloroflexota', 'Chloroflexia', 'Chloroflexales', 'Roseiflexaceae', 'Roseiflexus', 'Roseiflexus sp. RS-1']
+acc_taxid: ['Bacteria', 'Chloroflexota', 'Chloroflexia', 'Chloroflexales', 'Roseiflexaceae', 'Roseiflexus', 'Roseiflexus sp.']
+-------------------
+Lineage names are different for afw
+ete_way:   ['Bacteria', 'Myxococcota', 'Myxococcia', 'Myxococcales', 'Anaeromyxobacteraceae', 'Anaeromyxobacter', 'Anaeromyxobacter sp. Fw109-5']
+acc_taxid: ['Bacteria', 'Myxococcota', 'Myxococcia', 'Myxococcales', 'Anaeromyxobacteraceae', 'Anaeromyxobacter', 'Anaeromyxobacter sp.']
+-------------------
+Key bcy not found in lineage1. Omitted in the taxid fetch
+Lineage names are different for mms
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Burkholderiales', 'Oxalobacteraceae', 'Janthinobacterium', 'Janthinobacterium sp. Marseille']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Burkholderiales', 'Oxalobacteraceae', 'Janthinobacterium', 'Janthinobacterium sp.']
+-------------------
+Lineage names are different for nis
+ete_way:   ['Bacteria', 'Campylobacterota', 'Epsilonproteobacteria', 'Nautiliales', 'Nitratiruptoraceae', 'Nitratiruptor', 'Nitratiruptor sp. SB155-2']
+acc_taxid: ['Bacteria', 'Campylobacterota', 'Epsilonproteobacteria', 'Nautiliales', 'Nitratiruptoraceae', 'Nitratiruptor', 'Nitratiruptor sp.']
+-------------------
+Lineage names are different for mmw
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Oceanospirillales', 'Oceanospirillaceae', 'Marinomonas', 'Marinomonas sp. MWYL1']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Oceanospirillales', 'Oceanospirillaceae', 'Marinomonas', 'Marinomonas sp.']
+-------------------
+Key ypi not found in lineage1. Omitted in the taxid fetch
+Lineage names are different for sun
+ete_way:   ['Bacteria', 'Campylobacterota', 'Epsilonproteobacteria', 'Campylobacterales', 'Sulfurovaceae', 'Sulfurovum', 'Sulfurovum sp. NBC37-1']
+acc_taxid: ['Bacteria', 'Campylobacterota', 'Epsilonproteobacteria', 'Campylobacterales', 'Sulfurovaceae', 'Sulfurovum', 'Sulfurovum sp.']
+-------------------
+Key rcm not found in lineage1. Omitted in the taxid fetch
+Lineage names are different for fre
+ete_way:   ['Bacteria', 'Actinomycetota', 'Actinomycetes', 'Frankiales', 'Frankiaceae', 'Frankia', 'Frankia sp. EAN1pec']
+acc_taxid: ['Bacteria', 'Actinomycetota', 'Actinomycetes', 'Frankiales', 'Frankiaceae', 'Frankia', 'Frankia sp.']
+-------------------
+Key pmj not found in lineage1. Omitted in the taxid fetch
+Lineage names are different for smg
+ete_way:   ['Bacteria', 'Bacteroidota', 'Flavobacteriia', 'Flavobacteriales', None, 'Candidatus Karelsulcia', 'Candidatus Karelsulcia muelleri']
+acc_taxid: ['Bacteria', 'Bacteroidota', 'Flavobacteriia', 'Flavobacteriales', None, 'Candidatus Karelsulcia', None]
+-------------------
+Lineage names are different for tex
+ete_way:   ['Bacteria', 'Bacillota', 'Clostridia', 'Thermoanaerobacterales', 'Thermoanaerobacteraceae', 'Thermoanaerobacter', 'Thermoanaerobacter sp. X514']
+acc_taxid: ['Bacteria', 'Bacillota', 'Clostridia', 'Thermoanaerobacterales', 'Thermoanaerobacteraceae', 'Thermoanaerobacter', 'Thermoanaerobacter sp.']
+-------------------
+Key tpd not found in lineage1. Omitted in the taxid fetch
+Lineage names are different for cak
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Caulobacterales', 'Caulobacteraceae', 'Caulobacter', 'Caulobacter sp. K31']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Caulobacterales', 'Caulobacteraceae', 'Caulobacter', 'Caulobacter sp.']
+-------------------
+Lineage names are different for dau
+ete_way:   ['Bacteria', 'Bacillota', 'Clostridia', 'Eubacteriales', 'Peptococcaceae', 'Desulforudis', 'Candidatus Desulforudis audaxviator']
+acc_taxid: ['Bacteria', 'Bacillota', 'Clostridia', 'Eubacteriales', 'Peptococcaceae', 'Desulforudis', None]
+-------------------
+Lineage names are different for syp
+ete_way:   ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Chroococcales', 'Geminocystaceae', 'Picosynechococcus', 'Picosynechococcus sp. PCC 7002']
+acc_taxid: ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Synechococcales', 'Synechococcaceae', 'Synechococcus', 'Synechococcus sp.']
+-------------------
+Lineage names are different for kcr
+ete_way:   ['Archaea', 'Candidatus Korarchaeota', None, None, None, 'Korarchaeum', 'Candidatus Korarchaeum cryptofilum']
+acc_taxid: ['Archaea', 'Candidatus Korarchaeota', None, None, None, 'Korarchaeum', None]
+-------------------
+Lineage names are different for bcm
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Burkholderiales', 'Burkholderiaceae', 'Burkholderia', 'Burkholderia orbicola']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Burkholderiales', 'Burkholderiaceae', 'Burkholderia', 'Burkholderia cenocepacia']
+-------------------
+Lineage names are different for cms
+ete_way:   ['Bacteria', 'Actinomycetota', 'Actinomycetes', 'Micrococcales', 'Microbacteriaceae', 'Clavibacter', 'Clavibacter sepedonicus']
+acc_taxid: ['Bacteria', 'Actinomycetota', 'Actinomycetes', 'Micrococcales', 'Microbacteriaceae', 'Clavibacter', 'Clavibacter michiganensis']
+-------------------
+Lineage names are different for met
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Hyphomicrobiales', 'Methylobacteriaceae', 'Methylobacterium', 'Methylobacterium sp. 4-46']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Hyphomicrobiales', 'Methylobacteriaceae', 'Methylobacterium', 'Methylobacterium sp.']
+-------------------
+Lineage names are different for trq
+ete_way:   ['Bacteria', 'Thermotogota', 'Thermotogae', 'Thermotogales', 'Thermotogaceae', 'Thermotoga', 'Thermotoga sp. RQ2']
+acc_taxid: ['Bacteria', 'Thermotogota', 'Thermotogae', 'Thermotogales', 'Thermotogaceae', 'Thermotoga', 'Thermotoga sp.']
+-------------------
+Lineage names are different for sul
+ete_way:   ['Bacteria', 'Aquificota', 'Aquificae', 'Aquificales', 'Hydrogenothermaceae', 'Sulfurihydrogenibium', 'Sulfurihydrogenibium sp. YO3AOP1']
+acc_taxid: ['Bacteria', 'Aquificota', 'Aquificae', 'Aquificales', 'Hydrogenothermaceae', 'Sulfurihydrogenibium', 'Sulfurihydrogenibium sp.']
+-------------------
+Lineage names are different for wpi
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Rickettsiales', 'Anaplasmataceae', 'Wolbachia', 'Wolbachia endosymbiont of Culex quinquefasciatus']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Rickettsiales', 'Anaplasmataceae', 'Wolbachia', None]
+-------------------
+Lineage names are different for lcb
+ete_way:   ['Bacteria', 'Bacillota', 'Bacilli', 'Lactobacillales', 'Lactobacillaceae', 'Lacticaseibacillus', 'Lacticaseibacillus paracasei']
+acc_taxid: ['Bacteria', 'Bacillota', 'Bacilli', 'Lactobacillales', 'Lactobacillaceae', 'Lacticaseibacillus', 'Lacticaseibacillus casei']
+-------------------
+Lineage names are different for pml
+ete_way:   ['Bacteria', 'Mycoplasmatota', 'Mollicutes', 'Acholeplasmatales', 'Acholeplasmataceae', 'Phytoplasma', 'Candidatus Phytoplasma mali']
+acc_taxid: ['Bacteria', 'Mycoplasmatota', 'Mollicutes', 'Acholeplasmatales', 'Acholeplasmataceae', 'Phytoplasma', None]
+-------------------
+Lineage names are different for aas
+ete_way:   ['Bacteria', 'Bacteroidota', 'Cytophagia', 'Cytophagales', 'Amoebophilaceae', 'Candidatus Amoebophilus', 'Candidatus Amoebophilus asiaticus']
+acc_taxid: ['Bacteria', 'Bacteroidota', 'Cytophagia', 'Cytophagales', 'Amoebophilaceae', 'Candidatus Amoebophilus', None]
+-------------------
+Key spx not found in lineage1. Omitted in the taxid fetch
+Lineage names are different for hya
+ete_way:   ['Bacteria', 'Aquificota', 'Aquificae', 'Aquificales', 'Aquificaceae', 'Hydrogenobaculum', 'Hydrogenobaculum sp. Y04AAS1']
+acc_taxid: ['Bacteria', 'Aquificota', 'Aquificae', 'Aquificales', 'Aquificaceae', 'Hydrogenobaculum', 'Hydrogenobaculum sp.']
+-------------------
+Lineage names are different for ank
+ete_way:   ['Bacteria', 'Myxococcota', 'Myxococcia', 'Myxococcales', 'Anaeromyxobacteraceae', 'Anaeromyxobacter', 'Anaeromyxobacter sp. K']
+acc_taxid: ['Bacteria', 'Myxococcota', 'Myxococcia', 'Myxococcales', 'Anaeromyxobacteraceae', 'Anaeromyxobacter', 'Anaeromyxobacter sp.']
+-------------------
+Lineage names are different for pal
+ete_way:   ['Bacteria', 'Mycoplasmatota', 'Mollicutes', 'Acholeplasmatales', 'Acholeplasmataceae', 'Phytoplasma', 'Candidatus Phytoplasma australiense']
+acc_taxid: ['Bacteria', 'Mycoplasmatota', 'Mollicutes', 'Acholeplasmatales', 'Acholeplasmataceae', 'Phytoplasma', None]
+-------------------
+Key seg not found in lineage1. Omitted in the taxid fetch
+Lineage names are different for kpe
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Enterobacteriaceae', 'Klebsiella', 'Klebsiella variicola']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Enterobacteriaceae', 'Klebsiella', 'Klebsiella pneumoniae']
+-------------------
+Lineage names are different for aps
+ete_way:   ['Bacteria', 'Bacteroidota', 'Bacteroidia', 'Bacteroidales', None, 'Candidatus Azobacteroides', 'Candidatus Azobacteroides pseudotrichonymphae']
+acc_taxid: ['Bacteria', 'Bacteroidota', 'Bacteroidia', 'Bacteroidales', None, 'Candidatus Azobacteroides', None]
+-------------------
+Lineage names are different for tmz
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Rhodocyclales', 'Zoogloeaceae', 'Thauera', 'Thauera aminoaromatica']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Rhodocyclales', 'Zoogloeaceae', 'Thauera', 'Thauera sp.']
+-------------------
+Lineage names are different for cyc
+ete_way:   ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Chroococcales', 'Aphanothecaceae', 'Gloeothece', 'Gloeothece citriformis']
+acc_taxid: ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Gomontiellales', 'Cyanothecaceae', 'Cyanothece', None]
+-------------------
+Lineage names are different for vsp
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Vibrionales', 'Vibrionaceae', 'Vibrio', 'Vibrio atlanticus']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Vibrionales', 'Vibrionaceae', 'Vibrio', 'Vibrio tasmaniensis']
+-------------------
+Lineage names are different for dal
+ete_way:   ['Bacteria', 'Thermodesulfobacteriota', 'Desulfobacteria', 'Desulfobacterales', 'Desulfatibacillaceae', 'Desulfatibacillum', 'Desulfatibacillum aliphaticivorans']
+acc_taxid: ['Bacteria', 'Thermodesulfobacteriota', 'Desulfobacteria', 'Desulfobacterales', 'Desulfatibacillaceae', 'Desulfatibacillum', 'Desulfatibacillum alkenivorans']
+-------------------
+Lineage names are different for mpl
+ete_way:   ['Archaea', 'Euryarchaeota', 'Methanomicrobia', 'Methanomicrobiales', 'Methanoregulaceae', 'Methanosphaerula', 'Methanosphaerula palustris']
+acc_taxid: ['Archaea', 'Euryarchaeota', 'Methanomicrobia', 'Methanomicrobiales', 'Methanoregulaceae', 'Methanosphaerula', None]
+-------------------
+Lineage names are different for mcl
+ete_way:   ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', 'Staphylococcaceae', 'Macrococcoides', 'Macrococcoides caseolyticum']
+acc_taxid: ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', 'Staphylococcaceae', 'Macrococcus', 'Macrococcus caseolyticus']
+-------------------
+Lineage names are different for ara
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Hyphomicrobiales', 'Rhizobiaceae', 'Rhizobium', 'Rhizobium rhizogenes']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Hyphomicrobiales', 'Rhizobiaceae', 'Agrobacterium', 'Agrobacterium radiobacter']
+-------------------
+Lineage names are different for avi
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Hyphomicrobiales', 'Rhizobiaceae', 'Allorhizobium', 'Allorhizobium ampelinum']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Hyphomicrobiales', 'Rhizobiaceae', 'Agrobacterium', 'Agrobacterium vitis']
+-------------------
+Lineage names are different for chl
+ete_way:   ['Bacteria', 'Chloroflexota', 'Chloroflexia', 'Chloroflexales', 'Chloroflexaceae', 'Chloroflexus', 'Chloroflexus aurantiacus']
+acc_taxid: ['Bacteria', 'Chloroflexota', 'Chloroflexia', 'Chloroflexales', 'Chloroflexaceae', 'Chloroflexus', 'Chloroflexus sp.']
+-------------------
+Key nam not found in lineage1. Omitted in the taxid fetch
+Lineage names are different for wri
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Rickettsiales', 'Anaplasmataceae', 'Wolbachia', 'Wolbachia sp. wRi']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Rickettsiales', 'Anaplasmataceae', 'Wolbachia', None]
+-------------------
+Key rhi not found in lineage1. Omitted in the taxid fetch
+Key cbi not found in lineage1. Omitted in the taxid fetch
+Lineage names are different for eat
+ete_way:   ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', None, 'Exiguobacterium', 'Exiguobacterium sp. AT1b']
+acc_taxid: ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', None, 'Exiguobacterium', 'Exiguobacterium sp.']
+-------------------
+Key siy not found in lineage1. Omitted in the taxid fetch
+Lineage names are different for hde
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Enterobacteriaceae', 'Hamiltonella', 'Candidatus Hamiltonella defensa']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Enterobacteriaceae', 'Hamiltonella', None]
+-------------------
+Lineage names are different for gwc
+ete_way:   ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', 'Bacillaceae', 'Geobacillus', 'Geobacillus sp. WCH70']
+acc_taxid: ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', 'Bacillaceae', 'Geobacillus', 'Geobacillus sp.']
+-------------------
+Lineage names are different for dda
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Pectobacteriaceae', 'Musicola', 'Musicola paradisiaca']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Pectobacteriaceae', 'Dickeya', 'Dickeya dadantii']
+-------------------
+Lineage names are different for dze
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Pectobacteriaceae', 'Dickeya', 'Dickeya chrysanthemi']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Pectobacteriaceae', 'Dickeya', 'Dickeya zeae']
+-------------------
+Lineage names are different for gem
+ete_way:   ['Bacteria', 'Thermodesulfobacteriota', 'Desulfuromonadia', 'Geobacterales', 'Geobacteraceae', 'Geobacter', 'Geobacter sp. M21']
+acc_taxid: ['Bacteria', 'Thermodesulfobacteriota', 'Desulfuromonadia', 'Geobacterales', 'Geobacteraceae', 'Geobacter', 'Geobacter sp.']
+-------------------
+Lineage names are different for hci
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Hyphomicrobiales', None, 'Hodgkinia', 'Candidatus Hodgkinia cicadicola']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Hyphomicrobiales', None, 'Hodgkinia', None]
+-------------------
+Lineage names are different for fba
+ete_way:   ['Bacteria', 'Bacteroidota', 'Flavobacteriia', 'Flavobacteriales', 'Flavobacteriaceae', None, 'Flavobacteriaceae bacterium 3519-10']
+acc_taxid: ['Bacteria', 'Bacteroidota', 'Flavobacteriia', 'Flavobacteriales', 'Flavobacteriaceae', None, 'Flavobacteriaceae bacterium']
+-------------------
+Lineage names are different for sms
+ete_way:   ['Bacteria', 'Bacteroidota', 'Flavobacteriia', 'Flavobacteriales', None, 'Candidatus Karelsulcia', 'Candidatus Karelsulcia muelleri']
+acc_taxid: ['Bacteria', 'Bacteroidota', 'Flavobacteriia', 'Flavobacteriales', None, 'Candidatus Karelsulcia', None]
+-------------------
+Lineage names are different for app
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', None, None, 'Candidatus Accumulibacter', 'Candidatus Accumulibacter regalis']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', None, None, 'Candidatus Accumulibacter', 'Candidatus Accumulibacter phosphatis']
+-------------------
+Key dfe not found in lineage1. Omitted in the taxid fetch
+Lineage names are different for pjd
+ete_way:   ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', 'Paenibacillaceae', 'Paenibacillus', 'Paenibacillus sp. JDR-2']
+acc_taxid: ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', 'Paenibacillaceae', 'Paenibacillus', 'Paenibacillus sp.']
+-------------------
+Lineage names are different for bbl
+ete_way:   ['Bacteria', 'Bacteroidota', 'Flavobacteriia', 'Flavobacteriales', 'Blattabacteriaceae', 'Blattabacterium', 'Blattabacterium sp. (Blattella germanica)']
+acc_taxid: ['Bacteria', 'Bacteroidota', 'Flavobacteriia', 'Flavobacteriales', 'Blattabacteriaceae', 'Blattabacterium', None]
+-------------------
+Lineage names are different for bpi
+ete_way:   ['Bacteria', 'Bacteroidota', 'Flavobacteriia', 'Flavobacteriales', 'Blattabacteriaceae', 'Blattabacterium', 'Blattabacterium sp. (Periplaneta americana)']
+acc_taxid: ['Bacteria', 'Bacteroidota', 'Flavobacteriia', 'Flavobacteriales', 'Blattabacteriaceae', 'Blattabacterium', None]
+-------------------
+Lineage names are different for gym
+ete_way:   ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', 'Paenibacillaceae', 'Paenibacillus', 'Paenibacillus sp. Y412MC10']
+acc_taxid: ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', 'Paenibacillaceae', 'Paenibacillus', 'Paenibacillus sp.']
+-------------------
+Lineage names are different for gyc
+ete_way:   ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', 'Bacillaceae', 'Geobacillus', 'Geobacillus sp. Y412MC61']
+acc_taxid: ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', 'Bacillaceae', 'Geobacillus', 'Geobacillus sp.']
+-------------------
+Lineage names are different for pwa
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Pectobacteriaceae', 'Pectobacterium', 'Pectobacterium parmentieri']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Pectobacteriaceae', 'Pectobacterium', 'Pectobacterium wasabiae']
+-------------------
+Lineage names are different for ctt
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Burkholderiales', 'Comamonadaceae', 'Comamonas', 'Comamonas thiooxydans']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Burkholderiales', 'Comamonadaceae', 'Comamonas', 'Comamonas testosteroni']
+-------------------
+Key sro not found in lineage1. Omitted in the taxid fetch
+Lineage names are different for ddc
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Pectobacteriaceae', 'Dickeya', 'Dickeya parazeae']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Pectobacteriaceae', 'Dickeya', 'Dickeya dadantii']
+-------------------
+Lineage names are different for azl
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Rhodospirillales', 'Azospirillaceae', 'Azospirillum', 'Azospirillum sp. B510']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Rhodospirillales', 'Azospirillaceae', 'Azospirillum', 'Azospirillum sp.']
+-------------------
+Key smb not found in lineage1. Omitted in the taxid fetch
+Lineage names are different for tkm
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Chromatiales', 'Ectothiorhodospiraceae', 'Thioalkalivibrio', 'Thioalkalivibrio sp. K90mix']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Chromatiales', 'Ectothiorhodospiraceae', 'Thioalkalivibrio', 'Thioalkalivibrio sp.']
+-------------------
+Lineage names are different for mfs
+ete_way:   ['Archaea', 'Euryarchaeota', 'Methanococci', 'Methanococcales', 'Methanocaldococcaceae', 'Methanocaldococcus', 'Methanocaldococcus sp. FS406-22']
+acc_taxid: ['Archaea', 'Euryarchaeota', 'Methanococci', 'Methanococcales', 'Methanocaldococcaceae', 'Methanocaldococcus', 'Methanocaldococcus sp.']
+-------------------
+Lineage names are different for smh
+ete_way:   ['Bacteria', 'Bacteroidota', 'Flavobacteriia', 'Flavobacteriales', None, 'Candidatus Karelsulcia', 'Candidatus Karelsulcia muelleri']
+acc_taxid: ['Bacteria', 'Bacteroidota', 'Flavobacteriia', 'Flavobacteriales', None, 'Candidatus Karelsulcia', None]
+-------------------
+Lineage names are different for apb
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Candidatus Puniceispirillales', 'Candidatus Puniceispirillaceae', 'Candidatus Puniceispirillum', 'Candidatus Puniceispirillum marinum']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', None, None, 'Puniceispirillum', None]
+-------------------
+Key srm not found in lineage1. Omitted in the taxid fetch
+Lineage names are different for bge
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Burkholderiales', 'Burkholderiaceae', 'Paraburkholderia', 'Paraburkholderia atlantica']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Burkholderiales', 'Burkholderiaceae', 'Burkholderia', 'Burkholderia sp.']
+-------------------
+Lineage names are different for rip
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Enterobacteriaceae', 'Riesia', 'Candidatus Riesia pediculicola']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Enterobacteriaceae', 'Riesia', None]
+-------------------
+Key bll not found in lineage1. Omitted in the taxid fetch
+Lineage names are different for gct
+ete_way:   ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', 'Bacillaceae', 'Geobacillus', 'Geobacillus sp. C56-T3']
+acc_taxid: ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', 'Bacillaceae', 'Geobacillus', 'Geobacillus sp.']
+-------------------
+Key tra not found in lineage1. Omitted in the taxid fetch
+Key naz not found in lineage1. Omitted in the taxid fetch
+Lineage names are different for lgs
+ete_way:   ['Bacteria', 'Bacillota', 'Bacilli', 'Lactobacillales', 'Lactobacillaceae', 'Leuconostoc', 'Leuconostoc gasicomitatum']
+acc_taxid: ['Bacteria', 'Bacillota', 'Bacilli', 'Lactobacillales', 'Lactobacillaceae', 'Leuconostoc', 'Leuconostoc gelidum']
+-------------------
+Lineage names are different for lcz
+ete_way:   ['Bacteria', 'Bacillota', 'Bacilli', 'Lactobacillales', 'Lactobacillaceae', 'Lacticaseibacillus', 'Lacticaseibacillus paracasei']
+acc_taxid: ['Bacteria', 'Bacillota', 'Bacilli', 'Lactobacillales', 'Lactobacillaceae', 'Lacticaseibacillus', 'Lacticaseibacillus casei']
+-------------------
+Key gca not found in lineage1. Omitted in the taxid fetch
+Lineage names are different for bss
+ete_way:   ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', 'Bacillaceae', 'Bacillus', 'Bacillus spizizenii']
+acc_taxid: ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', 'Bacillaceae', 'Bacillus', 'Bacillus subtilis']
+-------------------
+Lineage names are different for sum
+ete_way:   ['Bacteria', 'Bacteroidota', 'Flavobacteriia', 'Flavobacteriales', None, 'Candidatus Karelsulcia', 'Candidatus Karelsulcia muelleri']
+acc_taxid: ['Bacteria', 'Bacteroidota', 'Flavobacteriia', 'Flavobacteriales', None, 'Candidatus Karelsulcia', None]
+-------------------
+Lineage names are different for zin
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Burkholderiales', 'Oxalobacteraceae', 'Zinderia', 'Candidatus Zinderia insecticola']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Burkholderiales', 'Oxalobacteraceae', 'Zinderia', None]
+-------------------
+Lineage names are different for fbc
+ete_way:   ['Bacteria', 'Bacteroidota', 'Flavobacteriia', 'Flavobacteriales', 'Flavobacteriaceae', 'Maribacter', 'Maribacter sp. HTCC2170']
+acc_taxid: ['Bacteria', 'Bacteroidota', 'Flavobacteriia', 'Flavobacteriales', 'Flavobacteriaceae', 'Maribacter', 'Maribacter sp.']
+-------------------
+Lineage names are different for bgf
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Burkholderiales', 'Burkholderiaceae', 'Burkholderia', 'Burkholderia sp. CCGE1003']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Burkholderiales', 'Burkholderiaceae', 'Burkholderia', 'Burkholderia sp.']
+-------------------
+Lineage names are different for thx
+ete_way:   ['Bacteria', 'Bacillota', 'Clostridia', 'Thermoanaerobacterales', 'Thermoanaerobacteraceae', 'Thermoanaerobacter', 'Thermoanaerobacter sp. X513']
+acc_taxid: ['Bacteria', 'Bacillota', 'Clostridia', 'Thermoanaerobacterales', 'Thermoanaerobacteraceae', 'Thermoanaerobacter', 'Thermoanaerobacter sp.']
+-------------------
+Lineage names are different for elm
+ete_way:   ['Bacteria', 'Bacillota', 'Clostridia', 'Eubacteriales', 'Eubacteriaceae', 'Eubacterium', 'Eubacterium callanderi']
+acc_taxid: ['Bacteria', 'Bacillota', 'Clostridia', 'Eubacteriales', 'Eubacteriaceae', 'Eubacterium', 'Eubacterium limosum']
+-------------------
+Lineage names are different for gmc
+ete_way:   ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', 'Bacillaceae', 'Geobacillus', 'Geobacillus sp. Y4.1MC1']
+acc_taxid: ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', 'Bacillaceae', 'Geobacillus', 'Geobacillus sp.']
+-------------------
+Lineage names are different for fri
+ete_way:   ['Bacteria', 'Actinomycetota', 'Actinomycetes', 'Frankiales', 'Frankiaceae', 'Pseudofrankia', 'Pseudofrankia inefficax']
+acc_taxid: ['Bacteria', 'Actinomycetota', 'Actinomycetes', 'Frankiales', 'Frankiaceae', 'Frankia', 'Frankia sp.']
+-------------------
+Lineage names are different for mep
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Nitrosomonadales', 'Methylophilaceae', 'Methylovorus', 'Methylovorus sp. MP688']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Nitrosomonadales', 'Methylophilaceae', 'Methylovorus', 'Methylovorus sp.']
+-------------------
+Lineage names are different for psm
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Alteromonadales', 'Pseudoalteromonadaceae', 'Pseudoalteromonas', 'Pseudoalteromonas sp. SM9913']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Alteromonadales', 'Pseudoalteromonadaceae', 'Pseudoalteromonas', 'Pseudoalteromonas sp.']
+-------------------
+Lineage names are different for mil
+ete_way:   ['Bacteria', 'Actinomycetota', 'Actinomycetes', 'Micromonosporales', 'Micromonosporaceae', 'Micromonospora', 'Micromonospora sp. L5']
+acc_taxid: ['Bacteria', 'Actinomycetota', 'Actinomycetes', 'Micromonosporales', 'Micromonosporaceae', 'Micromonospora', 'Micromonospora sp.']
+-------------------
+Lineage names are different for pao
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Erwiniaceae', 'Pantoea', 'Pantoea sp. At-9b']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Erwiniaceae', 'Pantoea', 'Pantoea sp.']
+-------------------
+Key tam not found in lineage1. Omitted in the taxid fetch
+Lineage names are different for bva
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Enterobacteriaceae', 'Blochmannia', 'Candidatus Blochmannia vafer']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Enterobacteriaceae', 'Blochmannia', None]
+-------------------
+Lineage names are different for gya
+ete_way:   ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', 'Bacillaceae', 'Geobacillus', 'Geobacillus sp. Y412MC52']
+acc_taxid: ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', 'Bacillaceae', 'Geobacillus', 'Geobacillus sp.']
+-------------------
+Lineage names are different for geb
+ete_way:   ['Bacteria', 'Thermodesulfobacteriota', 'Desulfuromonadia', 'Geobacterales', 'Geobacteraceae', 'Geobacter', 'Geobacter sp. M18']
+acc_taxid: ['Bacteria', 'Thermodesulfobacteriota', 'Desulfuromonadia', 'Geobacterales', 'Geobacteraceae', 'Geobacter', 'Geobacter sp.']
+-------------------
+Lineage names are different for rah
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Yersiniaceae', 'Rahnella', 'Rahnella aceris']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Yersiniaceae', 'Rahnella', 'Rahnella sp.']
+-------------------
+Lineage names are different for bug
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Burkholderiales', 'Burkholderiaceae', 'Burkholderia', 'Burkholderia sp. CCGE1001']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Burkholderiales', 'Burkholderiaceae', 'Burkholderia', 'Burkholderia sp.']
+-------------------
+Lineage names are different for agr
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Hyphomicrobiales', 'Rhizobiaceae', 'Agrobacterium', 'Agrobacterium tumefaciens']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Hyphomicrobiales', 'Rhizobiaceae', 'Agrobacterium', 'Agrobacterium sp.']
+-------------------
+Lineage names are different for lai
+ete_way:   ['Bacteria', 'Bacillota', 'Bacilli', 'Lactobacillales', 'Lactobacillaceae', 'Lactobacillus', 'Lactobacillus amylovorus']
+acc_taxid: ['Bacteria', 'Bacillota', 'Bacilli', 'Lactobacillales', 'Lactobacillaceae', 'Lactobacillus', 'Lactobacillus acidophilus']
+-------------------
+Lineage names are different for nit
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Nitrosomonadales', 'Nitrosomonadaceae', 'Nitrosomonas', 'Nitrosomonas sp. AL212']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Nitrosomonadales', 'Nitrosomonadaceae', 'Nitrosomonas', 'Nitrosomonas sp.']
+-------------------
+Lineage names are different for aur
+ete_way:   ['Bacteria', 'Bacillota', 'Bacilli', 'Lactobacillales', 'Aerococcaceae', 'Aerococcus', 'Aerococcus sp. Group 1']
+acc_taxid: ['Bacteria', 'Bacillota', 'Bacilli', 'Lactobacillales', 'Aerococcaceae', 'Aerococcus', 'Aerococcus urinae']
+-------------------
+Lineage names are different for shg
+ete_way:   ['Bacteria', 'Bacteroidota', 'Sphingobacteriia', 'Sphingobacteriales', 'Sphingobacteriaceae', 'Sphingobacterium', 'Sphingobacterium sp. 21']
+acc_taxid: ['Bacteria', 'Bacteroidota', 'Sphingobacteriia', 'Sphingobacteriales', 'Sphingobacteriaceae', 'Sphingobacterium', 'Sphingobacterium sp.']
+-------------------
+Lineage names are different for crn
+ete_way:   ['Bacteria', 'Bacillota', 'Bacilli', 'Lactobacillales', 'Carnobacteriaceae', 'Carnobacterium', 'Carnobacterium sp. 17-4']
+acc_taxid: ['Bacteria', 'Bacillota', 'Bacilli', 'Lactobacillales', 'Carnobacteriaceae', 'Carnobacterium', 'Carnobacterium sp.']
+-------------------
+Key mhd not found in lineage1. Omitted in the taxid fetch
+Lineage names are different for pel
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Candidatus Pelagibacterales', 'Candidatus Pelagibacteraceae', 'Pelagibacter', 'Candidatus Pelagibacter sp. IMCC9063']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Candidatus Pelagibacterales', 'Candidatus Pelagibacteraceae', 'Pelagibacter', None]
+-------------------
+Lineage names are different for gag
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Alteromonadales', 'Alteromonadaceae', 'Glaciecola', 'Glaciecola sp. 4H-3-7+YE-5']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Alteromonadales', 'Alteromonadaceae', 'Glaciecola', 'Glaciecola sp.']
+-------------------
+Lineage names are different for kdi
+ete_way:   ['Bacteria', 'Bacteroidota', 'Flavobacteriia', 'Flavobacteriales', 'Flavobacteriaceae', 'Dokdonia', 'Dokdonia sp. 4H-3-7-5']
+acc_taxid: ['Bacteria', 'Bacteroidota', 'Flavobacteriia', 'Flavobacteriales', 'Flavobacteriaceae', 'Dokdonia', 'Dokdonia sp.']
+-------------------
+Lineage names are different for put
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Burkholderiales', 'Alcaligenaceae', 'Pusillimonas', 'Pusillimonas sp. T7-7']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Burkholderiales', 'Alcaligenaceae', 'Pusillimonas', 'Pusillimonas sp.']
+-------------------
+Lineage names are different for pyn
+ete_way:   ['Archaea', 'Euryarchaeota', 'Thermococci', 'Thermococcales', 'Thermococcaceae', 'Pyrococcus', 'Pyrococcus sp. NA2']
+acc_taxid: ['Archaea', 'Euryarchaeota', 'Thermococci', 'Thermococcales', 'Thermococcaceae', 'Pyrococcus', 'Pyrococcus sp.']
+-------------------
+Lineage names are different for del
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Burkholderiales', 'Comamonadaceae', 'Delftia', 'Delftia sp. Cs1-4']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Burkholderiales', 'Comamonadaceae', 'Delftia', 'Delftia sp.']
+-------------------
+Lineage names are different for mew
+ete_way:   ['Archaea', 'Euryarchaeota', 'Methanobacteria', 'Methanobacteriales', 'Methanobacteriaceae', 'Methanobacterium', 'Methanobacterium paludis']
+acc_taxid: ['Archaea', 'Euryarchaeota', 'Methanobacteria', 'Methanobacteriales', 'Methanobacteriaceae', 'Methanobacterium', 'Methanobacterium sp.']
+-------------------
+Lineage names are different for mjd
+ete_way:   ['Bacteria', 'Actinomycetota', 'Actinomycetes', 'Mycobacteriales', 'Mycobacteriaceae', 'Mycolicibacter', 'Mycolicibacter sinensis']
+acc_taxid: ['Bacteria', 'Actinomycetota', 'Actinomycetes', 'Mycobacteriales', 'Mycobacteriaceae', 'Mycobacterium', 'Mycobacterium sp.']
+-------------------
+Lineage names are different for alt
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Alteromonadales', 'Alteromonadaceae', 'Alteromonas', 'Alteromonas naphthalenivorans']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Alteromonadales', 'Alteromonadaceae', 'Alteromonas', 'Alteromonas sp.']
+-------------------
+Lineage names are different for npp
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Sphingomonadales', 'Sphingomonadaceae', 'Novosphingobium', 'Novosphingobium sp. PP1Y']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Sphingomonadales', 'Sphingomonadaceae', 'Novosphingobium', 'Novosphingobium sp.']
+-------------------
+Lineage names are different for fsy
+ete_way:   ['Bacteria', 'Actinomycetota', 'Actinomycetes', 'Frankiales', 'Frankiaceae', 'Protofrankia', 'Candidatus Protofrankia datiscae']
+acc_taxid: ['Bacteria', 'Actinomycetota', 'Actinomycetes', 'Frankiales', 'Frankiaceae', 'Frankia', None]
+-------------------
+Lineage names are different for lan
+ete_way:   ['Bacteria', 'Bacteroidota', 'Flavobacteriia', 'Flavobacteriales', 'Flavobacteriaceae', 'Lacinutrix', 'Lacinutrix sp. 5H-3-7-4']
+acc_taxid: ['Bacteria', 'Bacteroidota', 'Flavobacteriia', 'Flavobacteriales', 'Flavobacteriaceae', 'Lacinutrix', 'Lacinutrix sp.']
+-------------------
+Lineage names are different for hmc
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Hyphomicrobiales', 'Hyphomicrobiaceae', 'Hyphomicrobium', 'Hyphomicrobium sp. MC1']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Hyphomicrobiales', 'Hyphomicrobiaceae', 'Hyphomicrobium', 'Hyphomicrobium sp.']
+-------------------
+Lineage names are different for mfu
+ete_way:   ['Bacteria', 'Myxococcota', 'Myxococcia', 'Myxococcales', 'Myxococcaceae', 'Corallococcus', 'Corallococcus macrosporus']
+acc_taxid: ['Bacteria', 'Myxococcota', 'Myxococcia', 'Myxococcales', 'Myxococcaceae', 'Myxococcus', 'Myxococcus fulvus']
+-------------------
+Lineage names are different for frt
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Thiotrichales', 'Francisellaceae', 'Francisella', 'Francisella salina']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Thiotrichales', 'Francisellaceae', 'Francisella', 'Francisella sp.']
+-------------------
+Lineage names are different for mmn
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Rickettsiales', 'Candidatus Midichloriaceae', 'Midichloria', 'Candidatus Midichloria mitochondrii']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Rickettsiales', 'Candidatus Midichloriaceae', 'Midichloria', None]
+-------------------
+Lineage names are different for men
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Enterobacteriaceae', 'Moranella', 'Candidatus Moranella endobia']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Enterobacteriaceae', 'Moranella', None]
+-------------------
+Lineage names are different for tpn
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', None, None, 'Tremblaya', 'Candidatus Tremblaya princeps']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', None, None, 'Tremblaya', None]
+-------------------
+Lineage names are different for cls
+ete_way:   ['Bacteria', 'Bacillota', 'Clostridia', 'Eubacteriales', 'Clostridiaceae', 'Clostridium', 'Clostridium sp. SY8519']
+acc_taxid: ['Bacteria', 'Bacillota', 'Clostridia', 'Eubacteriales', 'Clostridiaceae', 'Clostridium', 'Clostridium sp.']
+-------------------
+Lineage names are different for eyy
+ete_way:   ['Bacteria', 'Actinomycetota', 'Coriobacteriia', 'Eggerthellales', 'Eggerthellaceae', 'Eggerthella', 'Eggerthella sp. YY7918']
+acc_taxid: ['Bacteria', 'Actinomycetota', 'Coriobacteriia', 'Eggerthellales', 'Eggerthellaceae', 'Eggerthella', 'Eggerthella sp.']
+-------------------
+Lineage names are different for lec
+ete_way:   ['Bacteria', 'Bacillota', 'Bacilli', 'Lactobacillales', 'Lactobacillaceae', 'Leuconostoc', 'Leuconostoc sp. C2']
+acc_taxid: ['Bacteria', 'Bacillota', 'Bacilli', 'Lactobacillales', 'Lactobacillaceae', 'Leuconostoc', 'Leuconostoc sp.']
+-------------------
+Lineage names are different for nii
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Nitrosomonadales', 'Nitrosomonadaceae', 'Nitrosomonas', 'Nitrosomonas sp. Is79A3']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Nitrosomonadales', 'Nitrosomonadaceae', 'Nitrosomonas', 'Nitrosomonas sp.']
+-------------------
+Lineage names are different for the
+ete_way:   ['Archaea', 'Euryarchaeota', 'Thermococci', 'Thermococcales', 'Thermococcaceae', 'Thermococcus', 'Thermococcus sp. 4557']
+acc_taxid: ['Archaea', 'Euryarchaeota', 'Thermococci', 'Thermococcales', 'Thermococcaceae', 'Thermococcus', 'Thermococcus sp.']
+-------------------
+Lineage names are different for asf
+ete_way:   ['Bacteria', 'Bacillota', 'Clostridia', 'Eubacteriales', 'Clostridiaceae', 'Candidatus Arthromitus', 'Candidatus Arthromitus sp. SFB-mouse']
+acc_taxid: ['Bacteria', 'Bacillota', 'Clostridia', 'Eubacteriales', 'Clostridiaceae', 'Candidatus Arthromitus', None]
+-------------------
+Lineage names are different for ssx
+ete_way:   ['Bacteria', 'Actinomycetota', 'Actinomycetes', 'Kitasatosporales', 'Streptomycetaceae', 'Streptomyces', 'Streptomyces sp. SirexAA-E']
+acc_taxid: ['Bacteria', 'Actinomycetota', 'Actinomycetes', 'Kitasatosporales', 'Streptomycetaceae', 'Streptomyces', 'Streptomyces sp.']
+-------------------
+Lineage names are different for hah
+ete_way:   ['Archaea', 'Euryarchaeota', 'Halobacteria', 'Haloferacales', None, None, 'halophilic archaeon DL31']
+acc_taxid: ['Archaea', 'Euryarchaeota', 'Halobacteria', 'Halobacteriales', None, None, 'halophilic archaeon']
+-------------------
+Lineage names are different for eas
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Enterobacteriaceae', 'Enterobacter', 'Enterobacter soli']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Enterobacteriaceae', 'Enterobacter', 'Enterobacter asburiae']
+-------------------
+Lineage names are different for xax
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Xanthomonadales', 'Xanthomonadaceae', 'Xanthomonas', 'Xanthomonas euvesicatoria']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Xanthomonadales', 'Xanthomonadaceae', 'Xanthomonas', 'Xanthomonas alfalfae']
+-------------------
+Lineage names are different for pse
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Neisseriales', 'Chromobacteriaceae', 'Pseudogulbenkiania', 'Pseudogulbenkiania sp. NH8B']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Neisseriales', 'Chromobacteriaceae', 'Pseudogulbenkiania', 'Pseudogulbenkiania sp.']
+-------------------
+Lineage names are different for ssy
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Sphingomonadales', 'Sphingomonadaceae', 'Sphingobium', 'Sphingobium sp. SYK-6']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Sphingomonadales', 'Sphingomonadaceae', 'Sphingobium', 'Sphingobium sp.']
+-------------------
+Lineage names are different for asb
+ete_way:   ['Bacteria', 'Bacillota', 'Clostridia', 'Eubacteriales', 'Clostridiaceae', 'Candidatus Arthromitus', 'Candidatus Arthromitus sp. SFB-rat-Yit']
+acc_taxid: ['Bacteria', 'Bacillota', 'Clostridia', 'Eubacteriales', 'Clostridiaceae', 'Candidatus Arthromitus', None]
+-------------------
+Lineage names are different for bst
+ete_way:   ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', 'Bacillaceae', 'Bacillus', 'Bacillus spizizenii']
+acc_taxid: ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', 'Bacillaceae', 'Bacillus', 'Bacillus subtilis']
+-------------------
+Lineage names are different for tha
+ete_way:   ['Archaea', 'Euryarchaeota', 'Thermococci', 'Thermococcales', 'Thermococcaceae', 'Thermococcus', 'Thermococcus sp. AM4']
+acc_taxid: ['Archaea', 'Euryarchaeota', 'Thermococci', 'Thermococcales', 'Thermococcaceae', 'Thermococcus', 'Thermococcus sp.']
+-------------------
+Lineage names are different for bmm
+ete_way:   ['Bacteria', 'Bacteroidota', 'Flavobacteriia', 'Flavobacteriales', 'Blattabacteriaceae', 'Blattabacterium', 'Blattabacterium sp. (Mastotermes darwiniensis)']
+acc_taxid: ['Bacteria', 'Bacteroidota', 'Flavobacteriia', 'Flavobacteriales', 'Blattabacteriaceae', 'Blattabacterium', 'Blattabacterium sp.']
+-------------------
+Lineage names are different for eec
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Enterobacteriaceae', 'Enterobacter', 'Enterobacter ludwigii']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Enterobacteriaceae', 'Enterobacter', 'Enterobacter cloacae']
+-------------------
+Key pax not found in lineage1. Omitted in the taxid fetch
+Lineage names are different for bcp
+ete_way:   ['Bacteria', 'Bacteroidota', 'Flavobacteriia', 'Flavobacteriales', 'Blattabacteriaceae', 'Blattabacterium', 'Blattabacterium sp. (Cryptocercus punctulatus) str. Cpu']
+acc_taxid: ['Bacteria', 'Bacteroidota', 'Flavobacteriia', 'Flavobacteriales', 'Blattabacteriaceae', 'Blattabacterium', None]
+-------------------
+Lineage names are different for oce
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Aeromonadales', 'Aeromonadaceae', 'Oceanimonas', 'Oceanimonas sp. GK1']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Aeromonadales', 'Aeromonadaceae', 'Oceanimonas', 'Oceanimonas sp.']
+-------------------
+Lineage names are different for psf
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Hyphomicrobiales', 'Stappiaceae', 'Pseudovibrio', 'Pseudovibrio sp. FO-BEG1']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Hyphomicrobiales', 'Stappiaceae', 'Pseudovibrio', 'Pseudovibrio sp.']
+-------------------
+Lineage names are different for pyr
+ete_way:   ['Archaea', 'Thermoproteota', 'Thermoprotei', 'Thermoproteales', 'Thermoproteaceae', 'Pyrobaculum', 'Pyrobaculum ferrireducens']
+acc_taxid: ['Archaea', 'Thermoproteota', 'Thermoprotei', 'Thermoproteales', 'Thermoproteaceae', 'Pyrobaculum', 'Pyrobaculum sp.']
+-------------------
+Lineage names are different for kox
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Enterobacteriaceae', 'Klebsiella', 'Klebsiella michiganensis']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Enterobacteriaceae', 'Klebsiella', 'Klebsiella oxytoca']
+-------------------
+Lineage names are different for vej
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Vibrionales', 'Vibrionaceae', 'Vibrio', 'Vibrio sp. EJY3']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Vibrionales', 'Vibrionaceae', 'Vibrio', 'Vibrio sp.']
+-------------------
+Lineage names are different for clb
+ete_way:   ['Bacteria', 'Bacillota', 'Clostridia', 'Eubacteriales', 'Clostridiaceae', 'Clostridium', 'Clostridium sp. BNL1100']
+acc_taxid: ['Bacteria', 'Bacillota', 'Clostridia', 'Eubacteriales', 'Clostridiaceae', 'Clostridium', 'Clostridium sp.']
+-------------------
+Lineage names are different for ddn
+ete_way:   ['Bacteria', 'Thermodesulfobacteriota', 'Desulfovibrionia', 'Desulfovibrionales', 'Desulfovibrionaceae', 'Pseudodesulfovibrio', 'Pseudodesulfovibrio mercurii']
+acc_taxid: ['Bacteria', 'Thermodesulfobacteriota', 'Desulfovibrionia', 'Desulfovibrionales', 'Desulfovibrionaceae', 'Desulfovibrio', 'Desulfovibrio desulfuricans']
+-------------------
+Lineage names are different for byi
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Burkholderiales', 'Burkholderiaceae', 'Burkholderia', 'Burkholderia sp. YI23']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Burkholderiales', 'Burkholderiaceae', 'Burkholderia', 'Burkholderia sp.']
+-------------------
+Lineage names are different for pfe
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Pseudomonadales', 'Pseudomonadaceae', 'Pseudomonas', 'Pseudomonas ogarae']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Pseudomonadales', 'Pseudomonadaceae', 'Pseudomonas', 'Pseudomonas fluorescens']
+-------------------
+Key sex not found in lineage1. Omitted in the taxid fetch
+Lineage names are different for mir
+ete_way:   ['Bacteria', 'Actinomycetota', 'Actinomycetes', 'Mycobacteriales', 'Mycobacteriaceae', 'Mycobacterium', 'Mycobacterium paraintracellulare']
+acc_taxid: ['Bacteria', 'Actinomycetota', 'Actinomycetes', 'Mycobacteriales', 'Mycobacteriaceae', 'Mycobacterium', 'Mycobacterium intracellulare']
+-------------------
+Lineage names are different for syt
+ete_way:   ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Synechococcales', 'Merismopediaceae', 'Synechocystis', 'Synechocystis sp. PCC 6803']
+acc_taxid: ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Synechococcales', 'Merismopediaceae', 'Synechocystis', 'Synechocystis sp.']
+-------------------
+Lineage names are different for sys
+ete_way:   ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Synechococcales', 'Merismopediaceae', 'Synechocystis', 'Synechocystis sp. PCC 6803']
+acc_taxid: ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Synechococcales', 'Merismopediaceae', 'Synechocystis', 'Synechocystis sp.']
+-------------------
+Lineage names are different for brs
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Hyphomicrobiales', 'Nitrobacteraceae', 'Bradyrhizobium', 'Bradyrhizobium cosmicum']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Hyphomicrobiales', 'Nitrobacteraceae', 'Bradyrhizobium', 'Bradyrhizobium sp.']
+-------------------
+Lineage names are different for arc
+ete_way:   ['Bacteria', 'Campylobacterota', 'Epsilonproteobacteria', 'Campylobacterales', 'Arcobacteraceae', 'Arcobacter', 'Arcobacter sp. L']
+acc_taxid: ['Bacteria', 'Campylobacterota', 'Epsilonproteobacteria', 'Campylobacterales', 'Arcobacteraceae', 'Arcobacter', 'Arcobacter sp.']
+-------------------
+Key bju not found in lineage1. Omitted in the taxid fetch
+Lineage names are different for asm
+ete_way:   ['Bacteria', 'Bacillota', 'Clostridia', 'Eubacteriales', 'Clostridiaceae', 'Candidatus Arthromitus', 'Candidatus Arthromitus sp. SFB-mouse']
+acc_taxid: ['Bacteria', 'Bacillota', 'Clostridia', 'Eubacteriales', 'Clostridiaceae', 'Candidatus Arthromitus', None]
+-------------------
+Lineage names are different for tpq
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', None, None, 'Tremblaya', 'Candidatus Tremblaya princeps']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', None, None, 'Tremblaya', None]
+-------------------
+Lineage names are different for thc
+ete_way:   ['Bacteria', 'Deinococcota', 'Deinococci', 'Thermales', 'Thermaceae', 'Thermus', 'Thermus sp. CCB_US3_UF1']
+acc_taxid: ['Bacteria', 'Deinococcota', 'Deinococci', 'Thermales', 'Thermaceae', 'Thermus', 'Thermus sp.']
+-------------------
+Key vcl not found in lineage1. Omitted in the taxid fetch
+Lineage names are different for syq
+ete_way:   ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Synechococcales', 'Merismopediaceae', 'Synechocystis', 'Synechocystis sp. PCC 6803']
+acc_taxid: ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Synechococcales', 'Merismopediaceae', 'Synechocystis', 'Synechocystis sp.']
+-------------------
+Key hpx not found in lineage1. Omitted in the taxid fetch
+Key heg not found in lineage1. Omitted in the taxid fetch
+Lineage names are different for erj
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Erwiniaceae', 'Erwinia', 'Erwinia sp. Ejp617']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Erwiniaceae', 'Erwinia', 'Erwinia sp.']
+-------------------
+Key lay not found in lineage1. Omitted in the taxid fetch
+Lineage names are different for lcs
+ete_way:   ['Bacteria', 'Bacillota', 'Bacilli', 'Lactobacillales', 'Lactobacillaceae', 'Lacticaseibacillus', 'Lacticaseibacillus paracasei']
+acc_taxid: ['Bacteria', 'Bacillota', 'Bacilli', 'Lactobacillales', 'Lactobacillaceae', 'Lacticaseibacillus', 'Lacticaseibacillus casei']
+-------------------
+Lineage names are different for lce
+ete_way:   ['Bacteria', 'Bacillota', 'Bacilli', 'Lactobacillales', 'Lactobacillaceae', 'Lacticaseibacillus', 'Lacticaseibacillus paracasei']
+acc_taxid: ['Bacteria', 'Bacillota', 'Bacilli', 'Lactobacillales', 'Lactobacillaceae', 'Lacticaseibacillus', 'Lacticaseibacillus casei']
+-------------------
+Key lra not found in lineage1. Omitted in the taxid fetch
+Lineage names are different for llr
+ete_way:   ['Bacteria', 'Bacillota', 'Bacilli', 'Lactobacillales', 'Streptococcaceae', 'Lactococcus', 'Lactococcus cremoris']
+acc_taxid: ['Bacteria', 'Bacillota', 'Bacilli', 'Lactobacillales', 'Streptococcaceae', 'Lactococcus', 'Lactococcus lactis']
+-------------------
+Key mhi not found in lineage1. Omitted in the taxid fetch
+Lineage names are different for bjs
+ete_way:   ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', 'Bacillaceae', 'Bacillus', 'Bacillus sp. JS']
+acc_taxid: ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', 'Bacillaceae', 'Bacillus', 'Bacillus sp. (in: firmicutes)']
+-------------------
+Lineage names are different for ase
+ete_way:   ['Bacteria', 'Actinomycetota', 'Actinomycetes', 'Micromonosporales', 'Micromonosporaceae', 'Actinoplanes', 'Actinoplanes sp. SE50/110']
+acc_taxid: ['Bacteria', 'Actinomycetota', 'Actinomycetes', 'Micromonosporales', 'Micromonosporaceae', 'Actinoplanes', 'Actinoplanes sp.']
+-------------------
+Key bgb not found in lineage1. Omitted in the taxid fetch
+Lineage names are different for fcn
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Thiotrichales', 'Francisellaceae', 'Francisella', 'Francisella hispaniensis']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Thiotrichales', 'Francisellaceae', 'Francisella', 'Francisella tularensis']
+-------------------
+Key stf not found in lineage1. Omitted in the taxid fetch
+Lineage names are different for syy
+ete_way:   ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Synechococcales', 'Merismopediaceae', 'Synechocystis', 'Synechocystis sp. PCC 6803']
+acc_taxid: ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Synechococcales', 'Merismopediaceae', 'Synechocystis', 'Synechocystis sp.']
+-------------------
+Lineage names are different for bqy
+ete_way:   ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', 'Bacillaceae', 'Bacillus', 'Bacillus velezensis']
+acc_taxid: ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', 'Bacillaceae', 'Bacillus', 'Bacillus amyloliquefaciens']
+-------------------
+Lineage names are different for bbg
+ete_way:   ['Bacteria', 'Bacteroidota', 'Flavobacteriia', 'Flavobacteriales', 'Blattabacteriaceae', 'Blattabacterium', 'Blattabacterium sp. (Blaberus giganteus)']
+acc_taxid: ['Bacteria', 'Bacteroidota', 'Flavobacteriia', 'Flavobacteriales', 'Blattabacteriaceae', 'Blattabacterium', 'Blattabacterium sp.']
+-------------------
+Lineage names are different for buk
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Burkholderiales', 'Burkholderiaceae', 'Burkholderia', 'Burkholderia sp. KJ006']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Burkholderiales', 'Burkholderiaceae', 'Burkholderia', 'Burkholderia sp.']
+-------------------
+Lineage names are different for fna
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Thiotrichales', 'Francisellaceae', 'Francisella', 'Francisella orientalis']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Thiotrichales', 'Francisellaceae', 'Francisella', 'Francisella noatunensis']
+-------------------
+Lineage names are different for mmm
+ete_way:   ['Bacteria', 'Actinomycetota', 'Actinomycetes', 'Mycobacteriales', 'Mycobacteriaceae', 'Mycobacterium', 'Mycobacterium sp. MOTT36Y']
+acc_taxid: ['Bacteria', 'Actinomycetota', 'Actinomycetes', 'Mycobacteriales', 'Mycobacteriaceae', 'Mycobacterium', 'Mycobacterium sp.']
+-------------------
+Lineage names are different for pys
+ete_way:   ['Archaea', 'Euryarchaeota', 'Thermococci', 'Thermococcales', 'Thermococcaceae', 'Pyrococcus', 'Pyrococcus sp. ST04']
+acc_taxid: ['Archaea', 'Euryarchaeota', 'Thermococci', 'Thermococcales', 'Thermococcaceae', 'Pyrococcus', 'Pyrococcus sp.']
+-------------------
+Lineage names are different for lln
+ete_way:   ['Bacteria', 'Bacillota', 'Bacilli', 'Lactobacillales', 'Streptococcaceae', 'Lactococcus', 'Lactococcus cremoris']
+acc_taxid: ['Bacteria', 'Bacillota', 'Bacilli', 'Lactobacillales', 'Streptococcaceae', 'Lactococcus', 'Lactococcus lactis']
+-------------------
+Lineage names are different for abs
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Rhodospirillales', 'Azospirillaceae', 'Azospirillum', 'Azospirillum baldaniorum']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Rhodospirillales', 'Azospirillaceae', 'Azospirillum', 'Azospirillum brasilense']
+-------------------
+Lineage names are different for mox
+ete_way:   ['Bacteria', 'candidate division NC10', None, None, None, 'Methylomirabilis', 'Candidatus Methylomirabilis oxyfera']
+acc_taxid: ['Bacteria', 'candidate division NC10', None, None, None, 'Methylomirabilis', None]
+-------------------
+Lineage names are different for thm
+ete_way:   ['Archaea', 'Euryarchaeota', 'Thermococci', 'Thermococcales', 'Thermococcaceae', 'Thermococcus', 'Thermococcus cleftensis']
+acc_taxid: ['Archaea', 'Euryarchaeota', 'Thermococci', 'Thermococcales', 'Thermococcaceae', 'Thermococcus', 'Thermococcus sp.']
+-------------------
+Lineage names are different for koe
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Enterobacteriaceae', 'Klebsiella', 'Klebsiella michiganensis']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Enterobacteriaceae', 'Klebsiella', 'Klebsiella oxytoca']
+-------------------
+Key mmv not found in lineage1. Omitted in the taxid fetch
+Lineage names are different for nat
+ete_way:   ['Archaea', 'Euryarchaeota', 'Halobacteria', 'Natrialbales', 'Natrialbaceae', 'Natrinema', 'Natrinema sp. J7-2']
+acc_taxid: ['Archaea', 'Euryarchaeota', 'Halobacteria', 'Natrialbales', 'Natrialbaceae', 'Natrinema', 'Natrinema sp.']
+-------------------
+Key pga not found in lineage1. Omitted in the taxid fetch
+Lineage names are different for pgl
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Rhodobacterales', 'Roseobacteraceae', 'Phaeobacter', 'Phaeobacter inhibens']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Rhodobacterales', 'Roseobacteraceae', 'Phaeobacter', 'Phaeobacter gallaeciensis']
+-------------------
+Lineage names are different for cru
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Oceanospirillales', 'Halomonadaceae', 'Candidatus Carsonella', 'Candidatus Carsonella ruddii']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Oceanospirillales', 'Halomonadaceae', 'Candidatus Carsonella', None]
+-------------------
+Lineage names are different for crc
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Oceanospirillales', 'Halomonadaceae', 'Candidatus Carsonella', 'Candidatus Carsonella ruddii']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Oceanospirillales', 'Halomonadaceae', 'Candidatus Carsonella', None]
+-------------------
+Lineage names are different for crt
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Oceanospirillales', 'Halomonadaceae', 'Candidatus Carsonella', 'Candidatus Carsonella ruddii']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Oceanospirillales', 'Halomonadaceae', 'Candidatus Carsonella', None]
+-------------------
+Lineage names are different for crh
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Oceanospirillales', 'Halomonadaceae', 'Candidatus Carsonella', 'Candidatus Carsonella ruddii']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Oceanospirillales', 'Halomonadaceae', 'Candidatus Carsonella', None]
+-------------------
+Lineage names are different for crv
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Oceanospirillales', 'Halomonadaceae', 'Candidatus Carsonella', 'Candidatus Carsonella ruddii']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Oceanospirillales', 'Halomonadaceae', 'Candidatus Carsonella', None]
+-------------------
+Lineage names are different for ple
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Oceanospirillales', 'Halomonadaceae', 'Portiera', 'Candidatus Portiera aleyrodidarum']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Oceanospirillales', 'Halomonadaceae', 'Portiera', None]
+-------------------
+Lineage names are different for woo
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Rickettsiales', 'Anaplasmataceae', 'Wolbachia', 'Wolbachia endosymbiont of Onchocerca ochengi']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Rickettsiales', 'Anaplasmataceae', 'Wolbachia', None]
+-------------------
+Lineage names are different for arr
+ete_way:   ['Bacteria', 'Actinomycetota', 'Actinomycetes', 'Micrococcales', 'Micrococcaceae', 'Arthrobacter', 'Arthrobacter sp. Rue61a']
+acc_taxid: ['Bacteria', 'Actinomycetota', 'Actinomycetes', 'Micrococcales', 'Micrococcaceae', 'Arthrobacter', 'Arthrobacter sp.']
+-------------------
+Lineage names are different for che
+ete_way:   ['Bacteria', 'Bacteroidota', 'Cytophagia', 'Cytophagales', 'Amoebophilaceae', 'Cardinium', 'Cardinium endosymbiont of Encarsia pergandiella']
+acc_taxid: ['Bacteria', 'Bacteroidota', 'Cytophagia', 'Cytophagales', 'Amoebophilaceae', 'Cardinium', None]
+-------------------
+Lineage names are different for cyq
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Thiotrichales', 'Piscirickettsiaceae', 'Cycloclasticus', 'Cycloclasticus sp. P1']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Thiotrichales', 'Piscirickettsiaceae', 'Cycloclasticus', 'Cycloclasticus sp.']
+-------------------
+Lineage names are different for ply
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Oceanospirillales', 'Halomonadaceae', 'Portiera', 'Candidatus Portiera aleyrodidarum']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Oceanospirillales', 'Halomonadaceae', 'Portiera', None]
+-------------------
+Lineage names are different for ded
+ete_way:   ['Bacteria', 'Bacillota', 'Clostridia', 'Eubacteriales', 'Desulfitobacteriaceae', 'Dehalobacter', 'Dehalobacter sp. DCA']
+acc_taxid: ['Bacteria', 'Bacillota', 'Clostridia', 'Eubacteriales', 'Desulfitobacteriaceae', 'Dehalobacter', 'Dehalobacter sp.']
+-------------------
+Lineage names are different for dec
+ete_way:   ['Bacteria', 'Bacillota', 'Clostridia', 'Eubacteriales', 'Desulfitobacteriaceae', 'Dehalobacter', 'Dehalobacter sp. CF']
+acc_taxid: ['Bacteria', 'Bacillota', 'Clostridia', 'Eubacteriales', 'Desulfitobacteriaceae', 'Dehalobacter', 'Dehalobacter sp.']
+-------------------
+Lineage names are different for ack
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Burkholderiales', 'Comamonadaceae', 'Acidovorax', 'Acidovorax sp. KKS102']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Burkholderiales', 'Comamonadaceae', 'Acidovorax', 'Acidovorax sp.']
+-------------------
+Lineage names are different for nga
+ete_way:   ['Archaea', 'Nitrososphaerota', 'Nitrososphaeria', 'Nitrososphaerales', 'Nitrososphaeraceae', 'Nitrososphaera', 'Candidatus Nitrososphaera gargensis']
+acc_taxid: ['Archaea', 'Nitrososphaerota', 'Nitrososphaeria', 'Nitrososphaerales', 'Nitrososphaeraceae', 'Nitrososphaera', None]
+-------------------
+Lineage names are different for plr
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Oceanospirillales', 'Halomonadaceae', 'Portiera', 'Candidatus Portiera aleyrodidarum']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Oceanospirillales', 'Halomonadaceae', 'Portiera', None]
+-------------------
+Lineage names are different for plo
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Oceanospirillales', 'Halomonadaceae', 'Portiera', 'Candidatus Portiera aleyrodidarum']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Oceanospirillales', 'Halomonadaceae', 'Portiera', None]
+-------------------
+Lineage names are different for eno
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Enterobacteriaceae', 'Enterobacter', 'Enterobacter kobei']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Enterobacteriaceae', 'Enterobacter', 'Enterobacter cloacae']
+-------------------
+Lineage names are different for mbs
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Pseudomonadales', 'Marinobacteraceae', 'Marinobacter', 'Marinobacter sp. BSs20148']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Pseudomonadales', 'Marinobacteraceae', 'Marinobacter', 'Marinobacter sp.']
+-------------------
+Lineage names are different for msc
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Hyphomicrobiales', 'Methylocystaceae', 'Methylocystis', 'Methylocystis sp. SC2']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Hyphomicrobiales', 'Methylocystaceae', 'Methylocystis', 'Methylocystis sp.']
+-------------------
+Lineage names are different for lcw
+ete_way:   ['Bacteria', 'Bacillota', 'Bacilli', 'Lactobacillales', 'Lactobacillaceae', 'Lacticaseibacillus', 'Lacticaseibacillus paracasei']
+acc_taxid: ['Bacteria', 'Bacillota', 'Bacilli', 'Lactobacillales', 'Lactobacillaceae', 'Lacticaseibacillus', 'Lacticaseibacillus casei']
+-------------------
+Lineage names are different for amaa
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Alteromonadales', 'Alteromonadaceae', 'Alteromonas', 'Alteromonas mediterranea']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Alteromonadales', 'Alteromonadaceae', 'Alteromonas', 'Alteromonas macleodii']
+-------------------
+Lineage names are different for anb
+ete_way:   ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Nostocales', 'Nostocaceae', 'Anabaena', 'Anabaena sp. 90']
+acc_taxid: ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Nostocales', 'Nostocaceae', 'Anabaena', 'Anabaena sp.']
+-------------------
+Lineage names are different for ppuu
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Pseudomonadales', 'Pseudomonadaceae', 'Pseudomonas', 'Pseudomonas sp. UW4']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Pseudomonadales', 'Pseudomonadaceae', 'Pseudomonas', 'Pseudomonas sp.']
+-------------------
+Lineage names are different for calo
+ete_way:   ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Nostocales', 'Calotrichaceae', 'Calothrix', 'Calothrix sp. PCC 7507']
+acc_taxid: ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Nostocales', 'Calotrichaceae', 'Calothrix', 'Calothrix sp.']
+-------------------
+Lineage names are different for lep
+ete_way:   ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Chroococcales', 'Geminocystaceae', 'Picosynechococcus', '[Leptolyngbya] sp. PCC 7376']
+acc_taxid: ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Leptolyngbyales', 'Leptolyngbyaceae', 'Leptolyngbya', 'Leptolyngbya sp.']
+-------------------
+Lineage names are different for nos
+ete_way:   ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Nostocales', 'Nostocaceae', 'Nostoc', 'Nostoc sp. PCC 7107']
+acc_taxid: ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Nostocales', 'Nostocaceae', 'Nostoc', 'Nostoc sp.']
+-------------------
+Lineage names are different for nop
+ete_way:   ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Nostocales', 'Nostocaceae', 'Nostoc', 'Nostoc sp. PCC 7524']
+acc_taxid: ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Nostocales', 'Nostocaceae', 'Nostoc', 'Nostoc sp.']
+-------------------
+Lineage names are different for riv
+ete_way:   ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Nostocales', 'Rivulariaceae', 'Rivularia', 'Rivularia sp. PCC 7116']
+acc_taxid: ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Nostocales', 'Rivulariaceae', 'Rivularia', 'Rivularia sp. (in: cyanobacteria)']
+-------------------
+Lineage names are different for thal
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Rhodospirillales', 'Rhodospirillaceae', 'Endolissoclinum', 'Candidatus Endolissoclinum faulkneri']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Rhodospirillales', 'Rhodospirillaceae', 'Endolissoclinum', None]
+-------------------
+Lineage names are different for plp
+ete_way:   ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Pleurocapsales', 'Hyellaceae', 'Pleurocapsa', 'Pleurocapsa sp. PCC 7327']
+acc_taxid: ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Pleurocapsales', 'Hyellaceae', 'Pleurocapsa', 'Pleurocapsa sp.']
+-------------------
+Lineage names are different for pseu
+ete_way:   ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Pseudanabaenales', 'Pseudanabaenaceae', 'Pseudanabaena', 'Pseudanabaena sp. PCC 7367']
+acc_taxid: ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Pseudanabaenales', 'Pseudanabaenaceae', 'Pseudanabaena', 'Pseudanabaena sp.']
+-------------------
+Lineage names are different for syne
+ete_way:   ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Synechococcales', 'Synechococcaceae', 'Synechococcus', 'Synechococcus sp. PCC 6312']
+acc_taxid: ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Synechococcales', 'Synechococcaceae', 'Synechococcus', 'Synechococcus sp.']
+-------------------
+Lineage names are different for synp
+ete_way:   ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Synechococcales', 'Synechococcaceae', 'Synechococcus', 'Synechococcus sp. PCC 7502']
+acc_taxid: ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Synechococcales', 'Synechococcaceae', 'Synechococcus', 'Synechococcus sp.']
+-------------------
+Lineage names are different for calt
+ete_way:   ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Nostocales', 'Calotrichaceae', 'Calothrix', 'Calothrix sp. PCC 6303']
+acc_taxid: ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Nostocales', 'Calotrichaceae', 'Calothrix', 'Calothrix sp.']
+-------------------
+Lineage names are different for mic
+ete_way:   ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Coleofasciculales', 'Coleofasciculaceae', 'Allocoleopsis', 'Allocoleopsis franciscana']
+acc_taxid: ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Oscillatoriales', 'Microcoleaceae', 'Microcoleus', 'Microcoleus sp.']
+-------------------
+Lineage names are different for acf
+ete_way:   ['Archaea', 'Candidatus Thermoplasmatota', None, None, None, 'Aciduliprofundum', 'Aciduliprofundum sp. MAR08-339']
+acc_taxid: ['Archaea', 'Candidatus Thermoplasmatota', None, None, None, 'Aciduliprofundum', 'Aciduliprofundum sp.']
+-------------------
+Lineage names are different for kci
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', None, None, 'Candidatus Kinetoplastibacterium', 'Candidatus Kinetoplastibacterium crithidii']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', None, None, 'Candidatus Kinetoplastibacterium', None]
+-------------------
+Lineage names are different for lli
+ete_way:   ['Bacteria', 'Bacillota', 'Bacilli', 'Lactobacillales', 'Streptococcaceae', 'Lactococcus', 'Lactococcus cremoris']
+acc_taxid: ['Bacteria', 'Bacillota', 'Bacilli', 'Lactobacillales', 'Streptococcaceae', 'Lactococcus', 'Lactococcus lactis']
+-------------------
+Lineage names are different for msa
+ete_way:   ['Bacteria', 'Actinomycetota', 'Actinomycetes', 'Mycobacteriales', 'Mycobacteriaceae', 'Mycobacterium', 'Mycobacterium sp. JS623']
+acc_taxid: ['Bacteria', 'Actinomycetota', 'Actinomycetes', 'Mycobacteriales', 'Mycobacteriaceae', 'Mycolicibacterium', 'Mycolicibacterium smegmatis']
+-------------------
+Lineage names are different for kbl
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', None, None, 'Candidatus Kinetoplastibacterium', 'Candidatus Kinetoplastibacterium blastocrithidii']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', None, None, 'Candidatus Kinetoplastibacterium', None]
+-------------------
+Lineage names are different for bchr
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Enterobacteriaceae', 'Blochmannia', 'Candidatus Blochmannia chromaiodes']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Enterobacteriaceae', 'Blochmannia', None]
+-------------------
+Lineage names are different for ebf
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Enterobacteriaceae', None, 'Enterobacteriaceae bacterium strain FGI 57']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Enterobacteriaceae', None, 'Enterobacteriaceae bacterium']
+-------------------
+Lineage names are different for smaf
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Yersiniaceae', 'Serratia', 'Serratia sp. FGI94']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Yersiniaceae', 'Serratia', 'Serratia marcescens']
+-------------------
+Lineage names are different for udi
+ete_way:   ['Bacteria', 'Bacteroidota', 'Flavobacteriia', 'Flavobacteriales', None, None, 'Candidatus Uzinura diaspidicola']
+acc_taxid: ['Bacteria', 'Bacteroidota', 'Flavobacteriia', 'Flavobacteriales', None, None, None]
+-------------------
+Lineage names are different for bbq
+ete_way:   ['Bacteria', 'Bacteroidota', 'Flavobacteriia', 'Flavobacteriales', 'Blattabacteriaceae', 'Blattabacterium', 'Blattabacterium sp. (Blatta orientalis)']
+acc_taxid: ['Bacteria', 'Bacteroidota', 'Flavobacteriia', 'Flavobacteriales', 'Blattabacteriaceae', 'Blattabacterium', 'Blattabacterium sp.']
+-------------------
+Lineage names are different for ggh
+ete_way:   ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', 'Bacillaceae', 'Geobacillus', 'Geobacillus sp. GHH01']
+acc_taxid: ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', 'Bacillaceae', 'Geobacillus', 'Geobacillus sp.']
+-------------------
+Lineage names are different for kbt
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', None, None, 'Candidatus Kinetoplastibacterium', 'Candidatus Kinetoplastibacterium blastocrithidii']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', None, None, 'Candidatus Kinetoplastibacterium', None]
+-------------------
+Lineage names are different for kct
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', None, None, 'Candidatus Kinetoplastibacterium', 'Candidatus Kinetoplastibacterium crithidii']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', None, None, 'Candidatus Kinetoplastibacterium', None]
+-------------------
+Lineage names are different for kde
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', None, None, 'Candidatus Kinetoplastibacterium', 'Candidatus Kinetoplastibacterium desouzaii']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', None, None, 'Candidatus Kinetoplastibacterium', None]
+-------------------
+Lineage names are different for kga
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', None, None, 'Candidatus Kinetoplastibacterium', 'Candidatus Kinetoplastibacterium galatii']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', None, None, 'Candidatus Kinetoplastibacterium', None]
+-------------------
+Lineage names are different for syz
+ete_way:   ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Synechococcales', 'Merismopediaceae', 'Synechocystis', 'Synechocystis sp. PCC 6803']
+acc_taxid: ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Synechococcales', 'Merismopediaceae', 'Synechocystis', 'Synechocystis sp.']
+-------------------
+Lineage names are different for kon
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', None, None, 'Candidatus Kinetoplastibacterium', 'Candidatus Kinetoplastibacterium oncopeltii']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', None, None, 'Candidatus Kinetoplastibacterium', None]
+-------------------
+Lineage names are different for hho
+ete_way:   ['Bacteria', 'Aquificota', 'Aquificae', 'Aquificales', 'Aquificaceae', 'Hydrogenobaculum', 'Hydrogenobaculum sp. HO']
+acc_taxid: ['Bacteria', 'Aquificota', 'Aquificae', 'Aquificales', 'Aquificaceae', 'Hydrogenobaculum', 'Hydrogenobaculum sp.']
+-------------------
+Lineage names are different for sphm
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Sphingomonadales', 'Sphingomonadaceae', 'Sphingomonas', 'Sphingomonas sp. MM-1']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Sphingomonadales', 'Sphingomonadaceae', 'Sphingomonas', 'Sphingomonas sp.']
+-------------------
+Key aza not found in lineage1. Omitted in the taxid fetch
+Lineage names are different for pec
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Pectobacteriaceae', 'Pectobacterium', 'Pectobacterium parmentieri']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Pectobacteriaceae', 'Pectobacterium', 'Pectobacterium sp.']
+-------------------
+Lineage names are different for psy
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Alteromonadales', 'Psychromonadaceae', 'Psychromonas', 'Psychromonas sp. CNPT3']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Alteromonadales', 'Psychromonadaceae', 'Psychromonas', 'Psychromonas sp.']
+-------------------
+Lineage names are different for hys
+ete_way:   ['Bacteria', 'Aquificota', 'Aquificae', 'Aquificales', 'Aquificaceae', 'Hydrogenobaculum', 'Hydrogenobaculum sp. SN']
+acc_taxid: ['Bacteria', 'Aquificota', 'Aquificae', 'Aquificales', 'Aquificaceae', 'Hydrogenobaculum', 'Hydrogenobaculum sp.']
+-------------------
+Key sdv not found in lineage1. Omitted in the taxid fetch
+Lineage names are different for pld
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Oceanospirillales', 'Halomonadaceae', 'Portiera', 'Candidatus Portiera aleyrodidarum']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Oceanospirillales', 'Halomonadaceae', 'Portiera', None]
+-------------------
+Lineage names are different for pdr
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Pseudomonadales', 'Pseudomonadaceae', 'Pseudomonas', 'Pseudomonas sp. ATCC 13867']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Pseudomonadales', 'Pseudomonadaceae', 'Halopseudomonas', 'Pseudomonas denitrificans (nom. rej.)']
+-------------------
+Lineage names are different for blp
+ete_way:   ['Bacteria', 'Bacteroidota', 'Flavobacteriia', 'Flavobacteriales', 'Blattabacteriaceae', 'Blattabacterium', 'Blattabacterium cuenoti']
+acc_taxid: ['Bacteria', 'Bacteroidota', 'Flavobacteriia', 'Flavobacteriales', 'Blattabacteriaceae', 'Blattabacterium', 'Blattabacterium sp.']
+-------------------
+Lineage names are different for cmc
+ete_way:   ['Bacteria', 'Actinomycetota', 'Actinomycetes', 'Micrococcales', 'Microbacteriaceae', 'Clavibacter', 'Clavibacter nebraskensis']
+acc_taxid: ['Bacteria', 'Actinomycetota', 'Actinomycetes', 'Micrococcales', 'Microbacteriaceae', 'Clavibacter', 'Clavibacter michiganensis']
+-------------------
+Lineage names are different for tar
+ete_way:   ['Archaea', 'Candidatus Thermoplasmatota', 'Thermoplasmata', 'Thermoplasmatales', None, None, 'Thermoplasmatales archaeon BRNA1']
+acc_taxid: ['Archaea', 'Candidatus Thermoplasmatota', 'Thermoplasmata', 'Thermoplasmatales', None, None, 'Thermoplasmatales archaeon']
+-------------------
+Lineage names are different for pom
+ete_way:   ['Bacteria', 'Bacteroidota', 'Flavobacteriia', 'Flavobacteriales', 'Flavobacteriaceae', 'Polaribacter', 'Polaribacter sp. MED152']
+acc_taxid: ['Bacteria', 'Bacteroidota', 'Flavobacteriia', 'Flavobacteriales', 'Flavobacteriaceae', 'Polaribacter', 'Polaribacter sp.']
+-------------------
+Lineage names are different for salb
+ete_way:   ['Bacteria', 'Actinomycetota', 'Actinomycetes', 'Kitasatosporales', 'Streptomycetaceae', 'Streptomyces', 'Streptomyces albidoflavus']
+acc_taxid: ['Bacteria', 'Actinomycetota', 'Actinomycetes', 'Kitasatosporales', 'Streptomycetaceae', 'Streptomyces', 'Streptomyces albus']
+-------------------
+Lineage names are different for coo
+ete_way:   ['Bacteria', 'Bacillota', 'Clostridia', 'Lachnospirales', 'Lachnospiraceae', 'Coprococcus', 'Coprococcus sp. ART55/1']
+acc_taxid: ['Bacteria', 'Bacillota', 'Clostridia', 'Lachnospirales', 'Lachnospiraceae', 'Coprococcus', 'Coprococcus sp.']
+-------------------
+Lineage names are different for ene
+ete_way:   ['Bacteria', 'Bacillota', 'Bacilli', 'Lactobacillales', 'Enterococcaceae', 'Enterococcus', 'Enterococcus faecalis']
+acc_taxid: ['Bacteria', 'Bacillota', 'Bacilli', 'Lactobacillales', 'Enterococcaceae', 'Enterococcus', 'Enterococcus sp.']
+-------------------
+Lineage names are different for rum
+ete_way:   ['Bacteria', 'Bacillota', 'Clostridia', 'Eubacteriales', 'Oscillospiraceae', 'Ruminococcus', 'Ruminococcus sp. SR1/5']
+acc_taxid: ['Bacteria', 'Bacillota', 'Clostridia', 'Eubacteriales', 'Oscillospiraceae', 'Ruminococcus', 'Ruminococcus sp.']
+-------------------
+Lineage names are different for bprm
+ete_way:   ['Bacteria', 'Bacillota', 'Clostridia', 'Eubacteriales', None, None, 'butyrate-producing bacterium SM4/1']
+acc_taxid: ['Bacteria', None, None, None, None, None, 'butyrate-producing bacterium']
+-------------------
+Lineage names are different for bprs
+ete_way:   ['Bacteria', 'Bacillota', 'Clostridia', 'Eubacteriales', None, None, 'butyrate-producing bacterium SS3/4']
+acc_taxid: ['Bacteria', None, None, None, None, None, 'butyrate-producing bacterium']
+-------------------
+Lineage names are different for meo
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Enterobacteriaceae', 'Moranella', 'Candidatus Moranella endobia']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Enterobacteriaceae', 'Moranella', None]
+-------------------
+Lineage names are different for eclo
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Enterobacteriaceae', 'Enterobacter', 'Enterobacter hormaechei']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Enterobacteriaceae', 'Enterobacter', 'Enterobacter cloacae']
+-------------------
+Key saum not found in lineage1. Omitted in the taxid fetch
+Lineage names are different for strp
+ete_way:   ['Bacteria', 'Actinomycetota', 'Actinomycetes', 'Kitasatosporales', 'Streptomycetaceae', 'Streptomyces', 'Streptomyces sp. PAMC 26508']
+acc_taxid: ['Bacteria', 'Actinomycetota', 'Actinomycetes', 'Kitasatosporales', 'Streptomycetaceae', 'Streptomyces', 'Streptomyces sp.']
+-------------------
+Lineage names are different for max
+ete_way:   ['Archaea', 'Candidatus Thermoplasmatota', 'Thermoplasmata', 'Methanomassiliicoccales', 'Methanomethylophilaceae', 'Methanomethylophilus', 'Methanomethylophilus alvi']
+acc_taxid: ['Archaea', 'Candidatus Thermoplasmatota', 'Thermoplasmata', 'Methanomassiliicoccales', 'Methanomethylophilaceae', 'Methanomethylophilus', None]
+-------------------
+Lineage names are different for wen
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Rickettsiales', 'Anaplasmataceae', 'Wolbachia', 'Wolbachia endosymbiont of Drosophila simulans']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Rickettsiales', 'Anaplasmataceae', 'Wolbachia', None]
+-------------------
+Lineage names are different for wed
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Rickettsiales', 'Anaplasmataceae', 'Wolbachia', 'Wolbachia endosymbiont of Drosophila simulans']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Rickettsiales', 'Anaplasmataceae', 'Wolbachia', None]
+-------------------
+Lineage names are different for baci
+ete_way:   ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', 'Bacillaceae', 'Bacillus', 'Bacillus sp. 1NLA3E']
+acc_taxid: ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', 'Bacillaceae', 'Bacillus', 'Bacillus sp. (in: firmicutes)']
+-------------------
+Lineage names are different for actn
+ete_way:   ['Bacteria', 'Actinomycetota', 'Actinomycetes', 'Micromonosporales', 'Micromonosporaceae', 'Actinoplanes', 'Actinoplanes sp. N902-109']
+acc_taxid: ['Bacteria', 'Actinomycetota', 'Actinomycetes', 'Micromonosporales', 'Micromonosporaceae', 'Actinoplanes', 'Actinoplanes sp.']
+-------------------
+Lineage names are different for saal
+ete_way:   ['Bacteria', 'Candidatus Saccharibacteria', 'Candidatus Saccharimonadia', 'Candidatus Saccharimonadales', 'Candidatus Saccharimonadaceae', 'Saccharimonas', 'Candidatus Saccharimonas aalborgensis']
+acc_taxid: ['Bacteria', 'Candidatus Saccharibacteria', 'Candidatus Saccharimonadia', 'Candidatus Saccharimonadales', 'Candidatus Saccharimonadaceae', 'Saccharimonas', None]
+-------------------
+Lineage names are different for nzs
+ete_way:   ['Bacteria', 'Mycoplasmatota', 'Mollicutes', 'Acholeplasmatales', 'Acholeplasmataceae', 'Phytoplasma', 'Candidatus Phytoplasma australiense']
+acc_taxid: ['Bacteria', 'Mycoplasmatota', 'Mollicutes', 'Acholeplasmatales', 'Acholeplasmataceae', 'Phytoplasma', None]
+-------------------
+Lineage names are different for aoi
+ete_way:   ['Bacteria', 'Actinomycetota', 'Actinomycetes', 'Pseudonocardiales', 'Pseudonocardiaceae', 'Amycolatopsis', 'Amycolatopsis keratiniphila']
+acc_taxid: ['Bacteria', 'Actinomycetota', 'Actinomycetes', 'Pseudonocardiales', 'Pseudonocardiaceae', 'Amycolatopsis', 'Amycolatopsis orientalis']
+-------------------
+Key fus not found in lineage1. Omitted in the taxid fetch
+Lineage names are different for buo
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Burkholderiales', 'Burkholderiaceae', 'Caballeronia', 'Caballeronia insecticola']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Burkholderiales', 'Burkholderiaceae', 'Burkholderia', 'Burkholderia sp.']
+-------------------
+Lineage names are different for meb
+ete_way:   ['Archaea', 'Euryarchaeota', 'Methanobacteria', 'Methanobacteriales', 'Methanobacteriaceae', 'Methanobrevibacter', 'Methanobrevibacter sp. AbM4']
+acc_taxid: ['Archaea', 'Euryarchaeota', 'Methanobacteria', 'Methanobacteriales', 'Methanobacteriaceae', 'Methanobrevibacter', 'Methanobrevibacter sp.']
+-------------------
+Lineage names are different for mer
+ete_way:   ['Archaea', 'Candidatus Thermoplasmatota', 'Thermoplasmata', 'Methanomassiliicoccales', 'Methanomassiliicoccaceae', 'Methanomassiliicoccus', 'Candidatus Methanomassiliicoccus intestinalis']
+acc_taxid: ['Archaea', 'Candidatus Thermoplasmatota', 'Thermoplasmata', 'Methanomassiliicoccales', 'Methanomassiliicoccaceae', 'Methanomassiliicoccus', 'Methanomassiliicoccus sp.']
+-------------------
+Lineage names are different for sali
+ete_way:   ['Archaea', 'Euryarchaeota', 'Halobacteria', 'Halobacteriales', 'Natronoarchaeaceae', 'Salinarchaeum', 'Salinarchaeum sp. Harcht-Bsk1']
+acc_taxid: ['Archaea', 'Euryarchaeota', 'Halobacteria', 'Halobacteriales', 'Natronoarchaeaceae', 'Salinarchaeum', 'Salinarchaeum sp.']
+-------------------
+Lineage names are different for blh
+ete_way:   ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', 'Bacillaceae', 'Bacillus', 'Bacillus paralicheniformis']
+acc_taxid: ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', 'Bacillaceae', 'Bacillus', 'Bacillus licheniformis']
+-------------------
+Lineage names are different for enr
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Enterobacteriaceae', 'Enterobacter', 'Enterobacter sp. R4-368']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Enterobacteriaceae', 'Enterobacter', 'Enterobacter sp.']
+-------------------
+Lineage names are different for pso
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Moraxellales', 'Moraxellaceae', 'Psychrobacter', 'Psychrobacter sp. G']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Moraxellales', 'Moraxellaceae', 'Psychrobacter', 'Psychrobacter sp.']
+-------------------
+Lineage names are different for amao
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Alteromonadales', 'Alteromonadaceae', 'Alteromonas', 'Alteromonas mediterranea']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Alteromonadales', 'Alteromonadaceae', 'Alteromonas', 'Alteromonas macleodii']
+-------------------
+Lineage names are different for amad
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Alteromonadales', 'Alteromonadaceae', 'Alteromonas', 'Alteromonas mediterranea']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Alteromonadales', 'Alteromonadaceae', 'Alteromonas', 'Alteromonas macleodii']
+-------------------
+Lineage names are different for amai
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Alteromonadales', 'Alteromonadaceae', 'Alteromonas', 'Alteromonas mediterranea']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Alteromonadales', 'Alteromonadaceae', 'Alteromonas', 'Alteromonas macleodii']
+-------------------
+Lineage names are different for lcl
+ete_way:   ['Bacteria', 'Bacillota', 'Bacilli', 'Lactobacillales', 'Lactobacillaceae', 'Lacticaseibacillus', 'Lacticaseibacillus paracasei']
+acc_taxid: ['Bacteria', 'Bacillota', 'Bacilli', 'Lactobacillales', 'Lactobacillaceae', 'Lacticaseibacillus', 'Lacticaseibacillus casei']
+-------------------
+Lineage names are different for rse
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Burkholderiales', 'Burkholderiaceae', 'Ralstonia', 'Ralstonia pseudosolanacearum']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Burkholderiales', 'Burkholderiaceae', 'Ralstonia', 'Ralstonia solanacearum']
+-------------------
+Lineage names are different for cri
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Oceanospirillales', 'Halomonadaceae', 'Candidatus Carsonella', 'Candidatus Carsonella ruddii']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Oceanospirillales', 'Halomonadaceae', 'Candidatus Carsonella', None]
+-------------------
+Lineage names are different for ssdc
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', None, None, 'Profftella', 'Candidatus Profftella armatura']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', None, None, 'Profftella', None]
+-------------------
+Lineage names are different for ndl
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', None, None, 'Nasuia', 'Candidatus Nasuia deltocephalinicola']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', None, None, 'Nasuia', None]
+-------------------
+Lineage names are different for smv
+ete_way:   ['Bacteria', 'Bacteroidota', 'Flavobacteriia', 'Flavobacteriales', None, 'Candidatus Karelsulcia', 'Candidatus Karelsulcia muelleri']
+acc_taxid: ['Bacteria', 'Bacteroidota', 'Flavobacteriia', 'Flavobacteriales', None, 'Candidatus Karelsulcia', None]
+-------------------
+Lineage names are different for gjf
+ete_way:   ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', 'Bacillaceae', 'Geobacillus', 'Geobacillus genomosp. 3']
+acc_taxid: ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', 'Bacillaceae', 'Geobacillus', 'Geobacillus sp.']
+-------------------
+Lineage names are different for thb
+ete_way:   ['Archaea', 'Thermoproteota', 'Thermoprotei', 'Thermofilales', 'Thermofilaceae', 'Thermofilum', 'Thermofilum adornatum']
+acc_taxid: ['Archaea', 'Thermoproteota', 'Thermoprotei', 'Thermofilales', 'Thermofilaceae', 'Thermofilum', 'Thermofilum sp.']
+-------------------
+Lineage names are different for pro
+ete_way:   ['Bacteria', 'Bacteroidota', 'Bacteroidia', 'Bacteroidales', 'Prevotellaceae', 'Prevotella', 'Prevotella sp. oral taxon 299']
+acc_taxid: ['Bacteria', 'Bacteroidota', 'Bacteroidia', 'Bacteroidales', 'Prevotellaceae', 'Prevotella', 'Prevotella sp.']
+-------------------
+Lineage names are different for fnc
+ete_way:   ['Bacteria', 'Fusobacteriota', 'Fusobacteriia', 'Fusobacteriales', 'Fusobacteriaceae', 'Fusobacterium', 'Fusobacterium vincentii']
+acc_taxid: ['Bacteria', 'Fusobacteriota', 'Fusobacteriia', 'Fusobacteriales', 'Fusobacteriaceae', 'Fusobacterium', 'Fusobacterium nucleatum']
+-------------------
+Key cjej not found in lineage1. Omitted in the taxid fetch
+Lineage names are different for llw
+ete_way:   ['Bacteria', 'Bacillota', 'Bacilli', 'Lactobacillales', 'Streptococcaceae', 'Lactococcus', 'Lactococcus cremoris']
+acc_taxid: ['Bacteria', 'Bacillota', 'Bacilli', 'Lactobacillales', 'Streptococcaceae', 'Lactococcus', 'Lactococcus lactis']
+-------------------
+Key lxy not found in lineage1. Omitted in the taxid fetch
+Lineage names are different for bacc
+ete_way:   ['Bacteria', 'Bacteroidota', 'Bacteroidia', 'Bacteroidales', None, None, 'Bacteroidales bacterium CF']
+acc_taxid: ['Bacteria', 'Bacteroidota', 'Bacteroidia', 'Bacteroidales', 'Bacteroidaceae', 'Bacteroides', 'Bacteroides sp.']
+-------------------
+Lineage names are different for blu
+ete_way:   ['Bacteria', 'Bacteroidota', 'Flavobacteriia', 'Flavobacteriales', 'Blattabacteriaceae', 'Blattabacterium', 'Blattabacterium sp. (Nauphoeta cinerea)']
+acc_taxid: ['Bacteria', 'Bacteroidota', 'Flavobacteriia', 'Flavobacteriales', 'Blattabacteriaceae', 'Blattabacterium', 'Blattabacterium sp.']
+-------------------
+Lineage names are different for rir
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Hyphomicrobiales', 'Rhizobiaceae', 'Agrobacterium', 'Agrobacterium pusense']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Hyphomicrobiales', 'Rhizobiaceae', 'Allorhizobium', 'Rhizobium sp.']
+-------------------
+Lineage names are different for sig
+ete_way:   ['Bacteria', 'Bacillota', 'Bacilli', 'Lactobacillales', 'Streptococcaceae', 'Streptococcus', 'Streptococcus ilei']
+acc_taxid: ['Bacteria', 'Bacillota', 'Bacilli', 'Lactobacillales', 'Streptococcaceae', 'Streptococcus', 'Streptococcus sp.']
+-------------------
+Lineage names are different for sip
+ete_way:   ['Bacteria', 'Bacillota', 'Bacilli', 'Lactobacillales', 'Streptococcaceae', 'Streptococcus', 'Streptococcus ilei']
+acc_taxid: ['Bacteria', 'Bacillota', 'Bacilli', 'Lactobacillales', 'Streptococcaceae', 'Streptococcus', 'Streptococcus sp.']
+-------------------
+Lineage names are different for psol
+ete_way:   ['Bacteria', 'Mycoplasmatota', 'Mollicutes', 'Acholeplasmatales', 'Acholeplasmataceae', 'Phytoplasma', 'Candidatus Phytoplasma solani']
+acc_taxid: ['Bacteria', 'Mycoplasmatota', 'Mollicutes', 'Acholeplasmatales', 'Acholeplasmataceae', 'Phytoplasma', None]
+-------------------
+Lineage names are different for spiu
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Chromatiales', 'Ectothiorhodospiraceae', 'Spiribacter', 'Spiribacter curvatus']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Chromatiales', 'Ectothiorhodospiraceae', 'Spiribacter', 'Spiribacter sp.']
+-------------------
+Key ssui not found in lineage1. Omitted in the taxid fetch
+Lineage names are different for psv
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Pseudomonadales', 'Pseudomonadaceae', 'Pseudomonas', 'Pseudomonas sp. VLB120']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Pseudomonadales', 'Pseudomonadaceae', 'Pseudomonas', 'Pseudomonas sp.']
+-------------------
+Lineage names are different for exm
+ete_way:   ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', None, 'Exiguobacterium', 'Exiguobacterium sp. MH3']
+acc_taxid: ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', None, 'Exiguobacterium', 'Exiguobacterium sp.']
+-------------------
+Lineage names are different for tpj
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', None, None, 'Tremblaya', 'Candidatus Tremblaya phenacola']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', None, None, 'Tremblaya', None]
+-------------------
+Lineage names are different for sbe
+ete_way:   ['Bacteria', 'Candidatus Saccharibacteria', None, None, None, None, 'Candidatus Saccharibacteria bacterium RAAC3_TM7_1']
+acc_taxid: ['Bacteria', 'Candidatus Saccharibacteria', None, None, None, None, None]
+-------------------
+Lineage names are different for dpb
+ete_way:   ['Bacteria', None, 'Candidatus Babeliae', 'Candidatus Babeliales', 'Candidatus Babeliaceae', 'Babela', 'Candidatus Babela massiliensis']
+acc_taxid: ['Bacteria', None, 'Candidatus Babeliae', 'Candidatus Babeliales', 'Candidatus Babeliaceae', 'Babela', None]
+-------------------
+Lineage names are different for prb
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Burkholderiales', 'Burkholderiaceae', 'Pandoraea', 'Pandoraea pnomenusa']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Burkholderiales', 'Burkholderiaceae', 'Pandoraea', 'Pandoraea sp.']
+-------------------
+Lineage names are different for fnl
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Thiotrichales', 'Francisellaceae', 'Francisella', 'Francisella orientalis']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Thiotrichales', 'Francisellaceae', 'Francisella', 'Francisella noatunensis']
+-------------------
+Lineage names are different for csi
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Enterobacteriaceae', 'Cronobacter', 'Cronobacter malonaticus']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Enterobacteriaceae', 'Cronobacter', 'Cronobacter sakazakii']
+-------------------
+Lineage names are different for meth
+ete_way:   ['Archaea', 'Euryarchaeota', 'Methanobacteria', 'Methanobacteriales', 'Methanobacteriaceae', 'Methanobacterium', 'Methanobacterium sp. MB1']
+acc_taxid: ['Archaea', 'Euryarchaeota', 'Methanobacteria', 'Methanobacteriales', 'Methanobacteriaceae', 'Methanobacterium', 'Methanobacterium sp.']
+-------------------
+Lineage names are different for psk
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Pseudomonadales', 'Pseudomonadaceae', 'Pseudomonas', 'Pseudomonas sp. TKP']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Pseudomonadales', 'Pseudomonadaceae', 'Pseudomonas', 'Pseudomonas sp.']
+-------------------
+Lineage names are different for thn
+ete_way:   ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Acaryochloridales', 'Thermosynechococcaceae', 'Thermosynechococcus', 'Thermosynechococcus sp. NK55a']
+acc_taxid: ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Acaryochloridales', 'Thermosynechococcaceae', 'Thermosynechococcus', 'Thermosynechococcus sp.']
+-------------------
+Lineage names are different for sod
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Bruguierivoracaceae', 'Sodalis', 'Sodalis praecaptivus']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Bruguierivoracaceae', 'Sodalis', 'Sodalis sp.']
+-------------------
+Lineage names are different for ths
+ete_way:   ['Archaea', 'Euryarchaeota', 'Thermococci', 'Thermococcales', 'Thermococcaceae', 'Thermococcus', 'Thermococcus paralvinellae']
+acc_taxid: ['Archaea', 'Euryarchaeota', 'Thermococci', 'Thermococcales', 'Thermococcaceae', 'Thermococcus', 'Thermococcus sp.']
+-------------------
+Lineage names are different for mvr
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Pasteurellales', 'Pasteurellaceae', 'Mannheimia', 'Mannheimia sp. USDA-ARS-USMARC-1261']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Pasteurellales', 'Pasteurellaceae', 'Mannheimia', 'Mannheimia varigena']
+-------------------
+Key paeg not found in lineage1. Omitted in the taxid fetch
+Lineage names are different for rhl
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Hyphomicrobiales', 'Rhizobiaceae', 'Rhizobium', 'Rhizobium favelukesii']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Hyphomicrobiales', 'Rhizobiaceae', 'Allorhizobium', 'Rhizobium sp.']
+-------------------
+Lineage names are different for psts
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Enterobacteriaceae', None, 'Plautia stali symbiont']
+acc_taxid: ['Eukaryota', 'Arthropoda', 'Insecta', 'Hemiptera', 'Pentatomidae', 'Plautia', 'Plautia stali']
+-------------------
+Lineage names are different for hcr
+ete_way:   ['Bacteria', 'Mycoplasmatota', 'Mollicutes', 'Mycoplasmatales', 'Mycoplasmataceae', 'Hepatoplasma', 'Candidatus Hepatoplasma crinochetorum']
+acc_taxid: ['Bacteria', 'Mycoplasmatota', 'Mollicutes', 'Mycoplasmatales', 'Mycoplasmataceae', 'Hepatoplasma', None]
+-------------------
+Lineage names are different for hhc
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Chromatiales', 'Ectothiorhodospiraceae', 'Ectothiorhodospira', 'Ectothiorhodospira haloalkaliphila']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Chromatiales', 'Ectothiorhodospiraceae', 'Halorhodospira', 'Halorhodospira halochloris']
+-------------------
+Key dji not found in lineage1. Omitted in the taxid fetch
+Lineage names are different for ehh
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Rickettsiales', 'Anaplasmataceae', 'Ehrlichia', 'Ehrlichia japonica']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Rickettsiales', 'Anaplasmataceae', 'Ehrlichia', 'Ehrlichia sp.']
+-------------------
+Lineage names are different for rus
+ete_way:   ['Bacteria', 'Bacillota', 'Clostridia', 'Eubacteriales', 'Oscillospiraceae', 'Ruminococcus', 'Ruminococcus bicirculans (ex Wegman et al. 2014)']
+acc_taxid: ['Bacteria', 'Bacillota', 'Clostridia', 'Eubacteriales', 'Oscillospiraceae', 'Ruminococcus', 'Ruminococcus sp.']
+-------------------
+Lineage names are different for clt
+ete_way:   ['Bacteria', 'Bacillota', 'Clostridia', 'Eubacteriales', 'Clostridiaceae', 'Clostridium', 'Clostridium bornimense']
+acc_taxid: ['Bacteria', 'Bacillota', 'Clostridia', 'Eubacteriales', 'Clostridiaceae', 'Clostridium', 'Clostridium sp.']
+-------------------
+Key paeo not found in lineage1. Omitted in the taxid fetch
+Lineage names are different for yel
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Yersiniaceae', 'Yersinia', 'Yersinia hibernica']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Yersiniaceae', 'Yersinia', 'Yersinia enterocolitica']
+-------------------
+Lineage names are different for koy
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Enterobacteriaceae', 'Klebsiella', 'Klebsiella michiganensis']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Enterobacteriaceae', 'Klebsiella', 'Klebsiella oxytoca']
+-------------------
+Lineage names are different for hct
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Hyphomicrobiales', None, 'Hodgkinia', 'Candidatus Hodgkinia cicadicola']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Hyphomicrobiales', None, 'Hodgkinia', None]
+-------------------
+Lineage names are different for rla
+ete_way:   ['Bacteria', 'Actinomycetota', 'Actinomycetes', 'Micrococcales', 'Microbacteriaceae', 'Rhodoluna', 'Rhodoluna lacicola']
+acc_taxid: ['Bacteria', 'Actinomycetota', 'Actinomycetes', 'Micrococcales', 'Microbacteriaceae', 'Rhodoluna', None]
+-------------------
+Lineage names are different for puf
+ete_way:   ['Bacteria', 'Bacillota', 'Negativicutes', 'Selenomonadales', 'Sporomusaceae', 'Pelosinus', 'Pelosinus sp. UFO1']
+acc_taxid: ['Bacteria', 'Bacillota', 'Negativicutes', 'Selenomonadales', 'Sporomusaceae', 'Pelosinus', 'Pelosinus sp.']
+-------------------
+Lineage names are different for hym
+ete_way:   ['Bacteria', 'Bacteroidota', 'Cytophagia', 'Cytophagales', 'Hymenobacteraceae', 'Hymenobacter', 'Hymenobacter sp. APR13']
+acc_taxid: ['Bacteria', 'Bacteroidota', 'Cytophagia', 'Cytophagales', 'Hymenobacteraceae', 'Hymenobacter', 'Hymenobacter sp.']
+-------------------
+Lineage names are different for tap
+ete_way:   ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', 'Bacillaceae', 'Terribacillus', 'Terribacillus goriensis']
+acc_taxid: ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', 'Bacillaceae', 'Terribacillus', 'Terribacillus aidingensis']
+-------------------
+Lineage names are different for vir
+ete_way:   ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', 'Bacillaceae', 'Virgibacillus', 'Virgibacillus sp. SK37']
+acc_taxid: ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', 'Bacillaceae', 'Virgibacillus', 'Virgibacillus sp.']
+-------------------
+Lineage names are different for nev
+ete_way:   ['Archaea', 'Nitrososphaerota', 'Nitrososphaeria', 'Nitrososphaerales', 'Nitrososphaeraceae', 'Nitrososphaera', 'Candidatus Nitrososphaera evergladensis']
+acc_taxid: ['Archaea', 'Nitrososphaerota', 'Nitrososphaeria', 'Nitrososphaerales', 'Nitrososphaeraceae', 'Nitrososphaera', None]
+-------------------
+Lineage names are different for wce
+ete_way:   ['Bacteria', 'Bacillota', 'Bacilli', 'Lactobacillales', 'Lactobacillaceae', 'Weissella', 'Weissella tructae']
+acc_taxid: ['Bacteria', 'Bacillota', 'Bacilli', 'Lactobacillales', 'Lactobacillaceae', 'Weissella', 'Weissella ceti']
+-------------------
+Lineage names are different for paca
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Holosporales', 'Candidatus Paracaedibacteraceae', 'Paracaedibacter', 'Candidatus Paracaedibacter acanthamoebae']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Holosporales', 'Candidatus Paracaedibacteraceae', 'Paracaedibacter', None]
+-------------------
+Lineage names are different for rbt
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Rickettsiales', None, None, 'Rickettsiales bacterium Ac37b']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Rickettsiales', None, None, 'Rickettsiales bacterium']
+-------------------
+Lineage names are different for bmyc
+ete_way:   ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', 'Bacillaceae', 'Bacillus', 'Bacillus pseudomycoides']
+acc_taxid: ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', 'Bacillaceae', 'Bacillus', 'Bacillus mycoides']
+-------------------
+Key gst not found in lineage1. Omitted in the taxid fetch
+Lineage names are different for aso
+ete_way:   ['Bacteria', 'Bacillota', 'Clostridia', 'Eubacteriales', 'Clostridiaceae', 'Candidatus Arthromitus', 'Candidatus Arthromitus sp. SFB-mouse-NL']
+acc_taxid: ['Bacteria', 'Bacillota', 'Clostridia', 'Eubacteriales', 'Clostridiaceae', 'Candidatus Arthromitus', None]
+-------------------
+Lineage names are different for ete
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Hafniaceae', 'Edwardsiella', 'Edwardsiella anguillarum']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Hafniaceae', 'Edwardsiella', 'Edwardsiella tarda']
+-------------------
+Lineage names are different for caj
+ete_way:   ['Bacteria', 'Campylobacterota', 'Epsilonproteobacteria', 'Campylobacterales', 'Campylobacteraceae', 'Campylobacter', 'Campylobacter iguaniorum']
+acc_taxid: ['Bacteria', 'Campylobacterota', 'Epsilonproteobacteria', 'Campylobacterales', 'Campylobacteraceae', 'Campylobacter', 'Campylobacter sp.']
+-------------------
+Lineage names are different for mjh
+ete_way:   ['Archaea', 'Euryarchaeota', 'Methanococci', 'Methanococcales', 'Methanocaldococcaceae', 'Methanocaldococcus', 'Methanocaldococcus bathoardescens']
+acc_taxid: ['Archaea', 'Euryarchaeota', 'Methanococci', 'Methanococcales', 'Methanocaldococcaceae', 'Methanocaldococcus', 'Methanocaldococcus sp.']
+-------------------
+Key baft not found in lineage1. Omitted in the taxid fetch
+Lineage names are different for sht
+ete_way:   ['Bacteria', 'Bacteroidota', 'Sphingobacteriia', 'Sphingobacteriales', 'Sphingobacteriaceae', 'Sphingobacterium', 'Sphingobacterium sp. ML3W']
+acc_taxid: ['Bacteria', 'Bacteroidota', 'Sphingobacteriia', 'Sphingobacteriales', 'Sphingobacteriaceae', 'Sphingobacterium', 'Sphingobacterium sp.']
+-------------------
+Lineage names are different for dok
+ete_way:   ['Bacteria', 'Bacteroidota', 'Flavobacteriia', 'Flavobacteriales', 'Flavobacteriaceae', 'Dokdonia', 'Dokdonia sp. MED134']
+acc_taxid: ['Bacteria', 'Bacteroidota', 'Flavobacteriia', 'Flavobacteriales', 'Flavobacteriaceae', 'Dokdonia', 'Dokdonia sp.']
+-------------------
+Lineage names are different for pmos
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Pseudomonadales', 'Pseudomonadaceae', 'Pseudomonas', 'Pseudomonas soli']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Pseudomonadales', 'Pseudomonadaceae', 'Pseudomonas', 'Pseudomonas mosselii']
+-------------------
+Lineage names are different for bcib
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', None, None, 'Baumannia', 'Candidatus Baumannia cicadellinicola']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', None, None, 'Baumannia', None]
+-------------------
+Lineage names are different for coa
+ete_way:   ['Bacteria', 'Actinomycetota', 'Actinomycetes', 'Mycobacteriales', 'Corynebacteriaceae', 'Corynebacterium', 'Corynebacterium sp. ATCC 6931']
+acc_taxid: ['Bacteria', 'Actinomycetota', 'Actinomycetes', 'Mycobacteriales', 'Corynebacteriaceae', 'Corynebacterium', 'Corynebacterium sp.']
+-------------------
+Lineage names are different for stv
+ete_way:   ['Bacteria', 'Bacillota', 'Bacilli', 'Lactobacillales', 'Streptococcaceae', 'Streptococcus', 'Streptococcus sp. VT 162']
+acc_taxid: ['Bacteria', 'Bacillota', 'Bacilli', 'Lactobacillales', 'Streptococcaceae', 'Streptococcus', 'Streptococcus sp.']
+-------------------
+Lineage names are different for abq
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Rhodospirillales', 'Azospirillaceae', 'Azospirillum', 'Azospirillum argentinense']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Rhodospirillales', 'Azospirillaceae', 'Azospirillum', 'Azospirillum brasilense']
+-------------------
+Lineage names are different for mbj
+ete_way:   ['Bacteria', 'Mycoplasmatota', 'Candidatus Izimaplasma', None, None, None, 'Candidatus Izimaplasma bacterium HR1']
+acc_taxid: ['Bacteria', 'Mycoplasmatota', 'Mollicutes', None, None, None, 'Mollicutes bacterium']
+-------------------
+Lineage names are different for prc
+ete_way:   ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Synechococcales', 'Prochlorococcaceae', 'Prochlorococcus', 'Prochlorococcus sp. MIT 0604']
+acc_taxid: ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Synechococcales', 'Prochlorococcaceae', 'Prochlorococcus', 'Prochlorococcus sp.']
+-------------------
+Lineage names are different for rei
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Hyphomicrobiales', 'Rhizobiaceae', 'Rhizobium', 'Rhizobium sp. IE4771']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Hyphomicrobiales', 'Rhizobiaceae', 'Rhizobium', 'Rhizobium etli']
+-------------------
+Lineage names are different for prm
+ete_way:   ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Synechococcales', 'Prochlorococcaceae', 'Prochlorococcus', 'Prochlorococcus sp. MIT 0801']
+acc_taxid: ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Synechococcales', 'Prochlorococcaceae', 'Prochlorococcus', 'Prochlorococcus sp.']
+-------------------
+Lineage names are different for cem
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Enterobacteriaceae', 'Cedecea', 'Cedecea neteri']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Enterobacteriaceae', 'Cedecea', 'Cedecea sp.']
+-------------------
+Key kln not found in lineage1. Omitted in the taxid fetch
+Lineage names are different for paen
+ete_way:   ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', 'Paenibacillaceae', 'Paenibacillus', 'Paenibacillus sp. FSL P4-0081']
+acc_taxid: ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', 'Paenibacillaceae', 'Paenibacillus', 'Paenibacillus sp.']
+-------------------
+Lineage names are different for paef
+ete_way:   ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', 'Paenibacillaceae', 'Paenibacillus', 'Paenibacillus sp. FSL R5-0345']
+acc_taxid: ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', 'Paenibacillaceae', 'Paenibacillus', 'Paenibacillus sp.']
+-------------------
+Lineage names are different for paeq
+ete_way:   ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', 'Paenibacillaceae', 'Paenibacillus', 'Paenibacillus sp. FSL R5-0912']
+acc_taxid: ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', 'Paenibacillaceae', 'Paenibacillus', 'Paenibacillus sp.']
+-------------------
+Lineage names are different for cen
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Enterobacteriaceae', 'Cedecea', 'Cedecea neteri']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Enterobacteriaceae', 'Cedecea', 'Cedecea sp.']
+-------------------
+Lineage names are different for synk
+ete_way:   ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Synechococcales', 'Synechococcaceae', 'Synechococcus', 'Synechococcus sp. KORDI-100']
+acc_taxid: ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Synechococcales', 'Synechococcaceae', 'Synechococcus', 'Synechococcus sp.']
+-------------------
+Lineage names are different for synr
+ete_way:   ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Synechococcales', 'Synechococcaceae', 'Synechococcus', 'Synechococcus sp. KORDI-49']
+acc_taxid: ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Synechococcales', 'Synechococcaceae', 'Synechococcus', 'Synechococcus sp.']
+-------------------
+Lineage names are different for synd
+ete_way:   ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Synechococcales', 'Synechococcaceae', 'Synechococcus', 'Synechococcus sp. KORDI-52']
+acc_taxid: ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Synechococcales', 'Synechococcaceae', 'Synechococcus', 'Synechococcus sp.']
+-------------------
+Lineage names are different for ced
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Pectobacteriaceae', 'Dickeya', 'Dickeya fangzhongdai']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Enterobacteriaceae', 'Cedecea', 'Cedecea sp.']
+-------------------
+Lineage names are different for kom
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Enterobacteriaceae', 'Klebsiella', 'Klebsiella michiganensis']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Enterobacteriaceae', 'Klebsiella', 'Klebsiella oxytoca']
+-------------------
+Lineage names are different for ecla
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Enterobacteriaceae', 'Enterobacter', 'Enterobacter hormaechei']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Enterobacteriaceae', 'Enterobacter', 'Enterobacter cloacae']
+-------------------
+Lineage names are different for smub
+ete_way:   ['Bacteria', 'Bacteroidota', 'Flavobacteriia', 'Flavobacteriales', None, 'Candidatus Karelsulcia', 'Candidatus Karelsulcia muelleri']
+acc_taxid: ['Bacteria', 'Bacteroidota', 'Flavobacteriia', 'Flavobacteriales', None, 'Candidatus Karelsulcia', None]
+-------------------
+Lineage names are different for law
+ete_way:   ['Bacteria', 'Bacillota', 'Bacilli', 'Lactobacillales', 'Lactobacillaceae', 'Lactobacillus', 'Lactobacillus sp. wkB8']
+acc_taxid: ['Bacteria', 'Bacillota', 'Bacilli', 'Lactobacillales', 'Lactobacillaceae', 'Lactobacillus', 'Lactobacillus sp.']
+-------------------
+Lineage names are different for paea
+ete_way:   ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', 'Paenibacillaceae', 'Paenibacillus', 'Paenibacillus sp. FSL R7-0273']
+acc_taxid: ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', 'Paenibacillaceae', 'Paenibacillus', 'Paenibacillus sp.']
+-------------------
+Lineage names are different for paee
+ete_way:   ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', 'Paenibacillaceae', 'Paenibacillus', 'Paenibacillus sp. FSL R7-0331']
+acc_taxid: ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', 'Paenibacillaceae', 'Paenibacillus', 'Paenibacillus sp.']
+-------------------
+Lineage names are different for paeh
+ete_way:   ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', 'Paenibacillaceae', 'Paenibacillus', 'Paenibacillus sp. FSL H7-0357']
+acc_taxid: ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', 'Paenibacillaceae', 'Paenibacillus', 'Paenibacillus sp.']
+-------------------
+Lineage names are different for paej
+ete_way:   ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', 'Paenibacillaceae', 'Paenibacillus', 'Paenibacillus sp. FSL H7-0737']
+acc_taxid: ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', 'Paenibacillaceae', 'Paenibacillus', 'Paenibacillus sp.']
+-------------------
+Key echp not found in lineage1. Omitted in the taxid fetch
+Lineage names are different for pstu
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Pseudomonadales', 'Pseudomonadaceae', 'Stutzerimonas', 'Stutzerimonas decontaminans']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Pseudomonadales', 'Pseudomonadaceae', 'Stutzerimonas', 'Stutzerimonas stutzeri']
+-------------------
+Lineage names are different for kpk
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Enterobacteriaceae', 'Klebsiella', 'Klebsiella variicola']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Enterobacteriaceae', 'Klebsiella', 'Klebsiella pneumoniae']
+-------------------
+Key kpz not found in lineage1. Omitted in the taxid fetch
+Lineage names are different for eclc
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Enterobacteriaceae', 'Enterobacter', 'Enterobacter hormaechei']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Enterobacteriaceae', 'Enterobacter', 'Enterobacter cloacae']
+-------------------
+Lineage names are different for syj
+ete_way:   ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Synechococcales', 'Merismopediaceae', 'Synechocystis', 'Synechocystis sp. PCC 6714']
+acc_taxid: ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Synechococcales', 'Merismopediaceae', 'Synechocystis', 'Synechocystis sp.']
+-------------------
+Key cjv not found in lineage1. Omitted in the taxid fetch
+Lineage names are different for frf
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Thiotrichales', 'Francisellaceae', 'Francisella', 'Francisella sp. FSC1006']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Thiotrichales', 'Francisellaceae', 'Francisella', 'Francisella sp.']
+-------------------
+Lineage names are different for cus
+ete_way:   ['Bacteria', 'Actinomycetota', 'Actinomycetes', 'Mycobacteriales', 'Corynebacteriaceae', 'Corynebacterium', 'Corynebacterium ramonii']
+acc_taxid: ['Bacteria', 'Actinomycetota', 'Actinomycetes', 'Mycobacteriales', 'Corynebacteriaceae', 'Corynebacterium', 'Corynebacterium ulcerans']
+-------------------
+Key bpsh not found in lineage1. Omitted in the taxid fetch
+Lineage names are different for pcv
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Pectobacteriaceae', 'Pectobacterium', 'Pectobacterium odoriferum']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Pectobacteriaceae', 'Pectobacterium', 'Pectobacterium carotovorum']
+-------------------
+Lineage names are different for but
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Burkholderiales', 'Burkholderiaceae', 'Burkholderia', 'Burkholderia pseudomallei']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Burkholderiales', 'Burkholderiaceae', 'Burkholderia', 'Burkholderia sp.']
+-------------------
+Key llx not found in lineage1. Omitted in the taxid fetch
+Lineage names are different for trm
+ete_way:   ['Bacteria', 'Spirochaetota', 'Spirochaetia', 'Spirochaetales', 'Treponemataceae', 'Treponema', 'Treponema sp. OMZ 838']
+acc_taxid: ['Bacteria', 'Spirochaetota', 'Spirochaetia', 'Spirochaetales', 'Treponemataceae', 'Treponema', 'Treponema sp.']
+-------------------
+Lineage names are different for pant
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Erwiniaceae', 'Pantoea', 'Pantoea sp. PSNIH1']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Erwiniaceae', 'Pantoea', 'Pantoea sp.']
+-------------------
+Lineage names are different for arm
+ete_way:   ['Bacteria', 'Actinomycetota', 'Actinomycetes', 'Micrococcales', 'Micrococcaceae', 'Arthrobacter', 'Arthrobacter sp. PAMC 25486']
+acc_taxid: ['Bacteria', 'Actinomycetota', 'Actinomycetes', 'Micrococcales', 'Micrococcaceae', 'Arthrobacter', 'Arthrobacter sp.']
+-------------------
+Key bmaq not found in lineage1. Omitted in the taxid fetch
+Lineage names are different for thq
+ete_way:   ['Bacteria', 'Thermotogota', 'Thermotogae', 'Thermotogales', 'Thermotogaceae', 'Thermotoga', 'Thermotoga sp. 2812B']
+acc_taxid: ['Bacteria', 'Thermotogota', 'Thermotogae', 'Thermotogales', 'Thermotogaceae', 'Thermotoga', 'Thermotoga sp.']
+-------------------
+Lineage names are different for thz
+ete_way:   ['Bacteria', 'Thermotogota', 'Thermotogae', 'Thermotogales', 'Thermotogaceae', 'Thermotoga', 'Thermotoga sp. Cell2']
+acc_taxid: ['Bacteria', 'Thermotogota', 'Thermotogae', 'Thermotogales', 'Thermotogaceae', 'Thermotoga', 'Thermotoga sp.']
+-------------------
+Lineage names are different for hyd
+ete_way:   ['Bacteria', 'Bacteroidota', 'Cytophagia', 'Cytophagales', 'Hymenobacteraceae', 'Hymenobacter', 'Hymenobacter sp. DG25B']
+acc_taxid: ['Bacteria', 'Bacteroidota', 'Cytophagia', 'Cytophagales', 'Hymenobacteraceae', 'Hymenobacter', 'Hymenobacter sp.']
+-------------------
+Lineage names are different for sox
+ete_way:   ['Bacteria', 'Candidatus Saccharibacteria', 'Candidatus Saccharimonadia', 'Candidatus Nanosynbacterales', 'Candidatus Nanosynbacteraceae', 'Nanosynbacter', 'Candidatus Nanosynbacter lyticus']
+acc_taxid: ['Bacteria', 'Candidatus Saccharibacteria', None, None, None, None, None]
+-------------------
+Lineage names are different for pseo
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Alteromonadales', 'Pseudoalteromonadaceae', 'Pseudoalteromonas', 'Pseudoalteromonas piratica']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Alteromonadales', 'Pseudoalteromonadaceae', 'Pseudoalteromonas', 'Pseudoalteromonas sp.']
+-------------------
+Lineage names are different for panp
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Erwiniaceae', 'Pantoea', 'Pantoea sp. PSNIH2']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Erwiniaceae', 'Pantoea', 'Pantoea sp.']
+-------------------
+Lineage names are different for myr
+ete_way:   ['Bacteria', 'Bacteroidota', 'Flavobacteriia', 'Flavobacteriales', 'Flavobacteriaceae', 'Myroides', 'Myroides sp. A21']
+acc_taxid: ['Bacteria', 'Bacteroidota', 'Flavobacteriia', 'Flavobacteriales', 'Flavobacteriaceae', 'Myroides', 'Myroides sp.']
+-------------------
+Lineage names are different for tcb
+ete_way:   ['Archaea', 'Thermoproteota', 'Thermoprotei', 'Thermofilales', 'Thermofilaceae', 'Thermofilum', 'Thermofilum adornatum']
+acc_taxid: ['Archaea', 'Thermoproteota', 'Thermoprotei', 'Thermofilales', 'Thermofilaceae', 'Thermofilum', 'Thermofilum carboxyditrophus']
+-------------------
+Lineage names are different for bacw
+ete_way:   ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', 'Bacillaceae', 'Bacillus', 'Bacillus sp. WP8']
+acc_taxid: ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', 'Bacillaceae', 'Bacillus', 'Bacillus sp. (in: firmicutes)']
+-------------------
+Lineage names are different for smum
+ete_way:   ['Bacteria', 'Bacteroidota', 'Flavobacteriia', 'Flavobacteriales', None, 'Candidatus Karelsulcia', 'Candidatus Karelsulcia muelleri']
+acc_taxid: ['Bacteria', 'Bacteroidota', 'Flavobacteriia', 'Flavobacteriales', None, 'Candidatus Karelsulcia', None]
+-------------------
+Lineage names are different for nbv
+ete_way:   ['Archaea', 'Nitrososphaerota', None, None, None, 'Candidatus Nitrosopelagicus', 'Candidatus Nitrosopelagicus brevis']
+acc_taxid: ['Archaea', 'Nitrososphaerota', None, None, None, 'Candidatus Nitrosopelagicus', None]
+-------------------
+Lineage names are different for mear
+ete_way:   ['Archaea', 'Candidatus Thermoplasmatota', 'Thermoplasmata', 'Methanomassiliicoccales', 'Methanomassiliicoccaceae', 'Methanoplasma', 'Candidatus Methanoplasma termitum']
+acc_taxid: ['Archaea', 'Candidatus Thermoplasmatota', 'Thermoplasmata', 'Methanomassiliicoccales', 'Methanomassiliicoccaceae', 'Methanoplasma', None]
+-------------------
+Key mmyi not found in lineage1. Omitted in the taxid fetch
+Lineage names are different for bacp
+ete_way:   ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', 'Bacillaceae', 'Bacillus', 'Bacillus sp. Pc3']
+acc_taxid: ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', 'Bacillaceae', 'Bacillus', 'Bacillus sp. (in: firmicutes)']
+-------------------
+Lineage names are different for cbac
+ete_way:   ['Bacteria', 'Actinomycetota', 'Coriobacteriia', 'Eggerthellales', 'Eggerthellaceae', 'Berryella', 'Berryella intestinalis']
+acc_taxid: ['Bacteria', 'Actinomycetota', 'Coriobacteriia', 'Coriobacteriales', 'Coriobacteriaceae', None, 'Coriobacteriaceae bacterium']
+-------------------
+Key camr not found in lineage1. Omitted in the taxid fetch
+Lineage names are different for jeo
+ete_way:   ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', 'Planococcaceae', 'Jeotgalibacillus', 'Jeotgalibacillus malaysiensis']
+acc_taxid: ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', 'Planococcaceae', 'Jeotgalibacillus', 'Jeotgalibacillus sp.']
+-------------------
+Lineage names are different for syu
+ete_way:   ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Synechococcales', 'Synechococcaceae', 'Synechococcus', 'Synechococcus elongatus']
+acc_taxid: ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Synechococcales', 'Synechococcaceae', 'Synechococcus', 'Synechococcus sp.']
+-------------------
+Lineage names are different for bacb
+ete_way:   ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', 'Bacillaceae', 'Bacillus', 'Bacillus sp. BH072']
+acc_taxid: ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', 'Bacillaceae', 'Bacillus', 'Bacillus sp. (in: firmicutes)']
+-------------------
+Lineage names are different for stre
+ete_way:   ['Bacteria', 'Actinomycetota', 'Actinomycetes', 'Kitasatosporales', 'Streptomycetaceae', 'Streptomyces', 'Streptomyces sp. 769']
+acc_taxid: ['Bacteria', 'Actinomycetota', 'Actinomycetes', 'Kitasatosporales', 'Streptomycetaceae', 'Streptomyces', 'Streptomyces sp.']
+-------------------
+Lineage names are different for tti
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Chromatiales', 'Ectothiorhodospiraceae', 'Thioalkalivibrio', 'Thioalkalivibrio paradoxus']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Chromatiales', 'Ectothiorhodospiraceae', 'Thioalkalivibrio', 'Thioalkalivibrio thiocyanoxidans']
+-------------------
+Lineage names are different for hcc
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Hyphomicrobiales', None, 'Hodgkinia', 'Candidatus Hodgkinia cicadicola']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Hyphomicrobiales', None, 'Hodgkinia', None]
+-------------------
+Lineage names are different for hcd
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Hyphomicrobiales', None, 'Hodgkinia', 'Candidatus Hodgkinia cicadicola']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Hyphomicrobiales', None, 'Hodgkinia', None]
+-------------------
+Lineage names are different for chz
+ete_way:   ['Bacteria', 'Bacteroidota', 'Flavobacteriia', 'Flavobacteriales', 'Weeksellaceae', 'Chryseobacterium', 'Chryseobacterium sp. StRB126']
+acc_taxid: ['Bacteria', 'Bacteroidota', 'Flavobacteriia', 'Flavobacteriales', 'Weeksellaceae', 'Chryseobacterium', 'Chryseobacterium sp.']
+-------------------
+Lineage names are different for win
+ete_way:   ['Bacteria', 'Bacteroidota', 'Flavobacteriia', 'Flavobacteriales', 'Flavobacteriaceae', 'Winogradskyella', 'Winogradskyella sp. PG-2']
+acc_taxid: ['Bacteria', 'Bacteroidota', 'Flavobacteriia', 'Flavobacteriales', 'Flavobacteriaceae', 'Winogradskyella', 'Winogradskyella sp.']
+-------------------
+Lineage names are different for bue
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Burkholderiales', 'Burkholderiaceae', 'Burkholderia', 'Burkholderia sp. RPE67']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Burkholderiales', 'Burkholderiaceae', 'Burkholderia', 'Burkholderia sp.']
+-------------------
+Lineage names are different for ykr
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Yersiniaceae', 'Yersinia', 'Yersinia rochesterensis']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Yersiniaceae', 'Yersinia', 'Yersinia kristensenii']
+-------------------
+Lineage names are different for fne
+ete_way:   ['Bacteria', 'Fusobacteriota', 'Fusobacteriia', 'Fusobacteriales', 'Fusobacteriaceae', 'Fusobacterium', 'Fusobacterium animalis']
+acc_taxid: ['Bacteria', 'Fusobacteriota', 'Fusobacteriia', 'Fusobacteriales', 'Fusobacteriaceae', 'Fusobacterium', 'Fusobacterium nucleatum']
+-------------------
+Lineage names are different for cbaa
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Burkholderiales', 'Comamonadaceae', 'Serpentinimonas', 'Serpentinimonas raichei']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Burkholderiales', 'Comamonadaceae', None, 'Comamonadaceae bacterium']
+-------------------
+Lineage names are different for pses
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Pseudomonadales', 'Pseudomonadaceae', 'Pseudomonas', 'Pseudomonas sp. StFLB209']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Pseudomonadales', 'Pseudomonadaceae', 'Pseudomonas', 'Pseudomonas sp.']
+-------------------
+Lineage names are different for fnt
+ete_way:   ['Bacteria', 'Fusobacteriota', 'Fusobacteriia', 'Fusobacteriales', 'Fusobacteriaceae', 'Fusobacterium', 'Fusobacterium vincentii']
+acc_taxid: ['Bacteria', 'Fusobacteriota', 'Fusobacteriia', 'Fusobacteriales', 'Fusobacteriaceae', 'Fusobacterium', 'Fusobacterium nucleatum']
+-------------------
+Lineage names are different for cbab
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Burkholderiales', 'Comamonadaceae', 'Serpentinimonas', 'Serpentinimonas maccroryi']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Burkholderiales', 'Comamonadaceae', None, 'Comamonadaceae bacterium']
+-------------------
+Lineage names are different for wcl
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Rickettsiales', 'Anaplasmataceae', 'Wolbachia', 'Wolbachia endosymbiont of Cimex lectularius']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Rickettsiales', 'Anaplasmataceae', 'Wolbachia', None]
+-------------------
+Lineage names are different for bgp
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Burkholderiales', 'Burkholderiaceae', 'Burkholderia', 'Burkholderia plantarii']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Burkholderiales', 'Burkholderiaceae', 'Burkholderia', 'Burkholderia glumae']
+-------------------
+Lineage names are different for myv
+ete_way:   ['Bacteria', 'Actinomycetota', 'Actinomycetes', 'Mycobacteriales', 'Mycobacteriaceae', 'Mycobacterium', 'Mycobacterium sp. VKM Ac-1817D']
+acc_taxid: ['Bacteria', 'Actinomycetota', 'Actinomycetes', 'Mycobacteriales', 'Mycobacteriaceae', 'Mycobacterium', 'Mycobacterium sp.']
+-------------------
+Lineage names are different for baco
+ete_way:   ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', 'Bacillaceae', 'Bacillus', 'Bacillus sp. OxB-1']
+acc_taxid: ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', 'Bacillaceae', 'Bacillus', 'Bacillus sp. (in: firmicutes)']
+-------------------
+Lineage names are different for hab
+ete_way:   ['Archaea', 'Euryarchaeota', 'Halobacteria', 'Halobacteriales', 'Haloarculaceae', 'Haloarcula', 'Haloarcula sp. CBA1115']
+acc_taxid: ['Archaea', 'Euryarchaeota', 'Halobacteria', 'Halobacteriales', 'Haloarculaceae', 'Haloarcula', 'Haloarcula sp.']
+-------------------
+Lineage names are different for bbag
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Burkholderiales', None, None, 'Burkholderiales bacterium GJ-E10']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Burkholderiales', None, None, 'Burkholderiales bacterium']
+-------------------
+Lineage names are different for nid
+ete_way:   ['Archaea', 'Nitrososphaerota', 'Nitrososphaeria', 'Nitrosopumilales', 'Nitrosopumilaceae', 'Nitrosopumilus', 'Nitrosopumilus piranensis']
+acc_taxid: ['Archaea', 'Nitrososphaerota', 'Nitrososphaeria', 'Nitrosopumilales', 'Nitrosopumilaceae', 'Nitrosopumilus', None]
+-------------------
+Key rrm not found in lineage1. Omitted in the taxid fetch
+Lineage names are different for smue
+ete_way:   ['Bacteria', 'Bacteroidota', 'Flavobacteriia', 'Flavobacteriales', None, 'Candidatus Karelsulcia', 'Candidatus Karelsulcia muelleri']
+acc_taxid: ['Bacteria', 'Bacteroidota', 'Flavobacteriia', 'Flavobacteriales', None, 'Candidatus Karelsulcia', None]
+-------------------
+Lineage names are different for thr
+ete_way:   ['Bacteria', 'Thermotogota', 'Thermotogae', 'Thermotogales', 'Thermotogaceae', 'Thermotoga', 'Thermotoga sp. RQ7']
+acc_taxid: ['Bacteria', 'Thermotogota', 'Thermotogae', 'Thermotogales', 'Thermotogaceae', 'Thermotoga', 'Thermotoga sp.']
+-------------------
+Key rtx not found in lineage1. Omitted in the taxid fetch
+Lineage names are different for smup
+ete_way:   ['Bacteria', 'Bacteroidota', 'Flavobacteriia', 'Flavobacteriales', None, 'Candidatus Karelsulcia', 'Candidatus Karelsulcia muelleri']
+acc_taxid: ['Bacteria', 'Bacteroidota', 'Flavobacteriia', 'Flavobacteriales', None, 'Candidatus Karelsulcia', None]
+-------------------
+Lineage names are different for obt
+ete_way:   ['Bacteria', 'Verrucomicrobiota', 'Opitutae', 'Opitutales', 'Opitutaceae', None, 'Opitutaceae bacterium TAV5']
+acc_taxid: ['Bacteria', 'Verrucomicrobiota', 'Opitutae', 'Opitutales', 'Opitutaceae', None, 'Opitutaceae bacterium']
+-------------------
+Lineage names are different for rbu
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Nitrosomonadales', 'Sterolibacteriaceae', 'Rugosibacter', 'Rugosibacter aromaticivorans']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Rhodocyclales', 'Rhodocyclaceae', None, 'Rhodocyclaceae bacterium']
+-------------------
+Key mmao not found in lineage1. Omitted in the taxid fetch
+Lineage names are different for eme
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Oceanospirillales', 'Halomonadaceae', 'Evansia', 'Candidatus Evansia muelleri']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Oceanospirillales', 'Halomonadaceae', 'Evansia', None]
+-------------------
+Lineage names are different for bacy
+ete_way:   ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', 'Bacillaceae', 'Bacillus', 'Bacillus sp. YP1']
+acc_taxid: ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', 'Bacillaceae', 'Bacillus', 'Bacillus sp. (in: firmicutes)']
+-------------------
+Lineage names are different for psem
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Pseudomonadales', 'Pseudomonadaceae', 'Pseudomonas', 'Pseudomonas sp. MRSN 12121']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Pseudomonadales', 'Pseudomonadaceae', 'Pseudomonas', 'Pseudomonas sp.']
+-------------------
+Lineage names are different for eclx
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Enterobacteriaceae', 'Enterobacter', 'Enterobacter hormaechei']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Enterobacteriaceae', 'Enterobacter', 'Enterobacter cloacae']
+-------------------
+Lineage names are different for ecly
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Enterobacteriaceae', 'Enterobacter', 'Enterobacter hormaechei']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Enterobacteriaceae', 'Enterobacter', 'Enterobacter cloacae']
+-------------------
+Lineage names are different for eclz
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Enterobacteriaceae', 'Enterobacter', 'Enterobacter hormaechei']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Enterobacteriaceae', 'Enterobacter', 'Enterobacter cloacae']
+-------------------
+Key bcoa not found in lineage1. Omitted in the taxid fetch
+Key hpyf not found in lineage1. Omitted in the taxid fetch
+Lineage names are different for plb
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Oceanospirillales', 'Halomonadaceae', 'Portiera', 'Candidatus Portiera aleyrodidarum']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Oceanospirillales', 'Halomonadaceae', 'Portiera', None]
+-------------------
+Lineage names are different for plc
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Oceanospirillales', 'Halomonadaceae', 'Portiera', 'Candidatus Portiera aleyrodidarum']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Oceanospirillales', 'Halomonadaceae', 'Portiera', None]
+-------------------
+Lineage names are different for pli
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Oceanospirillales', 'Halomonadaceae', 'Portiera', 'Candidatus Portiera aleyrodidarum']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Oceanospirillales', 'Halomonadaceae', 'Portiera', None]
+-------------------
+Key bsuc not found in lineage1. Omitted in the taxid fetch
+Lineage names are different for elb
+ete_way:   ['Bacteria', 'Bacteroidota', 'Flavobacteriia', 'Flavobacteriales', 'Weeksellaceae', 'Elizabethkingia', 'Elizabethkingia miricola']
+acc_taxid: ['Bacteria', 'Bacteroidota', 'Flavobacteriia', 'Flavobacteriales', 'Weeksellaceae', 'Elizabethkingia', 'Elizabethkingia sp.']
+-------------------
+Lineage names are different for nin
+ete_way:   ['Archaea', 'Nitrososphaerota', 'Nitrososphaeria', 'Nitrosopumilales', 'Nitrosopumilaceae', 'Nitrosopumilus', 'Nitrosopumilus adriaticus']
+acc_taxid: ['Archaea', 'Nitrososphaerota', 'Nitrososphaeria', 'Nitrosopumilales', 'Nitrosopumilaceae', 'Nitrosopumilus', None]
+-------------------
+Lineage names are different for bul
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Burkholderiales', 'Burkholderiaceae', 'Burkholderia', 'Burkholderia sp. 2002721687']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Burkholderiales', 'Burkholderiaceae', 'Burkholderia', 'Burkholderia sp.']
+-------------------
+Lineage names are different for pfw
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Pseudomonadales', 'Pseudomonadaceae', 'Pseudomonas', 'Pseudomonas simiae']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Pseudomonadales', 'Pseudomonadaceae', 'Pseudomonas', 'Pseudomonas fluorescens']
+-------------------
+Lineage names are different for pff
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Pseudomonadales', 'Pseudomonadaceae', 'Pseudomonas', 'Pseudomonas simiae']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Pseudomonadales', 'Pseudomonadaceae', 'Pseudomonas', 'Pseudomonas fluorescens']
+-------------------
+Lineage names are different for pfb
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Pseudomonadales', 'Pseudomonadaceae', 'Pseudomonas', 'Pseudomonas synxantha']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Pseudomonadales', 'Pseudomonadaceae', 'Pseudomonas', 'Pseudomonas fluorescens']
+-------------------
+Lineage names are different for ari
+ete_way:   ['Bacteria', 'Actinomycetota', 'Actinomycetes', 'Micrococcales', 'Micrococcaceae', 'Psychromicrobium', 'Psychromicrobium lacuslunae']
+acc_taxid: ['Bacteria', 'Actinomycetota', 'Actinomycetes', 'Micrococcales', 'Micrococcaceae', 'Arthrobacter', 'Arthrobacter sp.']
+-------------------
+Lineage names are different for syh
+ete_way:   ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Synechococcales', 'Synechococcaceae', 'Synechococcus', 'Synechococcus sp. WH 8109']
+acc_taxid: ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Synechococcales', 'Synechococcaceae', 'Synechococcus', 'Synechococcus sp.']
+-------------------
+Key cjl not found in lineage1. Omitted in the taxid fetch
+Lineage names are different for magq
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Rhodospirillales', 'Thalassospiraceae', 'Magnetospira', 'Magnetospira sp. QH-2']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Rhodospirillales', 'Thalassospiraceae', 'Magnetospira', 'Magnetospira sp.']
+-------------------
+Key hak not found in lineage1. Omitted in the taxid fetch
+Lineage names are different for ped
+ete_way:   ['Bacteria', 'Bacillota', 'Tissierellia', 'Tissierellales', 'Peptoniphilaceae', 'Peptoniphilus', 'Peptoniphilus sp. ING2-D1G']
+acc_taxid: ['Bacteria', 'Bacillota', 'Tissierellia', 'Tissierellales', 'Peptoniphilaceae', 'Peptoniphilus', 'Peptoniphilus sp.']
+-------------------
+Lineage names are different for pbt
+ete_way:   ['Bacteria', 'Bacteroidota', 'Bacteroidia', 'Bacteroidales', 'Dysgonomonadaceae', 'Fermentimonas', 'Fermentimonas caenicola']
+acc_taxid: ['Bacteria', 'Bacteroidota', 'Bacteroidia', 'Bacteroidales', 'Porphyromonadaceae', None, 'Porphyromonadaceae bacterium']
+-------------------
+Lineage names are different for mek
+ete_way:   ['Archaea', 'Euryarchaeota', 'Methanomicrobia', 'Methanosarcinales', 'Methanosarcinaceae', 'Methanosarcina', 'Methanosarcina sp. Kolksee']
+acc_taxid: ['Archaea', 'Euryarchaeota', 'Methanomicrobia', 'Methanosarcinales', 'Methanosarcinaceae', 'Methanosarcina', 'Methanosarcina sp.']
+-------------------
+Lineage names are different for vba
+ete_way:   ['Bacteria', 'Verrucomicrobiota', None, None, None, None, 'Verrucomicrobia bacterium IMCC26134']
+acc_taxid: ['Bacteria', 'Verrucomicrobia', None, None, None, 'Unclassified Verrucomicrobia', 'Verrucomicrobia bacterium']
+-------------------
+Lineage names are different for bacl
+ete_way:   ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', 'Bacillaceae', 'Bacillus', 'Bacillus subtilis']
+acc_taxid: ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', 'Bacillaceae', 'Bacillus', 'Bacillus sp. (in: firmicutes)']
+-------------------
+Lineage names are different for paly
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Oceanospirillales', 'Halomonadaceae', 'Portiera', 'Candidatus Portiera aleyrodidarum']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Oceanospirillales', 'Halomonadaceae', 'Portiera', None]
+-------------------
+Lineage names are different for pih
+ete_way:   ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', 'Paenibacillaceae', 'Paenibacillus', 'Paenibacillus sp. IHBB 10380']
+acc_taxid: ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', 'Paenibacillaceae', 'Paenibacillus', 'Paenibacillus sp.']
+-------------------
+Lineage names are different for mbac
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Nitrosomonadales', 'Methylophilaceae', 'Methylopumilus', 'Candidatus Methylopumilus turicensis']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Nitrosomonadales', 'Methylophilaceae', 'Methylopumilus', None]
+-------------------
+Lineage names are different for sphi
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Sphingomonadales', 'Sphingomonadaceae', 'Sphingomonas', 'Sphingomonas hengshuiensis']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Sphingomonadales', 'Sphingomonadaceae', 'Sphingomonas', 'Sphingomonas sp.']
+-------------------
+Lineage names are different for metm
+ete_way:   ['Archaea', 'Euryarchaeota', 'Methanomicrobia', 'Methanosarcinales', 'Methanosarcinaceae', 'Methanosarcina', 'Methanosarcina sp. MTP4']
+acc_taxid: ['Archaea', 'Euryarchaeota', 'Methanomicrobia', 'Methanosarcinales', 'Methanosarcinaceae', 'Methanosarcina', 'Methanosarcina sp.']
+-------------------
+Lineage names are different for mef
+ete_way:   ['Archaea', 'Euryarchaeota', 'Methanomicrobia', 'Methanosarcinales', 'Methanosarcinaceae', 'Methanosarcina', 'Methanosarcina sp. WH1']
+acc_taxid: ['Archaea', 'Euryarchaeota', 'Methanomicrobia', 'Methanosarcinales', 'Methanosarcinaceae', 'Methanosarcina', 'Methanosarcina sp.']
+-------------------
+Lineage names are different for meq
+ete_way:   ['Archaea', 'Euryarchaeota', 'Methanomicrobia', 'Methanosarcinales', 'Methanosarcinaceae', 'Methanosarcina', 'Methanosarcina sp. WWM596']
+acc_taxid: ['Archaea', 'Euryarchaeota', 'Methanomicrobia', 'Methanosarcinales', 'Methanosarcinaceae', 'Methanosarcina', 'Methanosarcina sp.']
+-------------------
+Lineage names are different for syb
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Sphingomonadales', 'Sphingomonadaceae', 'Sphingobium', 'Sphingobium sp. YBL2']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Sphingomonadales', 'Sphingomonadaceae', 'Sphingobium', 'Sphingobium sp.']
+-------------------
+Lineage names are different for fil
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Hyphomicrobiales', 'Hyphomicrobiaceae', 'Filomicrobium', 'Candidatus Filomicrobium marinum']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Hyphomicrobiales', 'Hyphomicrobiaceae', 'Filomicrobium', 'Filomicrobium sp.']
+-------------------
+Lineage names are different for fiy
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Hyphomicrobiales', 'Hyphomicrobiaceae', 'Filomicrobium', 'Candidatus Filomicrobium marinum']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Hyphomicrobiales', 'Hyphomicrobiaceae', 'Filomicrobium', 'Filomicrobium sp.']
+-------------------
+Lineage names are different for mbat
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Nitrosomonadales', 'Methylophilaceae', 'Methylopumilus', 'Candidatus Methylopumilus planktonicus']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Nitrosomonadales', 'Methylophilaceae', 'Methylopumilus', None]
+-------------------
+Lineage names are different for hdl
+ete_way:   ['Archaea', 'Euryarchaeota', 'Halobacteria', 'Halobacteriales', 'Halobacteriaceae', 'Halobacterium', 'Halobacterium sp. DL1']
+acc_taxid: ['Archaea', 'Euryarchaeota', 'Halobacteria', 'Halobacteriales', 'Halobacteriaceae', 'Halobacterium', 'Halobacterium sp.']
+-------------------
+Lineage names are different for aln
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Oceanospirillales', 'Alcanivoracaceae', 'Alcanivorax', 'Alcanivorax sp. NBRC 101098']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Oceanospirillales', 'Alcanivoracaceae', 'Alcanivorax', 'Alcanivorax sp.']
+-------------------
+Lineage names are different for duc
+ete_way:   ['Bacteria', 'Chloroflexota', 'Dehalococcoidia', 'Dehalococcoidales', 'Dehalococcoidaceae', 'Dehalococcoides', 'Dehalococcoides sp. UCH007']
+acc_taxid: ['Bacteria', 'Chloroflexota', 'Dehalococcoidia', 'Dehalococcoidales', 'Dehalococcoidaceae', 'Dehalococcoides', 'Dehalococcoides sp.']
+-------------------
+Lineage names are different for tah
+ete_way:   ['Archaea', 'Nitrososphaerota', None, None, None, 'Nitrosotenuis', 'Candidatus Nitrosotenuis cloacae']
+acc_taxid: ['Archaea', 'Nitrososphaerota', None, None, None, None, 'Nitrososphaerota archaeon']
+-------------------
+Lineage names are different for ben
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Enterobacteriaceae', 'Blochmannia', 'Blochmannia endosymbiont of Camponotus (Colobopsis) obliquus']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Enterobacteriaceae', 'Blochmannia', None]
+-------------------
+Lineage names are different for bed
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Enterobacteriaceae', 'Blochmannia', 'Blochmannia endosymbiont of Polyrhachis (Hedomyrma) turneri']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Enterobacteriaceae', 'Blochmannia', None]
+-------------------
+Lineage names are different for balm
+ete_way:   ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', 'Bacillaceae', 'Bacillus', 'Bacillus sp. LM 4-2']
+acc_taxid: ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', 'Bacillaceae', 'Bacillus', 'Bacillus sp. (in: firmicutes)']
+-------------------
+Lineage names are different for thf
+ete_way:   ['Archaea', 'Thermoproteota', 'Thermoprotei', 'Thermofilales', 'Thermofilaceae', 'Infirmifilum', 'Infirmifilum uzonense']
+acc_taxid: ['Archaea', 'Thermoproteota', 'Thermoprotei', 'Thermofilales', 'Thermofilaceae', 'Thermofilum', 'Thermofilum sp.']
+-------------------
+Lineage names are different for hoe
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Hyphomicrobiales', 'Phyllobacteriaceae', 'Hoeflea', 'Hoeflea sp. IMCC20628']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Hyphomicrobiales', 'Phyllobacteriaceae', 'Hoeflea', 'Hoeflea sp.']
+-------------------
+Lineage names are different for calh
+ete_way:   ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Nostocales', 'Calotrichaceae', 'Calothrix', 'Calothrix sp. 336/3']
+acc_taxid: ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Nostocales', 'Calotrichaceae', 'Calothrix', 'Calothrix sp.']
+-------------------
+Lineage names are different for dew
+ete_way:   ['Bacteria', 'Chloroflexota', 'Dehalococcoidia', None, None, 'Dehalogenimonas', 'Dehalogenimonas sp. WBC-2']
+acc_taxid: ['Bacteria', 'Chloroflexota', 'Dehalococcoidia', None, None, 'Dehalogenimonas', 'Dehalogenimonas sp.']
+-------------------
+Lineage names are different for seds
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', None, None, 'Sedimenticola', 'Sedimenticola thiotaurini']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', None, None, 'Sedimenticola', 'Sedimenticola sp.']
+-------------------
+Lineage names are different for ptt
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Morganellaceae', 'Photorhabdus', 'Photorhabdus thracensis']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Morganellaceae', 'Photorhabdus', 'Photorhabdus temperata']
+-------------------
+Lineage names are different for spoi
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Cellvibrionales', 'Spongiibacteraceae', 'Spongiibacter', 'Spongiibacter sp. IMCC21906']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Cellvibrionales', 'Spongiibacteraceae', 'Spongiibacter', 'Spongiibacter sp.']
+-------------------
+Lineage names are different for emn
+ete_way:   ['Bacteria', 'Bacteroidota', 'Flavobacteriia', 'Flavobacteriales', 'Weeksellaceae', 'Elizabethkingia', 'Elizabethkingia anophelis']
+acc_taxid: ['Bacteria', 'Bacteroidota', 'Flavobacteriia', 'Flavobacteriales', 'Weeksellaceae', 'Elizabethkingia', 'Elizabethkingia meningoseptica']
+-------------------
+Lineage names are different for kin
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Enterobacteriaceae', 'Phytobacter', 'Phytobacter ursingii']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Enterobacteriaceae', 'Kluyvera', 'Kluyvera intermedia']
+-------------------
+Lineage names are different for strm
+ete_way:   ['Bacteria', 'Actinomycetota', 'Actinomycetes', 'Kitasatosporales', 'Streptomycetaceae', 'Streptomyces', 'Streptomyces sp. Mg1']
+acc_taxid: ['Bacteria', 'Actinomycetota', 'Actinomycetes', 'Kitasatosporales', 'Streptomycetaceae', 'Streptomyces', 'Streptomyces sp.']
+-------------------
+Lineage names are different for mye
+ete_way:   ['Bacteria', 'Actinomycetota', 'Actinomycetes', 'Mycobacteriales', 'Mycobacteriaceae', 'Mycobacterium', 'Mycobacterium sp. EPa45']
+acc_taxid: ['Bacteria', 'Actinomycetota', 'Actinomycetes', 'Mycobacteriales', 'Mycobacteriaceae', 'Mycobacterium', 'Mycobacterium sp.']
+-------------------
+Lineage names are different for abai
+ete_way:   ['Bacteria', 'Actinomycetota', 'Actinomycetes', None, None, None, 'Actinobacteria bacterium IMCC26256']
+acc_taxid: ['Bacteria', 'Actinomycetota', None, None, None, None, 'Actinomycetota bacterium']
+-------------------
+Lineage names are different for gea
+ete_way:   ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', 'Bacillaceae', 'Geobacillus', 'Geobacillus sp. 12AMOR1']
+acc_taxid: ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', 'Bacillaceae', 'Geobacillus', 'Geobacillus sp.']
+-------------------
+Lineage names are different for psec
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Pseudomonadales', 'Pseudomonadaceae', 'Pseudomonas', 'Pseudomonas sp. CCOS 191']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Pseudomonadales', 'Pseudomonadaceae', 'Pseudomonas', 'Pseudomonas sp.']
+-------------------
+Lineage names are different for strc
+ete_way:   ['Bacteria', 'Actinomycetota', 'Actinomycetes', 'Kitasatosporales', 'Streptomycetaceae', 'Streptomyces', 'Streptomyces sp. CNQ-509']
+acc_taxid: ['Bacteria', 'Actinomycetota', 'Actinomycetes', 'Kitasatosporales', 'Streptomycetaceae', 'Streptomyces', 'Streptomyces sp.']
+-------------------
+Lineage names are different for beo
+ete_way:   ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', 'Bacillaceae', 'Priestia', 'Priestia filamentosa']
+acc_taxid: ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', 'Bacillaceae', 'Priestia', 'Priestia endophytica']
+-------------------
+Lineage names are different for edw
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Hafniaceae', 'Edwardsiella', 'Edwardsiella sp. EA181011']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Hafniaceae', 'Edwardsiella', 'Edwardsiella sp. (in: enterobacteria)']
+-------------------
+Lineage names are different for bbgw
+ete_way:   ['Bacteria', 'Candidatus Berkelbacteria', None, None, None, None, 'Berkelbacteria bacterium GW2011_GWE1_39_12']
+acc_taxid: ['Bacteria', 'Candidatus Berkelbacteria', None, None, None, None, 'Candidatus Berkelbacteria bacterium']
+-------------------
+Lineage names are different for ruf
+ete_way:   ['Bacteria', 'Bacteroidota', 'Cytophagia', 'Cytophagales', 'Hymenobacteraceae', 'Rufibacter', 'Rufibacter radiotolerans']
+acc_taxid: ['Bacteria', 'Bacteroidota', 'Cytophagia', 'Cytophagales', 'Hymenobacteraceae', 'Rufibacter', 'Rufibacter sp.']
+-------------------
+Lineage names are different for ery
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Sphingomonadales', 'Erythrobacteraceae', 'Aurantiacibacter', 'Aurantiacibacter atlanticus']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Sphingomonadales', 'Erythrobacteraceae', 'Erythrobacter', 'Erythrobacter sp.']
+-------------------
+Lineage names are different for cey
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Legionellales', 'Coxiellaceae', 'Coxiella', 'Candidatus Coxiella mudrowiae']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Legionellales', 'Coxiellaceae', None, 'Coxiella-like endosymbiont']
+-------------------
+Lineage names are different for meu
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Nitrosomonadales', 'Methylophilaceae', 'Methylophilus', 'Methylophilus sp. TWE2']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Nitrosomonadales', 'Methylophilaceae', 'Methylophilus', 'Methylophilus sp.']
+-------------------
+Lineage names are different for deq
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Hyphomicrobiales', 'Devosiaceae', 'Devosia', 'Devosia sp. H5989']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Hyphomicrobiales', 'Devosiaceae', 'Devosia', 'Devosia sp.']
+-------------------
+Lineage names are different for edl
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Hafniaceae', 'Edwardsiella', 'Edwardsiella sp. LADL05-105']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Enterobacterales', 'Hafniaceae', 'Edwardsiella', 'Edwardsiella sp. (in: enterobacteria)']
+-------------------
+Lineage names are different for leg
+ete_way:   ['Bacteria', 'Nitrospirota', 'Nitrospiria', 'Nitrospirales', 'Nitrospiraceae', 'Leptospirillum', "Leptospirillum sp. Group II 'CF-1'"]
+acc_taxid: ['Bacteria', 'Nitrospirota', 'Nitrospiria', 'Nitrospirales', 'Nitrospiraceae', 'Leptospirillum', 'Leptospirillum sp.']
+-------------------
+Lineage names are different for metc
+ete_way:   ['Archaea', 'Euryarchaeota', 'Methanobacteria', 'Methanobacteriales', 'Methanobacteriaceae', 'Methanothermobacter', 'Methanothermobacter sp. CaT2']
+acc_taxid: ['Archaea', 'Euryarchaeota', 'Methanobacteria', 'Methanobacteriales', 'Methanobacteriaceae', 'Methanothermobacter', 'Methanothermobacter sp.']
+-------------------
+Lineage names are different for pyw
+ete_way:   ['Archaea', 'Thermoproteota', 'Thermoprotei', 'Thermoproteales', 'Thermoproteaceae', 'Pyrobaculum', 'Pyrobaculum sp. WP30']
+acc_taxid: ['Archaea', 'Thermoproteota', 'Thermoprotei', 'Thermoproteales', 'Thermoproteaceae', 'Pyrobaculum', 'Pyrobaculum sp.']
+-------------------
+Lineage names are different for ars
+ete_way:   ['Bacteria', 'Actinomycetota', 'Actinomycetes', 'Micrococcales', 'Intrasporangiaceae', 'Arsenicicoccus', 'Arsenicicoccus sp. oral taxon 190']
+acc_taxid: ['Bacteria', 'Actinomycetota', 'Actinomycetes', 'Micrococcales', 'Intrasporangiaceae', 'Arsenicicoccus', 'Arsenicicoccus sp.']
+-------------------
+Lineage names are different for olo
+ete_way:   ['Bacteria', 'Actinomycetota', 'Coriobacteriia', 'Coriobacteriales', 'Atopobiaceae', 'Olsenella', 'Olsenella sp. oral taxon 807']
+acc_taxid: ['Bacteria', 'Actinomycetota', 'Coriobacteriia', 'Coriobacteriales', 'Atopobiaceae', 'Olsenella', 'Olsenella sp.']
+-------------------
+Lineage names are different for sele
+ete_way:   ['Bacteria', 'Bacillota', 'Negativicutes', 'Selenomonadales', 'Selenomonadaceae', 'Selenomonas', 'Selenomonas sp. oral taxon 478']
+acc_taxid: ['Bacteria', 'Bacillota', 'Negativicutes', 'Selenomonadales', 'Selenomonadaceae', 'Selenomonas', 'Selenomonas sp.']
+-------------------
+Lineage names are different for gel
+ete_way:   ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', 'Bacillaceae', 'Geobacillus', 'Geobacillus sp. LC300']
+acc_taxid: ['Bacteria', 'Bacillota', 'Bacilli', 'Bacillales', 'Bacillaceae', 'Geobacillus', 'Geobacillus sp.']
+-------------------
+Lineage names are different for azi
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Rhodocyclales', 'Zoogloeaceae', 'Azoarcus', 'Azoarcus sp. CIB']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Rhodocyclales', 'Zoogloeaceae', 'Azoarcus', 'Azoarcus sp.']
+-------------------
+Key cgra not found in lineage1. Omitted in the taxid fetch
+Key mib not found in lineage1. Omitted in the taxid fetch
+Lineage names are different for mnr
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Burkholderiales', 'Oxalobacteraceae', 'Massilia', 'Massilia sp. NR 4-1']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Burkholderiales', 'Oxalobacteraceae', 'Massilia', 'Massilia sp.']
+-------------------
+Lineage names are different for ham
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Oceanospirillales', 'Halomonadaceae', 'Halomonas', 'Halomonas sp. R57-5']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Oceanospirillales', 'Halomonadaceae', 'Halomonas', 'Halomonas sp.']
+-------------------
+Lineage names are different for oto
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Burkholderiales', 'Comamonadaceae', 'Ottowia', 'Ottowia sp. oral taxon 894']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Betaproteobacteria', 'Burkholderiales', 'Comamonadaceae', 'Ottowia', 'Ottowia sp.']
+-------------------
+Lineage names are different for chel
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Hyphomicrobiales', 'Chelatococcaceae', 'Chelatococcus', 'Chelatococcus sp. CO-6']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Hyphomicrobiales', 'Chelatococcaceae', 'Chelatococcus', 'Chelatococcus sp.']
+-------------------
+Lineage names are different for leo
+ete_way:   ['Bacteria', 'Fusobacteriota', 'Fusobacteriia', 'Fusobacteriales', 'Leptotrichiaceae', 'Leptotrichia', 'Leptotrichia sp. oral taxon 212']
+acc_taxid: ['Bacteria', 'Fusobacteriota', 'Fusobacteriia', 'Fusobacteriales', 'Leptotrichiaceae', 'Leptotrichia', 'Leptotrichia sp.']
+-------------------
+Lineage names are different for mim
+ete_way:   ['Bacteria', 'Actinomycetota', 'Actinomycetes', 'Micrococcales', 'Microbacteriaceae', 'Microbacterium', 'Microbacterium sp. CGR1']
+acc_taxid: ['Bacteria', 'Actinomycetota', 'Actinomycetes', 'Micrococcales', 'Microbacteriaceae', 'Microbacterium', 'Microbacterium sp.']
+-------------------
+Lineage names are different for des
+ete_way:   ['Bacteria', 'Thermodesulfobacteriota', 'Desulfuromonadia', 'Desulfuromonadales', 'Desulfuromonadaceae', 'Desulfuromonas', 'Desulfuromonas soudanensis']
+acc_taxid: ['Bacteria', 'Thermodesulfobacteriota', 'Desulfuromonadia', 'Desulfuromonadales', 'Desulfuromonadaceae', 'Desulfuromonas', 'Desulfuromonas sp.']
+-------------------
+Lineage names are different for psea
+ete_way:   ['Bacteria', 'Actinomycetota', 'Actinomycetes', 'Pseudonocardiales', 'Pseudonocardiaceae', 'Pseudonocardia', 'Pseudonocardia sp. AL041005-10']
+acc_taxid: ['Bacteria', 'Actinomycetota', 'Actinomycetes', 'Pseudonocardiales', 'Pseudonocardiaceae', 'Pseudonocardia', 'Pseudonocardia sp.']
+-------------------
+Lineage names are different for mari
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Pseudomonadales', 'Marinobacteraceae', 'Marinobacter', 'Marinobacter sp. CP1']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', 'Pseudomonadales', 'Marinobacteraceae', 'Marinobacter', 'Marinobacter sp.']
+-------------------
+Lineage names are different for psee
+ete_way:   ['Bacteria', 'Actinomycetota', 'Actinomycetes', 'Pseudonocardiales', 'Pseudonocardiaceae', 'Pseudonocardia', 'Pseudonocardia sp. EC080625-04']
+acc_taxid: ['Bacteria', 'Actinomycetota', 'Actinomycetes', 'Pseudonocardiales', 'Pseudonocardiaceae', 'Pseudonocardia', 'Pseudonocardia sp.']
+-------------------
+Lineage names are different for fbt
+ete_way:   ['Bacteria', 'Bacteroidota', 'Cytophagia', 'Cytophagales', 'Flammeovirgaceae', None, 'Flammeovirgaceae bacterium 311']
+acc_taxid: ['Bacteria', 'Bacteroidota', 'Cytophagia', 'Cytophagales', 'Flammeovirgaceae', None, 'Flammeovirgaceae bacterium']
+-------------------
+Lineage names are different for awa
+ete_way:   ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Nostocales', 'Nostocaceae', 'Anabaena', 'Anabaena sp. WA102']
+acc_taxid: ['Bacteria', 'Cyanobacteriota', 'Cyanophyceae', 'Nostocales', 'Nostocaceae', 'Anabaena', 'Anabaena sp.']
+-------------------
+Lineage names are different for hye
+ete_way:   ['Bacteria', 'Bacteroidota', 'Cytophagia', 'Cytophagales', 'Hymenobacteraceae', 'Hymenobacter', 'Hymenobacter sp. DG25A']
+acc_taxid: ['Bacteria', 'Bacteroidota', 'Cytophagia', 'Cytophagales', 'Hymenobacteraceae', 'Hymenobacter', 'Hymenobacter sp.']
+-------------------
+Lineage names are different for sphp
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Sphingomonadales', 'Sphingomonadaceae', 'Sphingopyxis', 'Sphingopyxis sp. 113P3']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Sphingomonadales', 'Sphingomonadaceae', 'Sphingopyxis', 'Sphingopyxis sp.']
+-------------------
+Lineage names are different for tsn
+ete_way:   ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', None, None, 'Candidatus Pseudothioglobus', 'Candidatus Pseudothioglobus singularis']
+acc_taxid: ['Bacteria', 'Pseudomonadota', 'Gammaproteobacteria', None, None, 'Candidatus Thioglobus', None]
+-------------------
+Lineage names are different for hsd
+ete_way:   ['Bacteria', 'Bacillota', 'Clostridia', 'Lachnospirales', 'Lachnospiraceae', 'Herbinix', 'Herbinix luporum']
+acc_taxid: ['Bacteria', 'Bacillota', 'Clostridia', 'Lachnospirales', 'Lachnospiraceae', 'Herbinix', 'Herbinix sp.']
+-------------------
+Omitted 72 records
+['pagg', 'cac', 'neq', 'rpd', 'hwa', 'mmq', 'bra', 'bcy', 'ypi', 'rcm', 'pmj', 'tpd', 'spx', 'seg', 'nam', 'rhi', 'cbi', 'siy', 'dfe', 'sro', 'smb', 'srm', 'bll', 'tra', 'naz', 'gca', 'tam', 'mhd', 'pax', 'sex', 'bju', 'vcl', 'hpx', 'heg', 'lay', 'lra', 'mhi', 'bgb', 'stf', 'mmv', 'pga', 'aza', 'sdv', 'saum', 'fus', 'cjej', 'lxy', 'ssui', 'paeg', 'dji', 'paeo', 'gst', 'baft', 'kln', 'echp', 'kpz', 'cjv', 'bpsh', 'llx', 'bmaq', 'mmyi', 'camr', 'rrm', 'rtx', 'mmao', 'bcoa', 'hpyf', 'bsuc', 'cjl', 'hak', 'cgra', 'mib']

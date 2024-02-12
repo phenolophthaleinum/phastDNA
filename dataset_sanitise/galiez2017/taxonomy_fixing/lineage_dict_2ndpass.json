@@ -1,0 +1,641 @@
+{
+  "seg": [
+    "Bacteria",
+    "Pseudomonadota",
+    "Gammaproteobacteria",
+    "Enterobacterales",
+    "Enterobacteriaceae",
+    "Salmonella",
+    "Salmonella enterica"
+  ],
+  "kln": [
+    "Bacteria",
+    "Pseudomonadota",
+    "Gammaproteobacteria",
+    "Enterobacterales",
+    "Erwiniaceae",
+    "Pantoea",
+    "Pantoea rwandensis"
+  ],
+  "sro": [
+    "Bacteria",
+    "Actinomycetota",
+    "Actinomycetes",
+    "Streptosporangiales",
+    "Streptosporangiaceae",
+    "Streptosporangium",
+    "Streptosporangium roseum"
+  ],
+  "pmj": [
+    "Bacteria",
+    "Cyanobacteriota",
+    "Cyanophyceae",
+    "Synechococcales",
+    "Prochlorococcaceae",
+    "Prochlorococcus",
+    "Prochlorococcus marinus"
+  ],
+  "cjej": [
+    "Bacteria",
+    "Campylobacterota",
+    "Epsilonproteobacteria",
+    "Campylobacterales",
+    "Campylobacteraceae",
+    "Campylobacter",
+    "Campylobacter jejuni"
+  ],
+  "rtx": [
+    "Bacteria",
+    "Actinomycetota",
+    "Actinomycetes",
+    "Micrococcales",
+    "Microbacteriaceae",
+    "Rathayibacter",
+    "Rathayibacter toxicus"
+  ],
+  "bgb": [
+    "Bacteria",
+    "Spirochaetota",
+    "Spirochaetia",
+    "Spirochaetales",
+    "Borreliaceae",
+    "Borreliella",
+    "Borreliella garinii"
+  ],
+  "fus": [
+    "Bacteria",
+    "Fusobacteriota",
+    "Fusobacteriia",
+    "Fusobacteriales",
+    "Fusobacteriaceae",
+    "Fusobacterium",
+    "Fusobacterium animalis"
+  ],
+  "llx": [
+    "Bacteria",
+    "Bacillota",
+    "Bacilli",
+    "Lactobacillales",
+    "Streptococcaceae",
+    "Lactococcus",
+    "Lactococcus lactis"
+  ],
+  "bcoa": [
+    "Bacteria",
+    "Bacillota",
+    "Bacilli",
+    "Bacillales",
+    "Bacillaceae",
+    "Heyndrickxia",
+    "Heyndrickxia coagulans"
+  ],
+  "siy": [
+    "Archaea",
+    "Thermoproteota",
+    "Thermoprotei",
+    "Sulfolobales",
+    "Sulfolobaceae",
+    "Sulfolobus",
+    "Sulfolobus islandicus"
+  ],
+  "sex": [
+    "Bacteria",
+    "Pseudomonadota",
+    "Gammaproteobacteria",
+    "Enterobacterales",
+    "Enterobacteriaceae",
+    "Salmonella",
+    "Salmonella enterica"
+  ],
+  "rrm": [
+    "Bacteria",
+    "Pseudomonadota",
+    "Alphaproteobacteria",
+    "Rickettsiales",
+    "Rickettsiaceae",
+    "Rickettsia",
+    "Rickettsia rickettsii"
+  ],
+  "cjv": [
+    "Bacteria",
+    "Campylobacterota",
+    "Epsilonproteobacteria",
+    "Campylobacterales",
+    "Campylobacteraceae",
+    "Campylobacter",
+    "Campylobacter jejuni"
+  ],
+  "lxy": [
+    "Bacteria",
+    "Actinomycetota",
+    "Actinomycetes",
+    "Micrococcales",
+    "Microbacteriaceae",
+    "Leifsonia",
+    "Leifsonia xyli"
+  ],
+  "stf": [
+    "Bacteria",
+    "Bacillota",
+    "Bacilli",
+    "Lactobacillales",
+    "Streptococcaceae",
+    "Streptococcus",
+    "Streptococcus salivarius"
+  ],
+  "gst": [
+    "Bacteria",
+    "Bacillota",
+    "Bacilli",
+    "Bacillales",
+    "Bacillaceae",
+    "Bacillus",
+    "Bacillus sp. X1(2014)"
+  ],
+  "cbi": [
+    "Bacteria",
+    "Bacillota",
+    "Clostridia",
+    "Eubacteriales",
+    "Clostridiaceae",
+    "Clostridium",
+    "Clostridium botulinum"
+  ],
+  "pga": [
+    "Bacteria",
+    "Pseudomonadota",
+    "Alphaproteobacteria",
+    "Rhodobacterales",
+    "Roseobacteraceae",
+    "Phaeobacter",
+    "Phaeobacter inhibens"
+  ],
+  "bpsh": [
+    "Bacteria",
+    "Pseudomonadota",
+    "Betaproteobacteria",
+    "Burkholderiales",
+    "Burkholderiaceae",
+    "Burkholderia",
+    "Burkholderia pseudomallei"
+  ],
+  "gca": [
+    "Bacteria",
+    "Pseudomonadota",
+    "Betaproteobacteria",
+    "Nitrosomonadales",
+    "Gallionellaceae",
+    "Gallionella",
+    "Gallionella capsiferriformans"
+  ],
+  "bju": [
+    "Bacteria",
+    "Pseudomonadota",
+    "Alphaproteobacteria",
+    "Hyphomicrobiales",
+    "Nitrobacteraceae",
+    "Bradyrhizobium",
+    "Bradyrhizobium japonicum"
+  ],
+  "hak": [
+    "Bacteria",
+    "Pseudomonadota",
+    "Gammaproteobacteria",
+    "Oceanospirillales",
+    "Halomonadaceae",
+    "Halomonas",
+    "Halomonas sp. KO116"
+  ],
+  "ypi": [
+    "Bacteria",
+    "Pseudomonadota",
+    "Gammaproteobacteria",
+    "Enterobacterales",
+    "Yersiniaceae",
+    "Yersinia",
+    "Yersinia pseudotuberculosis"
+  ],
+  "rpd": [
+    "Bacteria",
+    "Pseudomonadota",
+    "Alphaproteobacteria",
+    "Hyphomicrobiales",
+    "Nitrobacteraceae",
+    "Rhodopseudomonas",
+    "Rhodopseudomonas palustris"
+  ],
+  "lra": [
+    "Bacteria",
+    "Bacillota",
+    "Bacilli",
+    "Lactobacillales",
+    "Lactobacillaceae",
+    "Lacticaseibacillus",
+    "Lacticaseibacillus rhamnosus"
+  ],
+  "aza": [
+    "Bacteria",
+    "Pseudomonadota",
+    "Betaproteobacteria",
+    "Rhodocyclales",
+    "Zoogloeaceae",
+    "Azoarcus",
+    "Azoarcus sp. KH32C"
+  ],
+  "tpd": [
+    "Bacteria",
+    "Bacillota",
+    "Clostridia",
+    "Thermoanaerobacterales",
+    "Thermoanaerobacteraceae",
+    "Thermoanaerobacter",
+    "Thermoanaerobacter pseudethanolicus"
+  ],
+  "naz": [
+    "Bacteria",
+    "Cyanobacteriota",
+    "Cyanophyceae",
+    "Nostocales",
+    "Nostocaceae",
+    "Trichormus",
+    "Trichormus azollae"
+  ],
+  "cjl": [
+    "Bacteria",
+    "Campylobacterota",
+    "Epsilonproteobacteria",
+    "Campylobacterales",
+    "Campylobacteraceae",
+    "Campylobacter",
+    "Campylobacter jejuni"
+  ],
+  "cac": [
+    "Bacteria",
+    "Bacillota",
+    "Clostridia",
+    "Eubacteriales",
+    "Clostridiaceae",
+    "Clostridium",
+    "Clostridium acetobutylicum"
+  ],
+  "pax": [
+    "Bacteria",
+    "Actinomycetota",
+    "Actinomycetes",
+    "Propionibacteriales",
+    "Propionibacteriaceae",
+    "Cutibacterium",
+    "Cutibacterium acnes"
+  ],
+  "cgra": [
+    "Bacteria",
+    "Campylobacterota",
+    "Epsilonproteobacteria",
+    "Campylobacterales",
+    "Campylobacteraceae",
+    "Campylobacter",
+    "Campylobacter gracilis"
+  ],
+  "pagg": [
+    "Bacteria",
+    "Pseudomonadota",
+    "Gammaproteobacteria",
+    "Enterobacterales",
+    "Erwiniaceae",
+    "Pantoea",
+    "Pantoea agglomerans"
+  ],
+  "mhi": [
+    "Archaea",
+    "Euryarchaeota",
+    "Methanomicrobia",
+    "Methanotrichales",
+    "Methanotrichaceae",
+    "Methanothrix",
+    "Methanothrix harundinacea"
+  ],
+  "mib": [
+    "Bacteria",
+    "Candidatus Beckwithbacteria",
+    null,
+    null,
+    null,
+    null,
+    "Candidatus Beckwithbacteria bacterium GW2011_GWC1_49_16"
+  ],
+  "hpyf": [
+    "Bacteria",
+    "Campylobacterota",
+    "Epsilonproteobacteria",
+    "Campylobacterales",
+    "Helicobacteraceae",
+    "Helicobacter",
+    "Helicobacter pylori"
+  ],
+  "heg": [
+    "Bacteria",
+    "Campylobacterota",
+    "Epsilonproteobacteria",
+    "Campylobacterales",
+    "Helicobacteraceae",
+    "Helicobacter",
+    "Helicobacter pylori"
+  ],
+  "sdv": [
+    "Bacteria",
+    "Actinomycetota",
+    "Actinomycetes",
+    "Kitasatosporales",
+    "Streptomycetaceae",
+    "Streptomyces",
+    "Streptomyces davaonensis"
+  ],
+  "spx": [
+    "Bacteria",
+    "Bacillota",
+    "Bacilli",
+    "Lactobacillales",
+    "Streptococcaceae",
+    "Streptococcus",
+    "Streptococcus pneumoniae"
+  ],
+  "bsuc": [
+    "Bacteria",
+    "Pseudomonadota",
+    "Alphaproteobacteria",
+    "Hyphomicrobiales",
+    "Brucellaceae",
+    "Brucella",
+    "Brucella suis"
+  ],
+  "bcy": [
+    "Bacteria",
+    "Bacillota",
+    "Bacilli",
+    "Bacillales",
+    "Bacillaceae",
+    "Bacillus",
+    "Bacillus cytotoxicus"
+  ],
+  "vcl": [
+    "Bacteria",
+    "Pseudomonadota",
+    "Gammaproteobacteria",
+    "Vibrionales",
+    "Vibrionaceae",
+    "Vibrio",
+    "Vibrio cholerae"
+  ],
+  "mmq": [
+    "Archaea",
+    "Euryarchaeota",
+    "Methanococci",
+    "Methanococcales",
+    "Methanococcaceae",
+    "Methanococcus",
+    "Methanococcus maripaludis"
+  ],
+  "saum": [
+    "Bacteria",
+    "Bacillota",
+    "Bacilli",
+    "Bacillales",
+    "Staphylococcaceae",
+    "Staphylococcus",
+    "Staphylococcus aureus"
+  ],
+  "camr": [
+    "Bacteria",
+    "Campylobacterota",
+    "Epsilonproteobacteria",
+    "Campylobacterales",
+    "Campylobacteraceae",
+    "Campylobacter",
+    "Campylobacter sp. RM16704"
+  ],
+  "baft": [
+    "Bacteria",
+    "Spirochaetota",
+    "Spirochaetia",
+    "Spirochaetales",
+    "Borreliaceae",
+    "Borreliella",
+    "Borreliella afzelii"
+  ],
+  "paeg": [
+    "Bacteria",
+    "Pseudomonadota",
+    "Gammaproteobacteria",
+    "Pseudomonadales",
+    "Pseudomonadaceae",
+    "Pseudomonas",
+    "Pseudomonas aeruginosa"
+  ],
+  "lay": [
+    "Bacteria",
+    "Bacillota",
+    "Bacilli",
+    "Lactobacillales",
+    "Lactobacillaceae",
+    "Lactobacillus",
+    "Lactobacillus amylovorus"
+  ],
+  "mmyi": [
+    "Bacteria",
+    "Mycoplasmatota",
+    "Mollicutes",
+    "Mycoplasmatales",
+    "Mycoplasmataceae",
+    "Mycoplasma",
+    "Mycoplasma mycoides"
+  ],
+  "echp": [
+    "Bacteria",
+    "Pseudomonadota",
+    "Alphaproteobacteria",
+    "Rickettsiales",
+    "Anaplasmataceae",
+    "Ehrlichia",
+    "Ehrlichia chaffeensis"
+  ],
+  "dfe": [
+    "Bacteria",
+    "Bacteroidota",
+    "Cytophagia",
+    "Cytophagales",
+    "Spirosomataceae",
+    "Dyadobacter",
+    "Dyadobacter fermentans"
+  ],
+  "hpx": [
+    "Bacteria",
+    "Campylobacterota",
+    "Epsilonproteobacteria",
+    "Campylobacterales",
+    "Helicobacteraceae",
+    "Helicobacter",
+    "Helicobacter pylori"
+  ],
+  "rcm": [
+    "Bacteria",
+    "Pseudomonadota",
+    "Alphaproteobacteria",
+    "Rickettsiales",
+    "Rickettsiaceae",
+    "Rickettsia",
+    "Rickettsia canadensis"
+  ],
+  "rhi": [
+    "Bacteria",
+    "Pseudomonadota",
+    "Alphaproteobacteria",
+    "Hyphomicrobiales",
+    "Rhizobiaceae",
+    "Sinorhizobium",
+    "Sinorhizobium fredii"
+  ],
+  "dji": [
+    "Bacteria",
+    "Pseudomonadota",
+    "Gammaproteobacteria",
+    "Xanthomonadales",
+    "Rhodanobacteraceae",
+    "Dyella",
+    "Dyella jiangningensis"
+  ],
+  "ssui": [
+    "Bacteria",
+    "Bacillota",
+    "Bacilli",
+    "Lactobacillales",
+    "Streptococcaceae",
+    "Streptococcus",
+    "Streptococcus suis"
+  ],
+  "paeo": [
+    "Bacteria",
+    "Pseudomonadota",
+    "Gammaproteobacteria",
+    "Pseudomonadales",
+    "Pseudomonadaceae",
+    "Pseudomonas",
+    "Pseudomonas aeruginosa"
+  ],
+  "srm": [
+    "Bacteria",
+    "Rhodothermota",
+    "Rhodothermia",
+    "Rhodothermales",
+    "Salinibacteraceae",
+    "Salinibacter",
+    "Salinibacter ruber"
+  ],
+  "nam": [
+    "Bacteria",
+    "Campylobacterota",
+    "Epsilonproteobacteria",
+    "Nautiliales",
+    "Nautiliaceae",
+    "Nautilia",
+    "Nautilia profundicola"
+  ],
+  "kpz": [
+    "Bacteria",
+    "Pseudomonadota",
+    "Gammaproteobacteria",
+    "Enterobacterales",
+    "Enterobacteriaceae",
+    "Klebsiella",
+    "Klebsiella pneumoniae"
+  ],
+  "smb": [
+    "Bacteria",
+    "Bacillota",
+    "Bacilli",
+    "Lactobacillales",
+    "Streptococcaceae",
+    "Streptococcus",
+    "Streptococcus mitis"
+  ],
+  "mmv": [
+    "Bacteria",
+    "Actinomycetota",
+    "Actinomycetes",
+    "Mycobacteriales",
+    "Mycobacteriaceae",
+    "Mycobacteroides",
+    "Mycobacteroides abscessus"
+  ],
+  "hwa": [
+    "Archaea",
+    "Euryarchaeota",
+    "Halobacteria",
+    "Haloferacales",
+    "Haloferacaceae",
+    "Haloquadratum",
+    "Haloquadratum walsbyi"
+  ],
+  "bll": [
+    "Bacteria",
+    "Actinomycetota",
+    "Actinomycetes",
+    "Bifidobacteriales",
+    "Bifidobacteriaceae",
+    "Bifidobacterium",
+    "Bifidobacterium longum"
+  ],
+  "tam": [
+    "Bacteria",
+    "Aquificota",
+    "Aquificae",
+    "Desulfurobacteriales",
+    "Desulfurobacteriaceae",
+    "Thermovibrio",
+    "Thermovibrio ammonificans"
+  ],
+  "bra": [
+    "Bacteria",
+    "Pseudomonadota",
+    "Alphaproteobacteria",
+    "Hyphomicrobiales",
+    "Nitrobacteraceae",
+    "Bradyrhizobium",
+    "Bradyrhizobium sp. ORS 278"
+  ],
+  "mmao": [
+    "Archaea",
+    "Euryarchaeota",
+    "Methanococci",
+    "Methanococcales",
+    "Methanococcaceae",
+    "Methanococcus",
+    "Methanococcus maripaludis"
+  ],
+  "tra": [
+    "Bacteria",
+    "Deinococcota",
+    "Deinococci",
+    "Trueperales",
+    "Trueperaceae",
+    "Truepera",
+    "Truepera radiovictrix"
+  ],
+  "mhd": [
+    "Bacteria",
+    "Deinococcota",
+    "Deinococci",
+    "Thermales",
+    "Thermaceae",
+    "Marinithermus",
+    "Marinithermus hydrothermalis"
+  ],
+  "bmaq": [
+    "Bacteria",
+    "Pseudomonadota",
+    "Betaproteobacteria",
+    "Burkholderiales",
+    "Burkholderiaceae",
+    "Burkholderia",
+    "Burkholderia mallei"
+  ]
+}
