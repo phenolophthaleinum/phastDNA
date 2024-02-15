@@ -1,8 +1,8 @@
-from ete3 import NCBITaxa
+# from ete3 import NCBITaxa
 import subprocess
 import os
 import pathlib as pl
-from pyfastx import Fasta
+# from pyfastx import Fasta
 from typing import List
 import json
 
@@ -252,5 +252,52 @@ def fix_virus_metadata(host_json: str, prev_virus: str, output_virus_path: str):
             no_change += 1
     print(f"Changed: {changed} | No change: {no_change}")
 
+    with open(output_virus_path, "w") as f:
+        json.dump(virus_json, f, indent=2)
+
+
+def check_unlinked_interactions(host_json: str, virus_json: str, output_unlinked_path: str):
+    with open(host_json, "r") as f:
+        host_json = json.load(f)
+    with open(virus_json, "r") as f:
+        virus_json = json.load(f)
+    
+    unlinked_interactions = []
+    for virus_key in virus_json:
+        link_flag = False
+        virus_host_lineage = virus_json[virus_key]["host"]['lineage_names']
+        for host_key in host_json:
+            host_host_lineage = host_json[host_key]["lineage_names"]
+            if virus_host_lineage == host_host_lineage:
+                link_flag = True
+                break
+        if not link_flag:
+            unlinked_interactions.append(virus_key)
+            print(f'Unlinked interaction: {virus_key}\n Host from virus: {virus_json[virus_key]["host"]["lineage_names"]}')
+    with open(output_unlinked_path, "w") as f:
+        json.dump(unlinked_interactions, f, indent=2)
+
+
+
+def fix_unlinked_interactions(host_json: str, virus_json: str, unlinked_json: str, output_virus_path: str):
+    with open(host_json, "r") as f:
+        host_json = json.load(f)
+    with open(virus_json, "r") as f:
+        virus_json = json.load(f)
+    with open(unlinked_json, "r") as f:
+        unlinked_interactions = json.load(f)
+    
+    # unlinked_interactions = []
+    for virus_key in unlinked_interactions:
+        virus_host_lineage = virus_json[virus_key]["host"]['lineage_names']
+        virus_host_name = virus_json[virus_key]["host"]["name"]
+        for host_key in host_json:
+            host_host_lineage = host_json[host_key]["lineage_names"]
+            host_host_name = host_json[host_key]["name"]
+            if virus_host_name in host_host_name:
+                virus_json[virus_key]["host"]['lineage_names'] = host_host_lineage
+                print(f'Fixed unlinked interaction: {virus_key}\n New Host from virus: {virus_json[virus_key]["host"]["lineage_names"]}')
+                # unlinked_interactions.append(virus_key)
+                break
     with open(output_virus_path, "w") as f:
         json.dump(virus_json, f, indent=2)

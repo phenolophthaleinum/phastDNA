@@ -1,0 +1,14 @@
+Fixed unlinked interaction: NC_012696
+ New Host from virus: ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Rhodobacterales', 'Roseobacteraceae', 'Sulfitobacter', 'Sulfitobacter sp.']
+Fixed unlinked interaction: NC_019550
+ New Host from virus: ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Hyphomicrobiales', 'Rhizobiaceae', 'Liberibacter', 'Candidatus Liberibacter asiaticus']
+Fixed unlinked interaction: NC_020481
+ New Host from virus: ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Candidatus Pelagibacterales', 'Candidatus Pelagibacteraceae', 'Pelagibacter', 'Candidatus Pelagibacter ubique']
+Fixed unlinked interaction: NC_021864
+ New Host from virus: ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Candidatus Puniceispirillales', 'Candidatus Puniceispirillaceae', 'Candidatus Puniceispirillum', 'Candidatus Puniceispirillum marinum']
+Fixed unlinked interaction: NC_011551
+ New Host from virus: ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Hyphomicrobiales', 'Rhizobiaceae', 'Liberibacter', 'Candidatus Liberibacter asiaticus']
+Fixed unlinked interaction: NC_020482
+ New Host from virus: ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Candidatus Pelagibacterales', 'Candidatus Pelagibacteraceae', 'Pelagibacter', 'Candidatus Pelagibacter ubique']
+Fixed unlinked interaction: NC_020483
+ New Host from virus: ['Bacteria', 'Pseudomonadota', 'Alphaproteobacteria', 'Candidatus Pelagibacterales', 'Candidatus Pelagibacteraceae', 'Pelagibacter', 'Candidatus Pelagibacter ubique']

@@ -1,0 +1,14 @@
+Unlinked interaction: NC_012696
+ Host from virus: ['Bacteria', 'Proteobacteria', 'Alphaproteobacteria', 'Rhodobacterales', 'Rhodobacteraceae', 'Sulfitobacter', 'Sulfitobacter sp. EE-36']
+Unlinked interaction: NC_019550
+ Host from virus: ['Bacteria', 'Proteobacteria', 'Alphaproteobacteria', 'Rhizobiales', 'Rhizobiaceae', 'Candidatus Liberibacter', 'Candidatus Liberibacter asiaticus']
+Unlinked interaction: NC_020481
+ Host from virus: ['Bacteria', 'Proteobacteria', 'Alphaproteobacteria', 'Pelagibacterales', 'Pelagibacteraceae', 'Candidatus Pelagibacter', 'Candidatus Pelagibacter ubique']
+Unlinked interaction: NC_021864
+ Host from virus: ['Bacteria', 'Proteobacteria', 'Alphaproteobacteria', 'unknown', 'unknown', 'Candidatus Puniceispirillum', 'Candidatus Puniceispirillum marinum']
+Unlinked interaction: NC_011551
+ Host from virus: ['Bacteria', 'Proteobacteria', 'Alphaproteobacteria', 'Rhizobiales', 'Rhizobiaceae', 'Candidatus Liberibacter', 'Candidatus Liberibacter asiaticus']
+Unlinked interaction: NC_020482
+ Host from virus: ['Bacteria', 'Proteobacteria', 'Alphaproteobacteria', 'Pelagibacterales', 'Pelagibacteraceae', 'Candidatus Pelagibacter', 'Candidatus Pelagibacter ubique']
+Unlinked interaction: NC_020483
+ Host from virus: ['Bacteria', 'Proteobacteria', 'Alphaproteobacteria', 'Pelagibacterales', 'Pelagibacteraceae', 'Candidatus Pelagibacter', 'Candidatus Pelagibacter ubique']
