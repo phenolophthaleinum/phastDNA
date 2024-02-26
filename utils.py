@@ -306,6 +306,12 @@ def sanitize_names(metadata_dict: Dict[str, Dict[str, Any]],
     return metadata_dict
 
 
+def filter_taxname(metadata_dict: Dict[str, Dict[str, Any]], tax_name: str, virus: bool = False):
+
+    return {record: metadata for record, metadata in metadata_dict.items() if tax_name in metadata['lineage_names']} if not virus \
+        else {record: metadata for record, metadata in metadata_dict.items() if tax_name in metadata['host']['lineage_names']}
+
+
 def reverse_complement(seq):
     """ todo
 

@@ -91,6 +91,8 @@ if __name__ == "__main__":
                         help="Path to fastDNA executable (default [./fastDNA/fastdna']). <train> <predict>")
     parser.add_argument("--performance_metric", required=False, default='accordance', choices=["accordance", "top", "top3"],
                         help="Performance metric used for the trained model (default ['accordance']). <train>")
+    parser.add_argument("--taxname_filter", required=False,
+                        help="Taxa name for which the dataset will be filltered, e.g. Bacillaceae - will only include hosts (and its respective viruses) with this name in the lineage (default ['None']). <train>") 
     parser.add_argument("-t", "--threads", required=False, default=default_threads, type=int,
                         help="Number of threads to use (default [all but one]). <train> <predict>")
 
@@ -180,7 +182,8 @@ if __name__ == "__main__":
                               labels=args.labels,
                               samples=args.samples,
                               fastdna_exe=fastdna_exe,
-                              performance_metric=args.performance_metric)
+                              performance_metric=args.performance_metric,
+                              taxname_filter=args.taxname_filter)
         optimizer.optimize()
 
     logger.success('Finished!')

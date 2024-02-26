@@ -20,7 +20,7 @@ from utils import (Parallel, default_threads,
                    sample_fasta_dir, labeled_fasta,
                    serialize, read_serialized,
                    fastDNA_exe, time_this,
-                   log, sanitize_names)
+                   log, sanitize_names, filter_taxname)
 
 
 class Classifier:
@@ -333,7 +333,8 @@ class Optimizer:
                  samples: int = 200,
                  fastdna_exe: Path = fastDNA_exe,
                  debug: bool = False,
-                 performance_metric: str = 'accordance'):
+                 performance_metric: str = 'accordance',
+                 taxname_filter: str = None):
 
         self.debug = debug
         self.n_examples = n_examples
@@ -341,6 +342,7 @@ class Optimizer:
         self.labels = labels
         self.threads = threads
         self.performance_metric = performance_metric
+        self.taxname_filter = taxname_filter
 
         self.virus_fasta_dir = virus_dir.joinpath('fasta')
         # TODO
@@ -351,14 +353,16 @@ class Optimizer:
         logger.info("EVENT: Reading metadata [0]")
         metadata_json = virus_dir.joinpath('virus.json')
         with metadata_json.open() as mj:
-            self.virus_metadata = sanitize_names(json.load(mj), virus=True)
+            virus_json = filter_taxname(json.load(mj), self.taxname_filter, virus=True) if self.taxname_filter else json.load(mj)
+            self.virus_metadata = sanitize_names(virus_json, virus=True)
 
         self.dir = working_dir
         self.dir.mkdir(exist_ok=True, parents=True)
 
         metadata_json = host_dir.joinpath('host.json')
         with metadata_json.open() as hj:
-            self.host_metadata = sanitize_names(json.load(hj))
+            host_json = filter_taxname(json.load(hj), self.taxname_filter) if self.taxname_filter else json.load(hj)
+            self.host_metadata = sanitize_names(host_json)
         
         # sampling taxa
         logger.info(f"EVENT: Sampling {self.n_examples} genomes from each taxa at {self.examples_from} level [1]")
