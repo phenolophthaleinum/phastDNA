@@ -23,286 +23,6 @@ from utils import (Parallel, default_threads,
                    log, sanitize_names, filter_taxname)
 
 
-class Classifier:
-    """
-    Complete phastDNA phage-host classifier
-    fit to the training sets of host and virus fasta files.
-    """
-
-    def __init__(self,
-                 working_dir: Path,
-                 minn: int,
-                 maxn: int,
-                 labels: str = 'species',
-                 lrate: float = 0.1,
-                 ulr: float = 100,
-                 dim: int = 100,
-                 noise: int = 0,
-                 fraglen: int = 200,
-                 epochs: int = 20,
-                 loss: str = 'softmax',
-                 threads: int = default_threads,
-                 considered: int = 10,
-                 samples: int = 200,
-                 fastdna_exe: Path = fastDNA_exe,
-                 debug=False,
-                 performance_metric: str = 'accordance'):
-        """
-        Initializer for the fastDNA-based phage-host classifier.
-
-        :param working_dir: path to temporary directory used to store required fies
-        :param minn: Minimum size of a k-mer to use during the training process.
-        :param maxn: Maximum size of a k-mer to use during the training process
-               (it is advised to be kept the same as `minn` and **less than 15, otherwise fastDNA fails**).
-        :param epoch: Number of training epochs
-               (each added epoch increases runtime significantly, but in most cases increases model quality).
-        :param dim: Dimensionality of fastDNA the sequence embeddings.
-        :param frag_len: Length of genome fragments to be used during the training process.
-        :param considered_hosts:
-        :param threads: Number of CPU threads to be used during training process
-        :param samples:
-        :param fastdna_exe: Path to fastDNA executable
-        :param debug: is the classifier created for debugging purposes
-                     (skips the cleanup of temporary files and writes additional vector file after fitting)
-        """
-        self.minn = minn
-        self.maxn = maxn
-        self.labels = labels
-        self.lr = lrate
-        self.lr_update = ulr
-        self.dim = dim
-        self.noise = noise
-        self.frag_len = fraglen
-        self.epochs = epochs
-        self.loss = loss
-        self.threads = threads
-        self.samples = samples
-        self.considered_hosts = considered
-        self.dir = working_dir
-        self.fastdna_exe = fastdna_exe
-        self.dir.mkdir(parents=True)
-        self.model = None
-        self.scoring = None
-        self.ranking = None
-        self.performance = 0
-        self.debug = debug
-        self.metric = self.assign_performance_metric(performance_metric)
-        self.name = f'model.n{self.minn}-{self.maxn}.' \
-                    f'lr{self.lr:.5f}-{self.lr_update:.5f}.' \
-                    f'd{self.dim}.no{self.noise}.' \
-                    f'fl{self.frag_len}.e{self.epochs}.' \
-                    f'lo{self.loss}.sa{samples}'
-    
-    def assign_performance_metric(self, performance_metric: str):
-        # option to add any other metric than 'top'
-        if performance_metric not in ['accordance']:
-            performance_metric = f'{performance_metric}_{self.labels}'
-            return performance_metric
-        else:
-            return performance_metric
-
-    def fit(self,
-            training_host_fasta: Path,
-            training_host_labels: Path,
-            host_matrix: DistanceMatrix,
-            virus_samples: List[Path],
-            virus_metadata: Dict[str, Dict]):
-        """ todo
-
-        :param training_host_fasta:
-        :param training_host_labels:
-        :param host_matrix:
-        :param virus_samples:
-        :param virus_metadata:
-        :param metric:
-        :return:
-        """
-
-        logger.info(f'EVENT: Running fastDNA-supervised [4]')
-        self._fastdna_train(training_host_fasta, training_host_labels)
-
-        fastdna_pred_jobs = Parallel(Classifier._fastdna_predict,
-                                     virus_samples,
-                                     kwargs={'fastdna_exe': self.fastdna_exe.as_posix(),
-                                             'model_path': self.model.as_posix(),
-                                             'considered_hosts': self.considered_hosts},
-                                     description='EVENT: Running fastDNA-predict [5]',
-                                     n_jobs=self.threads)
-
-        score_jobs = Parallel(score_and_rank,
-                              fastdna_pred_jobs.result,
-                              description='EVENT: Scoring results [6]',
-                              n_jobs=self.threads)
-
-        merged_rankings = defaultdict(dict)
-        all_failed_scoring = []
-        all_caught_warnings = []
-        for file_path, (result, failed_methods, caught_warnings) in zip(virus_samples, score_jobs.result):
-            virus_id = file_path.stem
-            all_failed_scoring.extend(failed_methods)
-            all_caught_warnings.extend(caught_warnings)
-            for scoring_func, host_ranking in result.items():
-                merged_rankings[scoring_func][virus_id] = host_ranking
-        failed_count = Counter(all_failed_scoring)
-        warning_count = Counter(all_caught_warnings)
-        failed_warning = '\n'.join([f'{method} failed for {n_failed} viruses' for method, n_failed in failed_count.items()] + [f'Seen {w} ({n} times' for w, n in warning_count.items()])
-        if failed_warning:
-            logger.warning(f'Found {len(failed_count)} failed methods,'
-                     f'\nthis happens during optimisation but usually means faulty fastDNA model'
-                     f'\n{failed_warning}')
-
-        evaluation, missing_predictions, missing_predictions_count = TaxonomicEvaluation.multi_method_evaluation(method_to_raking_dict=merged_rankings,
-                                                                                      distances=host_matrix,
-                                                                                      master_virus_dict=virus_metadata,
-                                                                                      threads=self.threads)
-        logger.info(f'Found {missing_predictions_count} missing taxa with rank "{self.labels}" in matrix')
-        logger.info(f'Skippped taxa: {missing_predictions}')
-
-        self.ranking = sorted(evaluation, key=lambda e: e.metrics[self.metric], reverse=True)
-        evaluation = self.ranking[0]
-        self.scoring, self.performance = evaluation.description, evaluation.metrics[self.metric]
-
-        return evaluation
-
-    def _fastdna_train(self,
-                       training_fasta: Path,
-                       training_labels: Path):
-        """
-        Run training of the semantic sequence model
-        using fastdna "supervised" module.
-        :param training_fasta: fasta file with host genomes used for training
-        :param training_labels: file with list of labels (taxon) for each sequence in the training fasta
-               (line by line)
-        """
-
-        self.model = self.dir.joinpath(f"{self.name}.bin")
-
-        print(self.threads)
-        save_vec = ' -saveVec' if self.debug else ''
-        command = f"{self.fastdna_exe.as_posix()} supervised " \
-                  f"-input {training_fasta} -labels {training_labels}" \
-                  f" -output {self.model.parent.joinpath(self.model.stem)} " \
-                  f"-minn {self.minn} -maxn {self.maxn} " \
-                  f"-lr {self.lr} -lrUpdateRate {self.lr_update} " \
-                  f"-dim {self.dim} -noise {self.noise} -length {self.frag_len} " \
-                  f"-epoch {self.epochs} -loss {self.loss} -thread {self.threads}" \
-                  f"{save_vec}"
-        logger.info(f"fastDNA | cmd: {command}")
-        process = Popen(command, stdout=PIPE, shell=True)
-        output, error = process.communicate()  # TODO where should it go?
-        if error:
-            log.info(str(output))
-            log.warn(error)
-        assert self.model.is_file(), str(self.model) + '\t' + self.model.as_posix()
-
-    @staticmethod
-    def _fastdna_predict(fasta: str,
-                         fastdna_exe: str,
-                         model_path: str,
-                         considered_hosts: int) -> pd.DataFrame:
-        """
-        Generate basic prediction for each virus fragment
-        using fastdna "predict-prob" module.
-        :param fasta: fasta file with phage genome for the host prediction
-        """
-        command = f'{fastdna_exe} predict-prob {model_path} {fasta} {considered_hosts}'
-
-        process = Popen(command, stdout=PIPE, stderr=PIPE, shell=True)
-        stdout, stderr = process.communicate()
-
-        fragment_predictions = eval(stdout.decode())
-        for pred_set in fragment_predictions:
-            faulty_records = [(k, v) for k, v in pred_set.items() if not (isinstance(k, str) and isinstance(v, (float, int)))]
-            assert not faulty_records, faulty_records
-
-        raw_result = pd.DataFrame.from_dict(fragment_predictions).fillna(1e-6)  # https://doi.org/10.1371/journal.pbio.3000106 "we estimate that there exist globally between 0.8 and 1.6 million prokaryotic OTUs"
-
-        return raw_result
-
-    def predict(self,
-                virus_genome_dir: Path) -> Dict[str, List[Tuple[str, float]]]:
-        """
-        Predict hosts for each fasta file
-        in provided directory
-        :param virus_genome_dir: dictionary with phage fasta files for the host prediction
-        :return: dictionary with rankings of the hosts: {virus: [(host_best, high_score), (...), (host_worst, low_score)]}
-        """
-        print(virus_genome_dir)
-        sample_dir = self.dir.joinpath(f'{virus_genome_dir.name}_sample')
-        logger.info(f'EVENT: Sampling sequences from {virus_genome_dir.as_posix()} [1]')
-        virus_samples = sample_fasta_dir(virus_genome_dir,
-                                         length=self.frag_len,
-                                         n_samples=self.samples,
-                                         n_jobs=self.threads,
-                                         to_dir=sample_dir)
-        
-        print(len(virus_samples))
-        print({'fastdna_exe': self.fastdna_exe.as_posix(),
-                                             'model_path': self.model.as_posix(),
-                                             'considered_hosts': self.considered_hosts})
-        fastdna_pred_jobs = Parallel(Classifier._fastdna_predict,
-                                     virus_samples,
-                                     kwargs={'fastdna_exe': self.fastdna_exe.as_posix(),
-                                             'model_path': self.model.as_posix(),
-                                             'considered_hosts': self.considered_hosts},
-                                     description='EVENT: Running fastDNA-predict [2]',
-                                     n_jobs=self.threads)
-        # print(self.scoring)
-        # print(type(self.scoring))
-        # print(type(getattr(scoring, self.scoring)))
-        # print(callable(getattr(scoring, self.scoring)))
-        # print(fastdna_pred_jobs.result)
-        # print(len(fastdna_pred_jobs.result))
-        score_jobs = Parallel(self.scoring if callable(self.scoring) else getattr(scoring, self.scoring), # dirty fix for ensuring that there will be a callable obj
-                              fastdna_pred_jobs.result,
-                              description='EVENT: Scoring results [3]',
-                              n_jobs=self.threads)
-
-        
-        merged_rankings = defaultdict(dict)
-        print(virus_samples)
-        for file_path, host_ranking in zip(virus_samples, score_jobs.result):
-            virus_id = file_path.stem
-            print(virus_id)
-            print(type(host_ranking))
-            merged_rankings[virus_id] = host_ranking.sort_values(ascending=False).to_dict()
-
-        # print(merged_rankings)    
-        # print(type(merged_rankings))
-        return dict(merged_rankings)
-
-    def clean(self):
-        rmtree(self.dir)
-
-
-    def save(self, path: Path):
-        saved_copy = deepcopy(self)
-        path.mkdir(parents=True)
-        model_path = path.joinpath(self.model.name)
-        classifier_path = path.joinpath('classifier.pkl')
-        saved_copy.model.rename(model_path)
-        saved_copy.model = model_path
-        saved_copy.dir = path
-        serialize(saved_copy, classifier_path)
-        logger.info(f'Files stored at:\n{saved_copy.model.as_posix()}')
-        return saved_copy
-
-    # TODO: not necessairly here - classifier file and then object should have the fastdna binary embedded inside - easier for everybody
-    @staticmethod
-    def load(model_path: Path, fastdna_path: Path) -> 'Classifier':
-        # wd_path.mkdir(exist_ok=True, parents=True)
-        logger.info("EVENT: Loading model [0]")
-        master_file = model_path.joinpath('classifier.pkl')
-        classifier = read_serialized(master_file)
-        assert isinstance(classifier, Classifier), f'No valid classifier file at {master_file}'
-        classifier.dir = model_path
-        classifier.fastdna_exe = fastdna_path
-        classifier.model = classifier.dir.joinpath(f"{classifier.name}.bin")
-        assert fastdna_path.exists(), f'fastDNA executable not found at {fastdna_path}'
-        assert classifier.model.is_file(), f'No valid fastDNA model file at {classifier.model}'
-        return classifier
-
-
 class Optimizer:
     """    todo XXX
     Template for particular _Optimizer Subclasses
@@ -519,13 +239,17 @@ class Optimizer:
         logger.info(f"Chosen hyperparameters: {partial_report}")
 
         frag_len, samples = iteration_params['fraglen'], iteration_params['samples']
+        # TODO: pass names only from the filtered metadata to the sample_fasta_dir or do it in the sample_fasta_dir
         sample_dir = self.dir.joinpath('virus_samples').joinpath(f'{frag_len}_{samples}')
         logger.info(f'EVENT: Sampling sequences from {self.virus_fasta_dir.as_posix()} [3]')
+        if self.taxname_filter:
+            filename_list = [*self.virus_metadata.keys()]
         virus_sample = sample_fasta_dir(self.virus_fasta_dir,
                                         length=frag_len,
                                         n_samples=samples,
                                         n_jobs=self.threads,
-                                        to_dir=sample_dir)
+                                        to_dir=sample_dir,
+                                        names_list=filename_list)
 
         classifier = Classifier(**iteration_params,
                                 threads=self.threads,
@@ -562,6 +286,291 @@ class Optimizer:
         classifier.clean()
 
         return classifier.performance
+
+
+class Classifier(Optimizer):
+    """
+    Complete phastDNA phage-host classifier
+    fit to the training sets of host and virus fasta files.
+    """
+
+    def __init__(self,
+                 working_dir: Path,
+                 minn: int,
+                 maxn: int,
+                 labels: str = 'species',
+                 lrate: float = 0.1,
+                 ulr: float = 100,
+                 dim: int = 100,
+                 noise: int = 0,
+                 fraglen: int = 200,
+                 epochs: int = 20,
+                 loss: str = 'softmax',
+                 threads: int = default_threads,
+                 considered: int = 10,
+                 samples: int = 200,
+                 fastdna_exe: Path = fastDNA_exe,
+                 debug=False,
+                 performance_metric: str = 'accordance'):
+        """
+        Initializer for the fastDNA-based phage-host classifier.
+
+        :param working_dir: path to temporary directory used to store required fies
+        :param minn: Minimum size of a k-mer to use during the training process.
+        :param maxn: Maximum size of a k-mer to use during the training process
+               (it is advised to be kept the same as `minn` and **less than 15, otherwise fastDNA fails**).
+        :param epoch: Number of training epochs
+               (each added epoch increases runtime significantly, but in most cases increases model quality).
+        :param dim: Dimensionality of fastDNA the sequence embeddings.
+        :param frag_len: Length of genome fragments to be used during the training process.
+        :param considered_hosts:
+        :param threads: Number of CPU threads to be used during training process
+        :param samples:
+        :param fastdna_exe: Path to fastDNA executable
+        :param debug: is the classifier created for debugging purposes
+                     (skips the cleanup of temporary files and writes additional vector file after fitting)
+        """
+        self.minn = minn
+        self.maxn = maxn
+        self.labels = labels
+        self.lr = lrate
+        self.lr_update = ulr
+        self.dim = dim
+        self.noise = noise
+        self.frag_len = fraglen
+        self.epochs = epochs
+        self.loss = loss
+        self.threads = threads
+        self.samples = samples
+        self.considered_hosts = considered
+        self.dir = working_dir
+        self.fastdna_exe = fastdna_exe
+        self.dir.mkdir(parents=True)
+        self.model = None
+        self.scoring = None
+        self.ranking = None
+        self.performance = 0
+        self.debug = debug
+        self.metric = self.assign_performance_metric(performance_metric)
+        self.name = f'model.n{self.minn}-{self.maxn}.' \
+                    f'lr{self.lr:.5f}-{self.lr_update:.5f}.' \
+                    f'd{self.dim}.no{self.noise}.' \
+                    f'fl{self.frag_len}.e{self.epochs}.' \
+                    f'lo{self.loss}.sa{samples}'
+    
+    def assign_performance_metric(self, performance_metric: str):
+        # option to add any other metric than 'top'
+        if performance_metric not in ['accordance']:
+            performance_metric = f'{performance_metric}_{self.labels}'
+            return performance_metric
+        else:
+            return performance_metric
+
+    def fit(self,
+            training_host_fasta: Path,
+            training_host_labels: Path,
+            host_matrix: DistanceMatrix,
+            virus_samples: List[Path],
+            virus_metadata: Dict[str, Dict]):
+        """ todo
+
+        :param training_host_fasta:
+        :param training_host_labels:
+        :param host_matrix:
+        :param virus_samples:
+        :param virus_metadata:
+        :param metric:
+        :return:
+        """
+
+        logger.info(f'EVENT: Running fastDNA-supervised [4]')
+        self._fastdna_train(training_host_fasta, training_host_labels)
+
+        fastdna_pred_jobs = Parallel(Classifier._fastdna_predict,
+                                     virus_samples,
+                                     kwargs={'fastdna_exe': self.fastdna_exe.as_posix(),
+                                             'model_path': self.model.as_posix(),
+                                             'considered_hosts': self.considered_hosts},
+                                     description='EVENT: Running fastDNA-predict [5]',
+                                     n_jobs=self.threads)
+
+        score_jobs = Parallel(score_and_rank,
+                              fastdna_pred_jobs.result,
+                              description='EVENT: Scoring results [6]',
+                              n_jobs=self.threads)
+
+        merged_rankings = defaultdict(dict)
+        all_failed_scoring = []
+        all_caught_warnings = []
+        for file_path, (result, failed_methods, caught_warnings) in zip(virus_samples, score_jobs.result):
+            virus_id = file_path.stem
+            all_failed_scoring.extend(failed_methods)
+            all_caught_warnings.extend(caught_warnings)
+            for scoring_func, host_ranking in result.items():
+                merged_rankings[scoring_func][virus_id] = host_ranking
+        failed_count = Counter(all_failed_scoring)
+        warning_count = Counter(all_caught_warnings)
+        failed_warning = '\n'.join([f'{method} failed for {n_failed} viruses' for method, n_failed in failed_count.items()] + [f'Seen {w} ({n} times' for w, n in warning_count.items()])
+        if failed_warning:
+            logger.warning(f'Found {len(failed_count)} failed methods,'
+                     f'\nthis happens during optimisation but usually means faulty fastDNA model'
+                     f'\n{failed_warning}')
+
+        evaluation, missing_predictions, missing_predictions_count = TaxonomicEvaluation.multi_method_evaluation(method_to_raking_dict=merged_rankings,
+                                                                                      distances=host_matrix,
+                                                                                      master_virus_dict=virus_metadata,
+                                                                                      threads=self.threads)
+        logger.info(f'Found {missing_predictions_count} missing taxa with rank "{self.labels}" in matrix')
+        logger.info(f'Skippped taxa: {missing_predictions}')
+
+        self.ranking = sorted(evaluation, key=lambda e: e.metrics[self.metric], reverse=True)
+        evaluation = self.ranking[0]
+        self.scoring, self.performance = evaluation.description, evaluation.metrics[self.metric]
+
+        return evaluation
+
+    def _fastdna_train(self,
+                       training_fasta: Path,
+                       training_labels: Path):
+        """
+        Run training of the semantic sequence model
+        using fastdna "supervised" module.
+        :param training_fasta: fasta file with host genomes used for training
+        :param training_labels: file with list of labels (taxon) for each sequence in the training fasta
+               (line by line)
+        """
+
+        self.model = self.dir.joinpath(f"{self.name}.bin")
+
+        print(self.threads)
+        save_vec = ' -saveVec' if self.debug else ''
+        command = f"{self.fastdna_exe.as_posix()} supervised " \
+                  f"-input {training_fasta} -labels {training_labels}" \
+                  f" -output {self.model.parent.joinpath(self.model.stem)} " \
+                  f"-minn {self.minn} -maxn {self.maxn} " \
+                  f"-lr {self.lr} -lrUpdateRate {self.lr_update} " \
+                  f"-dim {self.dim} -noise {self.noise} -length {self.frag_len} " \
+                  f"-epoch {self.epochs} -loss {self.loss} -thread {self.threads}" \
+                  f"{save_vec}"
+        logger.info(f"fastDNA | cmd: {command}")
+        process = Popen(command, stdout=PIPE, shell=True)
+        output, error = process.communicate()  # TODO where should it go?
+        if error:
+            log.info(str(output))
+            log.warn(error)
+        assert self.model.is_file(), str(self.model) + '\t' + self.model.as_posix()
+
+    @staticmethod
+    def _fastdna_predict(fasta: str,
+                         fastdna_exe: str,
+                         model_path: str,
+                         considered_hosts: int) -> pd.DataFrame:
+        """
+        Generate basic prediction for each virus fragment
+        using fastdna "predict-prob" module.
+        :param fasta: fasta file with phage genome for the host prediction
+        """
+        command = f'{fastdna_exe} predict-prob {model_path} {fasta} {considered_hosts}'
+
+        process = Popen(command, stdout=PIPE, stderr=PIPE, shell=True)
+        stdout, stderr = process.communicate()
+
+        fragment_predictions = eval(stdout.decode())
+        for pred_set in fragment_predictions:
+            faulty_records = [(k, v) for k, v in pred_set.items() if not (isinstance(k, str) and isinstance(v, (float, int)))]
+            assert not faulty_records, faulty_records
+
+        raw_result = pd.DataFrame.from_dict(fragment_predictions).fillna(1e-6)  # https://doi.org/10.1371/journal.pbio.3000106 "we estimate that there exist globally between 0.8 and 1.6 million prokaryotic OTUs"
+
+        return raw_result
+
+    def predict(self,
+                virus_genome_dir: Path) -> Dict[str, List[Tuple[str, float]]]:
+        """
+        Predict hosts for each fasta file
+        in provided directory
+        :param virus_genome_dir: dictionary with phage fasta files for the host prediction
+        :return: dictionary with rankings of the hosts: {virus: [(host_best, high_score), (...), (host_worst, low_score)]}
+        """
+        print(virus_genome_dir)
+        sample_dir = self.dir.joinpath(f'{virus_genome_dir.name}_sample')
+        logger.info(f'EVENT: Sampling sequences from {virus_genome_dir.as_posix()} [1]')
+        # TODO: flag will be needed for that if filtering is needed - add to classifier class too
+        if self.taxname_filter:
+            filename_list = [*self.virus_metadata.keys()]
+        virus_samples = sample_fasta_dir(virus_genome_dir,
+                                         length=self.frag_len,
+                                         n_samples=self.samples,
+                                         n_jobs=self.threads,
+                                         to_dir=sample_dir,
+                                         names_list=filename_list)
+        
+        print(len(virus_samples))
+        print({'fastdna_exe': self.fastdna_exe.as_posix(),
+                                             'model_path': self.model.as_posix(),
+                                             'considered_hosts': self.considered_hosts})
+        fastdna_pred_jobs = Parallel(Classifier._fastdna_predict,
+                                     virus_samples,
+                                     kwargs={'fastdna_exe': self.fastdna_exe.as_posix(),
+                                             'model_path': self.model.as_posix(),
+                                             'considered_hosts': self.considered_hosts},
+                                     description='EVENT: Running fastDNA-predict [2]',
+                                     n_jobs=self.threads)
+        # print(self.scoring)
+        # print(type(self.scoring))
+        # print(type(getattr(scoring, self.scoring)))
+        # print(callable(getattr(scoring, self.scoring)))
+        # print(fastdna_pred_jobs.result)
+        # print(len(fastdna_pred_jobs.result))
+        score_jobs = Parallel(self.scoring if callable(self.scoring) else getattr(scoring, self.scoring), # dirty fix for ensuring that there will be a callable obj
+                              fastdna_pred_jobs.result,
+                              description='EVENT: Scoring results [3]',
+                              n_jobs=self.threads)
+
+        
+        merged_rankings = defaultdict(dict)
+        print(virus_samples)
+        for file_path, host_ranking in zip(virus_samples, score_jobs.result):
+            virus_id = file_path.stem
+            print(virus_id)
+            print(type(host_ranking))
+            merged_rankings[virus_id] = host_ranking.sort_values(ascending=False).to_dict()
+
+        # print(merged_rankings)    
+        # print(type(merged_rankings))
+        return dict(merged_rankings)
+
+    def clean(self):
+        rmtree(self.dir)
+
+
+    def save(self, path: Path):
+        saved_copy = deepcopy(self)
+        path.mkdir(parents=True)
+        model_path = path.joinpath(self.model.name)
+        classifier_path = path.joinpath('classifier.pkl')
+        saved_copy.model.rename(model_path)
+        saved_copy.model = model_path
+        saved_copy.dir = path
+        serialize(saved_copy, classifier_path)
+        logger.info(f'Files stored at:\n{saved_copy.model.as_posix()}')
+        return saved_copy
+
+    # TODO: not necessairly here - classifier file and then object should have the fastdna binary embedded inside - easier for everybody
+    @staticmethod
+    def load(model_path: Path, fastdna_path: Path) -> 'Classifier':
+        # wd_path.mkdir(exist_ok=True, parents=True)
+        logger.info("EVENT: Loading model [0]")
+        master_file = model_path.joinpath('classifier.pkl')
+        classifier = read_serialized(master_file)
+        assert isinstance(classifier, Classifier), f'No valid classifier file at {master_file}'
+        classifier.dir = model_path
+        classifier.fastdna_exe = fastdna_path
+        classifier.model = classifier.dir.joinpath(f"{classifier.name}.bin")
+        assert fastdna_path.exists(), f'fastDNA executable not found at {fastdna_path}'
+        assert classifier.model.is_file(), f'No valid fastDNA model file at {classifier.model}'
+        return classifier
+
 
 # class LayeredClassifier:
 #

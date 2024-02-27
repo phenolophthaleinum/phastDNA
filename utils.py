@@ -395,7 +395,8 @@ def sample_fasta_dir(fasta_dir: Path,
                      max_ambiguities: float = 0.1,
                      to_dir: Path = None,
                      n_jobs: int = None,
-                     overwrite: bool = False):
+                     overwrite: bool = False,
+                     names_list: list = None):
     """ todo
     :param fasta_dir:
     :param length:
@@ -418,7 +419,11 @@ def sample_fasta_dir(fasta_dir: Path,
                                     f'\nbut no fasta-formatted sequences coud be identified inside')
     else:
         to_dir.mkdir(parents=True)
-        fasta_files = [f for f in fasta_dir.iterdir() if f.suffix in fasta_extensions]
+        # TODO: pass names only from the filtered metadata - if filtering is true
+        if names_list:
+            fasta_files = [f for f in fasta_dir.iterdir() if f.stem in names_list]
+        else:
+            fasta_files = [f for f in fasta_dir.iterdir() if f.suffix in fasta_extensions]
         jobs = BatchParallel(sample_fasta, fasta_files,
                              kwargs={'length': length,
                                      'n': n_samples,
