@@ -421,7 +421,7 @@ def sample_fasta_dir(fasta_dir: Path,
         to_dir.mkdir(parents=True)
         # TODO: pass names only from the filtered metadata - if filtering is true
         if names_list:
-            fasta_files = [f for f in fasta_dir.iterdir() if f.stem in names_list]
+            fasta_files = [f for f in fasta_dir.iterdir() if f.stem in names_list and f.suffix in fasta_extensions]
         else:
             fasta_files = [f for f in fasta_dir.iterdir() if f.suffix in fasta_extensions]
         jobs = BatchParallel(sample_fasta, fasta_files,
