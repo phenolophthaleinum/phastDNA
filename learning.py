@@ -263,7 +263,8 @@ class Optimizer:
                                 working_dir=self.dir.joinpath('current_classifier'),
                                 fastdna_exe=self.fastdna_exe,
                                 debug=self.debug,
-                                performance_metric=self.performance_metric)
+                                performance_metric=self.performance_metric,
+                                taxname_filter=self.taxname_filter)
 
         evaluation = classifier.fit(training_host_fasta=self.training_fasta,
                                     training_host_labels=self.training_labels,
@@ -337,7 +338,6 @@ class Classifier(Optimizer):
         :param debug: is the classifier created for debugging purposes
                      (skips the cleanup of temporary files and writes additional vector file after fitting)
         """
-        super().__init__(taxname_filter=taxname_filter)
         self.minn = minn
         self.maxn = maxn
         self.labels = labels
@@ -365,24 +365,7 @@ class Classifier(Optimizer):
                     f'd{self.dim}.no{self.noise}.' \
                     f'fl{self.frag_len}.e{self.epochs}.' \
                     f'lo{self.loss}.sa{samples}'
-
-    # Register the Optimizer class for pickling
-    # copyreg.pickle(Optimizer, Optimizer.__new__)
-
-    # def __reduce__(self):
-    #     # Pickle the inherited properties along with the Classifier object
-    #     return (self.__class__, (), self.__getstate__(), None, None)
-
-    def __getstate__(self):
-        # Get the state of the object, including inherited properties
-        state = self.__dict__.copy()
-        state.update(super().__getstate__())
-        return state
-
-    def __setstate__(self, state):
-        # Set the state of the object, including inherited properties
-        super().__setstate__(state)
-        self.__dict__.update(state)
+        self.taxname_filter = taxname_filter
     
     def assign_performance_metric(self, performance_metric: str):
         # option to add any other metric than 'top'
