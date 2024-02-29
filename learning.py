@@ -546,6 +546,7 @@ class Classifier(Optimizer):
             virus_id = file_path.stem
             print(virus_id)
             print(type(host_ranking))
+            print(host_ranking)
             merged_rankings[virus_id] = host_ranking.sort_values(ascending=False).to_dict()
 
         # print(merged_rankings)    
