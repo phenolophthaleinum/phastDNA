@@ -1,4 +1,5 @@
 import json
+import pickle
 import scoring
 from collections import defaultdict, Counter
 from copy import deepcopy
@@ -533,6 +534,8 @@ class Classifier(Optimizer):
         # print(type(getattr(scoring, self.scoring)))
         # print(callable(getattr(scoring, self.scoring)))
         print(fastdna_pred_jobs.result)
+        with open('fastdna_pred_jobs', 'w') as f:
+            pickle.dump(fastdna_pred_jobs.result, f)
         # print(len(fastdna_pred_jobs.result))
         score_jobs = Parallel(self.scoring if callable(self.scoring) else getattr(scoring, self.scoring), # dirty fix for ensuring that there will be a callable obj
                               fastdna_pred_jobs.result,
