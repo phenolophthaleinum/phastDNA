@@ -287,7 +287,7 @@ class Optimizer:
 
         return classifier.performance
 
-
+# TODO: pickle inherited properties from Optimizer? if not the i will have to duplicate
 class Classifier(Optimizer):
     """
     Complete phastDNA phage-host classifier
