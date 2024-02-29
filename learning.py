@@ -319,7 +319,8 @@ class Classifier(Optimizer):
                  fastdna_exe: Path = fastDNA_exe,
                  debug=False,
                  performance_metric: str = 'accordance',
-                 taxname_filter: str = None):
+                 taxname_filter: str = None,
+                 virus_metadata: Dict[str, Dict] = None):
         """
         Initializer for the fastDNA-based phage-host classifier.
 
@@ -366,6 +367,7 @@ class Classifier(Optimizer):
                     f'fl{self.frag_len}.e{self.epochs}.' \
                     f'lo{self.loss}.sa{samples}'
         self.taxname_filter = taxname_filter
+        self.virus_metadata = virus_metadata
     
     def assign_performance_metric(self, performance_metric: str):
         # option to add any other metric than 'top'
