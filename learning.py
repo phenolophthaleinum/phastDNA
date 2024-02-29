@@ -136,10 +136,10 @@ class Optimizer:
                                           rank=self.labels)
         print(str(self.host_matrix))
 
-    def __getstate__(self):
-        # Define the __getstate__ method for the Optimizer class
-        state = self.__dict__.copy()
-        return state
+    # def __getstate__(self):
+    #     # Define the __getstate__ method for the Optimizer class
+    #     state = self.__dict__.copy()
+    #     return state
 
     def parameter_bounds(self) -> Dict[str, Tuple[float, float]]:
         """
@@ -317,7 +317,8 @@ class Classifier(Optimizer):
                  samples: int = 200,
                  fastdna_exe: Path = fastDNA_exe,
                  debug=False,
-                 performance_metric: str = 'accordance'):
+                 performance_metric: str = 'accordance',
+                 taxname_filter: str = None):
         """
         Initializer for the fastDNA-based phage-host classifier.
 
@@ -336,7 +337,7 @@ class Classifier(Optimizer):
         :param debug: is the classifier created for debugging purposes
                      (skips the cleanup of temporary files and writes additional vector file after fitting)
         """
-        super(Optimizer).__init__()
+        super().__init__(taxname_filter=taxname_filter)
         self.minn = minn
         self.maxn = maxn
         self.labels = labels
@@ -366,11 +367,11 @@ class Classifier(Optimizer):
                     f'lo{self.loss}.sa{samples}'
 
     # Register the Optimizer class for pickling
-    copyreg.pickle(Optimizer, Optimizer.__new__)
+    # copyreg.pickle(Optimizer, Optimizer.__new__)
 
-    def __reduce__(self):
-        # Pickle the inherited properties along with the Classifier object
-        return (self.__class__, (), self.__getstate__(), None, None)
+    # def __reduce__(self):
+    #     # Pickle the inherited properties along with the Classifier object
+    #     return (self.__class__, (), self.__getstate__(), None, None)
 
     def __getstate__(self):
         # Get the state of the object, including inherited properties
