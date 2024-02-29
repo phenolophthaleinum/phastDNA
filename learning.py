@@ -264,7 +264,8 @@ class Optimizer:
                                 fastdna_exe=self.fastdna_exe,
                                 debug=self.debug,
                                 performance_metric=self.performance_metric,
-                                taxname_filter=self.taxname_filter)
+                                taxname_filter=self.taxname_filter,
+                                virus_metadata=self.virus_metadata)
 
         evaluation = classifier.fit(training_host_fasta=self.training_fasta,
                                     training_host_labels=self.training_labels,
