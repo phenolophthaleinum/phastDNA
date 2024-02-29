@@ -136,6 +136,11 @@ class Optimizer:
                                           rank=self.labels)
         print(str(self.host_matrix))
 
+    def __getstate__(self):
+        # Define the __getstate__ method for the Optimizer class
+        state = self.__dict__.copy()
+        return state
+
     def parameter_bounds(self) -> Dict[str, Tuple[float, float]]:
         """
         Represents complex parameter dict in the simple form
