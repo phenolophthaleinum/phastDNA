@@ -532,7 +532,7 @@ class Classifier(Optimizer):
         # print(type(self.scoring))
         # print(type(getattr(scoring, self.scoring)))
         # print(callable(getattr(scoring, self.scoring)))
-        # print(fastdna_pred_jobs.result)
+        print(fastdna_pred_jobs.result)
         # print(len(fastdna_pred_jobs.result))
         score_jobs = Parallel(self.scoring if callable(self.scoring) else getattr(scoring, self.scoring), # dirty fix for ensuring that there will be a callable obj
                               fastdna_pred_jobs.result,
