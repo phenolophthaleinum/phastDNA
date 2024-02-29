@@ -331,6 +331,7 @@ class Classifier(Optimizer):
         :param debug: is the classifier created for debugging purposes
                      (skips the cleanup of temporary files and writes additional vector file after fitting)
         """
+        super(Optimizer).__init__()
         self.minn = minn
         self.maxn = maxn
         self.labels = labels
