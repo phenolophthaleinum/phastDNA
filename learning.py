@@ -533,7 +533,7 @@ class Classifier(Optimizer):
         # print(type(self.scoring))
         # print(type(getattr(scoring, self.scoring)))
         # print(callable(getattr(scoring, self.scoring)))
-        print(fastdna_pred_jobs.result)
+        # print(fastdna_pred_jobs.result)
         with open('fastdna_pred_jobs', 'wb') as f:
             pickle.dump(fastdna_pred_jobs.result, f)
         # print(len(fastdna_pred_jobs.result))
@@ -542,7 +542,9 @@ class Classifier(Optimizer):
                               description='EVENT: Scoring results [3]',
                               n_jobs=self.threads)
 
-        
+        with open('score_jobs', 'wb') as f:
+            pickle.dump(score_jobs.result, f)
+
         merged_rankings = defaultdict(dict)
         print(virus_samples)
         for file_path, host_ranking in zip(virus_samples, score_jobs.result):
