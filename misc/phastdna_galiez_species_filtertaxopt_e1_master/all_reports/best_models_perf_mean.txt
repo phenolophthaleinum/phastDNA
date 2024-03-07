@@ -1,0 +1,1 @@
+top_species mean across best top_species models: 0.685109168713998top3_species mean across best top_species models: 0.7427100450391838top_genus mean across best top_species models: 0.8538199544584691top3_genus mean across best top_species models: 0.9196692181056584
