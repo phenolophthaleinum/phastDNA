@@ -534,6 +534,8 @@ class Classifier(Optimizer):
         # print(type(getattr(scoring, self.scoring)))
         # print(callable(getattr(scoring, self.scoring)))
         # print(fastdna_pred_jobs.result)
+        with open('virus_samples', 'wb') as f:
+            pickle.dump(virus_samples, f)
         with open('fastdna_pred_jobs', 'wb') as f:
             pickle.dump(fastdna_pred_jobs.result, f)
         # print(len(fastdna_pred_jobs.result))
