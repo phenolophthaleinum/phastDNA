@@ -14,6 +14,7 @@ from loguru import logger
 import pandas as pd
 # import time as t
 from bayes_opt import BayesianOptimization
+import optuna
 
 from scoring import score_and_rank
 from taxonomy import sample_taxon, DistanceMatrix, TaxonomicEvaluation
@@ -56,7 +57,8 @@ class Optimizer:
                  fastdna_exe: Path = fastDNA_exe,
                  debug: bool = False,
                  performance_metric: str = 'accordance',
-                 taxname_filter: str = None):
+                 taxname_filter: str = None,
+                 optimizer: str = 'bayesian'):
 
         self.debug = debug
         self.n_examples = n_examples
@@ -65,6 +67,8 @@ class Optimizer:
         self.threads = threads
         self.performance_metric = performance_metric
         self.taxname_filter = taxname_filter
+        self.optimizer = optimizer
+        self.bounds = {}
 
         self.virus_fasta_dir = virus_dir.joinpath('fasta')
         # TODO
@@ -208,20 +212,131 @@ class Optimizer:
         except KeyError:
             param_traceback = '\n'.join(f'{k}: {v}' for k, v in self.__dict__.items())
             raise ValueError(f'Cannot parse parameters for optimizer:\n{param_traceback}')
+        
+    def create_trial_params(self, trial: optuna.Trial) -> Dict[str, Any]:
+        try:
+            decoded_parameters = {}
+            for param, value in self.bounds.items():
+
+                # parameters with non-linear response curve (e.g. values that denote order of magnitude - 10eX)
+                if param in self.exponential:
+                    param_value = trial.suggest_float(param, *value)
+                    decoded_parameters[param] = 10 ** param_value
+                    # decoded_parameters[param] = 10 ** value
+
+                # parameter can have integer values
+                elif param in self.discrete:
+                    decoded_parameters[param] = trial.suggest_int(param, *value)
+
+                # parameters selected from a list of options (e.g. loss functions)
+                elif param in self.categorical:
+                    decoded_parameters[param] = trial.suggest_categorical(param, value)
+
+                # parameters that are continuous (no processing required)
+                else:
+                    decoded_parameters[param] = trial.suggest_float(param, *value)
+
+            # overwrite default parameters if included
+            decoded_parameters.update(self.override)
+
+            return decoded_parameters
+
+        except KeyError:
+            param_traceback = '\n'.join(f'{k}: {v}' for k, v in self.__dict__.items())
+            raise ValueError(f'Cannot parse parameters for optimizer:\n{param_traceback}')
 
     def optimize(self):
         """
         Run the complete bayesian optimisation procedure with set parameter bounds
         """
+        self.bounds = self.parameter_bounds()
+        print(">>bounds:")
+        print(self.bounds)
+        if self.optimizer == 'bayesian':
+            opt = BayesianOptimization(self.optimisation_iteration, self.bounds, verbose=0)
 
-        bounds = self.parameter_bounds()
+            opt.maximize(self.pre_iterations,
+                        self.iterations)
 
-        opt = BayesianOptimization(self.optimisation_iteration, bounds, verbose=0)
+            return opt.max
+        if self.optimizer == 'optuna':
+            study = optuna.create_study(study_name=self.dir.parts[-1],
+                                        storage="sqlite:///{}.db".format((self.dir / self.dir.parts[-1]).as_posix()),
+                                        direction='maximize',
+                                        sampler=optuna.samplers.TPESampler(seed=1,
+                                                                           n_startup_trials=self.pre_iterations,
+                                                                           multivariate=True))
+            study.optimize(self.optuna_objective, n_trials=self.iterations)
+            return study.best_params
+        else:
+            raise ValueError(f'Unknown optimizer: {self.optimizer}')
+        
+    def optuna_objective(self, trial: optuna.Trial) -> float:
+        iteration_params = self.create_trial_params(trial)
+        iteration_number = next(self.iteration_counter)
+        if not iteration_number:
+            iteration_number = next(self.iteration_counter)  # skip 0
+        
+        # print(f"iteration_params {iteration_params}")
+        # iteration_params = self.parameter_decode(iteration_params)
+        # print(f"after param_decode iteration_params {iteration_params}")
 
-        opt.maximize(self.pre_iterations,
-                     self.iterations)
+        logger.info(f'Iteration: {iteration_number}')
 
-        return opt.max
+        partial_report = dict(iteration_params)
+
+        logger.info(f"Chosen hyperparameters: {partial_report}")
+
+        frag_len, samples = iteration_params['fraglen'], iteration_params['samples']
+        # TODO: pass names only from the filtered metadata to the sample_fasta_dir or do it in the sample_fasta_dir
+        sample_dir = self.dir.joinpath('virus_samples').joinpath(f'{frag_len}_{samples}')
+        logger.info(f'EVENT: Sampling sequences from {self.virus_fasta_dir.as_posix()} [3]')
+        if self.taxname_filter:
+            filename_list = [*self.virus_metadata.keys()]
+        virus_sample = sample_fasta_dir(self.virus_fasta_dir,
+                                        length=frag_len,
+                                        n_samples=samples,
+                                        n_jobs=self.threads,
+                                        to_dir=sample_dir,
+                                        names_list=filename_list)
+
+        classifier = Classifier(**iteration_params,
+                                threads=self.threads,
+                                labels=self.labels,
+                                working_dir=self.dir.joinpath('current_classifier'),
+                                fastdna_exe=self.fastdna_exe,
+                                debug=self.debug,
+                                performance_metric=self.performance_metric,
+                                taxname_filter=self.taxname_filter,
+                                virus_metadata=self.virus_metadata)
+
+        evaluation = classifier.fit(training_host_fasta=self.training_fasta,
+                                    training_host_labels=self.training_labels,
+                                    host_matrix=self.host_matrix,
+                                    virus_samples=virus_sample,
+                                    virus_metadata=self.virus_metadata)
+
+        partial_report.update(evaluation.metrics)
+        partial_report['best_scoring'] = evaluation.description
+        self.report = pd.concat([self.report, pd.DataFrame.from_records([partial_report])], ignore_index=True)
+        # print(self.report)
+        logger.info(f"Iteration evaluation: {evaluation.metrics}")
+        logger.info(f"Debug for evaluation metric: metric: {classifier.metric}, performance: {classifier.performance}")
+        if classifier.performance >= self.best_classifier.performance:
+            self.best_classifier.clean()
+            self.best_classifier = classifier.save(self.dir.joinpath('best_classifier'))
+            logger.info(f'Better classifier found:'
+                     f'\n{evaluation.table()}')
+
+        if (not iteration_number % 10) or iteration_number == self.iterations:
+            self.report.sort_values(classifier.metric, ascending=False, inplace=True)
+            self.report.to_excel(self.dir.joinpath('Optimisation_report.xlsx'))
+
+        if self.debug:
+            classifier.save(self.dir.joinpath(classifier.name))
+        classifier.clean()
+
+        return classifier.performance
 
     @time_this
     def optimisation_iteration(self, **iteration_params: Dict[str, Any]) -> float:
