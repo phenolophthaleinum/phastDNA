@@ -94,7 +94,9 @@ if __name__ == "__main__":
     parser.add_argument("--taxname_filter", required=False,
                         help="Taxa name for which the dataset will be filltered, e.g. Bacillaceae - will only include hosts (and its respective viruses) with this name in the lineage (default ['None']). <train>") 
     parser.add_argument("--optimizer", required=False, default='bayesian',
-                        help="Optimisaiton algorithm to be used (default ['bayesian']). <train>") 
+                        help="Optimisaiton algorithm to be used (default ['bayesian']). <train>")
+    parser.add_argument("--optuna_storage", required=False, default='optuna_storage',
+                        help="Path to store optuna database with studies (optimisation runs). Storing runs in one database enables their comparison (default ['phastDNA/optuna_storage']). <train>")
     parser.add_argument("-t", "--threads", required=False, default=default_threads, type=int,
                         help="Number of threads to use (default [all but one]). <train> <predict>")
 
@@ -142,7 +144,7 @@ if __name__ == "__main__":
         model_file = Path(args.classifier)
 
         classifier = Classifier.load(model_path=model_file, fastdna_path=fastdna_exe)
-        host_ranking = classifier.predict(virus_dir)
+        host_ranking = classifier.predict(virus_genome_dir=virus_dir, output_dir=output_dir)
         # Save results
         results_file = output_dir.joinpath('predictions.csv')
         # json.dump(host_ranking, open(results_file, 'w'), indent=4)
@@ -186,7 +188,8 @@ if __name__ == "__main__":
                               fastdna_exe=fastdna_exe,
                               performance_metric=args.performance_metric,
                               taxname_filter=args.taxname_filter,
-                              optimizer=args.optimizer)
+                              optimizer=args.optimizer,
+                              optuna_storage=args.optuna_storage)
         optimizer.optimize()
 
     logger.success('Finished!')

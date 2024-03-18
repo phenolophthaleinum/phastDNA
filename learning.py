@@ -58,7 +58,8 @@ class Optimizer:
                  debug: bool = False,
                  performance_metric: str = 'accordance',
                  taxname_filter: str = None,
-                 optimizer: str = 'bayesian'):
+                 optimizer: str = 'bayesian',
+                 optuna_storage: str = "optuna_storage"):
 
         self.debug = debug
         self.n_examples = n_examples
@@ -69,6 +70,10 @@ class Optimizer:
         self.taxname_filter = taxname_filter
         self.optimizer = optimizer
         self.bounds = {}
+        
+        optuna_storage_path = Path(optuna_storage).resolve()
+        optuna_storage_path.mkdir(exist_ok=True, parents=True)
+        self.optuna_storage = f'sqlite:///{optuna_storage_path.as_posix()}/opt_runs.db'
 
         self.virus_fasta_dir = virus_dir.joinpath('fasta')
         # TODO
@@ -261,7 +266,7 @@ class Optimizer:
             return opt.max
         if self.optimizer == 'optuna':
             study = optuna.create_study(study_name=self.dir.parts[-1],
-                                        storage="sqlite:///{}.db".format((self.dir / self.dir.parts[-1]).as_posix()),
+                                        storage=self.optuna_storage,
                                         direction='maximize',
                                         sampler=optuna.samplers.TPESampler(seed=1,
                                                                            n_startup_trials=self.pre_iterations,
@@ -412,7 +417,7 @@ class Optimizer:
         return classifier.performance
 
 # TODO: pickle inherited properties from Optimizer? if not the i will have to duplicate
-class Classifier(Optimizer):
+class Classifier:
     """
     Complete phastDNA phage-host classifier
     fit to the training sets of host and virus fasta files.
@@ -485,6 +490,7 @@ class Classifier(Optimizer):
                     f'lo{self.loss}.sa{samples}'
         self.taxname_filter = taxname_filter
         self.virus_metadata = virus_metadata
+
     
     def assign_performance_metric(self, performance_metric: str):
         # option to add any other metric than 'top'
@@ -613,7 +619,8 @@ class Classifier(Optimizer):
         return raw_result
 
     def predict(self,
-                virus_genome_dir: Path) -> Dict[str, List[Tuple[str, float]]]:
+                virus_genome_dir: Path,
+                output_dir: Path) -> Dict[str, List[Tuple[str, float]]]:
         """
         Predict hosts for each fasta file
         in provided directory
@@ -649,9 +656,18 @@ class Classifier(Optimizer):
         # print(type(getattr(scoring, self.scoring)))
         # print(callable(getattr(scoring, self.scoring)))
         # print(fastdna_pred_jobs.result)
-        with open('virus_samples', 'wb') as f:
+        
+        raw_output_path = output_dir.joinpath('raw_output').resolve()
+        raw_output_path.mkdir(exist_ok=True, parents=True)
+        # print(raw_output_path)
+        virus_samples_raw_path = raw_output_path.joinpath('virus_samples.pkl')
+        fastdna_pred_jobs_raw_path = raw_output_path.joinpath('fastdna_pred_jobs.pkl')
+        print(virus_samples_raw_path.as_posix())
+        print(fastdna_pred_jobs_raw_path.as_posix())
+        print(fastdna_pred_jobs.result[0])
+        with open(virus_samples_raw_path.as_posix(), 'wb') as f:
             pickle.dump(virus_samples, f)
-        with open('fastdna_pred_jobs', 'wb') as f:
+        with open(fastdna_pred_jobs_raw_path.as_posix(), 'wb') as f:
             pickle.dump(fastdna_pred_jobs.result, f)
         # print(len(fastdna_pred_jobs.result))
         score_jobs = Parallel(self.scoring if callable(self.scoring) else getattr(scoring, self.scoring), # dirty fix for ensuring that there will be a callable obj
@@ -659,9 +675,10 @@ class Classifier(Optimizer):
                               description='EVENT: Scoring results [3]',
                               n_jobs=self.threads)
 
-        with open('score_jobs', 'wb') as f:
-            pickle.dump(score_jobs.result, f)
-
+        # with open('score_jobs', 'wb') as f:
+        #     pickle.dump(score_jobs.result, f)
+        
+        print(score_jobs.result[0])
         merged_rankings = defaultdict(dict)
         print(virus_samples)
         for file_path, host_ranking in zip(virus_samples, score_jobs.result):
