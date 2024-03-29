@@ -18,7 +18,7 @@ def parse_input(input: str) -> list:
         for root, dirs, files in os.walk(input):
             for file in files:
                 if file.endswith('.db'):
-                    studies.append(os.path.join(root, file))
+                    files.append(os.path.join(root, file))
     elif os.path.isfile(input):
         with open(input, 'r') as file:
             paths = file.readlines()
