@@ -1,6 +1,9 @@
 import argparse
 import optuna
 import os
+import pathlib as pl
+from glob import glob
+
 
 
 parser = argparse.ArgumentParser()
@@ -14,11 +17,12 @@ out = args.o
 
 def parse_input(input: str) -> list:
     files = []
-    if os.path.isdir(input):
-        for root, dirs, files in os.walk(input):
-            for file in files:
-                if file.endswith('.db'):
-                    files.append(os.path.join(root, file))
+    print(pl.Path(input).absolute().is_dir())
+    if pl.Path(input).absolute().is_dir():
+        input: pl.Path = pl.Path(input).absolute().as_posix()
+        
+        # files.extend([str(file) for file in input.rglob('.db')])
+        files.extend([str(file) for file in glob(f'{input}/**/*.db', recursive=True)])
     elif os.path.isfile(input):
         with open(input, 'r') as file:
             paths = file.readlines()
