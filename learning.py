@@ -225,9 +225,10 @@ class Optimizer:
 
                 # parameters with non-linear response curve (e.g. values that denote order of magnitude - 10eX)
                 if param in self.exponential:
-                    param_value = trial.suggest_float(param, *value)
-                    decoded_parameters[param] = 10 ** param_value
-                    # decoded_parameters[param] = 10 ** value
+                    decoded_parameters[param] = trial.suggest_float(param, *value)
+                    # previous implementation
+                    # param_value = trial.suggest_float(param, *value)
+                    # decoded_parameters[param] = 10 ** param_value
 
                 # parameter can have integer values
                 elif param in self.discrete:
