@@ -225,7 +225,9 @@ class Optimizer:
 
                 # parameters with non-linear response curve (e.g. values that denote order of magnitude - 10eX)
                 if param in self.exponential:
-                    decoded_parameters[param] = trial.suggest_float(param, *value)
+                    decoded_parameters[param] = trial.suggest_float(param, *(10 ** param_value for param_value in value))
+                    # without the exp transformation - this fucks up the fastDNA, clearly does not like negative lrate
+                    # decoded_parameters[param] = trial.suggest_float(param, *value)
                     # previous implementation
                     # param_value = trial.suggest_float(param, *value)
                     # decoded_parameters[param] = 10 ** param_value
