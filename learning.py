@@ -299,8 +299,8 @@ class Optimizer:
         # TODO: pass names only from the filtered metadata to the sample_fasta_dir or do it in the sample_fasta_dir
         sample_dir = self.dir.joinpath('virus_samples').joinpath(f'{frag_len}_{samples}')
         logger.info(f'EVENT: Sampling sequences from {self.virus_fasta_dir.as_posix()} [3]')
-        if self.taxname_filter:
-            filename_list = [*self.virus_metadata.keys()]
+            
+        filename_list = [*self.virus_metadata.keys()] if self.taxname_filter else None
         virus_sample = sample_fasta_dir(self.virus_fasta_dir,
                                         length=frag_len,
                                         n_samples=samples,
@@ -372,8 +372,8 @@ class Optimizer:
         # TODO: pass names only from the filtered metadata to the sample_fasta_dir or do it in the sample_fasta_dir
         sample_dir = self.dir.joinpath('virus_samples').joinpath(f'{frag_len}_{samples}')
         logger.info(f'EVENT: Sampling sequences from {self.virus_fasta_dir.as_posix()} [3]')
-        if self.taxname_filter:
-            filename_list = [*self.virus_metadata.keys()]
+        
+        filename_list = [*self.virus_metadata.keys()] if self.taxname_filter else None
         virus_sample = sample_fasta_dir(self.virus_fasta_dir,
                                         length=frag_len,
                                         n_samples=samples,
@@ -634,8 +634,8 @@ class Classifier:
         sample_dir = self.dir.joinpath(f'{virus_genome_dir.name}_sample')
         logger.info(f'EVENT: Sampling sequences from {virus_genome_dir.as_posix()} [1]')
         # TODO: flag will be needed for that if filtering is needed - add to classifier class too
-        if self.taxname_filter:
-            filename_list = [*self.virus_metadata.keys()]
+        
+        filename_list = [*self.virus_metadata.keys()] if self.taxname_filter else None
         virus_samples = sample_fasta_dir(virus_genome_dir,
                                          length=self.frag_len,
                                          n_samples=self.samples,
