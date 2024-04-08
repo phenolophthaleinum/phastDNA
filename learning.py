@@ -612,7 +612,11 @@ class Classifier:
         process = Popen(command, stdout=PIPE, stderr=PIPE, shell=True)
         stdout, stderr = process.communicate()
 
-        fragment_predictions = eval(stdout.decode())
+        try:
+            fragment_predictions = eval(stdout.decode())
+        except SyntaxError as e:
+            logger.error(f'{e}\nfastDNA prediction received bad model from which prediction results for {fasta} cannot be parsed.')
+            fragment_predictions = {}
         for pred_set in fragment_predictions:
             faulty_records = [(k, v) for k, v in pred_set.items() if not (isinstance(k, str) and isinstance(v, (float, int)))]
             assert not faulty_records, faulty_records
