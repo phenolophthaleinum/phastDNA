@@ -324,6 +324,9 @@ class Optimizer:
                                     virus_samples=virus_sample,
                                     virus_metadata=self.virus_metadata)
 
+        if not evaluation:
+            logger.warning(f'Evaluation failed for {classifier.name} with parameters:\n{iteration_params}\n Performance set to 0.')
+            return classifier.performance
         partial_report.update(evaluation.metrics)
         partial_report['best_scoring'] = evaluation.description
         self.report = pd.concat([self.report, pd.DataFrame.from_records([partial_report])], ignore_index=True)
@@ -397,6 +400,9 @@ class Optimizer:
                                     virus_samples=virus_sample,
                                     virus_metadata=self.virus_metadata)
 
+        if not evaluation:
+            logger.warning(f'Evaluation failed for {classifier.name} with parameters:\n{iteration_params}\n Performance set to 0.')
+            return classifier.performance
         partial_report.update(evaluation.metrics)
         partial_report['best_scoring'] = evaluation.description
         self.report = pd.concat([self.report, pd.DataFrame.from_records([partial_report])], ignore_index=True)
@@ -560,13 +566,17 @@ class Classifier:
         logger.info(f'Found {missing_predictions_count} missing taxa with rank "{self.labels}" in matrix')
         logger.info(f'Skippped taxa: {missing_predictions}')
 
-        evals = [e for e in evaluation]
-        print(evals[0].__dict__.keys())
-        print(evals[0].__dict__)
+        # evals = [e for e in evaluation]
+        # print(evals[0].__dict__.keys())
+        # print(evals[0].__dict__)
         self.ranking = sorted(evaluation, key=lambda e: e.metrics[self.metric], reverse=True)
         # logger.info(f"Debug for ranking: {self.ranking}")
-        # evaluation = self.ranking[0] if self.ranking else None
-        self.scoring, self.performance = evaluation.description, evaluation.metrics[self.metric]
+        if self.ranking:
+            evaluation = self.ranking[0]
+            self.scoring, self.performance = evaluation.description, evaluation.metrics[self.metric]
+        else:
+            self.scoring, self.performance = 'No valid evaluation', 0
+            return None
 
         return evaluation
 
@@ -619,7 +629,7 @@ class Classifier:
         try:
             fragment_predictions = eval(stdout.decode())
         except SyntaxError as e:
-            logger.error(f'{e}\nfastDNA prediction received bad model from which prediction results for {fasta} cannot be parsed.')
+            logger.warning(f'{e}\nfastDNA prediction received bad model from which prediction results for {fasta} cannot be parsed.')
             fragment_predictions = {}
         for pred_set in fragment_predictions:
             faulty_records = [(k, v) for k, v in pred_set.items() if not (isinstance(k, str) and isinstance(v, (float, int)))]
