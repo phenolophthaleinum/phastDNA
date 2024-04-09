@@ -560,7 +560,7 @@ class Classifier:
         logger.info(f'Found {missing_predictions_count} missing taxa with rank "{self.labels}" in matrix')
         logger.info(f'Skippped taxa: {missing_predictions}')
 
-        evals = [e.__dict__ for e in evaluation]
+        evals = [e for e in evaluation]
         print(evals[0].__dict__.keys())
         print(evals[0].__dict__)
         self.ranking = sorted(evaluation, key=lambda e: e.metrics[self.metric], reverse=True)
