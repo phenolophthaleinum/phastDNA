@@ -326,8 +326,7 @@ class Optimizer:
 
         if not evaluation:
             logger.warning(f'Evaluation failed for {classifier.name} with parameters:\n{iteration_params}\n Performance set to 0.')
-            raise optuna.TrialPruned
-            # return classifier.performance
+            return classifier.performance
         partial_report.update(evaluation.metrics)
         partial_report['best_scoring'] = evaluation.description
         self.report = pd.concat([self.report, pd.DataFrame.from_records([partial_report])], ignore_index=True)
@@ -576,7 +575,7 @@ class Classifier:
             evaluation = self.ranking[0]
             self.scoring, self.performance = evaluation.description, evaluation.metrics[self.metric]
         else:
-            self.scoring, self.performance = 'No valid evaluation', 0
+            self.scoring, self.performance = 'No valid evaluation', -1
             return None
 
         return evaluation
