@@ -326,6 +326,7 @@ class Optimizer:
 
         if not evaluation:
             logger.warning(f'Evaluation failed for {classifier.name} with parameters:\n{iteration_params}\n Performance set to 0.')
+            classifier.clean()
             return classifier.performance
         partial_report.update(evaluation.metrics)
         partial_report['best_scoring'] = evaluation.description
@@ -402,6 +403,7 @@ class Optimizer:
 
         if not evaluation:
             logger.warning(f'Evaluation failed for {classifier.name} with parameters:\n{iteration_params}\n Performance set to 0.')
+            classifier.clean()
             return classifier.performance
         partial_report.update(evaluation.metrics)
         partial_report['best_scoring'] = evaluation.description
