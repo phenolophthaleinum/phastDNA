@@ -2,7 +2,8 @@ from typing import List
 import warnings
 
 import numpy as np
-from modin import pandas as pd  # import dask as dpd / import pandas as pd # which engine - pip install "modin[all]" is not space efficient and slow for enduser experience - we should specify the engine
+# from modin import pandas as pd  # import dask as dpd / import pandas as pd # which engine - pip install "modin[all]" is not space efficient and slow for enduser experience - we should specify the engine
+import pandas as pd
 
 
 # SCORING FUNCTIONS
