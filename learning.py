@@ -617,7 +617,8 @@ class Classifier:
     def _fastdna_predict(fasta: str,
                          fastdna_exe: str,
                          model_path: str,
-                         considered_hosts: int) -> pd.DataFrame:
+                         considered_hosts: int,
+                         debug_dir: Path=None) -> pd.DataFrame:
         """
         Generate basic prediction for each virus fragment
         using fastdna "predict-prob" module.
@@ -629,9 +630,16 @@ class Classifier:
         stdout, stderr = process.communicate()
 
         try:
+            # to debug wrong parsing?
+            stdout_decoded = stdout.decode()
+            with open(debug_dir.joinpath(f"{Path(fasta).stem}_stdout.txt"), 'w') as f:
+                f.write(stdout_decoded)
             fragment_predictions = eval(stdout.decode())
         except SyntaxError as e:
             logger.warning(f'{e}\nfastDNA prediction received bad model from which prediction results for {fasta} cannot be parsed.')
+            fragment_predictions = {}
+        except Exception as e:
+            logger.error(f'{e}\nfastDNA prediction failed for {fasta}.')
             fragment_predictions = {}
         for pred_set in fragment_predictions:
             faulty_records = [(k, v) for k, v in pred_set.items() if not (isinstance(k, str) and isinstance(v, (float, int)))]
@@ -667,11 +675,17 @@ class Classifier:
         print({'fastdna_exe': self.fastdna_exe.as_posix(),
                                              'model_path': self.model.as_posix(),
                                              'considered_hosts': self.considered_hosts})
+        
+        debug_fastdna_stdout_path = output_dir.joinpath("fastdna_stdout").resolve()
+        debug_fastdna_stdout_path.mkdir(exist_ok=True, parents=True)
+        # threads number is being read from the classifier object
+        logger.info(f'Predict threads number: {self.threads}')
         fastdna_pred_jobs = Parallel(Classifier._fastdna_predict,
                                      virus_samples,
                                      kwargs={'fastdna_exe': self.fastdna_exe.as_posix(),
                                              'model_path': self.model.as_posix(),
-                                             'considered_hosts': self.considered_hosts},
+                                             'considered_hosts': self.considered_hosts,
+                                             'debug_dir': debug_fastdna_stdout_path},
                                      description='EVENT: Running fastDNA-predict [2]',
                                      n_jobs=self.threads)
         # print(self.scoring)

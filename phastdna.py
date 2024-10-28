@@ -144,6 +144,8 @@ if __name__ == "__main__":
         model_file = Path(args.classifier)
 
         classifier = Classifier.load(model_path=model_file, fastdna_path=fastdna_exe)
+        # i mean, this is a bit of a mess
+        classifier.threads = args.threads
         host_ranking = classifier.predict(virus_genome_dir=virus_dir, output_dir=output_dir)
         # Save results
         results_file = output_dir.joinpath('predictions.csv')
