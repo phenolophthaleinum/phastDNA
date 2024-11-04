@@ -629,6 +629,9 @@ class Classifier:
         process = Popen(command, stdout=PIPE, stderr=PIPE, shell=True)
         stdout, stderr = process.communicate()
 
+        print(f"Process: \n{process}")
+        print(f"stdout: \n{stdout}")
+
         try:
             # to debug wrong parsing?
             stdout_decoded = stdout.decode()
