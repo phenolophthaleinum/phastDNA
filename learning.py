@@ -707,7 +707,7 @@ class Classifier:
         fastdna_pred_jobs_raw_path = raw_output_path.joinpath('fastdna_pred_jobs.pkl')
         print(virus_samples_raw_path.as_posix())
         print(fastdna_pred_jobs_raw_path.as_posix())
-        print(fastdna_pred_jobs.result[0])
+        # print(fastdna_pred_jobs.result[0])
         with open(virus_samples_raw_path.as_posix(), 'wb') as f:
             pickle.dump(virus_samples, f)
         with open(fastdna_pred_jobs_raw_path.as_posix(), 'wb') as f:
@@ -728,7 +728,7 @@ class Classifier:
             virus_id = file_path.stem
             print(virus_id)
             print(type(host_ranking))
-            print(host_ranking)
+            # print(host_ranking)
             merged_rankings[virus_id] = host_ranking.sort_values(ascending=False).to_dict()
 
         # print(merged_rankings)    
