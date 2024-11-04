@@ -629,8 +629,11 @@ class Classifier:
         process = Popen(command, stdout=PIPE, stderr=PIPE, shell=True)
         stdout, stderr = process.communicate()
 
-        print(f"Process: \n{process.__dict__}")
-        print(f"stdout: \n{stdout}")
+        # debug for empty string fastDNA output 
+        # most probable cause is that the fastdna is not working properly because of bad gcc on the server
+        # load always the version on which the fastDNA was compiled
+        # print(f"Process: \n{process.__dict__}")
+        # print(f"stdout: \n{stdout}")
 
         try:
             # to debug wrong parsing?
