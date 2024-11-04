@@ -8,6 +8,7 @@
  */
 
 #include "fasttext.h"
+#include "nlohmann/json.hpp"
 
 #include <iostream>
 #include <sstream>
@@ -555,8 +556,10 @@ void FastText::predict(
   bool print_prob,
   real threshold
 ) {
-  std::cout << "[";
+  // old way without json
+  // std::cout << "[";
   std::vector<std::pair<real,std::string>> predictions;
+  nlohmann::ordered_json json_array = nlohmann::ordered_json::array();
   while (in.peek() != EOF) {
     predictions.clear();
     if (paired_end) {
@@ -569,28 +572,37 @@ void FastText::predict(
       std::cout << std::endl;
       continue;
     }
-    std::cout << "{";
+    // std::cout << "{"; // old way without json
+    nlohmann::ordered_json prediction_obj = nlohmann::ordered_json::object();
     for (auto it = predictions.cbegin(); it != predictions.cend(); it++) {
-      if (it != predictions.cbegin()) {
-      // old
-      //  std::cout << " ";
-      //MM
-          std::cout << ",";
-      }
-      std::cout << '"' << it->second << '"';
+      // old way without json
+      // if (it != predictions.cbegin()) {
+      // // old
+      // //  std::cout << " ";
+      // //MM
+      //     std::cout << ",";
+      // }
+      // std::cout << '"' << it->second << '"';
       // MM editing predict-prob printing
       if (print_prob) {
-        std::cout << ": " << std::exp(it->first);
+        // old way without json
+        // std::cout << ": " << std::exp(it->first);
+        prediction_obj[it->second] = std::exp(it->first);
       }
+      // TODO: if user does not want to print prob - but in this case it would not make sense either way
     }
     //old
     //std::cout << std::endl;
     // MM
-    std::cout << "}";
-    if (in.peek() != EOF)
-        std::cout << ",";
+    // old way without json
+    // std::cout << "}";
+    // if (in.peek() != EOF)
+    //     std::cout << ",";
+    json_array.push_back(prediction_obj);
   }
-  std::cout << "]";
+  // old way without json
+  // std::cout << "]";
+  std::cout << json_array.dump() << std::endl;
 }
 
 void FastText::ngramVectors(std::string word) {
