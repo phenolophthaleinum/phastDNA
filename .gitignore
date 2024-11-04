@@ -9,5 +9,7 @@
 /phastdna-venv
 /ete4_venv
 /misc/sp_ex_optuna_final
-/misc/phastdna_galiez_species_explore_optuna_final/best_classifier
+/misc/phastdna_galiez_species_explore_optuna_final
+/misc/phastdna_galiez_species_explore_optuna_final_predicttest
+/misc/phastdna_galiez_species_explore_optuna_final_predicttest2
 /venv
