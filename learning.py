@@ -629,7 +629,7 @@ class Classifier:
         process = Popen(command, stdout=PIPE, stderr=PIPE, shell=True)
         stdout, stderr = process.communicate()
 
-        print(f"Process: \n{process}")
+        print(f"Process: \n{process.__dict__}")
         print(f"stdout: \n{stdout}")
 
         try:
